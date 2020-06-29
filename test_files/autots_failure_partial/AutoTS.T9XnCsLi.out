@@ -1,0 +1,435 @@
+
+============================================================================
+ AutoTS
+============================================================================
+            Version: 2020-1
+         Start time: Fri Mar 13 14:19:31 2020
+       $SCHRODINGER: /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1
+        Launch Host: n0002.scs00
+   Launch Directory: /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/autots_redux
+    Running on Host: n0099.lr6
+      Run Directory: /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/autots_redux
+    Level of Theory: wb97x-d/def2-tzvpd, Solution Phase
+       Command Line: $SCHRODINGER/jaguar run AutoTS.py -PARALLEL 32 -use_one_node -jobname AutoTS.T9XnCsLi autots.in 
+============================================================================
+
+
+Searching for active bonds
+==================================================
+
+Getting operations at order 0
+--------------------------------
+filtered number of operations (0) at order 0
+--------------------------------
+At order 0 found 0 initial solutions
+After filtering spectators found 0  solutions
+--------------------------------
+After filtering chirality found 0  solutions
+Getting operations at order 1
+--------------------------------
+filtered number of operations (5) at order 1
+Operation Set 0 
+Structure(35) Delete 2 5
+Operation Set 1 
+Structure(35) Delete 2 7
+Operation Set 2 
+Structure(35) Delete 3 7
+Operation Set 3 
+Structure(35) Delete 3 6
+Operation Set 4 
+Structure(35) Delete 4 7
+--------------------------------
+At order 1 found 1 initial solutions
+inspecting solution for spectators
+Structure(35) Delete 3 6
+unmodified structures [] [Structure(259)]
+have_spectators False
+After filtering spectators found 1  solutions
+Operation Set 0 
+Structure(35) Delete 3 6
+--------------------------------
+After filtering chirality found 1  solutions
+Timer (active bond search) : 0.04 secs
+Found Solutions
+Start solution
+Structure(35) Delete 3 6
+End Solution
+
+Building reaction complex from molecules
+==================================================
+
+ignoring stereo for the following atoms [3]
+score (0, -2, 1.3943618317445874)
+misalignments:
+Best maps of core
+(0, -2, 1.3943618317445874)
+ignoring stereo for the following atoms [3]
+score (0, -2, 1.3943618317445874)
+misalignments:
+Best app maps
+(0, -2, 1.3943618317445874)
+ignoring stereo for the following atoms [3]
+score (0, -2, 1.3943618317445874)
+misalignments:
+Best app maps
+(0, -2, 1.3943618317445874)
+ignoring stereo for the following atoms [3]
+score (0, -2, 1.3943618317445874)
+misalignments:
+Best app maps
+(0, -2, 1.3943618317445874)
+ignoring stereo for the following atoms [3]
+score (0, -2, 1.3943618317445874)
+misalignments:
+Best app maps
+(0, -2, 1.3943618317445874)
+ignoring stereo for the following atoms [3]
+score (0, -2, 1.3943618317445874)
+misalignments:
+Best app maps
+(0, -2, 1.3943618317445874)
+ignoring stereo for the following atoms [3, 6]
+score (0, -2, 1.6135383412709654)
+misalignments:
+6 ANR None
+ignoring stereo for the following atoms [3, 6]
+score (0, -2, 1.5202750058326147)
+misalignments:
+6 ANR None
+Best app maps
+(0, -2, 1.5202750058326147)
+ignoring stereo for the following atoms [3, 6]
+score (0, -2, 1.5202750058326147)
+misalignments:
+6 ANR None
+Best app maps
+(0, -2, 1.5202750058326147)
+ignoring stereo for the following atoms [3, 6]
+score (0, -2, 1.5202750058326147)
+misalignments:
+6 ANR None
+Best app maps
+(0, -2, 1.5202750058326147)
+ignoring stereo for the following atoms [3, 6]
+score (0, -2, 1.5202750058326147)
+misalignments:
+6 ANR None
+Best app maps
+(0, -2, 1.5202750058326147)
+Timer (atom correspondence) : 2.27 secs
+Sn2 renumbering not applied: Sn2 correction requires 1 active bond on each side of reaction
+reactant active double bonds
+product active double bonds
+Qualifies as syn addition/elimination False
+Is addition reaction? True
+Attempting to renumber syn addition
+Addition atoms []
+is addition True
+Warning: Not performing syn-addition correction
+
+Posing reaction complexes
+==================================================
+
+=Without constraints=
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+St1
+St2
+     Torsion: 7 2 5 8 -82.8167
+     Torsion: 8 5 6 9 -89.7028
+rxn center [3, 6]
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+=With constraints=
+St1
+    Molecule:  0
+St2
+    Molecule:  0
+        Torsion: 7 2 5 8
+        Torsion: 8 5 6 9
+n_params st1 [0]
+n_params st2 [8]
+Timer (Path distance optimization) : 1.72 secs
+
+--------------------
+Optimization history
+--------------------
+Cycle=0 Distance=26.554364
+
+Cycle=1 Distance=25.867915
+
+Cycle=2 Distance=25.040589
+
+Cycle=3 Distance=23.716323
+
+Cycle=4 Distance=23.593339
+
+Cycle=5 Distance=23.370129
+
+Cycle=6 Distance=23.029650
+
+Cycle=7 Distance=22.840500
+
+Cycle=8 Distance=22.829254
+
+Cycle=9 Distance=22.728260
+
+Cycle=10 Distance=22.537263
+
+Cycle=11 Distance=22.173916
+
+Cycle=12 Distance=21.494805
+
+Cycle=13 Distance=20.306706
+
+Cycle=14 Distance=18.732701
+
+Cycle=15 Distance=17.800881
+
+Cycle=16 Distance=16.409768
+
+Cycle=17 Distance=15.701950
+
+Cycle=18 Distance=15.518474
+
+Cycle=19 Distance=15.173219
+
+Cycle=20 Distance=14.523605
+
+Cycle=21 Distance=13.323787
+
+Cycle=22 Distance=11.210693
+
+Cycle=23 Distance=7.985410
+
+Cycle=24 Distance=5.571032
+
+Cycle=25 Distance=4.343562
+
+Cycle=26 Distance=3.564887
+
+Cycle=27 Distance=3.458242
+
+Cycle=28 Distance=3.417790
+
+Cycle=29 Distance=3.402187
+
+Cycle=30 Distance=3.372906
+
+Cycle=31 Distance=3.317823
+
+Cycle=32 Distance=3.216611
+
+Cycle=33 Distance=3.043018
+
+Cycle=34 Distance=2.807255
+
+Cycle=35 Distance=2.713180
+
+Cycle=36 Distance=2.662282
+
+Cycle=37 Distance=2.648815
+
+Cycle=38 Distance=2.647455
+
+Cycle=39 Distance=2.647280
+
+Cycle=40 Distance=2.647062
+
+Cycle=41 Distance=2.646670
+
+Cycle=42 Distance=2.645941
+
+Cycle=43 Distance=2.644585
+
+Cycle=44 Distance=2.642096
+
+Cycle=45 Distance=2.637669
+
+Cycle=46 Distance=2.630322
+
+Cycle=47 Distance=2.619840
+
+Cycle=48 Distance=2.611419
+
+Cycle=49 Distance=2.603121
+
+Cycle=50 Distance=2.600222
+
+Cycle=51 Distance=2.599835
+
+Cycle=52 Distance=2.599822
+
+Cycle=53 Distance=2.599822
+
+--------------------
+
+success True
+message Optimization terminated successfully.
+Timer (complex alignment) : 10.03 secs
+Timer (build complex) : 12.59 secs
+
+Optimizing initial complexes.
+==================================================
+
+
+Executing 2 distributed subjobs:
+---------------------------------
+
+No more than 8 cpu(s) will be used per subjob.
+No more than 32 cpu(s) will be used simultaneously.
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi_opt_0.in -TPP 8
+(2) jaguar run AutoTS.T9XnCsLi_opt_1.in -TPP 8
+Timer (distribute subjobs) : 15.66 secs
+Warning: Unable to optimize initial complexes.
+Timer (optimization) : 15.82 secs
+
+==================================================
+Starting on path #0
+==================================================
+
+
+Position reactant and product complexes
+==================================================
+
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+
+Guessing transition state from template
+==================================================
+
+Found a template match of order 1
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Timer (TS guess) : 73.05 secs (0 hrs, 01 mins, 13 secs)
+
+Relaxing TS guess.
+==================================================
+
+
+Executing 1 distributed subjob:
+--------------------------------
+
+No more than 8 cpu(s) will be used per subjob.
+No more than 32 cpu(s) will be used simultaneously.
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi_relax_ts_0.in -TPP 8
+Timer (distribute subjobs) : 10.25 secs
+Structure relaxation AutoTS.T9XnCsLi_relax_ts_0 did not succeed: 
+Job failure(s)
+Jobname: AutoTS.T9XnCsLi_relax_ts_0
+Error code: 1089
+Message:   Cannot compute dipole derivatives unless a frequency calculation is 
+  requested or a &path section is used (see Jaguar manual)
+
+
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+
+Optimizing TS guess
+==================================================
+
+
+Running Batch TS optimization of 1 jobs
+==================================================
+
+
+Executing 1 distributed subjob:
+--------------------------------
+
+No more than 8 cpu(s) will be used per subjob.
+No more than 32 cpu(s) will be used simultaneously.
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi_qst_0.in -TPP 8
+Timer (distribute subjobs) : 6.89 secs
+TS optimization AutoTS.T9XnCsLi_qst_0 did not succeed: 
+Job failure(s)
+Jobname: AutoTS.T9XnCsLi_qst_0
+Error code: 1089
+Message:   Cannot compute dipole derivatives unless a frequency calculation is 
+  requested or a &path section is used (see Jaguar manual)
+
+
+
+Could not find a TS using a guess from a template.
+Try generating a guess TS with interpolation.
+==================================================
+
+
+==================================================
+Starting on path #1
+==================================================
+
+
+Position reactant and product complexes
+==================================================
+
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+
+Guessing transition state from interpolated path
+==================================================
+
+
+Iterative Path Determination
+------------------------------
+distance change:  2.2163020642063103e-05
+distance change:  7.057088247108823e-10
+------------------------------
+
+Timer (Path Construction) : 14.19 secs
+Linearity of linearly interpolated path:   0.9915
+number of points 5 distance 0.092051 A
+-----------------------
+ canonical.py workflow
+-----------------------
+There are 5 structures of which 5 are isomers.
+1 keyword combinations were requested.
+5 setup calculations will be done (on the isomers).
+5 final calculations will be done.
+
+Running 5 setup calculations...
+(The remaining structures do not need preprocessing.)
+
+Executing 5 distributed subjobs:
+---------------------------------
+
+Processing the following subjobs:
+(1) jaguar run interp_geom_1_isomer1_co.in
+(2) jaguar run interp_geom_2_isomer2_co.in
+(3) jaguar run interp_geom_3_isomer3_co.in
+(4) jaguar run interp_geom_4_isomer4_co.in
+(5) jaguar run interp_geom_5_isomer5_co.in
+Timer (distribute subjobs) : 17.66 secs
+
+==================================================
+A fatal error occurred: cannot determine how many canonical orbitals to take. Check output files in the directory AutoTS.T9XnCsLi_tmp.
+==================================================
+
+
+Failed to find a TS geometry, exiting without summary
+==================================================
+
+                                     AutoTS diagnostic report                                     
+---------------------------------------------------------------------------------------------------
+                         property                            value                diagnostic passes
+---------------------------------------------------------------------------------------------------
+  Initial optimization was stable                             True                              Yes
+             TS template was used                             True                              Yes
+           Path smoothness metric               0.9915437814390089                              Yes
+                  Level of theorywb97x-d/def2-tzvpd, Solution Phase                              Yes
+           TS optimization method                              qst                              Yes
+               Number of TS found                                0                               No
+  Number of imaginary frequencies                              N/A                               No
+               All TS were vetted                            False                               No
+  All structures connected by IRC                            False                               No
+    All constraints are satisfied                              N/A                              Yes
+Warning: Exception raised while locating transition states: cannot determine how many canonical orbitals to take. Check output files in the directory AutoTS.T9XnCsLi_tmp.
+
+Unable to print reaction diagram as no structures were written to path files.
+
+Timer (Total AutoTS Time) : 154.07 secs (0 hrs, 02 mins, 34 secs)

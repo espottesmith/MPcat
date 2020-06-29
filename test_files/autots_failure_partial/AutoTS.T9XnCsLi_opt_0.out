@@ -1,0 +1,112 @@
+Job AutoTS.T9XnCsLi_opt_0 started on n0099.lr6 at Fri Mar 13 07:19:52 2020
+jobid: n0099-0-5e6b9685
+
+  +--------------------------------------------------------------------+
+  |  Jaguar version 10.7, release  12                                  |
+  |                                                                    |
+  |  Copyright Schrodinger, Inc.                                       |
+  |  All Rights Reserved.                                              |
+  |                                                                    |
+  |  The following have contributed to Jaguar (listed alphabetically): |
+  |  Mike Beachy, Art Bochevarov, Dale Braden, Yixiang Cao,            |
+  |  Alan Chien, Chris Cortis, Rich Friesner, Bill Goddard,            |
+  |  Hod Greeley, Tom Hughes, Leif Jacobson, Jean-Marc Langlois,       |
+  |  Daniel Levine, Daniel Mainz, Rob Murphy, Dean Philipp,            |
+  |  Tom Pollard, Murco Ringnalda, Mark Watson, Haoyu Yu.              |
+  |                                                                    |
+  |  Use of this program should be acknowledged in publications as:    |
+  |                                                                    |
+  |  Jaguar, version 10.7, Schrodinger, Inc., New York, NY, 2020.      |
+  |                                                                    |
+  |  A. D. Bochevarov, E. Harder, T. F. Hughes, J. R. Greenwood,       |
+  |  D. A. Braden, D. M. Philipp, D. Rinaldo, M. D. Halls,             |
+  |  J. Zhang, R. A. Friesner, "Jaguar: A High-Performance Quantum     |
+  |  Chemistry Software Program with Strengths in Life and Materials   |
+  |  Sciences", Int. J. Quantum Chem., 2013, 113(18), 2110-2142.       |
+  +--------------------------------------------------------------------+
+  
+  start of program pre
+  
+  Job name: AutoTS.T9XnCsLi_opt_0
+  Executables used: /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64
+  Temporary files : /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_opt_0#n0099-0-5e6b9685
+  Maestro file (input):  AutoTS.T9XnCsLi_opt_0.mae
+  Maestro file (output): AutoTS.T9XnCsLi_opt_0.01.mae
+  
+ Contents of input file: &gen section only
+ ----------------Contents start----------------
+&gen
+epsout=18.5
+irder=1
+isolv=7
+maxitg=200
+isymm=0
+basis=def2-tzvpd
+maxit=250
+multip=2
+igeopt=1
+ip472=2
+babel=xyz
+dftname=wb97x-D
+nogas=2
+scale_geoconv=3.0
+nmder=2
+&
+ -----------------Contents end-----------------
+ 
+  
+ ERROR 1089: fatal error
+  
+  Cannot compute dipole derivatives unless a frequency calculation is 
+  requested or a &path section is used (see Jaguar manual)
+
+
+ ----------------------------------------------------------------------
+ Jaguar cannot recover from this error and will now abort. 
+ For technical support please contact the Schrodinger Support Center at
+ http://www.schrodinger.com/supportcenter/ or help@schrodinger.com
+ ----------------------------------------------------------------------
+
+
+
+ Total cpu seconds     user:       0.000   user+sys:       0.000
+
+  
+Date:          Fri 13 Mar 2020 07:19:56
+SCHRODINGER:   /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1
+uname -a:      Linux n0099.lr6 3.10.0-693.11.6.el7.x86_64 #1 SMP Wed Jan 3 18:09:42 CST 2018 x86_64 x86_64 x86_64 GNU/Linux
+FQDN:          n0099.lr6
+Main memory:   95098 MB
+Free disk:     875673 MB
+Host ID:       00001086fe80
+Machine name:  n0099.lr6
+OS:            Scientific Linux 7.4 (Nitrogen)
+CPU:           Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz
+Processors:    32
+Memory:        99718332 kB
+Swap:          8589930 kB
+kernel:        3.10.0-693.11.6.el7.x86_64
+glibc:         2.17
+Product:       aacg-v31012-Linux-x86_64 ( aacg-src:2e00c37ada3f69308af249c856df033116445d4f )
+Product:       bioluminate-v38012-Linux-x86_64 ( bioluminate-src:7a9f2bbc63f10195129c5bf695431f9294738282 )
+Product:       canvas-v43012-Linux-x86_64 ( canvas-src:50814148c9f3b0a31137a14c8df90c02cd927cc5 )
+Product:       combiglide-v56012-Linux-x86_64 ( vcs-src:2e28dda8d7f19e0026dd5d26b0f1870270a0e1c7 )
+Product:       desmond-v61012-Linux-x86_64 ( desmond-gpu-src:5848d4f7a95a1325820153a63ac67860397a6319
+                                             desmond-src:02a5e200ae07d2b73695f6fea6d28d31633e7b74 )
+Product:       epik-v51012-Linux-x86_64 ( epik-src:02f99032632ef723802bd13323d640d68964c81a )
+Product:       glide-v86012-Linux-x86_64 ( glide-src:3de2d74d31f07cc0136eb5195552356de946effe )
+Product:       impact-v86012-Linux-x86_64 ( impact-src:ab37316de6677c9a11ed21aede599ea9fde51424 )
+Product:       jaguar-v107012-Linux-x86_64 ( jaguar-src:97746bb402ff6c1e5b0ff411b27d661a5ba813cc )
+Product:       knime-v49012-Linux-x86_64 ( knime-src:3259113941ec1185cf9fc5b81164b1d5c83b5b95 )
+Product:       macromodel-v127012-Linux-x86_64 ( macromodel-src:1d614ec651b54bd536dfc074171010e87b8f2546 )
+Product:       maestro-v123012-Linux-x86_64 ( maestro-src:706e41c4e5d81355342b1621cb4c708ef5240170 )
+Product:       mmshare-v49012-Linux-x86_64 ( DeepAutoQSAR:9af74d6d928e26fb59d01049ccd675973679428f
+                                             datamouse:3405bc2622c5e4f70cb17128d1e65bdb7bcc70e5
+                                             khan_internal:47ecd12f96d66bf7546e6f34150cfe383a9c342b
+                                             ligand_ml:75133190a17ba30bb242c6b838b3cd5936091587
+                                             mmshare:21786b2ee4f93bde6c7f1517a68f0a16a4cdc818
+                                             pharma-src:6b25234fdb6e879e8fb332cdbe71d8e4e297b393 )
+Product:       pldb-v49012-Linux-x86_64 ( pldb-src:4221cb0d108d7fdf49411dd632b31547142c771e )
+Product:       psp-v59012-Linux-x86_64 ( plop:d80da606eb07544afcd2894eb61340325b4880fc
+                                         psp-src:153a1d585d5eb12c11fd5c7184b6b7f82fe2470c )
+Product:       qikprop-v63012-Linux-x86_64 ( qikprop-src:5e819f4c0c4cb591fc3311ddc60d5110e050d57c )

@@ -1,0 +1,174 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geometry_convergence_category
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_HOMO
+ r_j_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_Zero_Point_Energy_(kcal/mol)
+ r_j_Entropy_(cal/mol/K)_298.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_298.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_298.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_298.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_298.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_298.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_298.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_298.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_298.15K_1.0atm
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  1
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/opt/ec/ec.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/opt/ec/ec.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/opt/ec/ec.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/opt/ec/ec.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/opt/ec/ec.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/opt/ec/ec.mae 
+  DFT(wb97x-d) 
+  def2-tzvpd 
+  252
+  0
+  -342.434579799798
+  -342.449504691358
+  -342.449504691358
+  -9.36551079300638
+  -0.399657339339528
+  0.0666426070751172
+  7.28542224567125
+  6.977568714143
+  2.03609435436472
+  -0.495208963225109
+  140.385319879273
+  3197.01688228208
+  196.346319800315
+  0
+  47.6510392772708
+  72.0699891892226
+  3.62065916032806
+  -17.8670081164387
+  3.02817357150078
+  16.1782808504308
+  30.1560214347211
+  -342.368742224381
+  -342.367798038489
+  -342.402040816174
+  2
+ m_depend[36] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 s_j_Task 
+  3 20 s_j_Jaguar_input_file 
+  4 20 s_j_Jaguar_restart_input_file 
+  5 20 s_j_Jaguar_restart_mae_file 
+  6 20 s_j_Jaguar_output_file 
+  7 20 s_j_Jaguar_log_file 
+  8 20 s_j_Jaguar_mae_file 
+  9 20 s_j_QM_Method 
+  10 20 s_j_QM_Basis 
+  11 20 i_j_Number_of_canonical_orbitals 
+  12 20 i_j_Geometry_convergence_category 
+  13 20 r_j_Gas_Phase_Energy 
+  14 20 r_j_Solution_Phase_Energy 
+  15 20 r_j_Final_Energy 
+  16 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  17 20 r_j_HOMO 
+  18 20 r_j_LUMO 
+  19 20 r_j_QM_Dipole_(debye) 
+  20 20 r_j_QM_Dipole_X_(debye) 
+  21 20 r_j_QM_Dipole_Y_(debye) 
+  22 20 r_j_QM_Dipole_Z_(debye) 
+  23 20 r_j_Lowest_Frequency_(cm-1) 
+  24 20 r_j_Highest_Frequency_(cm-1) 
+  25 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  26 20 i_j_Num_Negative_Frequencies 
+  27 20 r_j_Zero_Point_Energy_(kcal/mol) 
+  28 20 r_j_Entropy_(cal/mol/K)_298.15K_1.0atm 
+  29 20 r_j_Enthalpy_(kcal/mol)_298.15K_1.0atm 
+  30 20 r_j_Free_Energy_(kcal/mol)_298.15K_1.0atm 
+  31 20 r_j_Internal_Energy_(kcal/mol)_298.15K_1.0atm 
+  32 20 r_j_Heat_Capacity_(cal/mol/K)_298.15K_1.0atm 
+  33 20 r_j_ln(Q)_(kcal/mol)_298.15K_1.0atm 
+  34 20 r_j_Total_Internal_Energy_(au)_298.15K_1.0atm 
+  35 20 r_j_Total_Enthalpy_(au)_298.15K_1.0atm 
+  36 20 r_j_Total_Free_Energy_(au)_298.15K_1.0atm 
+  :::
+ } 
+ m_atom[10] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  r_m_charge1
+  r_m_charge2
+  i_m_atomic_number
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 16 0.292719 -1.186596 -0.240504 70 -0.42467 -0.42467 8 O1  -0.424674314114391
+  2 2 -0.708427 -0.361958 0.069717 2 0.94277 0.94277 6 C1  0.942765007455927
+  3 3 1.542315 -0.497739 -0.080547 2 0.12676 0.12676 6 C2  0.12675879679729
+  4 15 -1.855122 -0.696497 0.151131 70 -0.66566 -0.66566 8 O2  -0.665655998534179
+  5 16 -0.274057 0.881704 0.277870 70 -0.42507 -0.42507 8 O3  -0.425072847125878
+  6 3 1.116388 0.963738 -0.070584 2 0.12761 0.12761 6 C3  0.127614747500405
+  7 41 2.189227 -0.755905 -0.912950 21 0.08077 0.08077 1 H1  0.0807738136690958
+  8 41 1.987489 -0.814710 0.861406 21 0.07851 0.07851 1 H2  0.0785067382484582
+  9 41 1.194818 1.433330 -1.050016 21 0.07812 0.07812 1 H3  0.0781164106698189
+  10 41 1.626845 1.559988 0.679031 21 0.08087 0.08087 1 H4  0.080867645433451
+  :::
+ } 
+ m_bond[10] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 2 1
+  2 1 3 1
+  3 2 4 2
+  4 2 5 1
+  5 3 7 1
+  6 3 8 1
+  7 3 6 1
+  8 5 6 1
+  9 6 10 1
+  10 6 9 1
+  :::
+ } 
+} 
+
