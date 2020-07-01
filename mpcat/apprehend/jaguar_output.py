@@ -257,11 +257,11 @@ class JagOutput(MSONable):
                            parse_molecules=False)
         output.data = d["data"]
         if d["data"]["start_time"] is not None:
-            output.data["start_time"] = datetime.strptime(d["data"]["start_time"],
-                                                          "%Y/%m/%d, %H:%M:%S")
+            output.data["start_time"] = datetime.datetime.strptime(d["data"]["start_time"],
+                                                                   "%Y/%m/%d, %H:%M:%S")
         if d["data"]["end_time"] is not None:
-            output.data["end_time"] = datetime.strptime(d["data"]["endtime"],
-                                                        "%Y/%m/%d, %H:%M:%S")
+            output.data["end_time"] = datetime.datetime.strptime(d["data"]["endtime"],
+                                                                 "%Y/%m/%d, %H:%M:%S")
         output.filename = d["filename"]
 
         return output
