@@ -37,3 +37,6 @@ class TestJagOutput(unittest.TestCase):
                                              "AutoTS.T9XnCsLi_opt_0.out"))
 
         self.assertTrue(all_equal(failed_file.data, self.failed_file.data))
+
+if __name__ == "__main__":
+    unittest.main()

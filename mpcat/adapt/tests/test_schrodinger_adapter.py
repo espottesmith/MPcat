@@ -50,7 +50,7 @@ class TestSchrodingerAdapter(unittest.TestCase):
 
     @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
     def test_maestro_file_to_molecule(self):
-        molecules = maestro_file_to_molecule(os.path.join(test_dir, "ec.01.mae"))
+        molecules = maestro_file_to_molecule(os.path.join(molecule_dir, "ec.01.mae"))
         self.assertEqual(len(molecules), 1)
 
         elements = [str(s) for s in molecules[0].species]

@@ -13,15 +13,15 @@ class TestAutoTSInput(unittest.TestCase):
     def setUp(self) -> None:
         self.reactant_1 = maestro_file_to_molecule(os.path.join(test_dir,
                                                                 "autots_success_partial",
-                                                                "rct1.mae"))
+                                                                "rct1.mae"))[0]
 
         self.reactant_2 = maestro_file_to_molecule(os.path.join(test_dir,
                                                                 "autots_success_partial",
-                                                                "rct2.mae"))
+                                                                "rct2.mae"))[0]
 
         self.product = maestro_file_to_molecule(os.path.join(test_dir,
                                                              "autots_success_partial",
-                                                             "pro.mae"))
+                                                             "pro.mae"))[0]
 
         self.autots_variables = {"eliminate_multiple_frequencies": True,
                                  "free_energy": True,
@@ -90,15 +90,15 @@ class TestAutoTSSet(unittest.TestCase):
     def setUp(self) -> None:
         self.reactant_1 = maestro_file_to_molecule(os.path.join(test_dir,
                                                                 "autots_success_partial",
-                                                                "rct1.mae"))
+                                                                "rct1.mae"))[0]
 
         self.reactant_2 = maestro_file_to_molecule(os.path.join(test_dir,
                                                                 "autots_success_partial",
-                                                                "rct2.mae"))
+                                                                "rct2.mae"))[0]
 
         self.product = maestro_file_to_molecule(os.path.join(test_dir,
                                                              "autots_success_partial",
-                                                             "pro.mae"))
+                                                             "pro.mae"))[0]
 
         self.autots_variables = {"eliminate_multiple_frequencies": True,
                                  "free_energy": True,
