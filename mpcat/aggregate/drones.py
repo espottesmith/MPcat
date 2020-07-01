@@ -179,3 +179,7 @@ class AutoTSDrone(AbstractDrone):
             diff = v.difference(set(d.get(k, d).keys()))
             if diff:
                 raise RuntimeWarning("The keys {0} in {1} not set".format(diff, k))
+
+    @staticmethod
+    def get_valid_paths(self, path):
+        return [path]
