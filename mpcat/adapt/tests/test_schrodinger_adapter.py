@@ -74,10 +74,16 @@ class TestSchrodingerAdapter(unittest.TestCase):
     @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
     def test_schrodinger_struct_to_molecule(self):
         struct = file_to_schrodinger_structure(os.path.join(molecule_dir, "ethane.sdf"))[0]
+        for atom in struct.atom:
+            atom.formal_charge = 0
+        struct.atom[1].formal_charge = -1
         mol = schrodinger_struct_to_molecule(struct)
 
         self.assertListEqual([a.element for a in struct.molecule[1].atom],
                              [str(s) for s in mol.species])
+
+        self.assertEqual(mol.charge, struct.formal_charge)
+        self.assertEqual(mol.charge, -1)
 
         for ii in range(len(mol)):
             self.assertListEqual(list(mol.cart_coords[ii]),
@@ -85,10 +91,13 @@ class TestSchrodingerAdapter(unittest.TestCase):
 
     @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
     def test_molecule_to_schrodinger_struct(self):
+        self.molecule.set_charge_and_spin(charge=-1)
         struct = molecule_to_schrodinger_struct(self.molecule)
 
         self.assertListEqual([a.element for a in struct.molecule[1].atom],
                              [str(s) for s in self.molecule.species])
+
+        self.assertEqual(struct.formal_charge, -1)
 
         for ii in range(len(self.molecule)):
             self.assertListEqual(list(self.molecule.cart_coords[ii]),

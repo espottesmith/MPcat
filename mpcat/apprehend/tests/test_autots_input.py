@@ -87,11 +87,77 @@ class TestAutoTSInput(unittest.TestCase):
 
 class TestAutoTSSet(unittest.TestCase):
 
+    def setUp(self) -> None:
+        self.reactant_1 = maestro_file_to_molecule(os.path.join(test_dir,
+                                                                "autots_success_partial",
+                                                                "rct1.mae"))
+
+        self.reactant_2 = maestro_file_to_molecule(os.path.join(test_dir,
+                                                                "autots_success_partial",
+                                                                "rct2.mae"))
+
+        self.product = maestro_file_to_molecule(os.path.join(test_dir,
+                                                             "autots_success_partial",
+                                                             "pro.mae"))
+
+        self.autots_variables = {"eliminate_multiple_frequencies": True,
+                                 "free_energy": True,
+                                 "require_irc_success": True,
+                                 "ts_vet_max_freq": -40.0,
+                                 "units": "ev",
+                                 "use_alternate": True}
+
+        self.gen_variables = {"dftname": "wb97X-D",
+                              "basis": "def2-tzvpd",
+                              "babel": "xyz",
+                              "ip472": 2,  # Output all steps of geometry optimization in *.mae
+                              "ip172": 2,  # Print RESP file
+                              "ip175": 2,  # Print XYZ files
+                              "ifreq": 1,  # Frequency calculation
+                              "irder": 1,  # IR vibrational modes calculated
+                              "nmder": 2,  # Numerical second derivatives
+                              "nogas": 2,  # Skip gas-phase optimization, if PCM is used
+                              "maxitg": 250,  # Maximum number of geometry optimization iterations
+                              "intopt_switch": 0,  # Do not switch from internal to Cartesian coordinates
+                              "optcoord_update": 0,  # Do not run checks to change coordinate system
+                              "props_each_step": 1,  # Calculate properties at each optimization step
+                              "mulken": 1,  # Calculate Mulliken properties by atom
+                              "maxit": 250,  # Maximum number of SCF iterations
+                              "iacc": 2,  # Use "accurate" SCF convergence criteria
+                              "isymm": 0,  # Do not use symmetry
+                              "espunit": 6  # Electrostatic potential in units of eV
+                              }
+
     def test_defaults(self):
-        pass
+        default_set = AutoTSSet([self.reactant_1, self.reactant_2],
+                                [self.product])
+
+        for key, value in self.gen_variables.items():
+            self.assertEqual(value, default_set.gen_variables[key])
+        for key, value in self.autots_variables.items():
+            self.assertEqual(value, default_set.autots_variables[key])
 
     def test_not_defaults(self):
-        pass
+        non_default_set = AutoTSSet([self.reactant_1, self.reactant_2],
+                                    [self.product],
+                                    basis_set="6-31+g(d)",
+                                    dft_rung=1,
+                                    pcm_dielectric=40.0,
+                                    max_scf_cycles=500,
+                                    geom_opt_max_cycles=500,
+                                    overwrite_inputs_autots={"ts_vet_max_freq": -10.0},
+                                    overwrite_inputs_gen={"noauto": 3})
+
+        self.assertEqual(non_default_set.gen_variables["basis"], "6-31+g(d)")
+        self.assertEqual(non_default_set.gen_variables["functional"], "b3lyp")
+        self.assertEqual(non_default_set.gen_variables["maxit"], 500)
+        self.assertEqual(non_default_set.gen_variables["maxitg"], 500)
+        self.assertEqual(non_default_set.gen_variables["noauto"], 3)
+        self.assertEqual(non_default_set.gen_variables["isolv"], 7)
+        self.assertEqual(non_default_set.gen_variables["epsout"], 40.0)
+        self.assertEqual(non_default_set.gen_variables["pcm_model"], "cosmo")
+
+        self.assertEqual(non_default_set.autots_variables["ts_vet_max_freq"], -10.0)
 
 
 if __name__ == "__main__":
