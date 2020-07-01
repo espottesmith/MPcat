@@ -20,7 +20,7 @@ def prepare_files():
 
     dumpfn(successful_file.as_dict(),
            os.path.join(test_dir, "autots_success_partial", "success_jag.json"))
-    dumpfn(failed_file.as_dict(),
+    dumpfn(failed_file.as_dicct(),
            os.path.join(test_dir, "autots_failure_partial", "failure_jag.json"))
 
 
@@ -35,14 +35,14 @@ class TestJagOutput(unittest.TestCase):
                                                  "AutoTS.T9XnCsLi_opt_0.out"),
                                     parse_molecules=False)
 
-        self.assertTrue(all_equal(successful_file.data, self.successful_file.data))
+        self.assertTrue(all_equal(successful_file.data, self.successful_file.data, exclude_keys=["vibrational_frequency_modes"]))
 
     def test_failure(self):
         failed_file = JagOutput(os.path.join(test_dir, "autots_failure_partial",
                                              "AutoTS.T9XnCsLi_opt_0.out"),
                                 parse_molecules=False)
 
-        self.assertTrue(all_equal(failed_file.data, self.failed_file.data))
+        self.assertTrue(all_equal(failed_file.data, self.failed_file.data, exclude_keys=["vibrational_frequency_modes"]))
 
 
 if __name__ == "__main__":
