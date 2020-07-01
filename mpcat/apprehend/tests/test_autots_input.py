@@ -122,7 +122,7 @@ class TestAutoTSSet(unittest.TestCase):
                               "optcoord_update": 0,  # Do not run checks to change coordinate system
                               "props_each_step": 1,  # Calculate properties at each optimization step
                               "mulken": 1,  # Calculate Mulliken properties by atom
-                              "maxit": 250,  # Maximum number of SCF iterations
+                              "maxit": 400,  # Maximum number of SCF iterations
                               "iacc": 2,  # Use "accurate" SCF convergence criteria
                               "isymm": 0,  # Do not use symmetry
                               "espunit": 6  # Electrostatic potential in units of eV

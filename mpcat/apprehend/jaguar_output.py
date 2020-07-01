@@ -1,7 +1,7 @@
 import os
 from typing import Optional
 
-from monty.json import MSONable
+from monty.json import MSONable, jsanitize
 
 from schrodinger.application.jaguar.output import JaguarOutput
 from schrodinger.application.jaguar.results import JaguarResults
@@ -180,58 +180,76 @@ class JagOutput(MSONable):
         """
 
         self.filename = filename
-        base_dir = os.path.dirname(self.filename)
-        jag_out = JaguarOutput(output=filename, partial_ok=allow_failure)
-
         self.data = dict()
-        self.data["job_name"] = jag_out.name
-        self.data["full_filename"] = jag_out.filename
-        self.data["job_id"] = jag_out.job_id
-        self.data["parsing_error"] = jag_out.parsing_error
-        self.data["fatal_error"] = jag_out.fatal_error
-        self.data["point_group"] = jag_out.point_group
+        if self.filename != "":
+            base_dir = os.path.dirname(self.filename)
+            jag_out = JaguarOutput(output=filename, partial_ok=allow_failure)
 
-        if jag_out.status == 1:
-            self.data["success"] = True
-        else:
-            self.data["success"] = False
+            self.data["job_name"] = jag_out.name
+            self.data["full_filename"] = jag_out.filename
+            self.data["job_id"] = jag_out.job_id
+            self.data["parsing_error"] = jag_out.parsing_error
+            self.data["fatal_error"] = jag_out.fatal_error
+            self.data["point_group"] = jag_out.point_group
 
-        self.data["start_time"] = jag_out.start_time
-        self.data["end_time"] = jag_out.end_time
+            if jag_out.status == 1:
+                self.data["success"] = True
+            else:
+                self.data["success"] = False
 
-        if self.data["start_time"] is not None and self.data["end_time"] is not None:
-            self.data["walltime"] = (self.data["end_time"] - self.data["start_time"]).total_seconds()
-        else:
-            self.data["walltime"] = None
+            self.data["start_time"] = jag_out.start_time
+            self.data["end_time"] = jag_out.end_time
 
-        self.data["input"] = dict()
-        self.data["input"]["basis"] = jag_out.basis
-        self.data["input"]["functional"] = jag_out.functional
-        self.data["input"]["method"] = jag_out.method
-        self.data["input"]["canonical_orbitals"] = jag_out.canonical_orbitals
-        self.data["input"]["charge"] = jag_out.charge
-        self.data["input"]["multiplicity"] = jag_out.multiplicity
-        self.data["input"]["basis_functions"] = jag_out.nbasis
-        self.data["input"]["num_electrons"] = jag_out.nelectron
-        self.data["input"]["input_file"] = jag_out.mae_in
-        self.data["input"]["solvation"] = jag_out.opts.solvation
+            if self.data["start_time"] is not None and self.data["end_time"] is not None:
+                self.data["walltime"] = (self.data["end_time"] - self.data["start_time"]).total_seconds()
+            else:
+                self.data["walltime"] = None
 
-        self.data["energy_trajectory"] = list()
-        for opt_step in jag_out.geopt_step:
-            parsed = parse_jaguar_results(opt_step)
-            self.data["energy_trajectory"].append(parsed["scf_energy"])
+            self.data["input"] = dict()
+            self.data["input"]["basis"] = jag_out.basis
+            self.data["input"]["functional"] = jag_out.functional
+            self.data["input"]["method"] = jag_out.method
+            self.data["input"]["canonical_orbitals"] = jag_out.canonical_orbitals
+            self.data["input"]["charge"] = jag_out.charge
+            self.data["input"]["multiplicity"] = jag_out.multiplicity
+            self.data["input"]["basis_functions"] = jag_out.nbasis
+            self.data["input"]["num_electrons"] = jag_out.nelectron
+            self.data["input"]["input_file"] = jag_out.mae_in
+            self.data["input"]["solvation"] = jag_out.opts.solvation
 
-        self.data["output"] = parse_jaguar_results(jag_out._results)
-        self.data["output"]["output_file"] = jag_out.mae_out
+            self.data["energy_trajectory"] = list()
+            for opt_step in jag_out.geopt_step:
+                parsed = parse_jaguar_results(opt_step)
+                self.data["energy_trajectory"].append(parsed["scf_energy"])
 
-        if parse_molecules:
-            self.data["input"]["molecule"] = maestro_file_to_molecule(os.path.join(base_dir,
-                                                                                   self.data["input"]["input_file"]))[0]
-            self.data["molecule_trajectory"] = maestro_file_to_molecule(os.path.join(base_dir,
-                                                                                     self.data["output"]["output_file"]))
-            self.data["output"]["molecule"] = self.data["molecule_trajectory"][-1]
+            self.data["output"] = parse_jaguar_results(jag_out._results)
+            self.data["output"]["output_file"] = jag_out.mae_out
 
-        else:
-            self.data["input"]["molecule"] = None
-            self.data["output"]["molecule"] = None
-            self.data["molecule_trajectory"] = None
+            if parse_molecules:
+                self.data["input"]["molecule"] = maestro_file_to_molecule(os.path.join(base_dir,
+                                                                                       self.data["input"]["input_file"]))[0]
+                self.data["molecule_trajectory"] = maestro_file_to_molecule(os.path.join(base_dir,
+                                                                                         self.data["output"]["output_file"]))
+                self.data["output"]["molecule"] = self.data["molecule_trajectory"][-1]
+
+            else:
+                self.data["input"]["molecule"] = None
+                self.data["output"]["molecule"] = None
+                self.data["molecule_trajectory"] = None
+
+    def as_dict(self):
+        d = dict()
+        d["data"] = self.data
+        d["text"] = self.text
+        d["filename"] = self.filename
+        return jsanitize(d, strict=True)
+
+    @classmethod
+    def from_dict(cls, d):
+        output = JagOutput("", allow_failure=True,
+                           parse_molecules=False)
+        output.data = d["data"]
+        output.filename = d["filename"]
+        output.text = d["text"]
+
+        return output

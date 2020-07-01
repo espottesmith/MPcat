@@ -59,16 +59,16 @@ class AutoTSInput(MSONable):
             None
         """
 
-        input_file = ReactiqInput(keywords=self.autots_variables,
-                                  jaguar_keywords=self.gen_variables,
-                                  jobname=jobname)
-        input_file.save(filename)
-
         if write_molecules:
             for rr, reactant in enumerate(self.reactants):
                 molecule_to_maestro_file(reactant, "rct_{}.mae".format(rr))
             for pp, product in enumerate(self.products):
                 molecule_to_maestro_file(product, "pro_{}.mae".format(pp))
+
+        input_file = ReactiqInput(keywords=self.autots_variables,
+                                  jaguar_keywords=self.gen_variables,
+                                  jobname=jobname)
+        input_file.save(filename)
 
     @classmethod
     def from_file(cls, filename: str, read_molecules: bool = True):
