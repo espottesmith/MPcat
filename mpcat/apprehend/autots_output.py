@@ -80,7 +80,7 @@ class AutoTSOutput(MSONable):
     def _parse_calculations(self):
         header_pattern = r"Processing the following subjobs:"
         table_pattern = r"\([0-9]+\) jaguar run ([A-Za-z0-9_\.\-]+)(?: -TPP [0-9]+)?"
-        footer_pattern = r"Timer \([A-Za-z ]+\) : [0-9\.]+ secs \([A-Za-z0-9 ,\.]+\)"
+        footer_pattern = r"Timer \(distribute subjobs\) : [0-9\.]+ secs \([A-Za-z0-9 ,\.]+\)"
 
         temp_calcs = read_table_pattern(self.text, header_pattern, table_pattern,
                                         footer_pattern)
