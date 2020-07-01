@@ -1,5 +1,6 @@
 import os
 from typing import Optional
+import datetime
 
 from monty.json import MSONable, jsanitize
 
@@ -240,6 +241,8 @@ class JagOutput(MSONable):
     def as_dict(self):
         d = dict()
         d["data"] = self.data
+        d["data"]["start_time"] = self.data["start_time"].strftime("%Y/%m/%d, %H:%M:%S")
+        d["data"]["end_time"] = self.data["end_time"].strftime("%Y/%m/%d, %H:%M:%S")
         d["filename"] = self.filename
         return jsanitize(d, strict=True)
 
@@ -248,6 +251,10 @@ class JagOutput(MSONable):
         output = JagOutput("", allow_failure=True,
                            parse_molecules=False)
         output.data = d["data"]
+        output.data["start_time"] = datetime.strptime(d["data"]["start_time"],
+                                                      "%Y/%m/%d, %H:%M:%S")
+        output.data["end_time"] = datetime.strptime(d["data"]["endtime"],
+                                                    "%Y/%m/%d, %H:%M:%S")
         output.filename = d["filename"]
 
         return output
