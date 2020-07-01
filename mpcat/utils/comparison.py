@@ -1,5 +1,7 @@
 from typing import Dict
 
+import numpy as np
+
 
 def all_equal(a: Dict, b: Dict):
     """
@@ -26,6 +28,9 @@ def all_equal(a: Dict, b: Dict):
                 if not all_equal({"a": pair[0]}, {"a": pair[1]}):
                     print(key, pair[0], pair[1])
                     return False
+        elif isinstance(a[key], np.ndarray) and isinstance(b[key], np.ndarray):
+            if not np.array_equal(a[key], b[key]):
+                return False
         else:
             if a[key] != b[key]:
                 print(key, a[key], b[key])
