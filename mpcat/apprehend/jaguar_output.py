@@ -243,9 +243,11 @@ class JagOutput(MSONable):
         d["data"] = self.data
         try:
             d["data"]["start_time"] = self.data["start_time"].strftime("%Y/%m/%d, %H:%M:%S")
-            d["data"]["end_time"] = self.data["end_time"].strftime("%Y/%m/%d, %H:%M:%S")
         except AttributeError:
             d["data"]["start_time"] = None
+        try:
+            d["data"]["end_time"] = self.data["end_time"].strftime("%Y/%m/%d, %H:%M:%S")
+        except AttributeError:
             d["data"]["end_time"] = None
 
         d["filename"] = self.filename

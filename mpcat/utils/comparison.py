@@ -19,9 +19,12 @@ def all_equal(a: Dict, b: Dict):
                 print(key, a[key], b[key])
                 return False
         elif isinstance(a[key], list) and isinstance(b[key], list):
+            if len(a[key]) != len(b[key]):
+                print(key, a[key], b[key])
+                return False
             for pair in zip(a[key], b[key]):
-                if pair[0] != pair[1]:
-                    print(key, a[key], b[key])
+                if not all_equal({"a": pair[0]}, {"a": pair[1]}):
+                    print(key, pair[0], pair[1])
                     return False
         else:
             if a[key] != b[key]:
@@ -29,3 +32,4 @@ def all_equal(a: Dict, b: Dict):
                 return False
 
     return True
+
