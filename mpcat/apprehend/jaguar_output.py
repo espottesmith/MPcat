@@ -240,7 +240,6 @@ class JagOutput(MSONable):
     def as_dict(self):
         d = dict()
         d["data"] = self.data
-        d["text"] = self.text
         d["filename"] = self.filename
         return jsanitize(d, strict=True)
 
@@ -250,6 +249,5 @@ class JagOutput(MSONable):
                            parse_molecules=False)
         output.data = d["data"]
         output.filename = d["filename"]
-        output.text = d["text"]
 
         return output
