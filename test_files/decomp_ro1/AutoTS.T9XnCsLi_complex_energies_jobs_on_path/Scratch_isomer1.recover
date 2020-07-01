@@ -1,0 +1,14 @@
+Name: 'Scratch_isomer1'
+JobId: 'n0260-0-5e74fb4b'
+Commandline: '/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar run Scratch_isomer1.in -TPP 32 -HOST n0260'
+BackendCmdline: 'run jexec.py -TPP 32 -jobname Scratch_isomer1 Scratch_isomer1.in'
+Outfiles:
+- "Scratch_isomer1_vib.spm"
+- "Scratch_isomer1.01.in"
+- "Scratch_isomer1.vib"
+- "Scratch_isomer1.recover"
+- "Scratch_isomer1.log"
+- "Scratch_isomer1.xyz"
+- "Scratch_isomer1.01.smap"
+- "Scratch_isomer1.out"
+- "Scratch_isomer1.01.mae"

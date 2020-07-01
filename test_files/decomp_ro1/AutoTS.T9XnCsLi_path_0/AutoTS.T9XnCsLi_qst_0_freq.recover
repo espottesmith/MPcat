@@ -1,0 +1,14 @@
+Name: 'AutoTS.T9XnCsLi_qst_0_freq'
+JobId: 'n0260-0-5e74afa7'
+Commandline: '/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar run AutoTS.T9XnCsLi_qst_0_freq.in -TPP 32 -HOST n0260'
+BackendCmdline: 'run jexec.py -TPP 32 -jobname AutoTS.T9XnCsLi_qst_0_freq AutoTS.T9XnCsLi_qst_0_freq.in'
+Outfiles:
+- "AutoTS.T9XnCsLi_qst_0_freq.out"
+- "AutoTS.T9XnCsLi_qst_0_freq.01.smap"
+- "AutoTS.T9XnCsLi_qst_0_freq.01.in"
+- "AutoTS.T9XnCsLi_qst_0_freq.log"
+- "AutoTS.T9XnCsLi_qst_0_freq.recover"
+- "AutoTS.T9XnCsLi_qst_0_freq.xyz"
+- "AutoTS.T9XnCsLi_qst_0_freq.01.mae"
+- "AutoTS.T9XnCsLi_qst_0_freq.vib"
+- "AutoTS.T9XnCsLi_qst_0_freq_vib.spm"

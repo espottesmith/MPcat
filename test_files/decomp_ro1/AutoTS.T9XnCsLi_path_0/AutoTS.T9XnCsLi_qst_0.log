@@ -1,0 +1,3709 @@
+Command:  /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar run AutoTS.T9XnCsLi_qst_0.in -TPP 32 -HOST n0260
+Release:  2020-1
+Exec:     /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64
+Host:     n0260.lr6
+JobId:    n0260-0-5e745c1a
+JobDir:   /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a
+Date:     Thu Mar 19 23:01:00 2020
+
+Contents of /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a:
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/AutoTS.T9XnCsLi_qst_0.recover
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/n0000-0-5e7378a4.hosts
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/AutoTS.T9XnCsLi_qst_0.in
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/n0260-0-5e745c1a.recover
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/AutoTS.T9XnCsLi_qst_0.log
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/n0260-0-5e745c1a.nodes
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/AutoTS.T9XnCsLi_qst_0.mae
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/n0260-0-5e745c1a
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/n0260-0-5e745c1a.mpinodes
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/.write_dir.json
+
+
+The following structure properties were deleted from the input .mae file: /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a/AutoTS.T9XnCsLi_qst_0.mae
+i_m_Molecular_charge
+
+Executing subprocess:
+/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64/jexec AutoTS.T9XnCsLi_qst_0.in -T 32 -out /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_qst_0#n0260-0-5e745c1a -cwd
+
+
+** WARNING! Your Jaguar license will expire in 12 days. **
+
+Job AutoTS.T9XnCsLi_qst_0 started on n0260.lr6 at Thu Mar 19 23:01:00 2020
+jobid: n0260-0-5e745c1a 
+Jaguar version 10.7, release  12
+ Using up to  32 threads per process
+Molecular Point Group: C1      
+Point Group used: C1 (symmetry turned off)
+pre (input checking) done.
+onee (1-electron integrals) done.
+hfig (HF initial guess) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -348.73812570201           1.9E-03  1.5E-01
+etot    2  Y  Y  0  N    -349.71878562036  9.8E-01  1.5E-03  5.3E-02
+etot    3  Y  Y  0  N    -349.69597434091 -2.3E-02  7.9E-04  4.9E-02
+etot    4  N  Y  0  N    -349.91553242622  2.2E-01  2.4E-04  7.5E-03
+etot    5  Y  Y  0  N    -349.92741114135  1.2E-02  1.3E-04  4.5E-03
+etot    6  N  Y  0  N    -349.92996922977  2.6E-03  9.6E-05  1.6E-03
+etot    7  Y  Y  0  N    -349.93129270044  1.3E-03  8.4E-05  1.3E-03
+etot    8  Y  Y  0  N    -349.93201926138  7.3E-04  4.3E-05  5.4E-04
+etot    9  N  Y  0  N    -349.93213239104  1.1E-04  2.7E-05  3.7E-04
+etot   10  N  Y  0  N    -349.93218340183  5.1E-05  7.3E-06  1.3E-04
+etot   11  N  Y  0  N    -349.93218756011  4.2E-06  3.7E-06  7.7E-05
+etot   12  N  N  0  N    -349.93218882648  1.3E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.96665710118           2.2E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.97079787335  4.1E-03  8.4E-05  2.0E-03
+etot    3  N  Y  0  N    -349.97139153238  5.9E-04  8.5E-05  1.4E-03
+etot    4  Y  Y  0  N    -349.97173720621  3.5E-04  6.2E-05  7.4E-04
+etot    5  Y  Y  0  N    -349.97183767042  1.0E-04  2.0E-05  3.4E-04
+etot    6  N  Y  0  N    -349.97185899205  2.1E-05  1.3E-05  3.1E-04
+etot    7  N  Y  0  N    -349.97187393903  1.5E-05  1.2E-05  1.6E-04
+etot    8  N  Y  0  N    -349.97188389108  1.0E-05  5.7E-06  7.7E-05
+etot    9  N  Y  0  N    -349.97188603510  2.1E-06  2.7E-06  3.6E-05
+etot   10  N  N  0  N    -349.97188639165  3.6E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   1
+  Total energy:      -349.97188639165 hartrees
+  gradient maximum:        2.3204E-02 .  (  1.3500E-03 )
+  gradient rms:            2.3204E-02 .  (  9.0000E-04 )
+  displacement maximum:    2.6379E-01 .  (  5.4000E-03 )
+  displacement rms:        5.0000E-02 .  (  3.6000E-03 )
+  
+  predicted energy change:  1.1361E-02
+  step size:     0.30000
+  trust radius:  0.30000
+---------------- geometry iteration   1 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95648669599           4.0E-04  3.3E-03
+etot    2  Y  Y  0  N    -349.95987275628  3.4E-03  8.3E-05  1.6E-03
+etot    3  Y  Y  0  N    -349.96049098913  6.2E-04  3.4E-05  1.1E-03
+etot    4  N  Y  0  N    -349.96071961564  2.3E-04  3.8E-05  8.7E-04
+etot    5  N  Y  0  N    -349.96090149817  1.8E-04  3.1E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96099113371  9.0E-05  2.6E-05  2.7E-04
+etot    7  N  Y  0  N    -349.96103565503  4.5E-05  1.3E-05  1.6E-04
+etot    8  N  Y  0  N    -349.96104690338  1.1E-05  7.9E-06  7.0E-05
+etot    9  N  Y  0  N    -349.96104997674  3.1E-06  2.6E-06  3.8E-05
+etot   10  N  N  0  N    -349.96105046534  4.9E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   2
+  Total energy:      -349.96612429940 hartrees
+
+  energy change: 5.7621E-03  predicted: 1.1370E-02  quadratic: 5.6811E-03
+  line slope:   before 2.3204E-02  after 1.4670E-02  predicted 5.2597E-02
+
+  energy prediction error:   4.9279E-01  tremx: 2.5000E-01
+  pred/quad energy error:   -4.9991E-01
+  quadratic energy error:   -1.4226E-02
+
+  step size: 3.0000E-01  trust radius: 3.0000E-01
+  energy change:           5.7621E-03 .  (  1.5000E-04 )
+  gradient maximum:        1.5332E-02 .  (  1.3500E-03 )
+  gradient rms:            1.5332E-02 .  (  9.0000E-04 )
+  displacement maximum:    2.7132E-01 .  (  5.4000E-03 )
+  displacement rms:        5.0000E-02 .  (  3.6000E-03 )
+  
+  predicted energy change:  3.3507E-03
+  step size:     0.30000
+  trust radius:  0.30000
+---------------- geometry iteration   2 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95376174723           1.5E-04  2.7E-03
+etot    2  Y  Y  0  N    -349.95620038445  2.4E-03  5.9E-05  1.3E-03
+etot    3  Y  Y  0  N    -349.95668640221  4.9E-04  3.4E-05  1.4E-03
+etot    4  N  Y  0  N    -349.95691625575  2.3E-04  3.5E-05  6.8E-04
+etot    5  N  Y  0  N    -349.95709878373  1.8E-04  4.1E-05  5.7E-04
+etot    6  N  Y  0  N    -349.95724161198  1.4E-04  4.0E-05  3.9E-04
+etot    7  N  Y  0  N    -349.95732793607  8.6E-05  2.4E-05  2.7E-04
+etot    8  N  Y  0  N    -349.95735364733  2.6E-05  1.4E-05  1.1E-04
+etot    9  N  Y  0  N    -349.95736084233  7.2E-06  4.3E-06  5.4E-05
+etot   10  N  N  0  N    -349.95736198001  1.1E-06  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   3
+  Total energy:      -349.96238525802 hartrees
+
+  energy change: 3.7390E-03  predicted: 3.3779E-03  quadratic: 3.6844E-03
+  line slope:   before 1.5332E-02  after 9.2304E-03  predicted 7.1871E-03
+
+  energy prediction error:  -1.0661E-01  tremx: 2.5000E-01
+  pred/quad energy error:    9.0465E-02
+  quadratic energy error:   -1.4802E-02
+
+  step size: 3.0000E-01  trust radius: 3.0000E-01
+  energy noise:      1.0059E-04
+  gradient noise      abs:  1.7435E-05    rms:  2.9058E-06
+  displacement noise  abs:  2.9898E-03    rms:  4.9830E-04
+  hessian eigenvalue  min:  5.8314E-03
+  progress:  0.30000  0.59959
+  
+  energy change:           3.7390E-03 .  (  1.5000E-04 )
+  gradient maximum:        9.8731E-03 .  (  1.3500E-03 )
+  gradient rms:            9.8731E-03 .  (  9.0000E-04 )
+  displacement maximum:    2.7765E-01 .  (  5.4000E-03 )
+  displacement rms:        5.0000E-02 .  (  3.6000E-03 )
+  
+  predicted energy change:  2.0941E-03
+  step size:     0.30000
+  trust radius:  0.30000
+---------------- geometry iteration   3 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95222664931           1.3E-04  2.6E-03
+etot    2  Y  Y  0  N    -349.95399124309  1.8E-03  5.3E-05  1.0E-03
+etot    3  Y  Y  0  N    -349.95441136089  4.2E-04  3.7E-05  1.5E-03
+etot    4  N  Y  0  N    -349.95467099185  2.6E-04  4.4E-05  9.0E-04
+etot    5  N  Y  0  N    -349.95491723883  2.5E-04  5.8E-05  6.5E-04
+etot    6  Y  Y  0  N    -349.95513647432  2.2E-04  6.4E-05  6.3E-04
+etot    7  Y  Y  0  N    -349.95528598093  1.5E-04  4.7E-05  2.8E-04
+etot    8  N  Y  0  N    -349.95539406397  1.1E-04  1.7E-05  1.5E-04
+etot    9  N  Y  0  N    -349.95540530413  1.1E-05  1.0E-05  1.1E-04
+etot   10  N  Y  0  N    -349.95541006274  4.8E-06  7.0E-06  6.8E-05
+etot   11  N  Y  0  N    -349.95541203228  2.0E-06  3.6E-06  4.1E-05
+etot   12  N  N  0  N    -349.95541280305  7.7E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   4
+  Total energy:      -349.96035781378 hartrees
+
+  energy change: 2.0274E-03  predicted: 2.1116E-03  quadratic: 1.9705E-03
+  line slope:   before 9.8731E-03  after 3.2639E-03  predicted 4.2041E-03
+
+  energy prediction error:   3.9654E-02  tremx: 2.5000E-01
+  pred/quad energy error:   -6.6474E-02
+  quadratic energy error:   -2.8730E-02
+
+  step size: 3.0000E-01  trust radius: 3.0000E-01
+  energy noise:      1.2437E-04
+  gradient noise      abs:  3.4077E-05    rms:  5.6795E-06
+  displacement noise  abs:  5.8505E-03    rms:  9.7508E-04
+  hessian eigenvalue  min:  5.8247E-03
+  progress:  0.30000  0.59955  0.89829
+  
+  energy change:           2.0274E-03 .  (  1.5000E-04 )
+  gradient maximum:        3.7454E-03 .  (  1.3500E-03 )
+  gradient rms:            3.7454E-03 .  (  9.0000E-04 )
+  displacement maximum:    1.5593E-01 .  (  5.4000E-03 )
+  displacement rms:        2.7599E-02 .  (  3.6000E-03 )
+  
+  predicted energy change:  3.1861E-04
+  step size:     0.16559
+  trust radius:  0.30000
+---------------- geometry iteration   4 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95422410134           6.7E-05  1.4E-03
+etot    2  Y  Y  0  N    -349.95466251998  4.4E-04  2.8E-05  5.6E-04
+etot    3  N  Y  0  N    -349.95479169612  1.3E-04  2.2E-05  9.3E-04
+etot    4  N  Y  0  N    -349.95487803611  8.6E-05  2.6E-05  6.1E-04
+etot    5  N  Y  0  N    -349.95496746352  8.9E-05  4.2E-05  3.8E-04
+etot    6  N  Y  0  N    -349.95508096777  1.1E-04  5.6E-05  3.2E-04
+etot    7  Y  Y  0  N    -349.95516509725  8.4E-05  3.2E-05  1.6E-04
+etot    8  N  Y  0  N    -349.95520600313  4.1E-05  1.6E-05  1.0E-04
+etot    9  N  Y  0  N    -349.95521414151  8.1E-06  5.8E-06  8.5E-05
+etot   10  N  Y  0  N    -349.95521676932  2.6E-06  9.7E-06  5.2E-05
+etot   11  N  Y  0  N    -349.95521934996  2.6E-06  3.8E-06  2.5E-05
+etot   12  N  N  0  N    -349.95521989622  5.5E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   5
+  Total energy:      -349.96010187777 hartrees
+
+  energy change: 2.5594E-04  predicted: 3.1934E-04  quadratic: 2.3660E-04
+  line slope:   before 3.7454E-03  after-8.8784E-04  predicted 1.1149E-04
+
+  energy prediction error:   1.9252E-01  tremx: 2.5000E-01
+  pred/quad energy error:   -2.5123E-01
+  quadratic energy error:   -7.8410E-02
+
+  step size: 1.6559E-01  trust radius: 3.0000E-01
+  energy noise:      1.1837E-04
+  gradient noise      abs:  5.5229E-05    rms:  9.2049E-06
+  displacement noise  abs:  9.4841E-03    rms:  1.5807E-03
+  hessian eigenvalue  min:  5.8234E-03
+  progress:  0.16559  0.46524  0.76422  1.06217
+  
+  energy change:           2.5594E-04 .  (  1.5000E-04 )
+  gradient maximum:        7.3688E-04 *  (  1.3500E-03 )
+  gradient rms:            7.3688E-04 *  (  9.0000E-04 )
+  
+ QST climbing stage completed.  Proceeding with TS optimization.
+  
+  energy noise:      1.1837E-04
+  gradient noise      abs:  5.5229E-05    rms:  9.2049E-06
+  displacement noise  abs:  5.5458E-03    rms:  9.2431E-04
+  hessian eigenvalue  min:  9.9587E-03
+  progress:  0.16559  0.46524  0.76422  1.06217
+  
+  energy change:           0.0000E+00 *  (  1.5000E-04 )
+  gradient maximum:        2.2779E-02 .  (  1.3500E-03 )
+  gradient rms:            6.1276E-03 .  (  9.0000E-04 )
+  displacement maximum:    9.2072E-02 .  (  5.4000E-03 )
+  displacement rms:        3.2590E-02 .  (  3.6000E-03 )
+  
+  predicted energy change: -1.9855E-03
+  step size:     0.19554
+  trust radius:  0.30000
+ [ energy is converged - apply eigmin ]
+---------------- geometry iteration   5 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95523705706           1.4E-04  3.2E-03
+etot    2  Y  Y  0  N    -349.95737053196  2.1E-03  5.5E-05  2.4E-03
+etot    3  Y  Y  0  N    -349.95749423001  1.2E-04  3.6E-05  1.8E-03
+etot    4  N  Y  0  N    -349.95784503472  3.5E-04  2.6E-05  7.3E-04
+etot    5  N  Y  0  N    -349.95793508652  9.0E-05  2.3E-05  5.1E-04
+etot    6  N  Y  0  N    -349.95799455802  5.9E-05  2.8E-05  3.8E-04
+etot    7  N  Y  0  N    -349.95804455641  5.0E-05  2.9E-05  2.2E-04
+etot    8  N  Y  0  N    -349.95807099170  2.6E-05  7.4E-06  8.2E-05
+etot    9  N  Y  0  N    -349.95807435791  3.4E-06  6.5E-06  6.2E-05
+etot   10  N  Y  0  N    -349.95807638789  2.0E-06  4.1E-06  3.7E-05
+etot   11  N  N  0  N    -349.95807716919  7.8E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   6
+  Total energy:      -349.96306461456 hartrees
+
+  energy change:-2.9627E-03  predicted:-1.8838E-03  quadratic:-2.7924E-03
+  line slope:   before-1.9681E-02  after-8.8798E-03  predicted 4.1386E-04
+
+  energy prediction error:   5.6976E-01  tremx: 2.5000E-01
+  pred/quad energy error:   -4.7981E-01
+  quadratic energy error:    6.0786E-02
+
+  step size: 1.9554E-01  trust radius: 3.0000E-01
+  new trust radius:     1.5000E-01
+   
+  energy noise:      1.7971E-04
+  gradient noise      abs:  4.2827E-05    rms:  7.1378E-06
+  displacement noise  abs:  8.7236E-04    rms:  1.4539E-04
+  hessian eigenvalue  min:  4.9093E-02
+  progress:  0.19554  0.18357  0.40958  0.69534  0.98949
+  
+  energy change:          -2.9627E-03 .  (  1.5000E-04 )
+  gradient maximum:        8.2292E-03 .  (  1.3500E-03 )
+  gradient rms:            2.7141E-03 .  (  9.0000E-04 )
+  displacement maximum:    8.7796E-02 .  (  5.4000E-03 )
+  displacement rms:        2.5022E-02 .  (  3.6000E-03 )
+  
+  predicted energy change: -1.2701E-03
+  step size:     0.15013
+  trust radius:  0.15000
+---------------- geometry iteration   6 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95689439555           1.2E-04  3.0E-03
+etot    2  Y  Y  0  N    -349.95874628079  1.9E-03  4.7E-05  1.6E-03
+etot    3  N  Y  0  N    -349.95885642740  1.1E-04  2.7E-05  1.5E-03
+etot    4  N  Y  0  N    -349.95907157368  2.2E-04  1.8E-05  5.2E-04
+etot    5  N  Y  0  N    -349.95911933950  4.8E-05  1.6E-05  3.6E-04
+etot    6  N  Y  0  N    -349.95914800253  2.9E-05  1.7E-05  2.3E-04
+etot    7  N  Y  0  N    -349.95916648998  1.8E-05  1.2E-05  1.2E-04
+etot    8  N  Y  0  N    -349.95917252722  6.0E-06  3.3E-06  4.6E-05
+etot    9  N  N  0  N    -349.95917324735  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   7
+  Total energy:      -349.96421216227 hartrees
+
+  energy change:-1.1475E-03  predicted:-1.2416E-03  quadratic:-1.0900E-03
+  line slope:   before-1.1428E-02  after-3.0926E-03  predicted-5.1111E-03
+
+  energy prediction error:  -7.5121E-02  tremx: 2.5000E-01
+  pred/quad energy error:    1.2106E-01
+  quadratic energy error:    5.2271E-02
+
+  step size: 1.5013E-01  trust radius: 1.5000E-01
+  new trust radius:     2.1213E-01
+   
+  energy noise:      2.1451E-04
+  gradient noise      abs:  3.9143E-05    rms:  6.5239E-06
+  displacement noise  abs:  4.6547E-03    rms:  7.7578E-04
+  hessian eigenvalue  min:  8.4094E-03
+  progress:  0.15013  0.34055  0.30348  0.43949  0.69139  0.97209
+  
+  energy change:          -1.1475E-03 .  (  1.5000E-04 )
+  gradient maximum:        3.0692E-03 .  (  1.3500E-03 )
+  gradient rms:            1.2521E-03 .  (  9.0000E-04 )
+  displacement maximum:    1.6504E-01 .  (  5.4000E-03 )
+  displacement rms:        3.0335E-02 .  (  3.6000E-03 )
+  
+  predicted energy change:  1.7036E-04
+  step size:     0.18201
+  trust radius:  0.21213
+---------------- geometry iteration   7 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95739681294           9.2E-05  2.2E-03
+etot    2  Y  Y  0  N    -349.95838358336  9.9E-04  3.7E-05  6.4E-04
+etot    3  N  Y  0  N    -349.95852540725  1.4E-04  1.8E-05  9.0E-04
+etot    4  N  Y  0  N    -349.95861762855  9.2E-05  2.4E-05  4.7E-04
+etot    5  N  Y  0  N    -349.95868572193  6.8E-05  2.4E-05  3.3E-04
+etot    6  N  Y  0  N    -349.95873372370  4.8E-05  2.6E-05  2.3E-04
+etot    7  N  Y  0  N    -349.95876430956  3.1E-05  1.5E-05  1.1E-04
+etot    8  N  Y  0  N    -349.95877111225  6.8E-06  4.4E-06  3.8E-05
+etot    9  N  N  0  N    -349.95877174264  6.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   8
+  Total energy:      -349.96390151641 hartrees
+
+  energy change: 3.1065E-04  predicted: 1.7281E-04  quadratic: 3.8198E-04
+  line slope:   before 1.8012E-03  after 2.3962E-03  predicted 9.7758E-05
+
+  energy prediction error:  -7.5396E-01  tremx: 2.5000E-01
+  pred/quad energy error:    1.1442E+00
+  quadratic energy error:    1.8198E-01
+
+  step size: 1.8201E-01  trust radius: 2.1213E-01
+  new trust radius:     1.0607E-01
+   
+  energy noise:      2.5093E-04
+  gradient noise      abs:  3.3688E-05    rms:  5.6146E-06
+  displacement noise  abs:  4.4385E-03    rms:  7.3976E-04
+  hessian eigenvalue  min:  7.5898E-03
+  progress:  0.18201  0.29102  0.47066  0.37530  0.37546  0.57218  0.83594
+  
+  energy change:           3.1065E-04 .  (  1.5000E-04 )
+  gradient maximum:        2.1140E-03 .  (  1.3500E-03 )
+  gradient rms:            9.1279E-04 .  (  9.0000E-04 )
+  displacement maximum:    7.1843E-02 .  (  5.4000E-03 )
+  displacement rms:        1.4575E-02 .  (  3.6000E-03 )
+  
+  predicted energy change: -2.1527E-06
+  step size:     0.08745
+  trust radius:  0.10607
+---------------- geometry iteration   8 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95836957498           5.0E-05  1.2E-03
+etot    2  N  Y  0  N    -349.95866374760  2.9E-04  2.1E-05  5.8E-04
+etot    3  N  Y  0  N    -349.95872356563  6.0E-05  1.5E-05  5.4E-04
+etot    4  N  Y  0  N    -349.95877001411  4.6E-05  1.5E-05  3.4E-04
+etot    5  N  Y  0  N    -349.95880177330  3.2E-05  1.8E-05  1.9E-04
+etot    6  N  Y  0  N    -349.95882680060  2.5E-05  1.5E-05  1.2E-04
+etot    7  N  Y  0  N    -349.95883699333  1.0E-05  6.8E-06  6.2E-05
+etot    8  N  Y  0  N    -349.95883910055  2.1E-06  2.5E-06  3.6E-05
+etot    9  N  N  0  N    -349.95883948858  3.9E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step   9
+  Total energy:      -349.96398187755 hartrees
+
+  energy change:-8.0361E-05  predicted:-1.5307E-06  quadratic:-3.8488E-05
+  line slope:   before-5.7696E-05  after-8.2256E-04  predicted 2.2688E-05
+
+  energy prediction error:   6.8366E+00
+  pred/quad energy error:   -3.2052E+00  tremx: 2.5000E-01
+  quadratic energy error:    8.6356E-01
+
+  step size: 8.7448E-02  trust radius: 1.0607E-01
+  [ line slope is within the noise ]
+  [ reject step ]
+  new trust radius:     5.3033E-02
+   
+  ** restarting optimization from step    8 **
+  energy noise:      2.3475E-04
+  gradient noise      abs:  4.2097E-05    rms:  7.0162E-06
+  displacement noise  abs:  2.2920E-03    rms:  3.8199E-04
+  hessian eigenvalue  min:  1.8367E-02
+  progress:  0.08745  0.24820  0.33256  0.49846  0.38061  0.32035  0.49615
+  
+  energy change:          -8.0361E-05 *  (  1.5000E-04 )
+  gradient maximum:        2.1140E-03 .  (  1.3500E-03 )
+  gradient rms:            9.1279E-04 .  (  9.0000E-04 )
+  displacement maximum:    2.7747E-02 .  (  5.4000E-03 )
+  displacement rms:        8.8512E-03 .  (  3.6000E-03 )
+  
+  predicted energy change: -6.2267E-05
+  step size:     0.05311
+  trust radius:  0.05303
+---------------- geometry iteration   9 complete ----------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95870206773           3.0E-05  7.3E-04
+etot    2  N  Y  0  N    -349.95880786325  1.1E-04  1.2E-05  3.0E-04
+etot    3  N  Y  0  N    -349.95882703362  1.9E-05  7.3E-06  3.3E-04
+etot    4  N  Y  0  N    -349.95883863964  1.2E-05  8.2E-06  1.6E-04
+etot    5  N  Y  0  N    -349.95884775824  9.1E-06  9.1E-06  1.0E-04
+etot    6  N  Y  0  N    -349.95885471088  7.0E-06  9.5E-06  6.9E-05
+etot    7  N  Y  0  N    -349.95885836508  3.7E-06  3.9E-06  2.8E-05
+etot    8  N  N  0  N    -349.95885894802  5.8E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+  Geometry optimization step  10
+  Total energy:      -349.96399941106 hartrees
+
+  energy change:-9.7895E-05  predicted:-6.3029E-05  quadratic:-8.3276E-05
+  line slope:   before-2.2772E-03  after-8.5899E-04  predicted-9.6488E-05
+
+  energy prediction error:   4.7742E-01  tremx: 2.5000E-01
+  pred/quad energy error:   -2.7725E-01
+  quadratic energy error:    1.5672E-01
+
+  step size: 5.3107E-02  trust radius: 5.3033E-02
+  new trust radius:     2.6517E-02
+   
+  energy noise:      1.6662E-04
+  gradient noise      abs:  3.0691E-05    rms:  5.1152E-06
+  displacement noise  abs:  7.8975E-04    rms:  1.3163E-04
+  hessian eigenvalue  min:  3.8862E-02
+  progress:  0.05728  0.05311  0.20940  0.31106  0.48717  0.38540  0.36515
+  
+  energy change:          -9.7895E-05 *  (  1.5000E-04 )
+  gradient maximum:        1.0870E-03 *  (  1.3500E-03 )
+  gradient rms:            3.9808E-04 *  (  9.0000E-04 )
+  displacement maximum:    1.8003E-02 .  (  5.4000E-03 )
+  displacement rms:        4.4667E-03 .  (  3.6000E-03 )
+  
+  predicted energy change: -1.2121E-05
+  step size:     0.02680
+  trust radius:  0.02652
+ [ almost converged ]
+ [ energy is converged - apply eigmin ]
+  [standard convergence criteria satisfied]
+------------- final geometry iteration  10 complete -------------
+geopt (optimize geometry) done.
+onee (1-electron integrals) done.
+hfig (HF initial guess) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -348.74347374827           1.7E-03  1.7E-01
+etot    2  Y  Y  0  N    -349.72554315090  9.8E-01  1.4E-03  6.6E-02
+etot    3  Y  Y  0  N    -349.73536884910  9.8E-03  7.2E-04  4.4E-02
+etot    4  N  Y  0  N    -349.91430911751  1.8E-01  2.3E-04  1.1E-02
+etot    5  Y  Y  0  N    -349.92390267694  9.6E-03  1.2E-04  3.3E-03
+etot    6  N  Y  0  N    -349.92565393030  1.8E-03  8.3E-05  2.7E-03
+etot    7  Y  Y  0  N    -349.92664863975  9.9E-04  7.3E-05  1.9E-03
+etot    8  Y  Y  0  N    -349.92732508112  6.8E-04  6.5E-05  1.4E-03
+etot    9  Y  Y  0  N    -349.92775901256  4.3E-04  9.1E-05  8.9E-04
+etot   10  Y  Y  0  N    -349.92808390978  3.2E-04  2.4E-05  2.3E-04
+etot   11  N  Y  0  N    -349.92807273173 -1.1E-05  1.1E-05  1.4E-04
+etot   12  N  Y  0  N    -349.92807957331  6.8E-06  9.8E-06  8.1E-05
+etot   13  N  Y  0  N    -349.92808369761  4.1E-06  3.1E-06  5.4E-05
+etot   14  N  N  0  N    -349.92808472885  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.96000118998           2.1E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96297545367  3.0E-03  7.1E-05  2.2E-03
+etot    3  N  Y  0  N    -349.96348199121  5.1E-04  8.8E-05  1.4E-03
+etot    4  Y  Y  0  N    -349.96378270972  3.0E-04  6.4E-05  4.7E-04
+etot    5  Y  Y  0  N    -349.96389278640  1.1E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96392682735  3.4E-05  1.4E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96395380930  2.7E-05  2.9E-05  2.5E-04
+etot    8  N  Y  0  N    -349.96398928965  3.5E-05  1.5E-05  9.5E-05
+etot    9  N  Y  0  N    -349.96399766851  8.4E-06  5.0E-06  4.7E-05
+etot   10  N  N  0  N    -349.96399880173  1.1E-06  0.0E+00  0.0E+00
+scf (UDFT) done.
+-------------------------------------------------------
+calculation at perturbed geometry   1 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92158877744           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92539638476  3.8E-03  8.0E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92632989777  9.3E-04  4.2E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92668877328  3.6E-04  2.6E-05  4.1E-04
+etot    5  N  Y  0  N    -349.92675367723  6.5E-05  1.5E-05  2.9E-04
+etot    6  N  Y  0  N    -349.92677919003  2.6E-05  1.1E-05  2.2E-04
+etot    7  N  Y  0  N    -349.92679532386  1.6E-05  1.2E-05  1.5E-04
+etot    8  N  Y  0  N    -349.92680565624  1.0E-05  1.0E-05  7.8E-05
+etot    9  N  Y  0  N    -349.92680986072  4.2E-06  2.4E-06  4.0E-05
+etot   10  N  N  0  N    -349.92681034649  4.9E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95897641938           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96201900802  3.0E-03  7.0E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96257411543  5.6E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96285673209  2.8E-04  3.4E-05  5.6E-04
+etot    5  N  Y  0  N    -349.96297343932  1.2E-04  2.1E-05  4.4E-04
+etot    6  N  Y  0  N    -349.96303024141  5.7E-05  2.0E-05  3.7E-04
+etot    7  N  Y  0  N    -349.96307284951  4.3E-05  2.5E-05  2.4E-04
+etot    8  N  Y  0  N    -349.96310507283  3.2E-05  1.8E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96311528875  1.0E-05  3.5E-06  4.7E-05
+etot   10  N  N  0  N    -349.96311619964  9.1E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry   2 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92147554688           2.4E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92565327651  4.2E-03  8.1E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92670497085  1.1E-03  4.6E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92713437909  4.3E-04  3.3E-05  8.1E-04
+etot    5  N  Y  0  N    -349.92726649440  1.3E-04  2.2E-05  4.3E-04
+etot    6  N  Y  0  N    -349.92733093912  6.4E-05  2.1E-05  3.6E-04
+etot    7  N  Y  0  N    -349.92737451566  4.4E-05  1.7E-05  2.2E-04
+etot    8  N  Y  0  N    -349.92739646088  2.2E-05  1.6E-05  1.4E-04
+etot    9  N  Y  0  N    -349.92740722621  1.1E-05  4.5E-06  6.6E-05
+etot   10  N  N  0  N    -349.92740883755  1.6E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95909167721           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96199149228  2.9E-03  6.8E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96252066431  5.3E-04  4.7E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96277300648  2.5E-04  3.1E-05  4.3E-04
+etot    5  N  Y  0  N    -349.96286378748  9.1E-05  1.8E-05  4.0E-04
+etot    6  N  Y  0  N    -349.96290468111  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.96293352283  2.9E-05  2.2E-05  2.1E-04
+etot    8  N  Y  0  N    -349.96295834113  2.5E-05  1.6E-05  8.4E-05
+etot    9  N  Y  0  N    -349.96296583419  7.5E-06  2.8E-06  3.8E-05
+etot   10  N  N  0  N    -349.96296638809  5.5E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry   3 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92181766193           2.3E-04  5.2E-03
+etot    2  Y  Y  0  N    -349.92580335729  4.0E-03  8.0E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92677823808  9.7E-04  4.4E-05  1.8E-03
+etot    4  N  Y  0  N    -349.92715768830  3.8E-04  2.9E-05  5.7E-04
+etot    5  N  Y  0  N    -349.92724888948  9.1E-05  1.8E-05  3.8E-04
+etot    6  N  Y  0  N    -349.92729027369  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92731766330  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92733394313  1.6E-05  1.4E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92734144437  7.5E-06  3.6E-06  5.8E-05
+etot   10  N  N  0  N    -349.92734249522  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95923289280           1.7E-04  4.4E-03
+etot    2  Y  Y  0  N    -349.96218529681  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96272565656  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96299340586  2.7E-04  3.2E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96309590482  1.0E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96314418279  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96317901371  3.5E-05  2.3E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96320729768  2.8E-05  1.7E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96321615430  8.9E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96321686615  7.1E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry   4 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92193006571           2.4E-04  6.0E-03
+etot    2  Y  Y  0  N    -349.92574812878  3.8E-03  7.9E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92672219425  9.7E-04  4.3E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92709326981  3.7E-04  3.0E-05  6.1E-04
+etot    5  N  Y  0  N    -349.92718764354  9.4E-05  1.8E-05  3.4E-04
+etot    6  N  Y  0  N    -349.92722822341  4.1E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92725538919  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92727102334  1.6E-05  1.3E-05  9.9E-05
+etot    9  N  Y  0  N    -349.92727821318  7.2E-06  3.4E-06  5.5E-05
+etot   10  N  N  0  N    -349.92727919195  9.8E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95922052385           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96220245295  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96274434622  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96301007121  2.7E-04  3.3E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96311322570  1.0E-04  2.0E-05  4.0E-04
+etot    6  N  Y  0  N    -349.96316136671  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96319634311  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96322481136  2.8E-05  1.7E-05  9.2E-05
+etot    9  N  Y  0  N    -349.96323343446  8.6E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96323416663  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry   5 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92242797777           2.4E-04  5.5E-03
+etot    2  Y  Y  0  N    -349.92623778925  3.8E-03  7.9E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92720781398  9.7E-04  4.2E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92754319599  3.4E-04  2.7E-05  4.7E-04
+etot    5  N  Y  0  N    -349.92761281054  7.0E-05  1.5E-05  3.1E-04
+etot    6  N  Y  0  N    -349.92764059408  2.8E-05  1.1E-05  2.4E-04
+etot    7  N  Y  0  N    -349.92765771357  1.7E-05  1.2E-05  1.6E-04
+etot    8  N  Y  0  N    -349.92766799899  1.0E-05  1.1E-05  8.1E-05
+etot    9  N  Y  0  N    -349.92767301152  5.0E-06  3.0E-06  4.3E-05
+etot   10  N  N  0  N    -349.92767367530  6.6E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95974228431           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96276854429  3.0E-03  7.0E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96331731800  5.5E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96359528474  2.8E-04  3.4E-05  5.4E-04
+etot    5  N  Y  0  N    -349.96370686702  1.1E-04  2.1E-05  4.5E-04
+etot    6  N  Y  0  N    -349.96376050916  5.4E-05  1.9E-05  3.6E-04
+etot    7  N  Y  0  N    -349.96379984170  3.9E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96382993991  3.0E-05  1.8E-05  1.1E-04
+etot    9  N  Y  0  N    -349.96383947598  9.5E-06  3.3E-06  4.5E-05
+etot   10  N  N  0  N    -349.96384029338  8.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry   6 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92266605709           2.4E-04  5.8E-03
+etot    2  Y  Y  0  N    -349.92660624673  3.9E-03  7.9E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92761937941  1.0E-03  4.5E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92802139128  4.0E-04  3.3E-05  7.0E-04
+etot    5  N  Y  0  N    -349.92814629306  1.2E-04  2.2E-05  4.0E-04
+etot    6  N  Y  0  N    -349.92820462682  5.8E-05  2.0E-05  3.4E-04
+etot    7  N  Y  0  N    -349.92824484293  4.0E-05  1.8E-05  2.1E-04
+etot    8  N  Y  0  N    -349.92826653986  2.2E-05  1.5E-05  1.3E-04
+etot    9  N  Y  0  N    -349.92827605056  9.5E-06  4.0E-06  7.4E-05
+etot   10  N  N  0  N    -349.92827746708  1.4E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.96005584799           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96297242261  2.9E-03  6.8E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96350584274  5.3E-04  4.7E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96376312559  2.6E-04  3.2E-05  4.4E-04
+etot    5  N  Y  0  N    -349.96385825460  9.5E-05  1.9E-05  4.0E-04
+etot    6  N  Y  0  N    -349.96390177595  4.4E-05  1.6E-05  3.0E-04
+etot    7  N  Y  0  N    -349.96393297753  3.1E-05  2.3E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96395960999  2.7E-05  1.6E-05  8.8E-05
+etot    9  N  Y  0  N    -349.96396758135  8.0E-06  2.9E-06  4.4E-05
+etot   10  N  N  0  N    -349.96396822328  6.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry   7 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92146278465           2.4E-04  5.5E-03
+etot    2  Y  Y  0  N    -349.92562712967  4.2E-03  8.0E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92663766069  1.0E-03  4.6E-05  1.8E-03
+etot    4  N  Y  0  N    -349.92706297008  4.3E-04  3.2E-05  7.7E-04
+etot    5  N  Y  0  N    -349.92718459795  1.2E-04  2.1E-05  4.0E-04
+etot    6  N  Y  0  N    -349.92724140886  5.7E-05  1.9E-05  3.5E-04
+etot    7  N  Y  0  N    -349.92728037709  3.9E-05  1.7E-05  2.0E-04
+etot    8  N  Y  0  N    -349.92730116175  2.1E-05  1.5E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92731080180  9.6E-06  3.8E-06  5.7E-05
+etot   10  N  N  0  N    -349.92731206214  1.3E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95905051822           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96196942637  2.9E-03  6.8E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96250098328  5.3E-04  4.7E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96275714905  2.6E-04  3.1E-05  4.4E-04
+etot    5  N  Y  0  N    -349.96284996668  9.3E-05  1.9E-05  4.0E-04
+etot    6  N  Y  0  N    -349.96289192588  4.2E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.96292142575  2.9E-05  2.2E-05  2.1E-04
+etot    8  N  Y  0  N    -349.96294636397  2.5E-05  1.6E-05  8.3E-05
+etot    9  N  Y  0  N    -349.96295366993  7.3E-06  2.7E-06  3.7E-05
+etot   10  N  N  0  N    -349.96295420099  5.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry   8 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92162075172           2.4E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92541761414  3.8E-03  8.0E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92639120703  9.7E-04  4.2E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92674587613  3.5E-04  2.7E-05  4.4E-04
+etot    5  N  Y  0  N    -349.92681723132  7.1E-05  1.6E-05  3.2E-04
+etot    6  N  Y  0  N    -349.92684746414  3.0E-05  1.2E-05  2.4E-04
+etot    7  N  Y  0  N    -349.92686659176  1.9E-05  1.2E-05  1.7E-04
+etot    8  N  Y  0  N    -349.92687747560  1.1E-05  1.1E-05  9.3E-05
+etot    9  N  Y  0  N    -349.92688282519  5.3E-06  3.2E-06  4.5E-05
+etot   10  N  N  0  N    -349.92688353505  7.1E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95898689629           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96200860454  3.0E-03  7.0E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96256146118  5.5E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96283919702  2.8E-04  3.4E-05  5.4E-04
+etot    5  N  Y  0  N    -349.96295367579  1.1E-04  2.1E-05  4.4E-04
+etot    6  N  Y  0  N    -349.96300932769  5.6E-05  2.0E-05  3.6E-04
+etot    7  N  Y  0  N    -349.96305115097  4.2E-05  2.5E-05  2.4E-04
+etot    8  N  Y  0  N    -349.96308364021  3.2E-05  1.9E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96309414377  1.1E-05  3.6E-06  4.8E-05
+etot   10  N  N  0  N    -349.96309509463  9.5E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry   9 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92183722591           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92581829210  4.0E-03  8.0E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92677843465  9.6E-04  4.4E-05  1.8E-03
+etot    4  N  Y  0  N    -349.92715653623  3.8E-04  2.9E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92724730872  9.1E-05  1.8E-05  3.5E-04
+etot    6  N  Y  0  N    -349.92728802948  4.1E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92731486366  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92733103974  1.6E-05  1.3E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92733839516  7.4E-06  3.5E-06  5.7E-05
+etot   10  N  N  0  N    -349.92733941119  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95924110346           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96219805888  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96273894251  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96300714408  2.7E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96310972354  1.0E-04  2.0E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96315784388  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96319261344  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96322120227  2.9E-05  1.7E-05  9.3E-05
+etot    9  N  Y  0  N    -349.96322973707  8.5E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96323046109  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  10 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92194485305           2.3E-04  5.5E-03
+etot    2  Y  Y  0  N    -349.92575554404  3.8E-03  7.9E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92675086053  1.0E-03  4.3E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92711795052  3.7E-04  3.0E-05  6.0E-04
+etot    5  N  Y  0  N    -349.92721275405  9.5E-05  1.8E-05  3.8E-04
+etot    6  N  Y  0  N    -349.92725395254  4.1E-05  1.6E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92728164694  2.8E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92729728793  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92730468292  7.4E-06  3.6E-06  5.8E-05
+etot   10  N  N  0  N    -349.92730572251  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95923383784           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96221051063  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96275184198  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96301733387  2.7E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96312041298  1.0E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96316873230  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96320383308  3.5E-05  2.3E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96323205125  2.8E-05  1.7E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96324099412  8.9E-06  3.2E-06  4.3E-05
+etot   10  N  N  0  N    -349.96324172632  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  11 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92257024510           2.3E-04  5.5E-03
+etot    2  Y  Y  0  N    -349.92639250153  3.8E-03  7.8E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92735614338  9.6E-04  4.3E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92771203521  3.6E-04  2.9E-05  5.5E-04
+etot    5  N  Y  0  N    -349.92779919916  8.7E-05  1.7E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92783653345  3.7E-05  1.4E-05  2.7E-04
+etot    7  N  Y  0  N    -349.92786089168  2.4E-05  1.4E-05  1.7E-04
+etot    8  N  Y  0  N    -349.92787553476  1.5E-05  1.3E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92788230415  6.8E-06  3.4E-06  5.5E-05
+etot   10  N  N  0  N    -349.92788320624  9.0E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95985053521           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96283811725  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96338190306  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96365175810  2.7E-04  3.3E-05  5.1E-04
+etot    5  N  Y  0  N    -349.96375719068  1.1E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96380677358  5.0E-05  1.8E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96384248588  3.6E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96387076463  2.8E-05  1.7E-05  9.1E-05
+etot    9  N  Y  0  N    -349.96387925662  8.5E-06  3.0E-06  4.1E-05
+etot   10  N  N  0  N    -349.96387996325  7.1E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  12 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92253913136           2.4E-04  5.8E-03
+etot    2  Y  Y  0  N    -349.92640646985  3.9E-03  7.9E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92741728509  1.0E-03  4.4E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92778670597  3.7E-04  3.1E-05  6.2E-04
+etot    5  N  Y  0  N    -349.92788742644  1.0E-04  1.9E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92793211234  4.5E-05  1.6E-05  3.1E-04
+etot    7  N  Y  0  N    -349.92796212461  3.0E-05  1.6E-05  2.1E-04
+etot    8  N  Y  0  N    -349.92797924864  1.7E-05  1.4E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92798711260  7.9E-06  3.8E-06  5.9E-05
+etot   10  N  N  0  N    -349.92798828311  1.2E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95984863611           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96279651252  2.9E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96333469453  5.4E-04  4.7E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96359784768  2.6E-04  3.2E-05  4.7E-04
+etot    5  N  Y  0  N    -349.96369812570  1.0E-04  1.9E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96374505581  4.7E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96377918180  3.4E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96380772031  2.9E-05  1.7E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96381672983  9.0E-06  3.2E-06  4.5E-05
+etot   10  N  N  0  N    -349.96381748782  7.6E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  13 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92270586275           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92639697056  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92739495387  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92774361372  3.5E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92783887622  9.5E-05  1.9E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92788139110  4.3E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92790890189  2.8E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92792475103  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92793217790  7.4E-06  3.7E-06  6.0E-05
+etot   10  N  N  0  N    -349.92793324772  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95984390820           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96280798061  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96334909482  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96361504960  2.7E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96371749283  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96376556717  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96380027303  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96382863753  2.8E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96383734498  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96383807385  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  14 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92269192849           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92637980925  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92737803076  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92771617927  3.4E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92780961264  9.3E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92785004989  4.0E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92787669258  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92789236596  1.6E-05  1.3E-05  9.8E-05
+etot    9  N  Y  0  N    -349.92789951935  7.2E-06  3.4E-06  5.4E-05
+etot   10  N  N  0  N    -349.92790047604  9.6E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95981872992           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96278909749  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96333038431  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96359716023  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96370039697  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96374883715  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96378394596  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96381239403  2.8E-05  1.7E-05  9.9E-05
+etot    9  N  Y  0  N    -349.96382114123  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96382187049  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  15 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92252897064           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92621617680  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92721133633  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92755290798  3.4E-04  3.0E-05  6.1E-04
+etot    5  N  Y  0  N    -349.92764613933  9.3E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92768668100  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92771341734  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92772911657  1.6E-05  1.3E-05  9.8E-05
+etot    9  N  Y  0  N    -349.92773636092  7.2E-06  3.3E-06  5.3E-05
+etot   10  N  N  0  N    -349.92773730663  9.5E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95965188164           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96262249632  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96316478778  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96343188163  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96353506711  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96358341146  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96361849625  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96364700188  2.9E-05  1.7E-05  9.6E-05
+etot    9  N  Y  0  N    -349.96365572480  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96365645520  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  16 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92246917561           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92623009460  3.8E-03  7.8E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92723054413  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92758713372  3.6E-04  3.0E-05  5.7E-04
+etot    5  N  Y  0  N    -349.92768187048  9.5E-05  1.9E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92772455762  4.3E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92775207362  2.8E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92776787149  1.6E-05  1.3E-05  1.2E-04
+etot    9  N  Y  0  N    -349.92777538288  7.5E-06  3.7E-06  6.1E-05
+etot   10  N  N  0  N    -349.92777647276  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95969199988           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96265602834  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96319622486  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96346188004  2.7E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96356438040  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96361252684  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96364726129  3.5E-05  2.3E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96367555503  2.8E-05  1.7E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96368429689  8.7E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96368502408  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  17 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92284034702           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92652478750  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92753364998  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92787795618  3.4E-04  3.1E-05  6.1E-04
+etot    5  N  Y  0  N    -349.92797481996  9.7E-05  1.8E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92801713713  4.2E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92804496541  2.8E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92806121894  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92806862983  7.4E-06  3.5E-06  5.9E-05
+etot   10  N  N  0  N    -349.92806964938  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95997019013           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96293607488  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96347838257  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96374281237  2.6E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96384468650  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96389231467  4.8E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96392677649  3.4E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96395505081  2.8E-05  1.7E-05  9.6E-05
+etot    9  N  Y  0  N    -349.96396374376  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96396446602  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  18 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92282306892           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92650833131  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92749889516  9.9E-04  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92783806087  3.4E-04  3.0E-05  5.8E-04
+etot    5  N  Y  0  N    -349.92793103295  9.3E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92797152528  4.0E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92799767445  2.6E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92801297489  1.5E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92802009473  7.1E-06  3.6E-06  5.6E-05
+etot   10  N  N  0  N    -349.92802109630  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95994885045           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96291805020  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96345795894  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96372607359  2.7E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96382987547  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96387875177  4.9E-05  1.8E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96391409895  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96394262563  2.9E-05  1.7E-05  9.9E-05
+etot    9  N  Y  0  N    -349.96395140226  8.8E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96395214040  7.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  19 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92268553967           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92636128419  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92737164384  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92771768245  3.5E-04  3.1E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92781440601  9.7E-05  1.9E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92785670930  4.2E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92788424938  2.8E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92790001353  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92790741011  7.4E-06  3.7E-06  6.0E-05
+etot   10  N  N  0  N    -349.92790847836  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95983536593           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96280574205  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96334747847  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96361321775  2.7E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96371562657  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96376357900  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96379824615  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96382652730  2.8E-05  1.7E-05  9.6E-05
+etot    9  N  Y  0  N    -349.96383524245  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96383597404  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  20 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92271916037           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92641808108  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92740251789  9.8E-04  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92774304832  3.4E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92783502095  9.2E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92787564238  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92790226606  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92791802133  1.6E-05  1.3E-05  9.8E-05
+etot    9  N  Y  0  N    -349.92792519158  7.2E-06  3.4E-06  5.4E-05
+etot   10  N  N  0  N    -349.92792615052  9.6E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95983094628           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96279671463  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96333754686  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96360396640  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96370725975  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96375582839  4.9E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96379098664  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96381953380  2.9E-05  1.7E-05  9.9E-05
+etot    9  N  Y  0  N    -349.96382826558  8.7E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96382899172  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  21 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92255144530           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92621708569  3.7E-03  7.8E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92722268378  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92757284648  3.5E-04  3.0E-05  5.8E-04
+etot    5  N  Y  0  N    -349.92766787624  9.5E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92770962271  4.2E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92773668631  2.7E-05  1.5E-05  1.8E-04
+etot    8  N  Y  0  N    -349.92775202841  1.5E-05  1.3E-05  1.2E-04
+etot    9  N  Y  0  N    -349.92775933818  7.3E-06  3.7E-06  6.0E-05
+etot   10  N  N  0  N    -349.92776040400  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95968208657           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96265202667  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96319168992  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96345690653  2.7E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96355917909  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96360702834  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96364165608  3.5E-05  2.3E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96366984740  2.8E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96367855411  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96367928448  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  22 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92242362426           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92621098679  3.8E-03  7.8E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92719606374  9.9E-04  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92754478875  3.5E-04  3.0E-05  6.0E-04
+etot    5  N  Y  0  N    -349.92763752879  9.3E-05  1.8E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92767887811  4.1E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92770606208  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92772224417  1.6E-05  1.4E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92772963497  7.4E-06  3.4E-06  5.4E-05
+etot   10  N  N  0  N    -349.92773059938  9.6E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95963908442           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96260430287  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96314729873  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96341449313  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96351791967  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96356656057  4.9E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96360174426  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96363037792  2.9E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96363911069  8.7E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96363983697  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  23 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92292542661           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92660153031  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92760308291  1.0E-03  4.3E-05  1.5E-03
+etot    4  N  Y  0  N    -349.92794666440  3.4E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92804314172  9.6E-05  1.9E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92808559601  4.2E-05  1.6E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92811356267  2.8E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92812969630  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92813705685  7.4E-06  3.5E-06  5.7E-05
+etot   10  N  N  0  N    -349.92813807853  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.96000068073           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96295748660  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96349520533  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96375979867  2.6E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96386061983  1.0E-04  1.9E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96390761932  4.7E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96394158420  3.4E-05  2.3E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96396942172  2.8E-05  1.7E-05  9.5E-05
+etot    9  N  Y  0  N    -349.96397800235  8.6E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96397870989  7.1E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  24 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92275550359           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92644401909  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92744119121  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92778096832  3.4E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92787422538  9.3E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92791451474  4.0E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92794048838  2.6E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92795585551  1.5E-05  1.3E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92796300730  7.2E-06  3.5E-06  5.7E-05
+etot   10  N  N  0  N    -349.92796400688  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95993098953           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96290983136  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96345409162  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96372255029  2.7E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96382743736  1.0E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96387696442  5.0E-05  1.8E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96391283686  3.6E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96394181460  2.9E-05  1.7E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96395070334  8.9E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96395144109  7.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  25 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92270560407           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92637986024  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92738924478  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92772249376  3.3E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92781610757  9.4E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92785741489  4.1E-05  1.5E-05  2.8E-04
+etot    7  N  Y  0  N    -349.92788435484  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92789976488  1.5E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92790724851  7.5E-06  3.7E-06  5.8E-05
+etot   10  N  N  0  N    -349.92790829371  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95983073274           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96280164409  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96334342677  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96360991136  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96371303654  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96376139232  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96379645111  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96382489982  2.8E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96383367857  8.8E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96383441102  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  26 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92269994896           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92640285210  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92739097569  9.9E-04  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92774319618  3.5E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92783832140  9.5E-05  1.9E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92787994550  4.2E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92790709330  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92792330839  1.6E-05  1.3E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92793031968  7.0E-06  3.3E-06  5.6E-05
+etot   10  N  N  0  N    -349.92793127970  9.6E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95983788558           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96280167808  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96334229036  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96360836469  2.7E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96371093263  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96375909588  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96379383808  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96382221807  2.8E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96383089508  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96383161581  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  27 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92251529528           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92619534427  3.7E-03  7.7E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92720660196  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92753849048  3.3E-04  3.0E-05  6.2E-04
+etot    5  N  Y  0  N    -349.92763126315  9.3E-05  1.8E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92767291106  4.2E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92769987508  2.7E-05  1.4E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92771511683  1.5E-05  1.4E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92772275891  7.6E-06  3.8E-06  5.8E-05
+etot   10  N  N  0  N    -349.92772384390  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95964314263           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96261551401  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96315743552  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96342477285  2.7E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96352781779  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96357612593  4.8E-05  1.7E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96361112931  3.5E-05  2.3E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96363944338  2.8E-05  1.7E-05  9.9E-05
+etot    9  N  Y  0  N    -349.96364826389  8.8E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96364899599  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  28 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92246875534           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92623722333  3.8E-03  7.8E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92722380205  9.9E-04  4.3E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92758900852  3.7E-04  3.0E-05  5.7E-04
+etot    5  N  Y  0  N    -349.92768428425  9.5E-05  1.9E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92772593906  4.2E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92775310088  2.7E-05  1.6E-05  1.8E-04
+etot    8  N  Y  0  N    -349.92776961195  1.7E-05  1.3E-05  9.6E-05
+etot    9  N  Y  0  N    -349.92777648089  6.9E-06  3.1E-06  5.4E-05
+etot   10  N  N  0  N    -349.92777740292  9.2E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95968762301           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96264966111  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96319005725  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96345557947  2.7E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96355817641  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96360634614  4.8E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96364114321  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96366963368  2.8E-05  1.7E-05  9.6E-05
+etot    9  N  Y  0  N    -349.96367826936  8.6E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96367898724  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  29 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92282832630           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92651393949  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92751876736  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92786135793  3.4E-04  3.1E-05  5.8E-04
+etot    5  N  Y  0  N    -349.92795674296  9.5E-05  1.8E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92799822298  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92802521606  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92804094728  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92804823812  7.3E-06  3.6E-06  5.9E-05
+etot   10  N  N  0  N    -349.92804926719  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95997173280           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96294075316  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96348205378  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96374775076  2.7E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96385004976  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96389794764  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96393261078  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96396092865  2.8E-05  1.7E-05  9.9E-05
+etot    9  N  Y  0  N    -349.96396964831  8.7E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96397037858  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  30 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92285484621           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92654123622  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92753659751  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92787795748  3.4E-04  3.0E-05  6.0E-04
+etot    5  N  Y  0  N    -349.92797274094  9.5E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92801399722  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92804083848  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92805657915  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92806378361  7.2E-06  3.5E-06  5.5E-05
+etot   10  N  N  0  N    -349.92806478865  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95997175509           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96293779652  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96347891078  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96374556397  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96384898780  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96389764079  4.9E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96393282028  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96396135995  2.9E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96397010091  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96397083011  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  31 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92274570754           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92643182257  3.7E-03  7.7E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92742265551  9.9E-04  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92775819414  3.4E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92784991186  9.2E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92789117160  4.1E-05  1.5E-05  2.8E-04
+etot    7  N  Y  0  N    -349.92791788940  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92793327551  1.5E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92794075474  7.5E-06  3.7E-06  5.7E-05
+etot   10  N  N  0  N    -349.92794179945  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95983770314           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96279961894  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96333986756  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96360507948  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96370799061  1.0E-04  2.0E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96375630356  4.8E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96379131310  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96381970076  2.8E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96382846036  8.8E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96382919242  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  32 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92265356524           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92634331796  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92734844099  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92769893191  3.5E-04  3.1E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92779594752  9.7E-05  1.8E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92783762653  4.2E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92786500301  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92788122525  1.6E-05  1.3E-05  9.9E-05
+etot    9  N  Y  0  N    -349.92788825116  7.0E-06  3.3E-06  5.6E-05
+etot   10  N  N  0  N    -349.92788920664  9.6E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95982408035           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96279789350  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96334021285  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96360729233  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96371006704  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96375826317  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96379306419  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96382150050  2.8E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96383019200  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96383091625  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  33 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92254355480           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92622133729  3.7E-03  7.8E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92721751400  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92757473904  3.6E-04  3.1E-05  5.7E-04
+etot    5  N  Y  0  N    -349.92767147231  9.7E-05  1.9E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92771292632  4.1E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92774026464  2.7E-05  1.6E-05  1.8E-04
+etot    8  N  Y  0  N    -349.92775647390  1.6E-05  1.3E-05  9.4E-05
+etot    9  N  Y  0  N    -349.92776331623  6.8E-06  3.2E-06  5.4E-05
+etot   10  N  N  0  N    -349.92776423680  9.2E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95969121205           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96265963268  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96319971444  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96346554796  2.7E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96356785002  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96361573416  4.8E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96365041937  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96367872600  2.8E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96368743024  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96368815968  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  34 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92245421111           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92622418653  3.8E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92722172211  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92756157039  3.4E-04  3.0E-05  6.2E-04
+etot    5  N  Y  0  N    -349.92765293906  9.1E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92769465362  4.2E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92772149934  2.7E-05  1.4E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92773694516  1.5E-05  1.4E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92774465137  7.7E-06  3.8E-06  5.8E-05
+etot   10  N  N  0  N    -349.92774573902  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95964912310           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96261584478  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96315825189  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96342489567  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96352822103  1.0E-04  2.0E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96357679901  4.9E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96361191484  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96364040395  2.8E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96364915320  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96364988062  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  35 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92287680697           2.3E-04  5.8E-03
+etot    2  Y  Y  0  N    -349.92655173812  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92755039931  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92789336445  3.4E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92798839365  9.5E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92802966075  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92805666013  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92807238878  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92807958690  7.2E-06  3.5E-06  5.5E-05
+etot   10  N  N  0  N    -349.92808059404  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95997942076           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96294290678  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96348307971  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96374846432  2.7E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96385057002  1.0E-04  2.0E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96389835414  4.8E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96393295936  3.5E-05  2.3E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96396118015  2.8E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96396989637  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96397062925  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  36 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92280222769           2.3E-04  5.5E-03
+etot    2  Y  Y  0  N    -349.92649695791  3.7E-03  7.7E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92749786166  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92783939278  3.4E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92793452656  9.5E-05  1.8E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92797601014  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92800285701  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92801859078  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92802588827  7.3E-06  3.6E-06  5.9E-05
+etot   10  N  N  0  N    -349.92802691381  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95995858529           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96293052268  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96347287053  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96373993354  2.7E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96384353876  1.0E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96389228948  4.9E-05  1.7E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96392752527  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96395615895  2.9E-05  1.7E-05  9.9E-05
+etot    9  N  Y  0  N    -349.96396489984  8.7E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96396562794  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  37 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92254531618           2.4E-04  5.3E-03
+etot    2  Y  Y  0  N    -349.92660764377  4.1E-03  7.9E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92753611711  9.3E-04  4.4E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92792419408  3.9E-04  3.0E-05  5.8E-04
+etot    5  N  Y  0  N    -349.92801992368  9.6E-05  1.8E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92806125319  4.1E-05  1.6E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92808938376  2.8E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92810541572  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92811270307  7.3E-06  3.6E-06  5.7E-05
+etot   10  N  N  0  N    -349.92811374622  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95994484692           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96289944694  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96343550102  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96369890222  2.6E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96380050984  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96384822125  4.8E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96388298022  3.5E-05  2.3E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96391094530  2.8E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96391964579  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96392036770  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  38 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92254503367           2.4E-04  6.1E-03
+etot    2  Y  Y  0  N    -349.92629683067  3.8E-03  8.0E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92734709088  1.1E-03  4.4E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92771645616  3.7E-04  2.9E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92780633218  9.0E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92784618852  4.0E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92787237385  2.6E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92788836559  1.6E-05  1.4E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92789583904  7.5E-06  3.6E-06  5.7E-05
+etot   10  N  N  0  N    -349.92789687351  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95990756469           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96289105681  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96343870279  5.5E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96370838084  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96381278254  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96386175488  4.9E-05  1.7E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96389688213  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96392582548  2.9E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96393462246  8.8E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96393534978  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  39 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92117632058           2.4E-04  6.4E-03
+etot    2  Y  Y  0  N    -349.92448633692  3.3E-03  8.5E-05  4.0E-03
+etot    3  Y  Y  0  N    -349.92591778022  1.4E-03  4.5E-05  1.8E-03
+etot    4  N  Y  0  N    -349.92629035631  3.7E-04  2.8E-05  5.8E-04
+etot    5  N  Y  0  N    -349.92637498719  8.5E-05  1.8E-05  3.8E-04
+etot    6  N  Y  0  N    -349.92641667488  4.2E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92644251816  2.6E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92645913295  1.7E-05  1.5E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92646755647  8.4E-06  3.8E-06  6.4E-05
+etot   10  N  N  0  N    -349.92646868093  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95898193319           1.8E-04  4.8E-03
+etot    2  Y  Y  0  N    -349.96209079091  3.1E-03  7.0E-05  2.3E-03
+etot    3  Y  Y  0  N    -349.96268612028  6.0E-04  5.0E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96297810446  2.9E-04  3.5E-05  5.2E-04
+etot    5  N  Y  0  N    -349.96309342360  1.2E-04  2.1E-05  4.5E-04
+etot    6  N  Y  0  N    -349.96314823822  5.5E-05  1.8E-05  3.7E-04
+etot    7  N  Y  0  N    -349.96318696215  3.9E-05  2.6E-05  2.4E-04
+etot    8  N  Y  0  N    -349.96321983622  3.3E-05  1.9E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96322981578  1.0E-05  3.2E-06  4.5E-05
+etot   10  N  N  0  N    -349.96323059361  7.8E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  40 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92211631995           2.4E-04  5.3E-03
+etot    2  Y  Y  0  N    -349.92687591676  4.8E-03  8.1E-05  2.8E-03
+etot    3  Y  Y  0  N    -349.92751690520  6.4E-04  4.3E-05  1.9E-03
+etot    4  N  Y  0  N    -349.92794511940  4.3E-04  3.0E-05  6.2E-04
+etot    5  N  Y  0  N    -349.92804747668  1.0E-04  1.8E-05  3.3E-04
+etot    6  N  Y  0  N    -349.92808868614  4.1E-05  1.6E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92811805847  2.9E-05  1.5E-05  1.7E-04
+etot    8  N  Y  0  N    -349.92813318292  1.5E-05  1.2E-05  1.2E-04
+etot    9  N  Y  0  N    -349.92813932339  6.1E-06  3.6E-06  5.7E-05
+etot   10  N  N  0  N    -349.92814036032  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95946263626           1.7E-04  4.4E-03
+etot    2  Y  Y  0  N    -349.96229063577  2.8E-03  6.8E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96278394958  4.9E-04  4.6E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96302656456  2.4E-04  3.1E-05  4.6E-04
+etot    5  N  Y  0  N    -349.96311868674  9.2E-05  1.8E-05  3.9E-04
+etot    6  N  Y  0  N    -349.96316167872  4.3E-05  1.6E-05  2.9E-04
+etot    7  N  Y  0  N    -349.96319327325  3.2E-05  2.2E-05  2.1E-04
+etot    8  N  Y  0  N    -349.96321778091  2.5E-05  1.6E-05  9.2E-05
+etot    9  N  Y  0  N    -349.96322541007  7.6E-06  3.0E-06  4.1E-05
+etot   10  N  N  0  N    -349.96322605965  6.5E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  41 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92232677248           2.4E-04  4.9E-03
+etot    2  Y  Y  0  N    -349.92658025982  4.3E-03  8.1E-05  3.2E-03
+etot    3  Y  Y  0  N    -349.92745700119  8.8E-04  4.6E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92787798410  4.2E-04  3.1E-05  6.0E-04
+etot    5  N  Y  0  N    -349.92798867119  1.1E-04  2.0E-05  3.8E-04
+etot    6  N  Y  0  N    -349.92803765098  4.9E-05  1.8E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92807331449  3.6E-05  1.6E-05  1.8E-04
+etot    8  N  Y  0  N    -349.92809176420  1.8E-05  1.4E-05  1.2E-04
+etot    9  N  Y  0  N    -349.92809952360  7.8E-06  3.6E-06  6.1E-05
+etot   10  N  N  0  N    -349.92810061178  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95980765948           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96272731804  2.9E-03  6.8E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96326268962  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96352398936  2.6E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96362632454  1.0E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96367552248  4.9E-05  1.8E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96371288247  3.7E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96374275523  3.0E-05  1.8E-05  9.9E-05
+etot    9  N  Y  0  N    -349.96375188374  9.1E-06  3.2E-06  4.4E-05
+etot   10  N  N  0  N    -349.96375261915  7.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  42 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92235939429           2.4E-04  6.6E-03
+etot    2  Y  Y  0  N    -349.92591329712  3.6E-03  8.0E-05  3.6E-03
+etot    3  Y  Y  0  N    -349.92703067433  1.1E-03  4.3E-05  1.8E-03
+etot    4  N  Y  0  N    -349.92738514986  3.5E-04  2.8E-05  5.7E-04
+etot    5  N  Y  0  N    -349.92746208333  7.7E-05  1.7E-05  3.3E-04
+etot    6  N  Y  0  N    -349.92749683846  3.5E-05  1.3E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92751815536  2.1E-05  1.4E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92753173249  1.4E-05  1.3E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92753871791  7.0E-06  3.6E-06  5.7E-05
+etot   10  N  N  0  N    -349.92753974468  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95965735686           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96267067901  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96321908463  5.5E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96349199930  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96359557341  1.0E-04  2.0E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96364347640  4.8E-05  1.7E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96367616492  3.3E-05  2.3E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96370324941  2.7E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96371170463  8.5E-06  3.0E-06  4.3E-05
+etot   10  N  N  0  N    -349.96371242155  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  43 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92193758339           2.4E-04  6.2E-03
+etot    2  Y  Y  0  N    -349.92592325934  4.0E-03  8.4E-05  3.5E-03
+etot    3  Y  Y  0  N    -349.92697564066  1.1E-03  4.5E-05  1.9E-03
+etot    4  N  Y  0  N    -349.92739091390  4.2E-04  2.9E-05  5.5E-04
+etot    5  N  Y  0  N    -349.92748051457  9.0E-05  1.8E-05  3.9E-04
+etot    6  N  Y  0  N    -349.92752179226  4.1E-05  1.6E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92755029621  2.9E-05  1.7E-05  2.3E-04
+etot    8  N  Y  0  N    -349.92756930116  1.9E-05  1.6E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92757865642  9.4E-06  4.2E-06  6.3E-05
+etot   10  N  N  0  N    -349.92758000391  1.3E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95963996582           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96263578556  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96319367981  5.6E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96346798823  2.7E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96357586777  1.1E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96362689284  5.1E-05  1.8E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96366347694  3.7E-05  2.5E-05  2.4E-04
+etot    8  N  Y  0  N    -349.96369374233  3.0E-05  1.8E-05  1.0E-04
+etot    9  N  Y  0  N    -349.96370294557  9.2E-06  3.2E-06  4.5E-05
+etot   10  N  N  0  N    -349.96370372524  7.8E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  44 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92197327552           2.4E-04  5.2E-03
+etot    2  Y  Y  0  N    -349.92642927452  4.5E-03  8.3E-05  3.2E-03
+etot    3  Y  Y  0  N    -349.92731022124  8.8E-04  4.6E-05  1.8E-03
+etot    4  N  Y  0  N    -349.92775735043  4.5E-04  2.9E-05  6.3E-04
+etot    5  N  Y  0  N    -349.92785312749  9.6E-05  1.8E-05  4.0E-04
+etot    6  N  Y  0  N    -349.92789441011  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92792269435  2.8E-05  1.4E-05  1.6E-04
+etot    8  N  Y  0  N    -349.92793795329  1.5E-05  1.2E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92794457371  6.6E-06  3.3E-06  5.8E-05
+etot   10  N  N  0  N    -349.92794546311  8.9E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95970387784           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96264360609  2.9E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96317052653  5.3E-04  4.7E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96343013420  2.6E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96352872989  9.9E-05  1.9E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96357466752  4.6E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96360815646  3.3E-05  2.3E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96363495100  2.7E-05  1.7E-05  9.5E-05
+etot    9  N  Y  0  N    -349.96364328996  8.3E-06  3.1E-06  4.2E-05
+etot   10  N  N  0  N    -349.96364396630  6.8E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  45 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92170551408           2.5E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92738824367  5.7E-03  8.0E-05  2.5E-03
+etot    3  N  Y  0  N    -349.92795790128  5.7E-04  4.2E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92831190062  3.5E-04  2.6E-05  7.5E-04
+etot    5  N  Y  0  N    -349.92841360214  1.0E-04  1.6E-05  3.2E-04
+etot    6  N  Y  0  N    -349.92845004561  3.6E-05  1.3E-05  2.7E-04
+etot    7  N  Y  0  N    -349.92847224705  2.2E-05  1.1E-05  1.3E-04
+etot    8  N  Y  0  N    -349.92848198579  9.7E-06  8.3E-06  8.6E-05
+etot    9  N  Y  0  N    -349.92848580150  3.8E-06  2.4E-06  4.9E-05
+etot   10  N  N  0  N    -349.92848638216  5.8E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95943485731           1.7E-04  4.3E-03
+etot    2  Y  Y  0  N    -349.96215481701  2.7E-03  6.6E-05  2.0E-03
+etot    3  Y  Y  0  N    -349.96260584667  4.5E-04  4.3E-05  1.2E-03
+etot    4  N  Y  0  N    -349.96283026616  2.2E-04  2.8E-05  4.3E-04
+etot    5  N  Y  0  N    -349.96290942458  7.9E-05  1.7E-05  3.4E-04
+etot    6  N  Y  0  N    -349.96294468577  3.5E-05  1.4E-05  2.5E-04
+etot    7  N  Y  0  N    -349.96296910578  2.4E-05  1.8E-05  1.6E-04
+etot    8  N  Y  0  N    -349.96298725718  1.8E-05  1.3E-05  8.2E-05
+etot    9  N  Y  0  N    -349.96299277480  5.5E-06  2.4E-06  3.7E-05
+etot   10  N  N  0  N    -349.96299321750  4.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  46 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.91966212839           2.6E-04  6.8E-03
+etot    2  Y  Y  0  N    -349.92314649591  3.5E-03  9.7E-05  4.7E-03
+etot    3  Y  Y  0  N    -349.92508897613  1.9E-03  5.4E-05  2.0E-03
+etot    4  N  Y  0  N    -349.92556387091  4.7E-04  3.4E-05  8.1E-04
+etot    5  N  Y  0  N    -349.92569476342  1.3E-04  2.6E-05  5.5E-04
+etot    6  N  Y  0  N    -349.92577323603  7.8E-05  2.5E-05  4.4E-04
+etot    7  N  Y  0  N    -349.92583427264  6.1E-05  2.8E-05  3.3E-04
+etot    8  N  Y  0  N    -349.92588016501  4.6E-05  2.9E-05  2.4E-04
+etot    9  N  Y  0  N    -349.92590520862  2.5E-05  6.7E-06  1.1E-04
+etot   10  N  Y  0  N    -349.92590831278  3.1E-06  6.5E-06  7.0E-05
+etot   11  N  Y  0  N    -349.92591042678  2.1E-06  4.6E-06  3.9E-05
+etot   12  N  N  0  N    -349.92591120976  7.8E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95858632834           1.8E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96177429582  3.2E-03  7.1E-05  2.4E-03
+etot    3  Y  Y  0  N    -349.96244928761  6.7E-04  5.4E-05  1.6E-03
+etot    4  N  Y  0  N    -349.96277643588  3.3E-04  3.9E-05  6.8E-04
+etot    5  N  Y  0  N    -349.96292734412  1.5E-04  2.6E-05  5.8E-04
+etot    6  N  Y  0  N    -349.96300540254  7.8E-05  2.4E-05  4.3E-04
+etot    7  N  Y  0  N    -349.96306559467  6.0E-05  3.6E-05  3.3E-04
+etot    8  N  Y  0  N    -349.96311989644  5.4E-05  2.5E-05  1.2E-04
+etot    9  N  Y  0  N    -349.96313575627  1.6E-05  4.1E-06  5.4E-05
+etot   10  N  N  0  N    -349.96313699384  1.2E-06  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  47 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92096633112           2.5E-04  6.9E-03
+etot    2  Y  Y  0  N    -349.92522793712  4.3E-03  8.8E-05  3.8E-03
+etot    3  Y  Y  0  N    -349.92620773641  9.8E-04  4.4E-05  2.7E-03
+etot    4  N  Y  0  N    -349.92666502216  4.6E-04  2.5E-05  5.2E-04
+etot    5  N  Y  0  N    -349.92672780022  6.3E-05  1.5E-05  2.6E-04
+etot    6  N  Y  0  N    -349.92675597897  2.8E-05  1.4E-05  2.5E-04
+etot    7  N  Y  0  N    -349.92677544509  1.9E-05  1.4E-05  1.5E-04
+etot    8  N  Y  0  N    -349.92678823710  1.3E-05  1.2E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92679426147  6.0E-06  4.9E-06  5.7E-05
+etot   10  N  N  0  N    -349.92679572130  1.5E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95915962385           1.7E-04  4.9E-03
+etot    2  Y  Y  0  N    -349.96220029662  3.0E-03  7.0E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96275557475  5.6E-04  4.8E-05  1.5E-03
+etot    4  N  Y  0  N    -349.96303723727  2.8E-04  3.3E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96313848835  1.0E-04  2.0E-05  3.7E-04
+etot    6  N  Y  0  N    -349.96318411061  4.6E-05  1.6E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96321294790  2.9E-05  2.0E-05  2.1E-04
+etot    8  N  Y  0  N    -349.96323513265  2.2E-05  1.5E-05  9.4E-05
+etot    9  N  Y  0  N    -349.96324239094  7.3E-06  2.9E-06  4.1E-05
+etot   10  N  N  0  N    -349.96324308919  7.0E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  48 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92103395648           2.6E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92578446095  4.8E-03  9.1E-05  3.5E-03
+etot    3  Y  Y  0  N    -349.92698872175  1.2E-03  5.6E-05  2.1E-03
+etot    4  N  Y  0  N    -349.92758726475  6.0E-04  3.4E-05  6.8E-04
+etot    5  N  Y  0  N    -349.92774669702  1.6E-04  2.4E-05  4.7E-04
+etot    6  N  Y  0  N    -349.92782767560  8.1E-05  2.6E-05  3.8E-04
+etot    7  N  Y  0  N    -349.92789232648  6.5E-05  2.1E-05  1.6E-04
+etot    8  N  Y  0  N    -349.92791967332  2.7E-05  1.5E-05  1.4E-04
+etot    9  N  Y  0  N    -349.92792865892  9.0E-06  3.4E-06  7.1E-05
+etot   10  N  N  0  N    -349.92792981556  1.2E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95935391757           1.7E-04  4.1E-03
+etot    2  Y  Y  0  N    -349.96221472422  2.9E-03  6.7E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96274464241  5.3E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96300965320  2.7E-04  3.1E-05  5.1E-04
+etot    5  N  Y  0  N    -349.96311231945  1.0E-04  2.0E-05  4.6E-04
+etot    6  N  Y  0  N    -349.96316449981  5.2E-05  1.9E-05  3.1E-04
+etot    7  N  Y  0  N    -349.96320690863  4.2E-05  2.7E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96324276886  3.6E-05  2.0E-05  1.1E-04
+etot    9  N  Y  0  N    -349.96325351046  1.1E-05  3.3E-06  4.8E-05
+etot   10  N  N  0  N    -349.96325425339  7.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  49 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92261002767           2.4E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92651015188  3.9E-03  7.9E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92750917957  1.0E-03  4.4E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92788901612  3.8E-04  3.0E-05  6.0E-04
+etot    5  N  Y  0  N    -349.92798622600  9.7E-05  1.8E-05  3.9E-04
+etot    6  N  Y  0  N    -349.92802884473  4.3E-05  1.6E-05  2.8E-04
+etot    7  N  Y  0  N    -349.92805752120  2.9E-05  1.5E-05  1.7E-04
+etot    8  N  Y  0  N    -349.92807357447  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92808070208  7.1E-06  3.5E-06  5.9E-05
+etot   10  N  N  0  N    -349.92808169493  9.9E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95995761175           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96291663966  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96345410025  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96371884446  2.6E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96382092232  1.0E-04  2.0E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96386883109  4.8E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96390380246  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96393216921  2.8E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96394086171  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96394156851  7.1E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  50 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92262543922           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92645664815  3.8E-03  7.9E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92743680209  9.8E-04  4.3E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92780154045  3.6E-04  3.0E-05  5.8E-04
+etot    5  N  Y  0  N    -349.92789324203  9.2E-05  1.8E-05  3.5E-04
+etot    6  N  Y  0  N    -349.92793356883  4.0E-05  1.5E-05  3.1E-04
+etot    7  N  Y  0  N    -349.92796032428  2.7E-05  1.5E-05  2.0E-04
+etot    8  N  Y  0  N    -349.92797698306  1.7E-05  1.4E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92798502571  8.0E-06  3.9E-06  5.6E-05
+etot   10  N  N  0  N    -349.92798621742  1.2E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95993489997           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96291073474  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96345624673  5.5E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96372397609  2.7E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96382791883  1.0E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96387677639  4.9E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96391188918  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96394055820  2.9E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96394936774  8.8E-06  3.2E-06  4.4E-05
+etot   10  N  N  0  N    -349.96395011935  7.5E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  51 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92180936935           2.4E-04  6.1E-03
+etot    2  Y  Y  0  N    -349.92559335395  3.8E-03  8.2E-05  3.6E-03
+etot    3  Y  Y  0  N    -349.92672776475  1.1E-03  4.7E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92710100163  3.7E-04  3.2E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92720341713  1.0E-04  1.9E-05  3.9E-04
+etot    6  N  Y  0  N    -349.92725091417  4.7E-05  1.8E-05  3.1E-04
+etot    7  N  Y  0  N    -349.92728652428  3.6E-05  1.9E-05  2.2E-04
+etot    8  N  Y  0  N    -349.92731007463  2.4E-05  1.8E-05  1.4E-04
+etot    9  N  Y  0  N    -349.92732209524  1.2E-05  5.1E-06  7.2E-05
+etot   10  N  Y  0  N    -349.92732380161  1.7E-06  3.8E-06  4.5E-05
+etot   11  N  N  0  N    -349.92732471552  9.1E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95968640896           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96273276479  3.0E-03  7.0E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96331599799  5.8E-04  5.0E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96360407521  2.9E-04  3.5E-05  5.1E-04
+etot    5  N  Y  0  N    -349.96372335615  1.2E-04  2.2E-05  4.5E-04
+etot    6  N  Y  0  N    -349.96378185072  5.8E-05  2.0E-05  3.7E-04
+etot    7  N  Y  0  N    -349.96382667782  4.5E-05  2.7E-05  2.5E-04
+etot    8  N  Y  0  N    -349.96386305986  3.6E-05  2.0E-05  1.1E-04
+etot    9  N  Y  0  N    -349.96387422780  1.1E-05  3.6E-06  4.6E-05
+etot   10  N  N  0  N    -349.96387515945  9.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  52 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92315538689           2.3E-04  5.2E-03
+etot    2  Y  Y  0  N    -349.92710508067  3.9E-03  7.7E-05  3.1E-03
+etot    3  Y  Y  0  N    -349.92796778329  8.6E-04  4.1E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92834429432  3.8E-04  2.9E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92843694114  9.3E-05  1.8E-05  3.4E-04
+etot    6  N  Y  0  N    -349.92847687569  4.0E-05  1.4E-05  2.8E-04
+etot    7  N  Y  0  N    -349.92850084691  2.4E-05  1.3E-05  1.6E-04
+etot    8  N  Y  0  N    -349.92851311462  1.2E-05  1.1E-05  9.9E-05
+etot    9  N  Y  0  N    -349.92851818158  5.1E-06  2.6E-06  5.6E-05
+etot   10  N  N  0  N    -349.92851886083  6.8E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95993954429           1.7E-04  4.4E-03
+etot    2  Y  Y  0  N    -349.96281966582  2.9E-03  6.8E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96332560938  5.1E-04  4.6E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96357378861  2.5E-04  3.1E-05  4.7E-04
+etot    5  N  Y  0  N    -349.96366468204  9.1E-05  1.8E-05  4.0E-04
+etot    6  N  Y  0  N    -349.96370598978  4.1E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.96373421573  2.8E-05  2.1E-05  2.1E-04
+etot    8  N  Y  0  N    -349.96375752003  2.3E-05  1.5E-05  9.2E-05
+etot    9  N  Y  0  N    -349.96376459533  7.1E-06  2.7E-06  4.2E-05
+etot   10  N  N  0  N    -349.96376515831  5.6E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  53 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92191452325           2.4E-04  5.5E-03
+etot    2  Y  Y  0  N    -349.92587995773  4.0E-03  8.4E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92702326560  1.1E-03  4.7E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92745048739  4.3E-04  2.9E-05  5.4E-04
+etot    5  N  Y  0  N    -349.92755042841  1.0E-04  1.8E-05  3.8E-04
+etot    6  N  Y  0  N    -349.92759613888  4.6E-05  1.7E-05  2.7E-04
+etot    7  N  Y  0  N    -349.92762871713  3.3E-05  1.6E-05  1.7E-04
+etot    8  N  Y  0  N    -349.92764771992  1.9E-05  1.4E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92765613171  8.4E-06  3.8E-06  5.7E-05
+etot   10  N  N  0  N    -349.92765722225  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95926899392           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96222783564  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96278021546  5.5E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96305790678  2.8E-04  3.3E-05  5.3E-04
+etot    5  N  Y  0  N    -349.96317306501  1.2E-04  2.1E-05  4.5E-04
+etot    6  N  Y  0  N    -349.96323039086  5.7E-05  2.0E-05  3.5E-04
+etot    7  N  Y  0  N    -349.96327542877  4.5E-05  2.7E-05  2.4E-04
+etot    8  N  Y  0  N    -349.96331169502  3.6E-05  1.9E-05  1.1E-04
+etot    9  N  Y  0  N    -349.96332260369  1.1E-05  3.4E-06  4.6E-05
+etot   10  N  N  0  N    -349.96332345073  8.5E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  54 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92172329471           2.4E-04  5.9E-03
+etot    2  Y  Y  0  N    -349.92576642637  4.0E-03  8.1E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92662988964  8.6E-04  4.2E-05  2.2E-03
+etot    4  N  Y  0  N    -349.92703070256  4.0E-04  2.9E-05  6.2E-04
+etot    5  N  Y  0  N    -349.92711811867  8.7E-05  1.9E-05  3.1E-04
+etot    6  N  Y  0  N    -349.92715938556  4.1E-05  1.5E-05  3.1E-04
+etot    7  N  Y  0  N    -349.92718221947  2.3E-05  1.4E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92719492952  1.3E-05  1.1E-05  9.6E-05
+etot    9  N  Y  0  N    -349.92720083795  5.9E-06  3.5E-06  5.9E-05
+etot   10  N  N  0  N    -349.92720186204  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95943833144           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96241052496  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96294487650  5.3E-04  4.7E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96320629656  2.6E-04  3.2E-05  4.5E-04
+etot    5  N  Y  0  N    -349.96329811873  9.2E-05  1.9E-05  3.9E-04
+etot    6  N  Y  0  N    -349.96333905999  4.1E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.96336587135  2.7E-05  2.0E-05  2.1E-04
+etot    8  N  Y  0  N    -349.96338805273  2.2E-05  1.5E-05  9.1E-05
+etot    9  N  Y  0  N    -349.96339511374  7.1E-06  2.8E-06  4.2E-05
+etot   10  N  N  0  N    -349.96339570984  6.0E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  55 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92266647616           2.4E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92658500527  3.9E-03  7.8E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92755946546  9.7E-04  4.4E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92793607505  3.8E-04  3.1E-05  6.9E-04
+etot    5  N  Y  0  N    -349.92803875237  1.0E-04  1.9E-05  4.0E-04
+etot    6  N  Y  0  N    -349.92808395475  4.5E-05  1.6E-05  3.3E-04
+etot    7  N  Y  0  N    -349.92811336658  2.9E-05  1.5E-05  1.8E-04
+etot    8  N  Y  0  N    -349.92812955166  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92813691675  7.4E-06  3.6E-06  6.1E-05
+etot   10  N  N  0  N    -349.92813799152  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95999089053           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96293798963  2.9E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96347100356  5.3E-04  4.7E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96373229099  2.6E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96383137135  9.9E-05  1.9E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96387746317  4.6E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96391068987  3.3E-05  2.3E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96393813744  2.7E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96394676151  8.6E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96394747915  7.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  56 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92271131606           2.3E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92645337267  3.7E-03  7.9E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92744843418  1.0E-03  4.3E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92780059616  3.5E-04  3.0E-05  5.0E-04
+etot    5  N  Y  0  N    -349.92788802413  8.7E-05  1.7E-05  3.5E-04
+etot    6  N  Y  0  N    -349.92792579034  3.8E-05  1.5E-05  2.6E-04
+etot    7  N  Y  0  N    -349.92795108192  2.5E-05  1.5E-05  2.0E-04
+etot    8  N  Y  0  N    -349.92796702240  1.6E-05  1.4E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92797454801  7.5E-06  3.6E-06  5.4E-05
+etot   10  N  N  0  N    -349.92797557338  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95995236432           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96294103274  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96348991850  5.5E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96376105372  2.7E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96386775501  1.1E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96391818600  5.0E-05  1.8E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96395476693  3.7E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96398400001  2.9E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96399283372  8.8E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96399357570  7.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  57 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92170373851           2.4E-04  6.3E-03
+etot    2  Y  Y  0  N    -349.92545400213  3.8E-03  8.2E-05  3.8E-03
+etot    3  Y  Y  0  N    -349.92667583715  1.2E-03  4.8E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92708169768  4.1E-04  3.4E-05  6.6E-04
+etot    5  N  Y  0  N    -349.92721398466  1.3E-04  2.4E-05  5.3E-04
+etot    6  N  Y  0  N    -349.92728137613  6.7E-05  2.3E-05  3.5E-04
+etot    7  N  Y  0  N    -349.92733254908  5.1E-05  2.2E-05  2.5E-04
+etot    8  N  Y  0  N    -349.92736113034  2.9E-05  1.9E-05  1.4E-04
+etot    9  N  Y  0  N    -349.92737384952  1.3E-05  5.1E-06  8.0E-05
+etot   10  N  Y  0  N    -349.92737586868  2.0E-06  4.8E-06  5.0E-05
+etot   11  N  N  0  N    -349.92737716495  1.3E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95963299174           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96264713883  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96321623607  5.7E-04  4.9E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96349182971  2.8E-04  3.4E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96360288400  1.1E-04  2.1E-05  4.7E-04
+etot    6  N  Y  0  N    -349.96365631314  5.3E-05  1.9E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96369561811  3.9E-05  2.7E-05  2.6E-04
+etot    8  N  Y  0  N    -349.96373034595  3.5E-05  1.9E-05  1.1E-04
+etot    9  N  Y  0  N    -349.96374074821  1.0E-05  3.4E-06  4.9E-05
+etot   10  N  N  0  N    -349.96374158013  8.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  58 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92271199405           2.4E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92687287564  4.2E-03  7.8E-05  3.0E-03
+etot    3  Y  Y  0  N    -349.92765430077  7.8E-04  4.1E-05  1.8E-03
+etot    4  N  Y  0  N    -349.92803652867  3.8E-04  2.6E-05  6.0E-04
+etot    5  N  Y  0  N    -349.92810894941  7.2E-05  1.4E-05  3.0E-04
+etot    6  N  Y  0  N    -349.92813662061  2.8E-05  1.1E-05  2.6E-04
+etot    7  N  Y  0  N    -349.92815251366  1.6E-05  1.0E-05  1.3E-04
+etot    8  N  Y  0  N    -349.92816144977  8.9E-06  9.2E-06  7.9E-05
+etot    9  N  Y  0  N    -349.92816575213  4.3E-06  2.8E-06  4.4E-05
+etot   10  N  N  0  N    -349.92816635445  6.0E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95969014768           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96259807299  2.9E-03  6.8E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96311726933  5.2E-04  4.6E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96337646407  2.6E-04  3.1E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96347408033  9.8E-05  1.9E-05  4.0E-04
+etot    6  N  Y  0  N    -349.96351919046  4.5E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96355116639  3.2E-05  2.1E-05  2.0E-04
+etot    8  N  Y  0  N    -349.96357554443  2.4E-05  1.5E-05  9.0E-05
+etot    9  N  Y  0  N    -349.96358307858  7.5E-06  2.8E-06  4.0E-05
+etot   10  N  N  0  N    -349.96358369079  6.1E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  59 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92238556362           2.4E-04  5.8E-03
+etot    2  Y  Y  0  N    -349.92634845905  4.0E-03  8.1E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92758019032  1.2E-03  4.9E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92803954355  4.6E-04  3.6E-05  7.9E-04
+etot    5  N  Y  0  N    -349.92820693639  1.7E-04  2.7E-05  4.7E-04
+etot    6  N  Y  0  N    -349.92829281147  8.6E-05  2.6E-05  3.6E-04
+etot    7  N  Y  0  N    -349.92835483209  6.2E-05  2.0E-05  2.0E-04
+etot    8  N  Y  0  N    -349.92837975035  2.5E-05  1.5E-05  1.5E-04
+etot    9  N  Y  0  N    -349.92838892319  9.2E-06  3.8E-06  8.4E-05
+etot   10  N  N  0  N    -349.92839039176  1.5E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95999655863           1.7E-04  4.4E-03
+etot    2  Y  Y  0  N    -349.96287420225  2.9E-03  6.8E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96339996162  5.3E-04  4.7E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96364897626  2.5E-04  3.1E-05  4.4E-04
+etot    5  N  Y  0  N    -349.96373869174  9.0E-05  1.8E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96377986108  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.96381011618  3.0E-05  2.3E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96383746326  2.7E-05  1.7E-05  9.6E-05
+etot    9  N  Y  0  N    -349.96384560582  8.1E-06  2.9E-06  4.7E-05
+etot   10  N  N  0  N    -349.96384622585  6.2E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  60 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92240361866           2.3E-04  5.4E-03
+etot    2  Y  Y  0  N    -349.92627919365  3.9E-03  7.8E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92709792774  8.2E-04  4.0E-05  2.0E-03
+etot    4  N  Y  0  N    -349.92742537081  3.3E-04  2.5E-05  4.5E-04
+etot    5  N  Y  0  N    -349.92747682435  5.1E-05  1.2E-05  2.7E-04
+etot    6  N  Y  0  N    -349.92749506993  1.8E-05  8.8E-06  2.1E-04
+etot    7  N  Y  0  N    -349.92750545214  1.0E-05  8.9E-06  1.5E-04
+etot    8  N  Y  0  N    -349.92751265842  7.2E-06  1.0E-05  9.9E-05
+etot    9  N  Y  0  N    -349.92751773182  5.1E-06  4.4E-06  5.4E-05
+etot   10  N  N  0  N    -349.92751882247  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95976079546           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96281787907  3.1E-03  7.0E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96337065666  5.5E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96365337903  2.8E-04  3.4E-05  5.3E-04
+etot    5  N  Y  0  N    -349.96376677101  1.1E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96382010711  5.3E-05  1.9E-05  3.5E-04
+etot    7  N  Y  0  N    -349.96385874866  3.9E-05  2.3E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96388607231  2.7E-05  1.7E-05  9.6E-05
+etot    9  N  Y  0  N    -349.96389492730  8.9E-06  3.3E-06  4.3E-05
+etot   10  N  N  0  N    -349.96389576317  8.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  61 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92293525788           2.3E-04  5.5E-03
+etot    2  Y  Y  0  N    -349.92656870718  3.6E-03  7.6E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92756705961  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92790277387  3.4E-04  3.0E-05  5.7E-04
+etot    5  N  Y  0  N    -349.92799599063  9.3E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92803653988  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92806277369  2.6E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92807835343  1.6E-05  1.3E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92808546228  7.1E-06  3.4E-06  5.6E-05
+etot   10  N  N  0  N    -349.92808643827  9.8E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95998792619           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96295417440  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96349544365  5.4E-04  4.8E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96376112846  2.7E-04  3.2E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96386379553  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96391198511  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96394674379  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96397515858  2.8E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96398384089  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96398457009  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  62 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92287354844           2.3E-04  5.8E-03
+etot    2  Y  Y  0  N    -349.92653986847  3.7E-03  7.6E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92754267779  1.0E-03  4.3E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92788179620  3.4E-04  3.1E-05  6.1E-04
+etot    5  N  Y  0  N    -349.92797852819  9.7E-05  1.9E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92802104288  4.3E-05  1.6E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92804892082  2.8E-05  1.5E-05  1.8E-04
+etot    8  N  Y  0  N    -349.92806493181  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92807235114  7.4E-06  3.6E-06  5.8E-05
+etot   10  N  N  0  N    -349.92807339571  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.96001064494           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96297990105  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96352113251  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96378761155  2.7E-04  3.3E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96389065123  1.0E-04  2.0E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96393898354  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96397404875  3.5E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96400246743  2.8E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96401123129  8.8E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96401196055  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  63 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92340577020           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92701441398  3.6E-03  7.7E-05  3.5E-03
+etot    3  Y  Y  0  N    -349.92801715173  1.0E-03  4.1E-05  1.7E-03
+etot    4  N  Y  0  N    -349.92835027019  3.3E-04  3.0E-05  5.3E-04
+etot    5  N  Y  0  N    -349.92843572772  8.5E-05  1.7E-05  3.5E-04
+etot    6  N  Y  0  N    -349.92847183463  3.6E-05  1.4E-05  2.8E-04
+etot    7  N  Y  0  N    -349.92849469638  2.3E-05  1.4E-05  1.8E-04
+etot    8  N  Y  0  N    -349.92850857291  1.4E-05  1.3E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92851504516  6.5E-06  3.2E-06  5.4E-05
+etot   10  N  N  0  N    -349.92851591859  8.7E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95991579880           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96285318440  2.9E-03  6.8E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96339042873  5.4E-04  4.7E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96365539862  2.6E-04  3.3E-05  5.0E-04
+etot    5  N  Y  0  N    -349.96375962206  1.0E-04  2.0E-05  4.3E-04
+etot    6  N  Y  0  N    -349.96380887339  4.9E-05  1.8E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96384439835  3.6E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96387281673  2.8E-05  1.7E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96388155292  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96388229210  7.4E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  64 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92225742156           2.4E-04  5.6E-03
+etot    2  Y  Y  0  N    -349.92596518601  3.7E-03  7.6E-05  3.3E-03
+etot    3  Y  Y  0  N    -349.92697229973  1.0E-03  4.4E-05  1.4E-03
+etot    4  N  Y  0  N    -349.92731766461  3.5E-04  3.1E-05  6.5E-04
+etot    5  N  Y  0  N    -349.92742198479  1.0E-04  2.0E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92746955028  4.8E-05  1.7E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92750091110  3.1E-05  1.6E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92751858730  1.8E-05  1.4E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92752663041  8.0E-06  3.8E-06  6.0E-05
+etot   10  N  N  0  N    -349.92752778978  1.2E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95996547645           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96296361686  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96350914169  5.5E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96377649972  2.7E-04  3.2E-05  4.8E-04
+etot    5  N  Y  0  N    -349.96387805302  1.0E-04  2.0E-05  4.1E-04
+etot    6  N  Y  0  N    -349.96392548224  4.7E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96395991473  3.4E-05  2.4E-05  2.2E-04
+etot    8  N  Y  0  N    -349.96398832965  2.8E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96399706552  8.7E-06  3.1E-06  4.4E-05
+etot   10  N  N  0  N    -349.96399779157  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  65 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92282588082           2.3E-04  5.4E-03
+etot    2  Y  Y  0  N    -349.92647418579  3.6E-03  7.5E-05  3.2E-03
+etot    3  Y  Y  0  N    -349.92739467688  9.2E-04  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92772528124  3.3E-04  3.0E-05  6.0E-04
+etot    5  N  Y  0  N    -349.92781879020  9.4E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92785996100  4.1E-05  1.5E-05  3.0E-04
+etot    7  N  Y  0  N    -349.92788540381  2.5E-05  1.4E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92790030394  1.5E-05  1.3E-05  1.0E-04
+etot    9  N  Y  0  N    -349.92790739582  7.1E-06  3.6E-06  5.8E-05
+etot   10  N  N  0  N    -349.92790844598  1.1E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.96007078651           1.7E-04  4.5E-03
+etot    2  Y  Y  0  N    -349.96303562798  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96356967242  5.3E-04  4.7E-05  1.4E-03
+etot    4  N  Y  0  N    -349.96383165856  2.6E-04  3.2E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96393050748  9.9E-05  1.9E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96397621187  4.6E-05  1.7E-05  3.2E-04
+etot    7  N  Y  0  N    -349.96400844478  3.2E-05  2.3E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96403485513  2.6E-05  1.6E-05  9.7E-05
+etot    9  N  Y  0  N    -349.96404307653  8.2E-06  3.0E-06  4.4E-05
+etot   10  N  N  0  N    -349.96404376883  6.9E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+calculation at perturbed geometry  66 of  66 follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92293820169           2.3E-04  5.9E-03
+etot    2  Y  Y  0  N    -349.92659402397  3.7E-03  7.8E-05  3.5E-03
+etot    3  Y  Y  0  N    -349.92768773709  1.1E-03  4.3E-05  1.5E-03
+etot    4  N  Y  0  N    -349.92803197253  3.4E-04  3.0E-05  5.8E-04
+etot    5  N  Y  0  N    -349.92812835122  9.6E-05  1.8E-05  3.7E-04
+etot    6  N  Y  0  N    -349.92817037040  4.2E-05  1.6E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92819921921  2.9E-05  1.6E-05  1.8E-04
+etot    8  N  Y  0  N    -349.92821585412  1.7E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92822320355  7.3E-06  3.4E-06  5.6E-05
+etot   10  N  N  0  N    -349.92822416762  9.6E-07  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.95989922585           1.7E-04  4.7E-03
+etot    2  Y  Y  0  N    -349.96286960033  3.0E-03  6.9E-05  2.1E-03
+etot    3  Y  Y  0  N    -349.96341829539  5.5E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96368893640  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96379604698  1.1E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96384710811  5.1E-05  1.8E-05  3.4E-04
+etot    7  N  Y  0  N    -349.96388496079  3.8E-05  2.5E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96391549760  3.1E-05  1.8E-05  9.9E-05
+etot    9  N  Y  0  N    -349.96392475275  9.3E-06  3.2E-06  4.3E-05
+etot   10  N  N  0  N    -349.96392550835  7.6E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+-------------------------------------------------------
+numerical derivatives complete;
+calculation at normal geometry follows...
+nude (numerical derivatives) done.
+onee (1-electron integrals) done.
+probe (project orbitals) done.
+grid (grid generation) done.
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.92291839733           2.3E-04  5.7E-03
+etot    2  Y  Y  0  N    -349.92656064644  3.6E-03  7.6E-05  3.4E-03
+etot    3  Y  Y  0  N    -349.92756168732  1.0E-03  4.2E-05  1.6E-03
+etot    4  N  Y  0  N    -349.92789807158  3.4E-04  3.0E-05  5.9E-04
+etot    5  N  Y  0  N    -349.92799292708  9.5E-05  1.8E-05  3.6E-04
+etot    6  N  Y  0  N    -349.92803436519  4.1E-05  1.5E-05  2.9E-04
+etot    7  N  Y  0  N    -349.92806133373  2.7E-05  1.5E-05  1.9E-04
+etot    8  N  Y  0  N    -349.92807708387  1.6E-05  1.3E-05  1.1E-04
+etot    9  N  Y  0  N    -349.92808431405  7.2E-06  3.5E-06  5.7E-05
+etot   10  N  N  0  N    -349.92808531782  1.0E-06  0.0E+00  0.0E+00
+  
+solvation phase SCF calculation with PCM ...
+scf type: UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+  
+       i  u  d  i  g
+       t  p  i  c  r                                 RMS    maximum
+       e  d  i  u  i                       energy  density   DIIS  
+       r  t  s  t  d       total energy    change  change    error 
+  
+etot    1  N  N  0  N    -349.96000000592           1.7E-04  4.6E-03
+etot    2  Y  Y  0  N    -349.96296768447  3.0E-03  6.9E-05  2.2E-03
+etot    3  Y  Y  0  N    -349.96350897077  5.4E-04  4.8E-05  1.3E-03
+etot    4  N  Y  0  N    -349.96377507444  2.7E-04  3.3E-05  4.9E-04
+etot    5  N  Y  0  N    -349.96387793531  1.0E-04  2.0E-05  4.2E-04
+etot    6  N  Y  0  N    -349.96392620188  4.8E-05  1.7E-05  3.3E-04
+etot    7  N  Y  0  N    -349.96396111826  3.5E-05  2.4E-05  2.3E-04
+etot    8  N  Y  0  N    -349.96398953551  2.8E-05  1.7E-05  9.8E-05
+etot    9  N  Y  0  N    -349.96399826052  8.7E-06  3.1E-06  4.3E-05
+etot   10  N  N  0  N    -349.96399899031  7.3E-07  0.0E+00  0.0E+00
+scf (UDFT) done.
+ch (properties) done.
+der1a (1-e 1st deriv.) done.
+der1b (2-e 1st deriv.) done.
+nude (numerical derivatives) done.
+freq (vib. frequencies) done.
+ch (properties) done.
+post (output conversion) done.
+
+obabel -ijout AutoTS.T9XnCsLi_qst_0.out -oxyz -O AutoTS.T9XnCsLi_qst_0.xyz
+1 molecule converted
+Job AutoTS.T9XnCsLi_qst_0 completed on n0260.lr6 at Fri Mar 20 04:57:14 2020
+Timer (jaguar_backend.py) : 21374.63 secs (5 hrs, 56 mins, 14 secs)
+Finished:   Fri Mar 20 04:57:14 2020

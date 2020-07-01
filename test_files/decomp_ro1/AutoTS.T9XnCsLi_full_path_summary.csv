@@ -1,0 +1,26 @@
+
+
+                   Structure Energies (Hartree)                   
+
+          Structure,         Total      Separated  Gibbs (298.15K)
+
+           reactant,   -349.958926,   -349.970474,     -349.949752
+ transition_state_1,   -349.963999,   -349.963999,     -349.926775
+            product,   -350.003176,   -350.003176,     -349.962605
+
+
+
+                                             Final,Reaction,Results                                             
+                                           Complex Energy (kcal/mol)                                           
+ Rxn     ,Er       ,Ep       ,Ets      ,Rxn E    ,Act E     frequency ,Status of IRC? ,Path number, Approx TS
+   1,     0.00,   -27.77,    -3.18,    -27.77,    -3.18,     -257.63,      Failed,             0,       False,
+
+                                             Final,Reaction,Results                                             
+                                        Inf. Separated Energy (kcal/mol)                                        
+ Rxn     ,Er       ,Ep       ,Ets      ,Rxn E    ,Act E     frequency ,Status of IRC? ,Path number, Approx TS
+   1,     0.00,   -20.52,     4.06,    -20.52,     4.06,     -257.63,      Failed,             0,       False,
+
+                                             Final,Reaction,Results                                             
+                    Gibbs Free Energy at 298.15K and concentration of 1 mol/liter (kcal/mol)                    
+ Rxn     ,Gr       ,Gp       ,Gts      ,Rxn G    ,Act G     frequency ,Status of IRC? ,Path number, Approx TS
+   1,     0.00,    -8.07,    14.42,     -8.07,    14.42,     -257.63,      Failed,             0,       False,

@@ -1,0 +1,39 @@
+Command:  /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar run Scratch_isomer2_co.in -HOST n0260
+Release:  2020-1
+Exec:     /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64
+Host:     n0260.lr6
+JobId:    n0260-0-5e74fb43
+JobDir:   /var/tmp/ewcspottesmith/Scratch_isomer2_co
+Date:     Fri Mar 20 10:20:04 2020
+
+Contents of /var/tmp/ewcspottesmith/Scratch_isomer2_co:
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/n0260-0-5e74fb43.mpinodes
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/Scratch_isomer2_co.mae
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/n0260-0-5e74fb43
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/n0000-0-5e7378a4.hosts
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/Scratch_isomer2_co.in
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/n0260-0-5e74fb43.recover
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/Scratch_isomer2_co.log
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/Scratch_isomer2_co.recover
+/var/tmp/ewcspottesmith/Scratch_isomer2_co/.write_dir.json
+
+
+The following structure properties were deleted from the input .mae file: /var/tmp/ewcspottesmith/Scratch_isomer2_co/Scratch_isomer2_co.mae
+i_m_Molecular_charge
+
+Executing subprocess:
+/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64/jexec Scratch_isomer2_co.in -out /var/tmp/ewcspottesmith/Scratch_isomer2_co -cwd
+
+
+** WARNING! Your Jaguar license will expire in 11 days. **
+
+Job Scratch_isomer2_co started on n0260.lr6 at Fri Mar 20 10:20:04 2020
+jobid: n0260-0-5e74fb43 
+Jaguar version 10.7, release  12
+Molecular Point Group: C1      
+Point Group used: C1 (symmetry turned off)
+pre (input checking) done.
+onee (1-electron integrals) done.
+Job Scratch_isomer2_co completed on n0260.lr6 at Fri Mar 20 10:20:07 2020
+Timer (jaguar_backend.py) : 2.82 secs
+Finished:   Fri Mar 20 10:20:07 2020

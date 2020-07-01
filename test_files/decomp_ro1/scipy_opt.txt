@@ -1,0 +1,6 @@
+BFGS 0.0001
+Optimization terminated successfully.
+         Current function value: 0.197288
+         Iterations: 69
+         Function evaluations: 1185
+         Gradient evaluations: 79

@@ -1,0 +1,617 @@
+Command:  /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/autots -HOST slurm -SAVE -PARALLEL 32 -use_one_node -nsubjobs 1 autots.in
+Release:  2020-1
+Exec:     /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64
+Host:     n0260.lr6
+JobId:    n0000-0-5e7378a4
+JobDir:   /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4
+Date:     Thu Mar 19 06:50:57 2020
+
+Contents of /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4:
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/n0000-0-5e7378a4.recover
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/n0000-0-5e7378a4.jlog
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/AutoTS.T9XnCsLi.log
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/AutoTS.T9XnCsLi.recover
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/autots.in
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/n0000-0-5e7378a4.mpinodes
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/n0000-0-5e7378a4.hosts
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/n0000-0-5e7378a4.nodes
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/rct1.mae
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/n0000-0-5e7378a4
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/pro.mae
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/rct2.mae
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi#n0000-0-5e7378a4/.write_dir.json
+
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 1 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 1 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL MMFfldMolsys::deleteMol: no ct provide that was previously entered:  38
+FATAL MMFfldMolsys::deleteMol: no ct provide that was previously entered:  38
+FATAL MMFfldMolsys::deleteMol: no ct provide that was previously entered:  38
+FATAL MMFfldMolsys::deleteMol: no ct provide that was previously entered:  38
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       2
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 1 | launched  n0260-0-5e7378d8 AutoTS.T9XnCsLi_opt_0 n0260
+1 0 1 | finished  n0260-0-5e7378d8 AutoTS.T9XnCsLi_opt_0 n0260
+1 1 0 | launched  n0260-0-5e73b5e7 AutoTS.T9XnCsLi_opt_1 n0260
+2 0 0 | finished  n0260-0-5e73b5e7 AutoTS.T9XnCsLi_opt_1 n0260
+
+All jobs have completed.
+
+2 of 2 job(s) succeeded; 0 job(s) failed.
+
+FATAL do_nosort_typing: NO MATCH found for atom 1 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 1 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 1 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 1 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       1
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 0 | launched  n0260-0-5e73fc26 AutoTS.T9XnCsLi_relax_ts_0 n0260
+Subjob 'AutoTS.T9XnCsLi_relax_ts_0' died (died) [jobid n0260-0-5e73fc26]
+1 0 0 | died      n0260-0-5e73fc26 AutoTS.T9XnCsLi_relax_ts_0 n0260
+ERROR: Subjob 'AutoTS.T9XnCsLi_relax_ts_0' has failed.
+
+Last 20 lines of 'AutoTS.T9XnCsLi_relax_ts_0.out':
+
+  Product:       combiglide-v56012-Linux-x86_64 ( vcs-src:2e28dda8d7f19e0026dd5d26b0f1870270a0e1c7 )
+  Product:       desmond-v61012-Linux-x86_64 ( desmond-gpu-src:5848d4f7a95a1325820153a63ac67860397a6319
+                                               desmond-src:02a5e200ae07d2b73695f6fea6d28d31633e7b74 )
+  Product:       epik-v51012-Linux-x86_64 ( epik-src:02f99032632ef723802bd13323d640d68964c81a )
+  Product:       glide-v86012-Linux-x86_64 ( glide-src:3de2d74d31f07cc0136eb5195552356de946effe )
+  Product:       impact-v86012-Linux-x86_64 ( impact-src:ab37316de6677c9a11ed21aede599ea9fde51424 )
+  Product:       jaguar-v107012-Linux-x86_64 ( jaguar-src:97746bb402ff6c1e5b0ff411b27d661a5ba813cc )
+  Product:       knime-v49012-Linux-x86_64 ( knime-src:3259113941ec1185cf9fc5b81164b1d5c83b5b95 )
+  Product:       macromodel-v127012-Linux-x86_64 ( macromodel-src:1d614ec651b54bd536dfc074171010e87b8f2546 )
+  Product:       maestro-v123012-Linux-x86_64 ( maestro-src:706e41c4e5d81355342b1621cb4c708ef5240170 )
+  Product:       mmshare-v49012-Linux-x86_64 ( DeepAutoQSAR:9af74d6d928e26fb59d01049ccd675973679428f
+                                               datamouse:3405bc2622c5e4f70cb17128d1e65bdb7bcc70e5
+                                               khan_internal:47ecd12f96d66bf7546e6f34150cfe383a9c342b
+                                               ligand_ml:75133190a17ba30bb242c6b838b3cd5936091587
+                                               mmshare:21786b2ee4f93bde6c7f1517a68f0a16a4cdc818
+                                               pharma-src:6b25234fdb6e879e8fb332cdbe71d8e4e297b393 )
+  Product:       pldb-v49012-Linux-x86_64 ( pldb-src:4221cb0d108d7fdf49411dd632b31547142c771e )
+  Product:       psp-v59012-Linux-x86_64 ( plop:d80da606eb07544afcd2894eb61340325b4880fc
+                                           psp-src:153a1d585d5eb12c11fd5c7184b6b7f82fe2470c )
+  Product:       qikprop-v63012-Linux-x86_64 ( qikprop-src:5e819f4c0c4cb591fc3311ddc60d5110e050d57c )
+
+
+Last 20 lines of 'AutoTS.T9XnCsLi_relax_ts_0.recover':
+
+  Name: 'AutoTS.T9XnCsLi_relax_ts_0'
+  JobId: 'n0260-0-5e73fc26'
+  Commandline: '/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar run AutoTS.T9XnCsLi_relax_ts_0.in -TPP 32 -HOST n0260'
+  BackendCmdline: 'run jexec.py -TPP 32 -jobname AutoTS.T9XnCsLi_relax_ts_0 AutoTS.T9XnCsLi_relax_ts_0.in'
+  Outfiles:
+
+
+Last 20 lines of 'AutoTS.T9XnCsLi_relax_ts_0.log':
+
+  orterun has exited due to process rank 0 with PID 171335 on
+  node n0260.lr6 exiting improperly. There are two reasons this could occur:
+  
+  1. this process did not call "init" before exiting, but others in
+  the job did. This can cause a job to hang indefinitely while it waits
+  for all processes to call "init". By rule, if one process calls "init",
+  then ALL processes must call "init" prior to termination.
+  
+  2. this process called "init", but exited without calling "finalize".
+  By rule, all processes that call "init" MUST call "finalize" prior to
+  exiting or it will be considered an "abnormal termination"
+  
+  This may have caused other processes in the application to be
+  terminated by signals sent by orterun (as reported here).
+  --------------------------------------------------------------------------
+  Error: jaguar died in program freq
+  
+  Job AutoTS.T9XnCsLi_relax_ts_0 halted prematurely on n0260.lr6 at Thu Mar 19 23:00:43 2020
+  Timer (jaguar_backend.py) : 24547.09 secs (6 hrs, 49 mins, 07 secs)
+  Finished:   Thu Mar 19 23:00:43 2020
+
+
+No job control errors were found.
+1 0 0 | died      n0260-0-5e73fc26 AutoTS.T9XnCsLi_relax_ts_0 n0260
+
+All jobs have completed.
+
+0 of 1 job(s) succeeded; 1 job(s) failed.
+
+FATAL do_nosort_typing: NO MATCH found for atom 1 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 1 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+FATAL do_nosort_typing: NO MATCH found for atom 7 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       1
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 0 | launched  n0260-0-5e745c1a AutoTS.T9XnCsLi_qst_0 n0260
+1 0 0 | finished  n0260-0-5e745c1a AutoTS.T9XnCsLi_qst_0 n0260
+
+All jobs have completed.
+
+1 of 1 job(s) succeeded; 0 job(s) failed.
+
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       1
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 0 | launched  n0260-0-5e74afa7 AutoTS.T9XnCsLi_qst_0_freq n0260
+1 0 0 | finished  n0260-0-5e74afa7 AutoTS.T9XnCsLi_qst_0_freq n0260
+
+All jobs have completed.
+
+1 of 1 job(s) succeeded; 0 job(s) failed.
+
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       1
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 0 | launched  n0260-0-5e74fb2b AutoTS.T9XnCsLi_irc_0 n0260
+Subjob 'AutoTS.T9XnCsLi_irc_0' died (died) [jobid n0260-0-5e74fb2b]
+1 0 0 | died      n0260-0-5e74fb2b AutoTS.T9XnCsLi_irc_0 n0260
+ERROR: Subjob 'AutoTS.T9XnCsLi_irc_0' has failed.
+
+Last 20 lines of 'AutoTS.T9XnCsLi_irc_0.out':
+
+  Product:       combiglide-v56012-Linux-x86_64 ( vcs-src:2e28dda8d7f19e0026dd5d26b0f1870270a0e1c7 )
+  Product:       desmond-v61012-Linux-x86_64 ( desmond-gpu-src:5848d4f7a95a1325820153a63ac67860397a6319
+                                               desmond-src:02a5e200ae07d2b73695f6fea6d28d31633e7b74 )
+  Product:       epik-v51012-Linux-x86_64 ( epik-src:02f99032632ef723802bd13323d640d68964c81a )
+  Product:       glide-v86012-Linux-x86_64 ( glide-src:3de2d74d31f07cc0136eb5195552356de946effe )
+  Product:       impact-v86012-Linux-x86_64 ( impact-src:ab37316de6677c9a11ed21aede599ea9fde51424 )
+  Product:       jaguar-v107012-Linux-x86_64 ( jaguar-src:97746bb402ff6c1e5b0ff411b27d661a5ba813cc )
+  Product:       knime-v49012-Linux-x86_64 ( knime-src:3259113941ec1185cf9fc5b81164b1d5c83b5b95 )
+  Product:       macromodel-v127012-Linux-x86_64 ( macromodel-src:1d614ec651b54bd536dfc074171010e87b8f2546 )
+  Product:       maestro-v123012-Linux-x86_64 ( maestro-src:706e41c4e5d81355342b1621cb4c708ef5240170 )
+  Product:       mmshare-v49012-Linux-x86_64 ( DeepAutoQSAR:9af74d6d928e26fb59d01049ccd675973679428f
+                                               datamouse:3405bc2622c5e4f70cb17128d1e65bdb7bcc70e5
+                                               khan_internal:47ecd12f96d66bf7546e6f34150cfe383a9c342b
+                                               ligand_ml:75133190a17ba30bb242c6b838b3cd5936091587
+                                               mmshare:21786b2ee4f93bde6c7f1517a68f0a16a4cdc818
+                                               pharma-src:6b25234fdb6e879e8fb332cdbe71d8e4e297b393 )
+  Product:       pldb-v49012-Linux-x86_64 ( pldb-src:4221cb0d108d7fdf49411dd632b31547142c771e )
+  Product:       psp-v59012-Linux-x86_64 ( plop:d80da606eb07544afcd2894eb61340325b4880fc
+                                           psp-src:153a1d585d5eb12c11fd5c7184b6b7f82fe2470c )
+  Product:       qikprop-v63012-Linux-x86_64 ( qikprop-src:5e819f4c0c4cb591fc3311ddc60d5110e050d57c )
+
+
+Last 20 lines of 'AutoTS.T9XnCsLi_irc_0.recover':
+
+  Name: 'AutoTS.T9XnCsLi_irc_0'
+  JobId: 'n0260-0-5e74fb2b'
+  Commandline: '/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar run AutoTS.T9XnCsLi_irc_0.in -TPP 32 -HOST n0260'
+  BackendCmdline: 'run jexec.py -TPP 32 -jobname AutoTS.T9XnCsLi_irc_0 AutoTS.T9XnCsLi_irc_0.in'
+  Outfiles:
+
+
+Last 20 lines of 'AutoTS.T9XnCsLi_irc_0.log':
+
+  orterun has exited due to process rank 0 with PID 213702 on
+  node n0260.lr6 exiting improperly. There are two reasons this could occur:
+  
+  1. this process did not call "init" before exiting, but others in
+  the job did. This can cause a job to hang indefinitely while it waits
+  for all processes to call "init". By rule, if one process calls "init",
+  then ALL processes must call "init" prior to termination.
+  
+  2. this process called "init", but exited without calling "finalize".
+  By rule, all processes that call "init" MUST call "finalize" prior to
+  exiting or it will be considered an "abnormal termination"
+  
+  This may have caused other processes in the application to be
+  terminated by signals sent by orterun (as reported here).
+  --------------------------------------------------------------------------
+  Error: jaguar died in program pre
+  
+  Job AutoTS.T9XnCsLi_irc_0 halted prematurely on n0260.lr6 at Fri Mar 20 10:19:45 2020
+  Timer (jaguar_backend.py) : 3.64 secs
+  Finished:   Fri Mar 20 10:19:45 2020
+
+
+No job control errors were found.
+1 0 0 | died      n0260-0-5e74fb2b AutoTS.T9XnCsLi_irc_0 n0260
+
+All jobs have completed.
+
+0 of 1 job(s) succeeded; 1 job(s) failed.
+
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8029
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8029.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8029.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8130
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8130.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8130.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8155
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8155.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8155.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8156
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8156.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8156.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9288
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9288.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9288.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9296
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9296.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9296.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9318
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9318.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9318.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8049
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8049.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8049.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8050
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8050.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8050.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8051
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8051.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8051.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9321
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9321.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9321.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9323
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9323.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9323.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9322
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9322.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9322.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8001
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8001.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8001.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 123
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 123.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 123.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 46
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 46.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 46.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9300
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9300.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9300.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9290
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9290.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9290.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 9309
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 9309.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 9309.
+WARNING : MMCT ERROR(-4): mmct_ct_set_x(): 
+	6 is an invalid atom index for CT 8634
+WARNING : MMCT ERROR(-4): mmct_ct_set_y(): 
+	6 is an invalid atom index for CT 8634.
+WARNING : MMCT ERROR(-4): mmct_ct_set_z(): 
+	6 is an invalid atom index for CT 8634.
+FATAL do_nosort_typing: NO MATCH found for atom 10 - cannot assign an atom type
+FATAL oplsaa_typer_core:  error in do_nosort_typing()
+FATAL MMFfld::enterMol: Error in do_typing
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       2
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 1 | launched  n0260-0-5e74fb3a Scratch_isomer1_co n0260
+1 0 1 | finished  n0260-0-5e74fb3a Scratch_isomer1_co n0260
+1 1 0 | launched  n0260-0-5e74fb43 Scratch_isomer2_co n0260
+2 0 0 | finished  n0260-0-5e74fb43 Scratch_isomer2_co n0260
+
+All jobs have completed.
+
+2 of 2 job(s) succeeded; 0 job(s) failed.
+
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       2
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 1 | launched  n0260-0-5e74fb4b Scratch_isomer1 n0260
+1 0 1 | finished  n0260-0-5e74fb4b Scratch_isomer1 n0260
+1 1 0 | launched  n0260-0-5e753d3a Scratch_isomer2 n0260
+2 0 0 | finished  n0260-0-5e753d3a Scratch_isomer2 n0260
+
+All jobs have completed.
+
+2 of 2 job(s) succeeded; 0 job(s) failed.
+
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       2
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 1 | launched  n0260-0-5e757e34 AutoTS.T9XnCsLi-separated-energy_0_opt_0 n0260
+1 0 1 | finished  n0260-0-5e757e34 AutoTS.T9XnCsLi-separated-energy_0_opt_0 n0260
+1 1 0 | launched  n0260-0-5e7580bf AutoTS.T9XnCsLi-separated-energy_0_opt_1 n0260
+2 0 0 | finished  n0260-0-5e7580bf AutoTS.T9XnCsLi-separated-energy_0_opt_1 n0260
+
+All jobs have completed.
+
+2 of 2 job(s) succeeded; 0 job(s) failed.
+
+
+Running subjobs on hosts:
+  n0260 (Max: 1)
+Number of jobs:       1
+Max retries per job:  3
+Max allowed failures: unlimited
+Run with -LOCAL:      False
+Verbosity:            normal
+
+Starting JobDJ...
+
+Keep one job on driver host: False
+JobDJ columns:
+  C: Number of completed subjobs
+  A: Number of active subjobs (e.g., submitted, running)
+  W: Number of waiting/pending subjobs
+
+C A W | Activity  JobId  JobName  JobHost
+- - - | --------- -----------------------
+0 1 0 | launched  n0260-0-5e758a87 AutoTS.T9XnCsLi-separated-energy_1_opt_0 n0260
+1 0 0 | finished  n0260-0-5e758a87 AutoTS.T9XnCsLi-separated-energy_1_opt_0 n0260
+
+All jobs have completed.
+
+1 of 1 job(s) succeeded; 0 job(s) failed.
+
+Timer (jaguar_backend.py) : 152469.52 secs (1 day, 18 hrs, 21 mins, 09 secs)
+Exception ignored in: <bound method Minimizer.__del__ of <schrodinger.structutils.minimize.Minimizer object at 0x2ac5697ed2e8>>
+Traceback (most recent call last):
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/structutils/minimize.py", line 353, in __del__
+    self.cleanup_resources()
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/structutils/minimize.py", line 361, in cleanup_resources
+    mm.mmffld_deleteMol(self.handle, self._struct)
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/infra/mmcheck.py", line 91, in __call__
+    raise MmException(self, args, rc)
+schrodinger.infra.mmcheck.MmException: mmffld_deleteMol returned error code 1 (MMFFLD_ERR) for arguments (8, Structure(38)). See the mmerr log (stderr by default) for messages from the mmlibs.
+Exception ignored in: <bound method Minimizer.__del__ of <schrodinger.structutils.minimize.Minimizer object at 0x2ac5697ed160>>
+Traceback (most recent call last):
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/structutils/minimize.py", line 353, in __del__
+    self.cleanup_resources()
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/structutils/minimize.py", line 361, in cleanup_resources
+    mm.mmffld_deleteMol(self.handle, self._struct)
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/infra/mmcheck.py", line 91, in __call__
+    raise MmException(self, args, rc)
+schrodinger.infra.mmcheck.MmException: mmffld_deleteMol returned error code 1 (MMFFLD_ERR) for arguments (9, Structure(38)). See the mmerr log (stderr by default) for messages from the mmlibs.
+Exception ignored in: <bound method Minimizer.__del__ of <schrodinger.structutils.minimize.Minimizer object at 0x2ac5697ede10>>
+Traceback (most recent call last):
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/structutils/minimize.py", line 353, in __del__
+    self.cleanup_resources()
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/structutils/minimize.py", line 361, in cleanup_resources
+    mm.mmffld_deleteMol(self.handle, self._struct)
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/infra/mmcheck.py", line 91, in __call__
+    raise MmException(self, args, rc)
+schrodinger.infra.mmcheck.MmException: mmffld_deleteMol returned error code 1 (MMFFLD_ERR) for arguments (8, Structure(38)). See the mmerr log (stderr by default) for messages from the mmlibs.
+Exception ignored in: <bound method Minimizer.__del__ of <schrodinger.structutils.minimize.Minimizer object at 0x2ac5697ed2e8>>
+Traceback (most recent call last):
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/structutils/minimize.py", line 353, in __del__
+    self.cleanup_resources()
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/structutils/minimize.py", line 361, in cleanup_resources
+    mm.mmffld_deleteMol(self.handle, self._struct)
+  File "/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/internal/lib/python3.6/site-packages/schrodinger/infra/mmcheck.py", line 91, in __call__
+    raise MmException(self, args, rc)
+schrodinger.infra.mmcheck.MmException: mmffld_deleteMol returned error code 1 (MMFFLD_ERR) for arguments (9, Structure(38)). See the mmerr log (stderr by default) for messages from the mmlibs.
+Finished:   Sat Mar 21 01:12:07 2020

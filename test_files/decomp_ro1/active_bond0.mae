@@ -1,0 +1,170 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[5] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  :::
+  1 21 1.968474 -1.191916 -0.362123 70 8 1 O1 
+  2 3 3.259927 -1.382376 -0.274254 2 6 0 C1 
+  3 16 3.979321 -0.379452 -0.047285 70 8 0 O2 
+  4 16 3.681058 -2.555611 -0.423151 70 8 0 O3 
+  5 93 5.420836 -1.710100 -0.120909 4 3 0 Li1 
+  :::
+ } 
+ m_bond[12] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 2 1 0
+  2 2 1 1 0
+  3 2 3 1 0
+  4 2 4 1 0
+  5 2 5 1 0
+  6 3 2 1 0
+  7 3 5 1 0
+  8 4 2 1 0
+  9 4 5 1 0
+  10 5 2 1 0
+  11 5 3 1 0
+  12 5 4 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[6] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  s_m_atom_name
+  :::
+  1 2 1.747581 -1.028633 -0.034547 2 6 C1 
+  2 2 2.766204 -0.179359 -0.020367 2 6 C2 
+  3 41 1.326630 -1.426513 0.884890 21 1 H1 
+  4 41 1.295126 -1.358324 -0.965913 21 1 H2 
+  5 41 3.218506 0.150258 0.911118 21 1 H3 
+  6 41 3.187393 0.218777 -0.939582 21 1 H4 
+  :::
+ } 
+ m_bond[10] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  :::
+  1 16 1.380162 0.967414 -1.059997 70 8 0 O1 
+  2 3 0.855153 0.584554 0.219539 2 6 0 C1 
+  3 14 0.890131 -0.880304 0.426525 2 6 1 C2 
+  4 3 2.797543 0.989784 -1.224294 2 6 0 C3 
+  5 17 3.511994 0.792232 -0.259900 70 8 0 O2 
+  6 16 3.057977 1.240899 -2.434658 70 8 0 O3 
+  7 93 1.284689 1.322533 -2.943993 4 3 0 Li1 
+  8 41 -0.175372 0.965448 0.221648 21 1 0 H1 
+  9 41 1.402151 1.111605 1.005453 21 1 0 H2 
+  10 44 0.872083 -1.283323 1.432352 21 1 0 H3 
+  11 44 0.809716 -1.553696 -0.419896 21 1 0 H4 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  i_m_color
+  :::
+  1 1 4 1 0 <>
+  2 1 2 1 1 1
+  3 1 7 0 0 <>
+  4 2 1 1 1 1
+  5 2 9 1 0 <>
+  6 2 8 1 0 <>
+  7 2 3 1 0 <>
+  8 3 2 1 0 <>
+  9 3 10 1 0 <>
+  10 3 11 1 0 <>
+  11 4 1 1 0 <>
+  12 4 5 1 0 <>
+  13 4 6 1 0 <>
+  14 4 7 1 0 <>
+  15 5 4 1 0 <>
+  16 6 4 1 0 <>
+  17 6 7 1 0 <>
+  18 7 1 0 0 <>
+  19 7 4 1 0 <>
+  20 7 6 1 0 <>
+  21 8 2 1 0 <>
+  22 9 2 1 0 <>
+  23 10 3 1 0 <>
+  24 11 3 1 0 <>
+  :::
+ } 
+} 
+

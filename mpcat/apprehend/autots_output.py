@@ -27,12 +27,23 @@ class AutoTSOutput(MSONable):
 
         self._parse_input()
 
+        self._parse_calculations()
+
         self._parse_warnings()
         self._parse_errors()
 
         calculation_summary = read_pattern(self.text,
                                            {"key": r"Calculation Summary"},
                                            terminate_on_match=True).get("key")
+
+        time = read_pattern(self.text,
+                            {"key": r"Timer \(Total AutoTS time\) : ([0-9\.]+) secs \([0-9A-Za-z,\. ]+\)"},
+                            terminate_on_match=True).get("key")
+        if time is not None:
+            self.data["walltime"] = float(time[0][0])
+        else:
+            self.data["walltime"] = None
+
         if calculation_summary is None:
             self.data["complete"] = False
         else:
@@ -65,6 +76,22 @@ class AutoTSOutput(MSONable):
             self.data["input"]["solution_phase"] = False
         else:
             self.data["input"]["solution_phase"] = True
+
+    def _parse_calculations(self):
+        header_pattern = r"Processing the following subjobs:"
+        table_pattern = r"\([0-9]+\) jaguar run ([A-Za-z0-9_\.\-]+)(?: -TPP [0-9]+)?"
+        footer_pattern = r"Timer \([A-Za-z ]+\) : [0-9\.]+ secs \([A-Za-z0-9 ,\.]+\)"
+
+        temp_calcs = read_table_pattern(self.text, header_pattern, table_pattern,
+                                        footer_pattern)
+
+        if temp_calcs is None or len(temp_calcs) == 0:
+            self.data["calculations"] = None
+        else:
+            self.data["calculations"] = list()
+            for table in temp_calcs:
+                for row in table:
+                    self.data["calculations"].append(row[0].replace(".in", ""))
 
     def _parse_warnings(self):
         temp_warnings = read_pattern(self.text,

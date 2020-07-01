@@ -1,0 +1,47 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[6] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  s_m_atom_name
+  :::
+  1 2 1.747581 -1.028633 -0.034547 2 6 C1 
+  2 2 2.766204 -0.179359 -0.020367 2 6 C2 
+  3 41 1.326630 -1.426513 0.884890 21 1 H3 
+  4 41 1.295126 -1.358324 -0.965913 21 1 H4 
+  5 41 3.218506 0.150258 0.911118 21 1 H5 
+  6 41 3.187393 0.218777 -0.939582 21 1 H6 
+  :::
+ } 
+ m_bond[5] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  :::
+ } 
+} 
+

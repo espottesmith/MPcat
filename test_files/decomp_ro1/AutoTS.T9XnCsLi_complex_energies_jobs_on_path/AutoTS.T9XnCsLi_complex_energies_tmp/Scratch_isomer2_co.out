@@ -1,0 +1,449 @@
+Job Scratch_isomer2_co started on n0260.lr6 at Fri Mar 20 10:20:04 2020
+jobid: n0260-0-5e74fb43
+
+  +--------------------------------------------------------------------+
+  |  Jaguar version 10.7, release  12                                  |
+  |                                                                    |
+  |  Copyright Schrodinger, Inc.                                       |
+  |  All Rights Reserved.                                              |
+  |                                                                    |
+  |  The following have contributed to Jaguar (listed alphabetically): |
+  |  Mike Beachy, Art Bochevarov, Dale Braden, Yixiang Cao,            |
+  |  Alan Chien, Chris Cortis, Rich Friesner, Bill Goddard,            |
+  |  Hod Greeley, Tom Hughes, Leif Jacobson, Jean-Marc Langlois,       |
+  |  Daniel Levine, Daniel Mainz, Rob Murphy, Dean Philipp,            |
+  |  Tom Pollard, Murco Ringnalda, Mark Watson, Haoyu Yu.              |
+  |                                                                    |
+  |  Use of this program should be acknowledged in publications as:    |
+  |                                                                    |
+  |  Jaguar, version 10.7, Schrodinger, Inc., New York, NY, 2020.      |
+  |                                                                    |
+  |  A. D. Bochevarov, E. Harder, T. F. Hughes, J. R. Greenwood,       |
+  |  D. A. Braden, D. M. Philipp, D. Rinaldo, M. D. Halls,             |
+  |  J. Zhang, R. A. Friesner, "Jaguar: A High-Performance Quantum     |
+  |  Chemistry Software Program with Strengths in Life and Materials   |
+  |  Sciences", Int. J. Quantum Chem., 2013, 113(18), 2110-2142.       |
+  +--------------------------------------------------------------------+
+  
+  start of program pre
+  
+  Job name: Scratch_isomer2_co
+  Executables used: /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64
+  Temporary files : /var/tmp/ewcspottesmith/Scratch_isomer2_co
+  Maestro file (input):  Scratch_isomer2_co.mae
+  Maestro file (output): Scratch_isomer2_co.01.mae
+  
+ Contents of input file: &gen section only
+ ----------------Contents start----------------
+&gen
+ntemp=50
+epsout=18.5
+irder=1
+isolv=7
+props_each_step=1
+tmpstp=20.0
+ip12=2
+maxitg=200
+ip70=2
+isymm=0
+basis=def2-tzvpd
+maxit=250
+multip=2
+mulken=1
+ip472=2
+babel=xyz
+dftname=wb97x-D
+ip6=3
+ifreq=1
+ip24=2
+ip193=2
+nogas=2
+ip5=2
+ip192=3
+nmder=2
+tmpini=58.15
+&
+ -----------------Contents end-----------------
+ 
+  basis set:             def2-tzvpd                      
+  net molecular charge:    0
+  multiplicity:            2
+  
+  keygen settings 
+    ihamtyp...   0    numd......   0    iout1.....   6
+    iguess....  10    idecon....   0    incdip....   0
+    ldips.....   1    icfit.....   1    mulken....   1
+    isymm.....   0    ihfgvb....   2    newcon....   1
+    nmder.....   2    igeopt....   0    igonly....   0
+    mp2.......   0    lmp2......   1    isqm......   0
+    isolv.....   7    iheter....   0    fukui.....   0
+    idelocv...   0
+    isolvg....   2    istate....   0    ioss......   0
+    lewdot....   0    igvball...   0    igvbsel...   7
+    lewstr....   0    ivanset...   0    ipolar....   0
+    iordboy...   1    ixtrboy...   0
+    irder.....   1    icavity...   0    idoabe....   0
+    ntemp.....  50    npress.....   1
+    ifreq.....   1    ifreqfrag...  -1
+    imw ......   0
+    nogas.....   2    massav....   0    isurf.....   0
+    itypk.....   0    ipkat.....   0    nohpk.....   0
+    loclmp2c...   0    loclmp2v...   2
+    locpostc...   0    locpostv...   0
+    ithermo...   1
+    tmpini....     58.1500000
+    tmpstp....     20.0000000
+    press.....      1.0000000
+    press_step.....      1.0000000
+    freqcut...      0.0000000
+    srlrc.....      0.3000000
+    srlru.....      0.3000000
+    efield....      0.0000000
+    qstinit...      0.5000000
+    pertnd....      0.0500000
+    scalfr....      1.0000000
+    auto_scale...   0
+    rndsym....      7.4928652      3.7492865      1.3749287
+    cfitsvd...        1.000E-04
+    cfitrhs...        1.000E+30
+    cfiterr...        1.000E-06
+    iraman...   0
+  dftname  wb97x-d                                                                         
+    jdft......   0
+    iuhf......   1
+    ielec.....   0    negrid....   0
+  
+  Density Functional Parameters
+        wB97X-D non-local exchange: 1.000000
+     wB97X-D non-local correlation: 1.000000
+  
+  keydaf settings 
+    idafcon...   0    idafsav...   0
+  naydaf 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000
+    rdaferr...      0.3000000
+  
+  keytweak settings 
+    mtest.....   0    nosuper...   0
+    mxstrip... 200    mxpr...... 100
+    ndisk.....****
+    nbuck.....     64    nbcmax....1000000
+  
+  keygvb settings 
+    npair.....   0
+  
+  keylmp2 settings 
+    nlmpair.....   0
+  
+  keygeo settings 
+    iunit.....   1
+    ang123....      0.0000000      0.0000000      0.0000000
+    covfac....      1.2000000
+  
+  keygrid settings 
+    wispc.....   7.500E-01
+    ldens.....   0
+    denspc....   7.500E-01
+  
+   grid     daf set  nls  grid set  Q type
+  ------    -------  ---  --------  ------
+  coarse       1      1       1        1
+  medium       2      2       2        1
+  fine         3      2       3        0
+  ultrafine    4      2       4        1
+  charge       0      1      -1        1
+  gradient     5      2       4        1
+  density      0      1       0        0
+  DFT-fine     0      1     -11        0
+  DFT-med.     0      1     -10        0
+  DFT-grad     0      1     -12        0
+  DFT-der2     0      1      -8        0
+  DFT-cphf     0      1      -9        0
+  LMP2-enrg    4      2       4        1
+  LMP2-grad    5      2       2        1
+  DFT-cphf2    0      1     -15        0
+  PBF-dens     0      1       0        0
+  plotting     0      1       0        0
+  Rel-grad     0      1     -17        0
+  
+  idftgrdm  100
+  ndftgrdm   50    0    0
+  idftgrdf  111
+  ndftgrdf   85    0    0
+  idftgrdg  111
+  ndftgrdg   80    3    0
+  idftgrdu  433
+  ndftgrdu  105    0    0
+  idftgrdd  433
+  ndftgrdd  105    0    0
+  idftgrdc  433
+  ndftgrdc   26    0    0
+  idftgrdp  433
+  ndftgrdp   18    0    0
+  
+  keyscf settings 
+    maxit..... 250    idiag.....   0    iconv.....   1
+    jksep.....   1    itwice....   1    noauto....   0
+    noatcor...   0    noupdat...   0    nops......   0
+    maxdiis...  10    iteravg...   0    istavg....   0
+    icomp.....   0    iacc......   3    ipopsym...   1
+    lastwv....   0    idenavg...   1    ipvirt....  10
+    irohf.....   2
+    nscfa.....   0
+    econv.....      0.0000100
+    dconv.....      0.0000050
+    stdiis....    100.0000000
+    vshift....      0.0000000
+  
+  keyopt settings 
+    maxitg.... 200    inhess....   0    intopt....   1
+    ihuptyp...   1    nogdiis...   1
+    irefhup...   4    nhesref...   0    ilagr.....   0
+    nooptr....   0    noopta....   0    nooptt....   0
+    irfo......   1    ifollow...   0    itrvec....   0
+    itradj....   0    itrcut....   1
+  
+  geometry convergence criteria:  maximum      rms
+    gradient.............        4.500E-04   3.000E-04
+    gdiis error vector...        1.000E-02   1.000E-02
+    displacement.........        1.800E-03   1.200E-03
+    total energy.........        5.000E-05
+  
+  trust radius adjustment parameters:
+    trust.....        3.000E-01
+    tradmx....      0.3000000
+    tradmn....      0.3000000
+    tremx.....      0.2500000
+    treok.....      0.2000000
+    trescal...      2.0000000
+    trgmx.....      0.0000000
+  
+  keysolv settings 
+    kesep.....   1    idelver...   3
+    sconv.....      0.0001500
+    dlphsc....      5.0000000
+    epsin.....      1.0000000
+    epsout....     18.5000000
+    rionst....      0.0000000
+    exrad.....      2.0000000
+    radprb....      1.4000000
+    cosfden...      8.0000000
+    cskin....      0.9500000
+  
+  keynerg settings 
+    esolv0....      0.0000000
+  
+  NBO analysis settings 
+    nboden....   0
+  
+  atom       vdw   vdw2    cov     mass  grid  daf  charge   basis
+  C1        1.949  1.900  0.770   12.000    Y    Y      Y    def2-tzvpd
+  C2        1.949  1.900  0.770   12.000    Y    Y      Y    def2-tzvpd
+  H1        1.597  1.150  0.320    1.008    Y    Y      Y    def2-tzvpd
+  H2        1.597  1.150  0.320    1.008    Y    Y      Y    def2-tzvpd
+  H3        1.597  1.150  0.320    1.008    Y    Y      Y    def2-tzvpd
+  H4        1.597  1.150  0.320    1.008    Y    Y      Y    def2-tzvpd
+  O1        1.702  1.600  0.730   15.995    Y    Y      Y    def2-tzvpd
+  C3        1.949  1.900  0.770   12.000    Y    Y      Y    def2-tzvpd
+  O2        1.702  1.600  0.730   15.995    Y    Y      Y    def2-tzvpd
+  O3        1.702  1.600  0.730   15.995    Y    Y      Y    def2-tzvpd
+  Li1       1.226  1.226  1.230    7.016    Y    Y      Y    def2-tzvpd
+  
+  cpu seconds-   setlcao   user:        0.0 user+sys:        0.0
+  
+  program parameters
+   npa........   1000   nsh........    800   nomx.......   7500
+   nfmx.......  12000   ntmx.......  42000   mxham......   1000
+   ngblok.....    128   ngat....... 150000   nptr.......     30
+   nafmx......    250   ngrdx......     18
+   maxl.......     50   npgf.......   1602   npr........   1500
+   npcn.......    625   npcb.......    126   npcbd......    226
+   mxdl.......    100   mrx........   1001
+   lmx........     16   mxattyp....     12
+   nopmx......    120   npbp.......   8001   nspdfg.....     35
+   npairs..... 499500   noac.......      4   lfmax......      5
+   llfmax.....     14   nshp.......  50000   iablksz....     15
+   nbcfmx.....    128   nbcfmxx....    128
+   maxbatch....    128   mxbtaabc....    128
+  
+   ioerr......      0
+   iodaf......     18   iogrid.....     10   iobas......     11
+   iogeo......     12   iocut......     13   ioxyza.....    120
+   ioqmat.....    160   ioxyz......    140   iosave.....     50
+   iotmp......     70   ioans......     64   ionbya.....     80
+   ionbyn.....     81   iodiis.....     83   iodenv.....     84
+   ioopt......     88   iosudo.....     87   iodrvab....     96
+  
+  cpu seconds-  basis-set  user:        0.2 user+sys:        0.2
+  number of basis functions....          284
+  N by N matrices stored in           2  strip(s) of size         168
+  no dealiasing set available for atom            1
+  switch to all-analytic calculation
+  
+ Input geometry:
+                                   angstroms
+  atom               x                 y                 z
+  C1            0.7072729980      0.0132702571      1.2937492883 
+  C2           -0.7482128046     -0.0246697977      1.0343112495 
+  H1            1.2083375049     -0.8611280581      0.8805210871 
+  H2            1.1654263030      0.9153144752      0.8917767722 
+  H3           -1.2757274430     -0.9693502178      1.0248859333 
+  H4           -1.3181025529      0.8913938860      0.9640225589 
+  O1            0.7148106211      2.2001157606      2.9385184954 
+  C3            0.9413708404      1.1324671265      3.4825758945 
+  O2            1.1544716175      0.8424266613      4.6897146324 
+  O3            1.0048929841     -0.0453733991      2.7109671051 
+  Li1           1.3149360419     -1.0146336995      4.3935008449 
+   
+  principal moments of inertia:
+        amu*angstrom^2:       94.89273      207.77142      267.41553
+                g*cm^2: 1.57573069E-38 3.45012509E-38 4.44053872E-38
+   
+  rotational constants:
+               cm^(-1):      0.17764932      0.08113546      0.06303908
+                   GHz:      5.32579256      2.43237987      1.88986412
+   
+  number of surviving atom pairs:    66  out of:    66
+  Connectivity table:
+                 C1       C2       H1       H2       H3       H4       O1      
+  C1              0
+  C2              1        0
+  H1              1        2        0
+  H2              1        2        2        0
+  H3              2        1        3        3        0
+  H4              2        1        3        3        2        0
+  O1              3        3        4        3        4        3        0
+  C3              2        3        3        3        4        3        1
+  O2              3        4        4        4        4        4        2
+  O3              1        2        2        2        3        3        2
+  Li1             2        4        3        4        4        4        3
+                 C3       O2       O3       Li1     
+  C3              0
+  O2              1        0
+  O3              1        2        0
+  Li1             2        1        1        0
+  
+  Molecular weight:      95.03 amu
+   
+  Stoichiometry: LiC3H4O3
+  cpu seconds-  salc       user:        0.0 user+sys:        0.0
+  Molecular Point Group: C1      
+  Point Group used: C1 (symmetry turned off)
+  
+  number of surviving atom pairs:    66  out of:    66
+  Connectivity table:
+                 C1       C2       H1       H2       H3       H4       O1      
+  C1              0
+  C2              1        0
+  H1              1        2        0
+  H2              1        2        2        0
+  H3              2        1        3        3        0
+  H4              2        1        3        3        2        0
+  O1              3        3        4        3        4        3        0
+  C3              2        3        3        3        4        3        1
+  O2              3        4        4        4        4        4        2
+  O3              1        2        2        2        3        3        2
+  Li1             2        4        3        4        4        4        3
+                 C3       O2       O3       Li1     
+  C3              0
+  O2              1        0
+  O3              1        2        0
+  Li1             2        1        1        0
+  
+  nuclear repulsion energy.......     255.796175749 hartrees
+ 
+ Non-default options chosen:
+   SCF calculation type: UDFT(wb97x-d)               
+   UDFT=wB97X+D/HF(LR)+HF(SR)+xB97(SR)+cB97+D (wB97X-D)
+   Solvation energy will be computed via PCM
+   Numerical 2nd derivatives will be computed
+   Vibrational frequencies and related properties will be computed
+   IR intensities will be computed
+   Thermochemical properties will be computed
+   Thermochemical data will be computed for  50 temperatures starting at
+        58.15 K, at intervals of   20.00 K
+   Molecular symmetry not used
+   Maximum number of SCF iterations:  250
+   Mulliken populations computed by atom
+   Geometries will be output each geometry optimization step
+   Solvent: water                                                           
+  
+ Non-default print settings:
+      5=  2   6=  3  12=  2  24=  2  70=  2 192=  3 193=  2 472=  2
+  
+ Temporary integer options set:
+     73=  2
+  
+  atom       vdw   vdw2    cov     mass  grid  daf  charge   basis
+  C1        1.949  1.900  0.770   12.000    Y    Y      Y    def2-tzvpd
+  C2        1.949  1.900  0.770   12.000    Y    Y      Y    def2-tzvpd
+  H1        1.597  1.150  0.320    1.008    Y    Y      Y    def2-tzvpd
+  H2        1.597  1.150  0.320    1.008    Y    Y      Y    def2-tzvpd
+  H3        1.597  1.150  0.320    1.008    Y    Y      Y    def2-tzvpd
+  H4        1.597  1.150  0.320    1.008    Y    Y      Y    def2-tzvpd
+  O1        1.702  1.600  0.730   15.995    Y    Y      Y    def2-tzvpd
+  C3        1.949  1.900  0.770   12.000    Y    Y      Y    def2-tzvpd
+  O2        1.702  1.600  0.730   15.995    Y    Y      Y    def2-tzvpd
+  O3        1.702  1.600  0.730   15.995    Y    Y      Y    def2-tzvpd
+  Li1       1.226  1.226  1.230    7.016    Y    Y      Y    def2-tzvpd
+  
+ 
+   Copy grid    4 into grid    2
+ 
+     0                                                  1
+     1  1                                1  0  0  0  1  1
+     1  1                                1  1  1  1  1  1
+     1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+     1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+     1  1  1
+                 1  1  1  1  1  1  1  1  1  1  1  1  1  1
+              1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+     1  1  1
+                 1  1  1  1  1  1  1  1  1  1  1  1  1  1
+ 
+ 
+   Copy daf    4 into daf    2
+ 
+     0                                                  0
+     0  0                                0  0  0  0  0  0
+     0  0                                0  0  0  0  0  0
+     0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+     0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+     0  0  0
+                 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+              0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+     0  0  0
+                 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+ 
+ 
+  cpu seconds- preprocess  user:        1.4 user+sys:        1.4
+  cpu seconds total thru pre         user:        1.4 user+sys:        1.4
+  Peak memory usage:    807 Mb
+  
+  end of program pre
+   
+ Time(pre)  user:        1.5  user+sys:        1.5  wallclock:        1.7
+  
+  start of program onee
+  
+  cpu seconds- onee ints   user:        0.0 user+sys:        0.0
+  cpu seconds-  sosh-sort  user:        0.0 user+sys:        0.0
+  smallest eigenvalue of S:    1.383E-05
+  cpu seconds-  canorth    user:        0.0 user+sys:        0.0
+  number of canonical orbitals.....          271
+  cpu seconds-  rmsmalle   user:        0.0 user+sys:        0.0
+  cpu seconds-  testorth   user:        0.0 user+sys:        0.0
+  cpu seconds-  zatm-CO    user:        0.0 user+sys:        0.0
+  cpu seconds- zcanorth    user:        0.0 user+sys:        0.0
+  cpu seconds- onee        user:        0.1 user+sys:        0.1
+  cpu seconds total thru onee        user:        1.5 user+sys:        1.5
+  Peak memory usage:    890 Mb
+  
+  end of program onee
+   
+ Time(onee)  user:        0.2  user+sys:        0.2  wallclock:        0.2
+
+ Total cpu seconds     user:       1.493   user+sys:       1.493
+  
+ Total elapsed time:    3 seconds
+
+Job Scratch_isomer2_co completed on n0260.lr6 at Fri Mar 20 10:20:07 2020

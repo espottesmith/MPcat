@@ -1,0 +1,57 @@
+Command:  /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar run AutoTS.T9XnCsLi_irc_0.in -TPP 32 -HOST n0260
+Release:  2020-1
+Exec:     /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64
+Host:     n0260.lr6
+JobId:    n0260-0-5e74fb2b
+JobDir:   /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b
+Date:     Fri Mar 20 10:19:41 2020
+
+Contents of /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b:
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/n0260-0-5e74fb2b
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/n0260-0-5e74fb2b.mpinodes
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/n0000-0-5e7378a4.hosts
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/AutoTS.T9XnCsLi_irc_0.log
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/AutoTS.T9XnCsLi_irc_0.mae
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/n0260-0-5e74fb2b.nodes
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/AutoTS.T9XnCsLi_irc_0.recover
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/AutoTS.T9XnCsLi_irc_0.in
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/n0260-0-5e74fb2b.recover
+/var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/.write_dir.json
+
+
+The following structure properties were deleted from the input .mae file: /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b/AutoTS.T9XnCsLi_irc_0.mae
+i_m_Molecular_charge
+
+Executing subprocess:
+/global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1/jaguar-v10.7/bin/Linux-x86_64/jexec AutoTS.T9XnCsLi_irc_0.in -T 32 -out /var/tmp/ewcspottesmith/AutoTS.T9XnCsLi_irc_0#n0260-0-5e74fb2b -cwd
+
+
+** WARNING! Your Jaguar license will expire in 11 days. **
+
+Job AutoTS.T9XnCsLi_irc_0 started on n0260.lr6 at Fri Mar 20 10:19:41 2020
+jobid: n0260-0-5e74fb2b 
+Jaguar version 10.7, release  12
+ ERROR 1089: fatal error
+  Cannot compute dipole derivatives unless a frequency calculation is 
+  requested or a &path section is used (see Jaguar manual)
+--------------------------------------------------------------------------
+orterun has exited due to process rank 0 with PID 213702 on
+node n0260.lr6 exiting improperly. There are two reasons this could occur:
+
+1. this process did not call "init" before exiting, but others in
+the job did. This can cause a job to hang indefinitely while it waits
+for all processes to call "init". By rule, if one process calls "init",
+then ALL processes must call "init" prior to termination.
+
+2. this process called "init", but exited without calling "finalize".
+By rule, all processes that call "init" MUST call "finalize" prior to
+exiting or it will be considered an "abnormal termination"
+
+This may have caused other processes in the application to be
+terminated by signals sent by orterun (as reported here).
+--------------------------------------------------------------------------
+Error: jaguar died in program pre
+
+Job AutoTS.T9XnCsLi_irc_0 halted prematurely on n0260.lr6 at Fri Mar 20 10:19:45 2020
+Timer (jaguar_backend.py) : 3.64 secs
+Finished:   Fri Mar 20 10:19:45 2020

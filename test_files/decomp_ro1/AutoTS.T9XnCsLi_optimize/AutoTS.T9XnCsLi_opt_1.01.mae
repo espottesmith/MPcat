@@ -1,0 +1,2748 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_alpha_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_HOMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.mae 
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  271
+  1
+  -349.97315268647
+  -350.001984076073
+  -350.001984076073
+  -18.0919700092841
+  -0.312714812961696
+  0.0324146833274251
+  -0.362328845388248
+  -0.0108648092202497
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0.754367516859826
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 3 0.707581 0.001502 1.310969 2 6 0 C1  0 2 1 2 1 2 1 2 2021179242851914713 
+  2 14 -0.753921 -0.000501 1.078839 2 6 1 C2  0 3 1 3 1 3 1 3 2021179242851914713 
+  3 41 1.184844 -0.884795 0.870783 21 1 0 H1  0 8 1 8 1 8 1 8 H 
+  4 41 1.180297 0.882765 0.869874 21 1 0 H2  0 9 1 9 1 9 1 9 H 
+  5 44 -1.282432 -0.936142 0.931858 21 1 0 H3  0 11 1 11 1 11 1 11 H 
+  6 44 -1.277967 0.936768 0.932755 21 1 0 H4  0 10 1 10 1 10 1 10 H 
+  7 17 0.661325 2.177976 2.921130 70 8 0 O1  0 5 1 5 1 5 1 5 O 
+  8 3 0.925832 1.129991 3.479061 2 6 0 C3  0 4 1 4 1 4 1 4 C 
+  9 16 1.150817 0.847669 4.689657 70 8 0 O2  0 6 1 6 1 6 1 6 O 
+  10 16 1.038515 -0.064103 2.705819 70 8 0 O3  0 1 1 1 1 1 1 1 O 
+  11 93 1.400802 -0.953597 4.367810 4 3 0 Li1  0 7 1 7 1 7 1 7 Li 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 1 10 1 1
+  5 2 1 1 0
+  6 2 6 1 0
+  7 2 5 1 0
+  8 3 1 1 0
+  9 4 1 1 0
+  10 5 2 1 0
+  11 6 2 1 0
+  12 7 8 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 9 1 0
+  16 8 11 1 0
+  17 9 8 1 0
+  18 9 11 1 0
+  19 10 1 1 1
+  20 10 8 1 0
+  21 10 11 0 0
+  22 11 8 1 0
+  23 11 9 1 0
+  24 11 10 0 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_alpha_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_HOMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.mae 
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  271
+  2
+  -349.97315268647
+  -350.002576421243
+  -350.002576421243
+  -18.4636722129625
+  -0.312944314890411
+  0.0323081324797626
+  -0.360540663971888
+  -0.0113541808068079
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0.754374097452075
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 3 0.701381 0.002568 1.303619 2 6 0 C1  0 2 1 2 1 2 1 2 2021179242851914713 
+  2 14 -0.760637 -0.009684 1.059637 2 6 1 C2  0 3 1 3 1 3 1 3 2021179242851914713 
+  3 41 1.178795 -0.880746 0.879251 21 1 0 H1  0 8 1 8 1 8 1 8 H 
+  4 41 1.172283 0.889924 0.881981 21 1 0 H2  0 9 1 9 1 9 1 9 H 
+  5 44 -1.286810 -0.946359 0.935090 21 1 0 H3  0 11 1 11 1 11 1 11 H 
+  6 44 -1.299889 0.916200 0.918996 21 1 0 H4  0 10 1 10 1 10 1 10 H 
+  7 17 0.678425 2.184249 2.933194 70 8 0 O1  0 5 1 5 1 5 1 5 O 
+  8 3 0.933232 1.130761 3.482949 2 6 0 C3  0 4 1 4 1 4 1 4 C 
+  9 16 1.158538 0.848374 4.688816 70 8 0 O2  0 6 1 6 1 6 1 6 O 
+  10 16 1.027482 -0.057478 2.708630 70 8 0 O3  0 1 1 1 1 1 1 1 O 
+  11 93 1.384603 -0.969233 4.373135 4 3 0 Li1  0 7 1 7 1 7 1 7 Li 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 1 10 1 1
+  5 2 1 1 0
+  6 2 6 1 0
+  7 2 5 1 0
+  8 3 1 1 0
+  9 4 1 1 0
+  10 5 2 1 0
+  11 6 2 1 0
+  12 7 8 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 9 1 0
+  16 8 11 1 0
+  17 9 8 1 0
+  18 9 11 1 0
+  19 10 1 1 1
+  20 10 8 1 0
+  21 10 11 0 0
+  22 11 8 1 0
+  23 11 9 1 0
+  24 11 10 0 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_alpha_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_HOMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.mae 
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  271
+  3
+  -349.97315268647
+  -350.002953182521
+  -350.002953182521
+  -18.7000934831611
+  -0.312826122815158
+  0.0321056343773619
+  -0.358640840649716
+  -0.011655983585802
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0.754399087518493
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 3 0.701034 0.005556 1.295565 2 6 0 C1  0 2 1 2 1 2 1 2 2021179242851914713 
+  2 14 -0.757162 -0.017537 1.046822 2 6 1 C2  0 3 1 3 1 3 1 3 2021179242851914713 
+  3 41 1.183054 -0.877297 0.887113 21 1 0 H1  0 8 1 8 1 8 1 8 H 
+  4 41 1.164585 0.902053 0.891075 21 1 0 H2  0 9 1 9 1 9 1 9 H 
+  5 44 -1.284175 -0.957176 0.962507 21 1 0 H3  0 11 1 11 1 11 1 11 H 
+  6 44 -1.315138 0.898822 0.924594 21 1 0 H4  0 10 1 10 1 10 1 10 H 
+  7 17 0.693823 2.193103 2.938184 70 8 0 O1  0 5 1 5 1 5 1 5 O 
+  8 3 0.938330 1.131759 3.483998 2 6 0 C3  0 4 1 4 1 4 1 4 C 
+  9 16 1.163033 0.846258 4.688513 70 8 0 O2  0 6 1 6 1 6 1 6 O 
+  10 16 1.014379 -0.048890 2.711965 70 8 0 O3  0 1 1 1 1 1 1 1 O 
+  11 93 1.357357 -0.995748 4.381572 4 3 0 Li1  0 7 1 7 1 7 1 7 Li 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 1 10 1 1
+  5 2 1 1 0
+  6 2 6 1 0
+  7 2 5 1 0
+  8 3 1 1 0
+  9 4 1 1 0
+  10 5 2 1 0
+  11 6 2 1 0
+  12 7 8 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 9 1 0
+  16 8 11 1 0
+  17 9 8 1 0
+  18 9 11 1 0
+  19 10 1 1 1
+  20 10 8 1 0
+  21 10 11 0 0
+  22 11 8 1 0
+  23 11 9 1 0
+  24 11 10 0 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_alpha_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_HOMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.mae 
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  271
+  4
+  -349.97315268647
+  -350.003068270674
+  -350.003068270674
+  -18.772312388551
+  -0.312920924588294
+  0.0319914813845494
+  -0.357527168118896
+  -0.0117874348950409
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0.754415090079952
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 3 0.700850 0.008705 1.292941 2 6 0 C1  0 2 1 2 1 2 1 2 2021179242851914713 
+  2 14 -0.755638 -0.022691 1.040461 2 6 1 C2  0 3 1 3 1 3 1 3 2021179242851914713 
+  3 41 1.192145 -0.872619 0.888025 21 1 0 H1  0 8 1 8 1 8 1 8 H 
+  4 41 1.161336 0.908753 0.891580 21 1 0 H2  0 9 1 9 1 9 1 9 H 
+  5 44 -1.282267 -0.965489 0.981337 21 1 0 H3  0 11 1 11 1 11 1 11 H 
+  6 44 -1.321559 0.891384 0.932141 21 1 0 H4  0 10 1 10 1 10 1 10 H 
+  7 17 0.705175 2.198103 2.940150 70 8 0 O1  0 5 1 5 1 5 1 5 O 
+  8 3 0.941465 1.132430 3.483177 2 6 0 C3  0 4 1 4 1 4 1 4 C 
+  9 16 1.164342 0.845120 4.688623 70 8 0 O2  0 6 1 6 1 6 1 6 O 
+  10 16 1.006370 -0.044987 2.713247 70 8 0 O3  0 1 1 1 1 1 1 1 O 
+  11 93 1.338907 -1.010536 4.386694 4 3 0 Li1  0 7 1 7 1 7 1 7 Li 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 1 10 1 1
+  5 2 1 1 0
+  6 2 6 1 0
+  7 2 5 1 0
+  8 3 1 1 0
+  9 4 1 1 0
+  10 5 2 1 0
+  11 6 2 1 0
+  12 7 8 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 9 1 0
+  16 8 11 1 0
+  17 9 8 1 0
+  18 9 11 1 0
+  19 10 1 1 1
+  20 10 8 1 0
+  21 10 11 0 0
+  22 11 8 1 0
+  23 11 9 1 0
+  24 11 10 0 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_alpha_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_HOMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.mae 
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  271
+  5
+  -349.97315268647
+  -350.003129860505
+  -350.003129860505
+  -18.8109605909591
+  -0.31289996748038
+  0.03194389259179
+  -0.357452334909961
+  -0.0116496299855016
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0.754415830452167
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 3 0.704026 0.009260 1.293638 2 6 0 C1  0 2 1 2 1 2 1 2 2021179242851914713 
+  2 14 -0.751673 -0.022164 1.039851 2 6 1 C2  0 3 1 3 1 3 1 3 2021179242851914713 
+  3 41 1.199594 -0.870320 0.885856 21 1 0 H1  0 8 1 8 1 8 1 8 H 
+  4 41 1.164941 0.909090 0.890631 21 1 0 H2  0 9 1 9 1 9 1 9 H 
+  5 44 -1.280580 -0.965043 0.996333 21 1 0 H3  0 11 1 11 1 11 1 11 H 
+  6 44 -1.316482 0.894633 0.944357 21 1 0 H4  0 10 1 10 1 10 1 10 H 
+  7 17 0.702680 2.198066 2.938485 70 8 0 O1  0 5 1 5 1 5 1 5 O 
+  8 3 0.940432 1.132119 3.481671 2 6 0 C3  0 4 1 4 1 4 1 4 C 
+  9 16 1.162612 0.845689 4.688507 70 8 0 O2  0 6 1 6 1 6 1 6 O 
+  10 16 1.006715 -0.044390 2.712974 70 8 0 O3  0 1 1 1 1 1 1 1 O 
+  11 93 1.334745 -1.015339 4.390342 4 3 0 Li1  0 7 1 7 1 7 1 7 Li 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 1 10 1 1
+  5 2 1 1 0
+  6 2 6 1 0
+  7 2 5 1 0
+  8 3 1 1 0
+  9 4 1 1 0
+  10 5 2 1 0
+  11 6 2 1 0
+  12 7 8 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 9 1 0
+  16 8 11 1 0
+  17 9 8 1 0
+  18 9 11 1 0
+  19 10 1 1 1
+  20 10 8 1 0
+  21 10 11 0 0
+  22 11 8 1 0
+  23 11 9 1 0
+  24 11 10 0 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_alpha_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_HOMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.mae 
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  271
+  6
+  -349.97315268647
+  -350.003161270864
+  -350.003161270864
+  -18.8306708886788
+  -0.312998492107495
+  0.0319232448103038
+  -0.357391558617763
+  -0.0115662522102946
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0.754409391651421
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 3 0.704670 0.011892 1.294251 2 6 0 C1  0 2 1 2 1 2 1 2 2021179242851914713 
+  2 14 -0.750227 -0.024550 1.036922 2 6 1 C2  0 3 1 3 1 3 1 3 2021179242851914713 
+  3 41 1.205291 -0.864562 0.883975 21 1 0 H1  0 8 1 8 1 8 1 8 H 
+  4 41 1.164423 0.912236 0.890018 21 1 0 H2  0 9 1 9 1 9 1 9 H 
+  5 44 -1.277683 -0.968987 1.010682 21 1 0 H3  0 11 1 11 1 11 1 11 H 
+  6 44 -1.317284 0.892180 0.953765 21 1 0 H4  0 10 1 10 1 10 1 10 H 
+  7 17 0.710521 2.199858 2.938563 70 8 0 O1  0 5 1 5 1 5 1 5 O 
+  8 3 0.941522 1.132567 3.481188 2 6 0 C3  0 4 1 4 1 4 1 4 C 
+  9 16 1.159631 0.844318 4.688909 70 8 0 O2  0 6 1 6 1 6 1 6 O 
+  10 16 1.003947 -0.044007 2.712303 70 8 0 O3  0 1 1 1 1 1 1 1 O 
+  11 93 1.323495 -1.018722 4.392514 4 3 0 Li1  0 7 1 7 1 7 1 7 Li 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 1 10 1 1
+  5 2 1 1 0
+  6 2 6 1 0
+  7 2 5 1 0
+  8 3 1 1 0
+  9 4 1 1 0
+  10 5 2 1 0
+  11 6 2 1 0
+  12 7 8 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 9 1 0
+  16 8 11 1 0
+  17 9 8 1 0
+  18 9 11 1 0
+  19 10 1 1 1
+  20 10 8 1 0
+  21 10 11 0 0
+  22 11 8 1 0
+  23 11 9 1 0
+  24 11 10 0 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_alpha_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_HOMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.mae 
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  271
+  7
+  -349.97315268647
+  -350.003173523058
+  -350.003173523058
+  -18.8383592567167
+  -0.312992643231206
+  0.0319397412972774
+  -0.357538710960814
+  -0.0114563541912906
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  0.75440647605673
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 3 0.707428 0.011844 1.294084 2 6 0 C1  0 2 1 2 1 2 1 2 2021179242851914713 
+  2 14 -0.748088 -0.023173 1.036597 2 6 1 C2  0 3 1 3 1 3 1 3 2021179242851914713 
+  3 41 1.207346 -0.864111 0.881971 21 1 0 H1  0 8 1 8 1 8 1 8 H 
+  4 41 1.167281 0.912161 0.889951 21 1 0 H2  0 9 1 9 1 9 1 9 H 
+  5 44 -1.277133 -0.966886 1.019541 21 1 0 H3  0 11 1 11 1 11 1 11 H 
+  6 44 -1.314598 0.894477 0.959603 21 1 0 H4  0 10 1 10 1 10 1 10 H 
+  7 17 0.708115 2.199039 2.938383 70 8 0 O1  0 5 1 5 1 5 1 5 O 
+  8 3 0.940210 1.132323 3.481469 2 6 0 C3  0 4 1 4 1 4 1 4 C 
+  9 16 1.156688 0.843734 4.689102 70 8 0 O2  0 6 1 6 1 6 1 6 O 
+  10 16 1.006393 -0.044647 2.711406 70 8 0 O3  0 1 1 1 1 1 1 1 O 
+  11 93 1.322813 -1.016605 4.393075 4 3 0 Li1  0 7 1 7 1 7 1 7 Li 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 1 10 1 1
+  5 2 1 1 0
+  6 2 6 1 0
+  7 2 5 1 0
+  8 3 1 1 0
+  9 4 1 1 0
+  10 5 2 1 0
+  11 6 2 1 0
+  12 7 8 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 9 1 0
+  16 8 11 1 0
+  17 9 8 1 0
+  18 9 11 1 0
+  19 10 1 1 1
+  20 10 8 1 0
+  21 10 11 0 0
+  22 11 8 1 0
+  23 11 9 1 0
+  24 11 10 0 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_input_file
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_output_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Number_of_canonical_orbitals
+ i_j_Geometry_convergence_category
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_alpha_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_HOMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_Zero_Point_Energy_(kcal/mol)
+ r_j_Entropy_(cal/mol/K)_58.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_58.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_58.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_58.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_58.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_58.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_58.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_58.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_58.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_78.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_78.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_78.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_78.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_78.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_78.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_78.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_78.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_78.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_98.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_98.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_98.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_98.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_98.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_98.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_98.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_98.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_98.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_118.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_118.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_118.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_118.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_118.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_118.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_118.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_118.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_118.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_138.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_138.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_138.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_138.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_138.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_138.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_138.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_138.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_138.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_158.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_158.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_158.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_158.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_158.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_158.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_158.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_158.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_158.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_178.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_178.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_178.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_178.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_178.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_178.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_178.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_178.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_178.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_198.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_198.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_198.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_198.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_198.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_198.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_198.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_198.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_198.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_218.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_218.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_218.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_218.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_218.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_218.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_218.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_218.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_218.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_238.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_238.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_238.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_238.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_238.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_238.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_238.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_238.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_238.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_258.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_258.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_258.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_258.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_258.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_258.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_258.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_258.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_258.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_278.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_278.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_278.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_278.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_278.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_278.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_278.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_278.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_278.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_298.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_298.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_298.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_298.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_298.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_298.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_298.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_298.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_298.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_318.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_318.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_318.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_318.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_318.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_318.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_318.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_318.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_318.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_338.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_338.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_338.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_338.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_338.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_338.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_338.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_338.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_338.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_358.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_358.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_358.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_358.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_358.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_358.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_358.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_358.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_358.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_378.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_378.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_378.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_378.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_378.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_378.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_378.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_378.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_378.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_398.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_398.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_398.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_398.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_398.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_398.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_398.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_398.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_398.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_418.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_418.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_418.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_418.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_418.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_418.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_418.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_418.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_418.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_438.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_438.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_438.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_438.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_438.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_438.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_438.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_438.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_438.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_458.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_458.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_458.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_458.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_458.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_458.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_458.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_458.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_458.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_478.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_478.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_478.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_478.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_478.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_478.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_478.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_478.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_478.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_498.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_498.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_498.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_498.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_498.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_498.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_498.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_498.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_498.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_518.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_518.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_518.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_518.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_518.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_518.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_518.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_518.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_518.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_538.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_538.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_538.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_538.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_538.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_538.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_538.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_538.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_538.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_558.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_558.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_558.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_558.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_558.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_558.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_558.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_558.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_558.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_578.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_578.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_578.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_578.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_578.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_578.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_578.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_578.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_578.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_598.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_598.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_598.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_598.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_598.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_598.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_598.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_598.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_598.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_618.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_618.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_618.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_618.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_618.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_618.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_618.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_618.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_618.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_638.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_638.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_638.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_638.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_638.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_638.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_638.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_638.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_638.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_658.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_658.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_658.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_658.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_658.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_658.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_658.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_658.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_658.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_678.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_678.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_678.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_678.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_678.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_678.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_678.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_678.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_678.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_698.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_698.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_698.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_698.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_698.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_698.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_698.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_698.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_698.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_718.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_718.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_718.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_718.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_718.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_718.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_718.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_718.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_718.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_738.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_738.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_738.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_738.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_738.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_738.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_738.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_738.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_738.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_758.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_758.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_758.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_758.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_758.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_758.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_758.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_758.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_758.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_778.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_778.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_778.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_778.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_778.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_778.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_778.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_778.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_778.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_798.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_798.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_798.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_798.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_798.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_798.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_798.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_798.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_798.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_818.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_818.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_818.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_818.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_818.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_818.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_818.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_818.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_818.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_838.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_838.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_838.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_838.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_838.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_838.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_838.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_838.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_838.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_858.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_858.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_858.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_858.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_858.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_858.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_858.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_858.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_858.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_878.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_878.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_878.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_878.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_878.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_878.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_878.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_878.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_878.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_898.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_898.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_898.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_898.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_898.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_898.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_898.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_898.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_898.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_918.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_918.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_918.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_918.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_918.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_918.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_918.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_918.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_918.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_938.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_938.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_938.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_938.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_938.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_938.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_938.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_938.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_938.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_958.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_958.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_958.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_958.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_958.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_958.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_958.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_958.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_958.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_978.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_978.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_978.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_978.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_978.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_978.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_978.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_978.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_978.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_998.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_998.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_998.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_998.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_998.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_998.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_998.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_998.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_998.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_1018.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_1018.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_1018.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_1018.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_1018.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_1018.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_1018.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_1018.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_1018.15K_1.0atm
+ r_j_Entropy_(cal/mol/K)_1038.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_1038.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_1038.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_1038.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_1038.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_1038.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_1038.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_1038.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_1038.15K_1.0atm
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  Optimization 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.out 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_optimize/AutoTS.T9XnCsLi_opt_1.mae 
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  271
+  0
+  1
+  -349.972267862347
+  -350.003175998848
+  -350.003175998848
+  -19.395148354045
+  -0.313093068984983
+  0.0319743642023947
+  -0.357950353166528
+  -0.0114726927677703
+  10.1468491232749
+  0.929473360538974
+  -10.1002501325734
+  -0.28208803945568
+  6.29225857272153
+  3279.71942281434
+  67.2376053556705
+  0
+  44.244608073654
+  57.142872325055
+  0.556566005830939
+  -2.76629201987101
+  0.441009953540796
+  10.6955602764417
+  23.9389626510024
+  -349.931964933257
+  -349.931780782964
+  -349.937076094325
+  61.1553944574817
+  0.828929595082247
+  -3.95036448176995
+  0.673629414747344
+  12.4936986734549
+  25.4369600424869
+  -349.931594230546
+  -349.931346743954
+  -349.938963033915
+  64.621940450236
+  1.13375360366437
+  -5.20888985152629
+  0.938709295284703
+  13.9793595604089
+  26.7061874032587
+  -349.931171798865
+  -349.930860975973
+  -349.940968621767
+  67.7047086809447
+  1.46661533414547
+  -6.53269599650815
+  1.23182689772105
+  15.3158643814585
+  27.8237552751492
+  -349.930704686229
+  -349.930330527037
+  -349.943078241156
+  70.5077152470534
+  1.82542029039245
+  -7.91522057098797
+  1.55088772592326
+  16.582652840447
+  28.8316272653927
+  -349.930196230431
+  -349.929758734939
+  -349.94528143432
+  73.1002858911675
+  2.20920382206916
+  -9.35160639161897
+  1.89492712955522
+  17.8178763506242
+  29.7559654100151
+  -349.92964796874
+  -349.929147136947
+  -349.947570460844
+  75.5300391663877
+  2.61752685568858
+  -10.8381496218034
+  2.26350603512987
+  19.0382377825472
+  30.614441276925
+  -349.929060600862
+  -349.92849643277
+  -349.949939418288
+  77.8304780191817
+  3.05016130291563
+  -12.3719479165852
+  2.65639635431216
+  20.2493842704083
+  31.4196272686629
+  -349.92843449028
+  -349.927806985888
+  -349.952383681471
+  80.0256669136877
+  3.50693075187806
+  -13.9506684853429
+  3.07342167522983
+  21.451488562738
+  32.1807990577857
+  -349.927769918125
+  -349.927079077433
+  -349.954899532855
+  82.1332098256142
+  3.98763264509996
+  -15.5723912748701
+  3.51437944040697
+  22.6420857033701
+  32.9049885356237
+  -349.927067207192
+  -349.9263130302
+  -349.957483912641
+  84.1661889249706
+  4.49200117711958
+  -17.2355004938616
+  3.97900384438182
+  23.8174787926141
+  33.5976415352484
+  -349.926326781069
+  -349.925509267777
+  -349.9601342459
+  86.134455277991
+  5.01969080673296
+  -18.9386079288402
+  4.46694934595044
+  24.9734845143686
+  34.2630493142833
+  -349.925549190411
+  -349.924668340819
+  -349.962848320375
+  88.0455109835181
+  5.5702714192902
+  -20.6804976804457
+  4.97778583046293
+  26.1058910158625
+  34.9046425270516
+  -349.92473512065
+  -349.923790934758
+  -349.965624198405
+  89.905129127057
+  6.14323109881306
+  -22.4600857329601
+  5.51100138194103
+  27.2107740687099
+  35.5251977779243
+  -349.923885387575
+  -349.922877865383
+  -349.968460152502
+  91.7178006909409
+  6.73798422558684
+  -24.2763900780548
+  6.06601038067005
+  28.28471702182
+  36.1269865809446
+  -349.923000924431
+  -349.921930065939
+  -349.971354617737
+  93.4870631053627
+  7.35388312896563
+  -26.12850852222
+  6.64216515600407
+  29.3249477877942
+  36.7118852057306
+  -349.922082763347
+  -349.920948568555
+  -349.974306156371
+  95.2157448195744
+  7.9902317235904
+  -28.0156021799317
+  7.23876962258409
+  30.3294019421852
+  37.2814572317282
+  -349.921132013605
+  -349.919934482513
+  -349.977313431556
+  96.9061483925944
+  8.64629976962362
+  -29.9368832128879
+  7.85509354057254
+  31.2967244138487
+  37.8370165876881
+  -349.920149838917
+  -349.918888971525
+  -349.980375187792
+  98.5601875612109
+  9.32133667944367
+  -31.8916057492767
+  8.49038632234783
+  32.2262251042293
+  38.3796763271604
+  -349.91913743542
+  -349.917813231728
+  -349.983490236457
+  100.17948941549
+  10.0145841077858
+  -33.879059179611
+  9.1438896226452
+  33.117804134751
+  38.9103867749205
+  -349.918096011614
+  -349.916708471622
+  -349.986657445121
+  101.765469998972
+  10.7252868617476
+  -35.8985632182812
+  9.81484824856221
+  33.9718606984995
+  39.4299656213861
+  -349.917026770977
+  -349.915575894684
+  -349.989875729681
+  103.319389700045
+  11.4527019193461
+  -37.9494642657302
+  10.502519178116
+  34.7891966609155
+  39.939121833133
+  -349.915930897588
+  -349.914416684995
+  -349.99314404856
+  104.842393366619
+  12.1961055371121
+  -40.0311327184694
+  11.2061786678372
+  35.5709229534196
+  40.4384747610619
+  -349.914809544806
+  -349.913231995914
+  -349.996461398421
+  106.335538975781
+  12.9547985589659
+  -42.1429609613348
+  11.9251275616463
+  36.3183739640104
+  40.928569485824
+  -349.913663826808
+  -349.912022941615
+  -349.999826810966
+  107.799817825002
+  13.7281101184988
+  -44.2843618440263
+  12.6586949931344
+  37.0330328039812
+  41.4098891942792
+  -349.912494812687
+  -349.910790591194
+  -350.003239350514
+  109.236168524837
+  14.5153999659571
+  -46.4547674961807
+  13.4062407125479
+  37.7164685847825
+  41.8828652002812
+  -349.911303522746
+  -349.909535964954
+  -350.006698112104
+  110.645486528
+  15.3160596610031
+  -48.65362837516
+  14.1671562795491
+  38.3702856307533
+  42.347885088117
+  -349.910090926597
+  -349.908260032504
+  -350.010202219984
+  112.028630499902
+  16.1295128625502
+  -50.8804124709664
+  14.9408653530515
+  38.996083790195
+  42.805299354411
+  -349.908857942697
+  -349.906963712304
+  -350.013750826344
+  113.386426499734
+  16.9552149255147
+  -53.1346046152962
+  15.7268232879712
+  39.59542858508
+  43.255426845428
+  -349.907605438994
+  -349.905647872301
+  -350.017343110209
+  114.719670681556
+  17.7926519870206
+  -55.4157058584141
+  16.5245162214324
+  40.1698297620645
+  43.6985592254076
+  -349.90633423438
+  -349.904313331388
+  -350.020978276453
+  116.029131026582
+  18.6413396954973
+  -57.7232328896479
+  17.3334598018643
+  40.7207267938955
+  44.1349646635417
+  -349.905045100719
+  -349.902960861426
+  -350.024655554871
+  117.315548468333
+  19.500821707843
+  -60.0567174859573
+  18.1531976861652
+  41.2494799683044
+  44.5648908893664
+  -349.903738765239
+  -349.901591189647
+  -350.028374199302
+  118.579637661021
+  20.3706680539454
+  -62.4157059790965
+  18.9832999042229
+  41.7573658453304
+  44.9885677363871
+  -349.902415913143
+  -349.90020500125
+  -350.032133486781
+  119.822087559938
+  21.2504734451305
+  -64.7997587360388
+  19.8233611673633
+  42.2455760319799
+  45.4062092699667
+  -349.901077190297
+  -349.898802942105
+  -350.035932716706
+  121.043561923579
+  22.1398555838067
+  -67.208449650083
+  20.6729991779946
+  42.7152183944012
+  45.8180155765677
+  -349.899723205933
+  -349.897385621441
+  -350.039771210035
+  122.244699805355
+  23.0384535156176
+  -69.641365641812
+  21.5318529817608
+  43.1673199896589
+  46.224174276333
+  -349.898354535268
+  -349.895953614476
+  -350.043648308482
+  123.426116073598
+  23.9459260525465
+  -72.0981061701235
+  22.399581390645
+  43.6028311448083
+  46.624861808922
+  -349.896971722019
+  -349.894507464927
+  -350.047563373745
+  124.588401978798
+  24.8619502852636
+  -74.5782827541142
+  23.2758614953173
+  44.0226302372774
+  47.020244532867
+  -349.895575280776
+  -349.893047687383
+  -350.05151578674
+  125.732125774032
+  25.7862201951861
+  -77.0815185068381
+  24.160387277195
+  44.4275288370694
+  47.4104796709879
+  -349.894165699209
+  -349.891574769517
+  -350.05550494686
+  126.857833386425
+  26.718445370839
+  -79.6074476819931
+  25.0528683248032
+  44.8182769590017
+  47.7957161282114
+  -349.892743440119
+  -349.890089174127
+  -350.059530271251
+  127.966049132777
+  27.6583498288014
+  -82.155715234491
+  25.9530286547208
+  45.1955682439472
+  48.1760952031719
+  -349.891308943314
+  -349.888591341022
+  -350.063591194113
+  129.057276470071
+  28.6056709364855
+  -84.7259763957073
+  26.8606056343601
+  45.5600449440156
+  48.5517512109823
+  -349.889862627325
+  -349.887081688733
+  -350.067687166021
+  130.131998770754
+  29.5601584319488
+  -87.3178962640042
+  27.7753490017787
+  45.9123026300751
+  48.9228120313564
+  -349.88840489097
+  -349.885560616078
+  -350.071817653276
+  131.19068011281
+  30.5215735346525
+  -89.9311494109241
+  28.6970199764376
+  46.2528945731074
+  49.2893995936805
+  -349.88693611477
+  -349.884028503578
+  -350.075982137275
+  132.233766075387
+  31.4896881403701
+  -92.5654195032545
+  29.6253904541104
+  46.582335775547
+  49.6516303085535
+  -349.885456662233
+  -349.882485714741
+  -350.080180113908
+  133.261684531809
+  32.4642840931612
+  -95.2203989409921
+  30.5602422788568
+  46.9011066466826
+  50.0096154536288
+  -349.883966881011
+  -349.880932597219
+  -350.084411092985
+  134.274846432984
+  33.4451525273419
+  -97.8957885110812
+  31.5013665849927
+  47.2096563288229
+  50.3634615202382
+  -349.882467103955
+  -349.879369483862
+  -350.088674597677
+  135.273646575448
+  34.4320932726073
+  -100.591297056676
+  32.4485632022134
+  47.5084056894571
+  50.7132705261685
+  -349.880957650054
+  -349.877796693662
+  -350.092970163999
+  136.258464349455
+  35.4249143158262
+  -103.306641161571
+  33.4016401173875
+  47.7977500000445
+  51.0591402990714
+  -349.879438825302
+  -349.87621453261
+  -350.097297340296
+  137.229664463551
+  36.4234313134739
+  -106.041544849362
+  34.3604129869905
+  48.0780613251429
+  51.4011647342549
+  -349.877910923469
+  -349.874623294476
+  -350.101655686773
+  0.754404184029354
+  2
+ m_depend[482] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geometry_convergence_category 
+  14 20 i_j_Geom_Iter_Num 
+  15 20 r_j_Gas_Phase_Energy 
+  16 20 r_j_Solution_Phase_Energy 
+  17 20 r_j_Final_Energy 
+  18 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  19 20 r_j_alpha_HOMO 
+  20 20 r_j_alpha_LUMO 
+  21 20 r_j_beta_HOMO 
+  22 20 r_j_beta_LUMO 
+  23 20 r_j_QM_Dipole_(debye) 
+  24 20 r_j_QM_Dipole_X_(debye) 
+  25 20 r_j_QM_Dipole_Y_(debye) 
+  26 20 r_j_QM_Dipole_Z_(debye) 
+  27 20 r_j_Lowest_Frequency_(cm-1) 
+  28 20 r_j_Highest_Frequency_(cm-1) 
+  29 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  30 20 i_j_Num_Negative_Frequencies 
+  31 20 r_j_Zero_Point_Energy_(kcal/mol) 
+  32 20 r_j_Entropy_(cal/mol/K)_58.15K_1.0atm 
+  33 20 r_j_Enthalpy_(kcal/mol)_58.15K_1.0atm 
+  34 20 r_j_Free_Energy_(kcal/mol)_58.15K_1.0atm 
+  35 20 r_j_Internal_Energy_(kcal/mol)_58.15K_1.0atm 
+  36 20 r_j_Heat_Capacity_(cal/mol/K)_58.15K_1.0atm 
+  37 20 r_j_ln(Q)_(kcal/mol)_58.15K_1.0atm 
+  38 20 r_j_Total_Internal_Energy_(au)_58.15K_1.0atm 
+  39 20 r_j_Total_Enthalpy_(au)_58.15K_1.0atm 
+  40 20 r_j_Total_Free_Energy_(au)_58.15K_1.0atm 
+  41 20 r_j_Entropy_(cal/mol/K)_78.15K_1.0atm 
+  42 20 r_j_Enthalpy_(kcal/mol)_78.15K_1.0atm 
+  43 20 r_j_Free_Energy_(kcal/mol)_78.15K_1.0atm 
+  44 20 r_j_Internal_Energy_(kcal/mol)_78.15K_1.0atm 
+  45 20 r_j_Heat_Capacity_(cal/mol/K)_78.15K_1.0atm 
+  46 20 r_j_ln(Q)_(kcal/mol)_78.15K_1.0atm 
+  47 20 r_j_Total_Internal_Energy_(au)_78.15K_1.0atm 
+  48 20 r_j_Total_Enthalpy_(au)_78.15K_1.0atm 
+  49 20 r_j_Total_Free_Energy_(au)_78.15K_1.0atm 
+  50 20 r_j_Entropy_(cal/mol/K)_98.15K_1.0atm 
+  51 20 r_j_Enthalpy_(kcal/mol)_98.15K_1.0atm 
+  52 20 r_j_Free_Energy_(kcal/mol)_98.15K_1.0atm 
+  53 20 r_j_Internal_Energy_(kcal/mol)_98.15K_1.0atm 
+  54 20 r_j_Heat_Capacity_(cal/mol/K)_98.15K_1.0atm 
+  55 20 r_j_ln(Q)_(kcal/mol)_98.15K_1.0atm 
+  56 20 r_j_Total_Internal_Energy_(au)_98.15K_1.0atm 
+  57 20 r_j_Total_Enthalpy_(au)_98.15K_1.0atm 
+  58 20 r_j_Total_Free_Energy_(au)_98.15K_1.0atm 
+  59 20 r_j_Entropy_(cal/mol/K)_118.15K_1.0atm 
+  60 20 r_j_Enthalpy_(kcal/mol)_118.15K_1.0atm 
+  61 20 r_j_Free_Energy_(kcal/mol)_118.15K_1.0atm 
+  62 20 r_j_Internal_Energy_(kcal/mol)_118.15K_1.0atm 
+  63 20 r_j_Heat_Capacity_(cal/mol/K)_118.15K_1.0atm 
+  64 20 r_j_ln(Q)_(kcal/mol)_118.15K_1.0atm 
+  65 20 r_j_Total_Internal_Energy_(au)_118.15K_1.0atm 
+  66 20 r_j_Total_Enthalpy_(au)_118.15K_1.0atm 
+  67 20 r_j_Total_Free_Energy_(au)_118.15K_1.0atm 
+  68 20 r_j_Entropy_(cal/mol/K)_138.15K_1.0atm 
+  69 20 r_j_Enthalpy_(kcal/mol)_138.15K_1.0atm 
+  70 20 r_j_Free_Energy_(kcal/mol)_138.15K_1.0atm 
+  71 20 r_j_Internal_Energy_(kcal/mol)_138.15K_1.0atm 
+  72 20 r_j_Heat_Capacity_(cal/mol/K)_138.15K_1.0atm 
+  73 20 r_j_ln(Q)_(kcal/mol)_138.15K_1.0atm 
+  74 20 r_j_Total_Internal_Energy_(au)_138.15K_1.0atm 
+  75 20 r_j_Total_Enthalpy_(au)_138.15K_1.0atm 
+  76 20 r_j_Total_Free_Energy_(au)_138.15K_1.0atm 
+  77 20 r_j_Entropy_(cal/mol/K)_158.15K_1.0atm 
+  78 20 r_j_Enthalpy_(kcal/mol)_158.15K_1.0atm 
+  79 20 r_j_Free_Energy_(kcal/mol)_158.15K_1.0atm 
+  80 20 r_j_Internal_Energy_(kcal/mol)_158.15K_1.0atm 
+  81 20 r_j_Heat_Capacity_(cal/mol/K)_158.15K_1.0atm 
+  82 20 r_j_ln(Q)_(kcal/mol)_158.15K_1.0atm 
+  83 20 r_j_Total_Internal_Energy_(au)_158.15K_1.0atm 
+  84 20 r_j_Total_Enthalpy_(au)_158.15K_1.0atm 
+  85 20 r_j_Total_Free_Energy_(au)_158.15K_1.0atm 
+  86 20 r_j_Entropy_(cal/mol/K)_178.15K_1.0atm 
+  87 20 r_j_Enthalpy_(kcal/mol)_178.15K_1.0atm 
+  88 20 r_j_Free_Energy_(kcal/mol)_178.15K_1.0atm 
+  89 20 r_j_Internal_Energy_(kcal/mol)_178.15K_1.0atm 
+  90 20 r_j_Heat_Capacity_(cal/mol/K)_178.15K_1.0atm 
+  91 20 r_j_ln(Q)_(kcal/mol)_178.15K_1.0atm 
+  92 20 r_j_Total_Internal_Energy_(au)_178.15K_1.0atm 
+  93 20 r_j_Total_Enthalpy_(au)_178.15K_1.0atm 
+  94 20 r_j_Total_Free_Energy_(au)_178.15K_1.0atm 
+  95 20 r_j_Entropy_(cal/mol/K)_198.15K_1.0atm 
+  96 20 r_j_Enthalpy_(kcal/mol)_198.15K_1.0atm 
+  97 20 r_j_Free_Energy_(kcal/mol)_198.15K_1.0atm 
+  98 20 r_j_Internal_Energy_(kcal/mol)_198.15K_1.0atm 
+  99 20 r_j_Heat_Capacity_(cal/mol/K)_198.15K_1.0atm 
+  100 20 r_j_ln(Q)_(kcal/mol)_198.15K_1.0atm 
+  101 20 r_j_Total_Internal_Energy_(au)_198.15K_1.0atm 
+  102 20 r_j_Total_Enthalpy_(au)_198.15K_1.0atm 
+  103 20 r_j_Total_Free_Energy_(au)_198.15K_1.0atm 
+  104 20 r_j_Entropy_(cal/mol/K)_218.15K_1.0atm 
+  105 20 r_j_Enthalpy_(kcal/mol)_218.15K_1.0atm 
+  106 20 r_j_Free_Energy_(kcal/mol)_218.15K_1.0atm 
+  107 20 r_j_Internal_Energy_(kcal/mol)_218.15K_1.0atm 
+  108 20 r_j_Heat_Capacity_(cal/mol/K)_218.15K_1.0atm 
+  109 20 r_j_ln(Q)_(kcal/mol)_218.15K_1.0atm 
+  110 20 r_j_Total_Internal_Energy_(au)_218.15K_1.0atm 
+  111 20 r_j_Total_Enthalpy_(au)_218.15K_1.0atm 
+  112 20 r_j_Total_Free_Energy_(au)_218.15K_1.0atm 
+  113 20 r_j_Entropy_(cal/mol/K)_238.15K_1.0atm 
+  114 20 r_j_Enthalpy_(kcal/mol)_238.15K_1.0atm 
+  115 20 r_j_Free_Energy_(kcal/mol)_238.15K_1.0atm 
+  116 20 r_j_Internal_Energy_(kcal/mol)_238.15K_1.0atm 
+  117 20 r_j_Heat_Capacity_(cal/mol/K)_238.15K_1.0atm 
+  118 20 r_j_ln(Q)_(kcal/mol)_238.15K_1.0atm 
+  119 20 r_j_Total_Internal_Energy_(au)_238.15K_1.0atm 
+  120 20 r_j_Total_Enthalpy_(au)_238.15K_1.0atm 
+  121 20 r_j_Total_Free_Energy_(au)_238.15K_1.0atm 
+  122 20 r_j_Entropy_(cal/mol/K)_258.15K_1.0atm 
+  123 20 r_j_Enthalpy_(kcal/mol)_258.15K_1.0atm 
+  124 20 r_j_Free_Energy_(kcal/mol)_258.15K_1.0atm 
+  125 20 r_j_Internal_Energy_(kcal/mol)_258.15K_1.0atm 
+  126 20 r_j_Heat_Capacity_(cal/mol/K)_258.15K_1.0atm 
+  127 20 r_j_ln(Q)_(kcal/mol)_258.15K_1.0atm 
+  128 20 r_j_Total_Internal_Energy_(au)_258.15K_1.0atm 
+  129 20 r_j_Total_Enthalpy_(au)_258.15K_1.0atm 
+  130 20 r_j_Total_Free_Energy_(au)_258.15K_1.0atm 
+  131 20 r_j_Entropy_(cal/mol/K)_278.15K_1.0atm 
+  132 20 r_j_Enthalpy_(kcal/mol)_278.15K_1.0atm 
+  133 20 r_j_Free_Energy_(kcal/mol)_278.15K_1.0atm 
+  134 20 r_j_Internal_Energy_(kcal/mol)_278.15K_1.0atm 
+  135 20 r_j_Heat_Capacity_(cal/mol/K)_278.15K_1.0atm 
+  136 20 r_j_ln(Q)_(kcal/mol)_278.15K_1.0atm 
+  137 20 r_j_Total_Internal_Energy_(au)_278.15K_1.0atm 
+  138 20 r_j_Total_Enthalpy_(au)_278.15K_1.0atm 
+  139 20 r_j_Total_Free_Energy_(au)_278.15K_1.0atm 
+  140 20 r_j_Entropy_(cal/mol/K)_298.15K_1.0atm 
+  141 20 r_j_Enthalpy_(kcal/mol)_298.15K_1.0atm 
+  142 20 r_j_Free_Energy_(kcal/mol)_298.15K_1.0atm 
+  143 20 r_j_Internal_Energy_(kcal/mol)_298.15K_1.0atm 
+  144 20 r_j_Heat_Capacity_(cal/mol/K)_298.15K_1.0atm 
+  145 20 r_j_ln(Q)_(kcal/mol)_298.15K_1.0atm 
+  146 20 r_j_Total_Internal_Energy_(au)_298.15K_1.0atm 
+  147 20 r_j_Total_Enthalpy_(au)_298.15K_1.0atm 
+  148 20 r_j_Total_Free_Energy_(au)_298.15K_1.0atm 
+  149 20 r_j_Entropy_(cal/mol/K)_318.15K_1.0atm 
+  150 20 r_j_Enthalpy_(kcal/mol)_318.15K_1.0atm 
+  151 20 r_j_Free_Energy_(kcal/mol)_318.15K_1.0atm 
+  152 20 r_j_Internal_Energy_(kcal/mol)_318.15K_1.0atm 
+  153 20 r_j_Heat_Capacity_(cal/mol/K)_318.15K_1.0atm 
+  154 20 r_j_ln(Q)_(kcal/mol)_318.15K_1.0atm 
+  155 20 r_j_Total_Internal_Energy_(au)_318.15K_1.0atm 
+  156 20 r_j_Total_Enthalpy_(au)_318.15K_1.0atm 
+  157 20 r_j_Total_Free_Energy_(au)_318.15K_1.0atm 
+  158 20 r_j_Entropy_(cal/mol/K)_338.15K_1.0atm 
+  159 20 r_j_Enthalpy_(kcal/mol)_338.15K_1.0atm 
+  160 20 r_j_Free_Energy_(kcal/mol)_338.15K_1.0atm 
+  161 20 r_j_Internal_Energy_(kcal/mol)_338.15K_1.0atm 
+  162 20 r_j_Heat_Capacity_(cal/mol/K)_338.15K_1.0atm 
+  163 20 r_j_ln(Q)_(kcal/mol)_338.15K_1.0atm 
+  164 20 r_j_Total_Internal_Energy_(au)_338.15K_1.0atm 
+  165 20 r_j_Total_Enthalpy_(au)_338.15K_1.0atm 
+  166 20 r_j_Total_Free_Energy_(au)_338.15K_1.0atm 
+  167 20 r_j_Entropy_(cal/mol/K)_358.15K_1.0atm 
+  168 20 r_j_Enthalpy_(kcal/mol)_358.15K_1.0atm 
+  169 20 r_j_Free_Energy_(kcal/mol)_358.15K_1.0atm 
+  170 20 r_j_Internal_Energy_(kcal/mol)_358.15K_1.0atm 
+  171 20 r_j_Heat_Capacity_(cal/mol/K)_358.15K_1.0atm 
+  172 20 r_j_ln(Q)_(kcal/mol)_358.15K_1.0atm 
+  173 20 r_j_Total_Internal_Energy_(au)_358.15K_1.0atm 
+  174 20 r_j_Total_Enthalpy_(au)_358.15K_1.0atm 
+  175 20 r_j_Total_Free_Energy_(au)_358.15K_1.0atm 
+  176 20 r_j_Entropy_(cal/mol/K)_378.15K_1.0atm 
+  177 20 r_j_Enthalpy_(kcal/mol)_378.15K_1.0atm 
+  178 20 r_j_Free_Energy_(kcal/mol)_378.15K_1.0atm 
+  179 20 r_j_Internal_Energy_(kcal/mol)_378.15K_1.0atm 
+  180 20 r_j_Heat_Capacity_(cal/mol/K)_378.15K_1.0atm 
+  181 20 r_j_ln(Q)_(kcal/mol)_378.15K_1.0atm 
+  182 20 r_j_Total_Internal_Energy_(au)_378.15K_1.0atm 
+  183 20 r_j_Total_Enthalpy_(au)_378.15K_1.0atm 
+  184 20 r_j_Total_Free_Energy_(au)_378.15K_1.0atm 
+  185 20 r_j_Entropy_(cal/mol/K)_398.15K_1.0atm 
+  186 20 r_j_Enthalpy_(kcal/mol)_398.15K_1.0atm 
+  187 20 r_j_Free_Energy_(kcal/mol)_398.15K_1.0atm 
+  188 20 r_j_Internal_Energy_(kcal/mol)_398.15K_1.0atm 
+  189 20 r_j_Heat_Capacity_(cal/mol/K)_398.15K_1.0atm 
+  190 20 r_j_ln(Q)_(kcal/mol)_398.15K_1.0atm 
+  191 20 r_j_Total_Internal_Energy_(au)_398.15K_1.0atm 
+  192 20 r_j_Total_Enthalpy_(au)_398.15K_1.0atm 
+  193 20 r_j_Total_Free_Energy_(au)_398.15K_1.0atm 
+  194 20 r_j_Entropy_(cal/mol/K)_418.15K_1.0atm 
+  195 20 r_j_Enthalpy_(kcal/mol)_418.15K_1.0atm 
+  196 20 r_j_Free_Energy_(kcal/mol)_418.15K_1.0atm 
+  197 20 r_j_Internal_Energy_(kcal/mol)_418.15K_1.0atm 
+  198 20 r_j_Heat_Capacity_(cal/mol/K)_418.15K_1.0atm 
+  199 20 r_j_ln(Q)_(kcal/mol)_418.15K_1.0atm 
+  200 20 r_j_Total_Internal_Energy_(au)_418.15K_1.0atm 
+  201 20 r_j_Total_Enthalpy_(au)_418.15K_1.0atm 
+  202 20 r_j_Total_Free_Energy_(au)_418.15K_1.0atm 
+  203 20 r_j_Entropy_(cal/mol/K)_438.15K_1.0atm 
+  204 20 r_j_Enthalpy_(kcal/mol)_438.15K_1.0atm 
+  205 20 r_j_Free_Energy_(kcal/mol)_438.15K_1.0atm 
+  206 20 r_j_Internal_Energy_(kcal/mol)_438.15K_1.0atm 
+  207 20 r_j_Heat_Capacity_(cal/mol/K)_438.15K_1.0atm 
+  208 20 r_j_ln(Q)_(kcal/mol)_438.15K_1.0atm 
+  209 20 r_j_Total_Internal_Energy_(au)_438.15K_1.0atm 
+  210 20 r_j_Total_Enthalpy_(au)_438.15K_1.0atm 
+  211 20 r_j_Total_Free_Energy_(au)_438.15K_1.0atm 
+  212 20 r_j_Entropy_(cal/mol/K)_458.15K_1.0atm 
+  213 20 r_j_Enthalpy_(kcal/mol)_458.15K_1.0atm 
+  214 20 r_j_Free_Energy_(kcal/mol)_458.15K_1.0atm 
+  215 20 r_j_Internal_Energy_(kcal/mol)_458.15K_1.0atm 
+  216 20 r_j_Heat_Capacity_(cal/mol/K)_458.15K_1.0atm 
+  217 20 r_j_ln(Q)_(kcal/mol)_458.15K_1.0atm 
+  218 20 r_j_Total_Internal_Energy_(au)_458.15K_1.0atm 
+  219 20 r_j_Total_Enthalpy_(au)_458.15K_1.0atm 
+  220 20 r_j_Total_Free_Energy_(au)_458.15K_1.0atm 
+  221 20 r_j_Entropy_(cal/mol/K)_478.15K_1.0atm 
+  222 20 r_j_Enthalpy_(kcal/mol)_478.15K_1.0atm 
+  223 20 r_j_Free_Energy_(kcal/mol)_478.15K_1.0atm 
+  224 20 r_j_Internal_Energy_(kcal/mol)_478.15K_1.0atm 
+  225 20 r_j_Heat_Capacity_(cal/mol/K)_478.15K_1.0atm 
+  226 20 r_j_ln(Q)_(kcal/mol)_478.15K_1.0atm 
+  227 20 r_j_Total_Internal_Energy_(au)_478.15K_1.0atm 
+  228 20 r_j_Total_Enthalpy_(au)_478.15K_1.0atm 
+  229 20 r_j_Total_Free_Energy_(au)_478.15K_1.0atm 
+  230 20 r_j_Entropy_(cal/mol/K)_498.15K_1.0atm 
+  231 20 r_j_Enthalpy_(kcal/mol)_498.15K_1.0atm 
+  232 20 r_j_Free_Energy_(kcal/mol)_498.15K_1.0atm 
+  233 20 r_j_Internal_Energy_(kcal/mol)_498.15K_1.0atm 
+  234 20 r_j_Heat_Capacity_(cal/mol/K)_498.15K_1.0atm 
+  235 20 r_j_ln(Q)_(kcal/mol)_498.15K_1.0atm 
+  236 20 r_j_Total_Internal_Energy_(au)_498.15K_1.0atm 
+  237 20 r_j_Total_Enthalpy_(au)_498.15K_1.0atm 
+  238 20 r_j_Total_Free_Energy_(au)_498.15K_1.0atm 
+  239 20 r_j_Entropy_(cal/mol/K)_518.15K_1.0atm 
+  240 20 r_j_Enthalpy_(kcal/mol)_518.15K_1.0atm 
+  241 20 r_j_Free_Energy_(kcal/mol)_518.15K_1.0atm 
+  242 20 r_j_Internal_Energy_(kcal/mol)_518.15K_1.0atm 
+  243 20 r_j_Heat_Capacity_(cal/mol/K)_518.15K_1.0atm 
+  244 20 r_j_ln(Q)_(kcal/mol)_518.15K_1.0atm 
+  245 20 r_j_Total_Internal_Energy_(au)_518.15K_1.0atm 
+  246 20 r_j_Total_Enthalpy_(au)_518.15K_1.0atm 
+  247 20 r_j_Total_Free_Energy_(au)_518.15K_1.0atm 
+  248 20 r_j_Entropy_(cal/mol/K)_538.15K_1.0atm 
+  249 20 r_j_Enthalpy_(kcal/mol)_538.15K_1.0atm 
+  250 20 r_j_Free_Energy_(kcal/mol)_538.15K_1.0atm 
+  251 20 r_j_Internal_Energy_(kcal/mol)_538.15K_1.0atm 
+  252 20 r_j_Heat_Capacity_(cal/mol/K)_538.15K_1.0atm 
+  253 20 r_j_ln(Q)_(kcal/mol)_538.15K_1.0atm 
+  254 20 r_j_Total_Internal_Energy_(au)_538.15K_1.0atm 
+  255 20 r_j_Total_Enthalpy_(au)_538.15K_1.0atm 
+  256 20 r_j_Total_Free_Energy_(au)_538.15K_1.0atm 
+  257 20 r_j_Entropy_(cal/mol/K)_558.15K_1.0atm 
+  258 20 r_j_Enthalpy_(kcal/mol)_558.15K_1.0atm 
+  259 20 r_j_Free_Energy_(kcal/mol)_558.15K_1.0atm 
+  260 20 r_j_Internal_Energy_(kcal/mol)_558.15K_1.0atm 
+  261 20 r_j_Heat_Capacity_(cal/mol/K)_558.15K_1.0atm 
+  262 20 r_j_ln(Q)_(kcal/mol)_558.15K_1.0atm 
+  263 20 r_j_Total_Internal_Energy_(au)_558.15K_1.0atm 
+  264 20 r_j_Total_Enthalpy_(au)_558.15K_1.0atm 
+  265 20 r_j_Total_Free_Energy_(au)_558.15K_1.0atm 
+  266 20 r_j_Entropy_(cal/mol/K)_578.15K_1.0atm 
+  267 20 r_j_Enthalpy_(kcal/mol)_578.15K_1.0atm 
+  268 20 r_j_Free_Energy_(kcal/mol)_578.15K_1.0atm 
+  269 20 r_j_Internal_Energy_(kcal/mol)_578.15K_1.0atm 
+  270 20 r_j_Heat_Capacity_(cal/mol/K)_578.15K_1.0atm 
+  271 20 r_j_ln(Q)_(kcal/mol)_578.15K_1.0atm 
+  272 20 r_j_Total_Internal_Energy_(au)_578.15K_1.0atm 
+  273 20 r_j_Total_Enthalpy_(au)_578.15K_1.0atm 
+  274 20 r_j_Total_Free_Energy_(au)_578.15K_1.0atm 
+  275 20 r_j_Entropy_(cal/mol/K)_598.15K_1.0atm 
+  276 20 r_j_Enthalpy_(kcal/mol)_598.15K_1.0atm 
+  277 20 r_j_Free_Energy_(kcal/mol)_598.15K_1.0atm 
+  278 20 r_j_Internal_Energy_(kcal/mol)_598.15K_1.0atm 
+  279 20 r_j_Heat_Capacity_(cal/mol/K)_598.15K_1.0atm 
+  280 20 r_j_ln(Q)_(kcal/mol)_598.15K_1.0atm 
+  281 20 r_j_Total_Internal_Energy_(au)_598.15K_1.0atm 
+  282 20 r_j_Total_Enthalpy_(au)_598.15K_1.0atm 
+  283 20 r_j_Total_Free_Energy_(au)_598.15K_1.0atm 
+  284 20 r_j_Entropy_(cal/mol/K)_618.15K_1.0atm 
+  285 20 r_j_Enthalpy_(kcal/mol)_618.15K_1.0atm 
+  286 20 r_j_Free_Energy_(kcal/mol)_618.15K_1.0atm 
+  287 20 r_j_Internal_Energy_(kcal/mol)_618.15K_1.0atm 
+  288 20 r_j_Heat_Capacity_(cal/mol/K)_618.15K_1.0atm 
+  289 20 r_j_ln(Q)_(kcal/mol)_618.15K_1.0atm 
+  290 20 r_j_Total_Internal_Energy_(au)_618.15K_1.0atm 
+  291 20 r_j_Total_Enthalpy_(au)_618.15K_1.0atm 
+  292 20 r_j_Total_Free_Energy_(au)_618.15K_1.0atm 
+  293 20 r_j_Entropy_(cal/mol/K)_638.15K_1.0atm 
+  294 20 r_j_Enthalpy_(kcal/mol)_638.15K_1.0atm 
+  295 20 r_j_Free_Energy_(kcal/mol)_638.15K_1.0atm 
+  296 20 r_j_Internal_Energy_(kcal/mol)_638.15K_1.0atm 
+  297 20 r_j_Heat_Capacity_(cal/mol/K)_638.15K_1.0atm 
+  298 20 r_j_ln(Q)_(kcal/mol)_638.15K_1.0atm 
+  299 20 r_j_Total_Internal_Energy_(au)_638.15K_1.0atm 
+  300 20 r_j_Total_Enthalpy_(au)_638.15K_1.0atm 
+  301 20 r_j_Total_Free_Energy_(au)_638.15K_1.0atm 
+  302 20 r_j_Entropy_(cal/mol/K)_658.15K_1.0atm 
+  303 20 r_j_Enthalpy_(kcal/mol)_658.15K_1.0atm 
+  304 20 r_j_Free_Energy_(kcal/mol)_658.15K_1.0atm 
+  305 20 r_j_Internal_Energy_(kcal/mol)_658.15K_1.0atm 
+  306 20 r_j_Heat_Capacity_(cal/mol/K)_658.15K_1.0atm 
+  307 20 r_j_ln(Q)_(kcal/mol)_658.15K_1.0atm 
+  308 20 r_j_Total_Internal_Energy_(au)_658.15K_1.0atm 
+  309 20 r_j_Total_Enthalpy_(au)_658.15K_1.0atm 
+  310 20 r_j_Total_Free_Energy_(au)_658.15K_1.0atm 
+  311 20 r_j_Entropy_(cal/mol/K)_678.15K_1.0atm 
+  312 20 r_j_Enthalpy_(kcal/mol)_678.15K_1.0atm 
+  313 20 r_j_Free_Energy_(kcal/mol)_678.15K_1.0atm 
+  314 20 r_j_Internal_Energy_(kcal/mol)_678.15K_1.0atm 
+  315 20 r_j_Heat_Capacity_(cal/mol/K)_678.15K_1.0atm 
+  316 20 r_j_ln(Q)_(kcal/mol)_678.15K_1.0atm 
+  317 20 r_j_Total_Internal_Energy_(au)_678.15K_1.0atm 
+  318 20 r_j_Total_Enthalpy_(au)_678.15K_1.0atm 
+  319 20 r_j_Total_Free_Energy_(au)_678.15K_1.0atm 
+  320 20 r_j_Entropy_(cal/mol/K)_698.15K_1.0atm 
+  321 20 r_j_Enthalpy_(kcal/mol)_698.15K_1.0atm 
+  322 20 r_j_Free_Energy_(kcal/mol)_698.15K_1.0atm 
+  323 20 r_j_Internal_Energy_(kcal/mol)_698.15K_1.0atm 
+  324 20 r_j_Heat_Capacity_(cal/mol/K)_698.15K_1.0atm 
+  325 20 r_j_ln(Q)_(kcal/mol)_698.15K_1.0atm 
+  326 20 r_j_Total_Internal_Energy_(au)_698.15K_1.0atm 
+  327 20 r_j_Total_Enthalpy_(au)_698.15K_1.0atm 
+  328 20 r_j_Total_Free_Energy_(au)_698.15K_1.0atm 
+  329 20 r_j_Entropy_(cal/mol/K)_718.15K_1.0atm 
+  330 20 r_j_Enthalpy_(kcal/mol)_718.15K_1.0atm 
+  331 20 r_j_Free_Energy_(kcal/mol)_718.15K_1.0atm 
+  332 20 r_j_Internal_Energy_(kcal/mol)_718.15K_1.0atm 
+  333 20 r_j_Heat_Capacity_(cal/mol/K)_718.15K_1.0atm 
+  334 20 r_j_ln(Q)_(kcal/mol)_718.15K_1.0atm 
+  335 20 r_j_Total_Internal_Energy_(au)_718.15K_1.0atm 
+  336 20 r_j_Total_Enthalpy_(au)_718.15K_1.0atm 
+  337 20 r_j_Total_Free_Energy_(au)_718.15K_1.0atm 
+  338 20 r_j_Entropy_(cal/mol/K)_738.15K_1.0atm 
+  339 20 r_j_Enthalpy_(kcal/mol)_738.15K_1.0atm 
+  340 20 r_j_Free_Energy_(kcal/mol)_738.15K_1.0atm 
+  341 20 r_j_Internal_Energy_(kcal/mol)_738.15K_1.0atm 
+  342 20 r_j_Heat_Capacity_(cal/mol/K)_738.15K_1.0atm 
+  343 20 r_j_ln(Q)_(kcal/mol)_738.15K_1.0atm 
+  344 20 r_j_Total_Internal_Energy_(au)_738.15K_1.0atm 
+  345 20 r_j_Total_Enthalpy_(au)_738.15K_1.0atm 
+  346 20 r_j_Total_Free_Energy_(au)_738.15K_1.0atm 
+  347 20 r_j_Entropy_(cal/mol/K)_758.15K_1.0atm 
+  348 20 r_j_Enthalpy_(kcal/mol)_758.15K_1.0atm 
+  349 20 r_j_Free_Energy_(kcal/mol)_758.15K_1.0atm 
+  350 20 r_j_Internal_Energy_(kcal/mol)_758.15K_1.0atm 
+  351 20 r_j_Heat_Capacity_(cal/mol/K)_758.15K_1.0atm 
+  352 20 r_j_ln(Q)_(kcal/mol)_758.15K_1.0atm 
+  353 20 r_j_Total_Internal_Energy_(au)_758.15K_1.0atm 
+  354 20 r_j_Total_Enthalpy_(au)_758.15K_1.0atm 
+  355 20 r_j_Total_Free_Energy_(au)_758.15K_1.0atm 
+  356 20 r_j_Entropy_(cal/mol/K)_778.15K_1.0atm 
+  357 20 r_j_Enthalpy_(kcal/mol)_778.15K_1.0atm 
+  358 20 r_j_Free_Energy_(kcal/mol)_778.15K_1.0atm 
+  359 20 r_j_Internal_Energy_(kcal/mol)_778.15K_1.0atm 
+  360 20 r_j_Heat_Capacity_(cal/mol/K)_778.15K_1.0atm 
+  361 20 r_j_ln(Q)_(kcal/mol)_778.15K_1.0atm 
+  362 20 r_j_Total_Internal_Energy_(au)_778.15K_1.0atm 
+  363 20 r_j_Total_Enthalpy_(au)_778.15K_1.0atm 
+  364 20 r_j_Total_Free_Energy_(au)_778.15K_1.0atm 
+  365 20 r_j_Entropy_(cal/mol/K)_798.15K_1.0atm 
+  366 20 r_j_Enthalpy_(kcal/mol)_798.15K_1.0atm 
+  367 20 r_j_Free_Energy_(kcal/mol)_798.15K_1.0atm 
+  368 20 r_j_Internal_Energy_(kcal/mol)_798.15K_1.0atm 
+  369 20 r_j_Heat_Capacity_(cal/mol/K)_798.15K_1.0atm 
+  370 20 r_j_ln(Q)_(kcal/mol)_798.15K_1.0atm 
+  371 20 r_j_Total_Internal_Energy_(au)_798.15K_1.0atm 
+  372 20 r_j_Total_Enthalpy_(au)_798.15K_1.0atm 
+  373 20 r_j_Total_Free_Energy_(au)_798.15K_1.0atm 
+  374 20 r_j_Entropy_(cal/mol/K)_818.15K_1.0atm 
+  375 20 r_j_Enthalpy_(kcal/mol)_818.15K_1.0atm 
+  376 20 r_j_Free_Energy_(kcal/mol)_818.15K_1.0atm 
+  377 20 r_j_Internal_Energy_(kcal/mol)_818.15K_1.0atm 
+  378 20 r_j_Heat_Capacity_(cal/mol/K)_818.15K_1.0atm 
+  379 20 r_j_ln(Q)_(kcal/mol)_818.15K_1.0atm 
+  380 20 r_j_Total_Internal_Energy_(au)_818.15K_1.0atm 
+  381 20 r_j_Total_Enthalpy_(au)_818.15K_1.0atm 
+  382 20 r_j_Total_Free_Energy_(au)_818.15K_1.0atm 
+  383 20 r_j_Entropy_(cal/mol/K)_838.15K_1.0atm 
+  384 20 r_j_Enthalpy_(kcal/mol)_838.15K_1.0atm 
+  385 20 r_j_Free_Energy_(kcal/mol)_838.15K_1.0atm 
+  386 20 r_j_Internal_Energy_(kcal/mol)_838.15K_1.0atm 
+  387 20 r_j_Heat_Capacity_(cal/mol/K)_838.15K_1.0atm 
+  388 20 r_j_ln(Q)_(kcal/mol)_838.15K_1.0atm 
+  389 20 r_j_Total_Internal_Energy_(au)_838.15K_1.0atm 
+  390 20 r_j_Total_Enthalpy_(au)_838.15K_1.0atm 
+  391 20 r_j_Total_Free_Energy_(au)_838.15K_1.0atm 
+  392 20 r_j_Entropy_(cal/mol/K)_858.15K_1.0atm 
+  393 20 r_j_Enthalpy_(kcal/mol)_858.15K_1.0atm 
+  394 20 r_j_Free_Energy_(kcal/mol)_858.15K_1.0atm 
+  395 20 r_j_Internal_Energy_(kcal/mol)_858.15K_1.0atm 
+  396 20 r_j_Heat_Capacity_(cal/mol/K)_858.15K_1.0atm 
+  397 20 r_j_ln(Q)_(kcal/mol)_858.15K_1.0atm 
+  398 20 r_j_Total_Internal_Energy_(au)_858.15K_1.0atm 
+  399 20 r_j_Total_Enthalpy_(au)_858.15K_1.0atm 
+  400 20 r_j_Total_Free_Energy_(au)_858.15K_1.0atm 
+  401 20 r_j_Entropy_(cal/mol/K)_878.15K_1.0atm 
+  402 20 r_j_Enthalpy_(kcal/mol)_878.15K_1.0atm 
+  403 20 r_j_Free_Energy_(kcal/mol)_878.15K_1.0atm 
+  404 20 r_j_Internal_Energy_(kcal/mol)_878.15K_1.0atm 
+  405 20 r_j_Heat_Capacity_(cal/mol/K)_878.15K_1.0atm 
+  406 20 r_j_ln(Q)_(kcal/mol)_878.15K_1.0atm 
+  407 20 r_j_Total_Internal_Energy_(au)_878.15K_1.0atm 
+  408 20 r_j_Total_Enthalpy_(au)_878.15K_1.0atm 
+  409 20 r_j_Total_Free_Energy_(au)_878.15K_1.0atm 
+  410 20 r_j_Entropy_(cal/mol/K)_898.15K_1.0atm 
+  411 20 r_j_Enthalpy_(kcal/mol)_898.15K_1.0atm 
+  412 20 r_j_Free_Energy_(kcal/mol)_898.15K_1.0atm 
+  413 20 r_j_Internal_Energy_(kcal/mol)_898.15K_1.0atm 
+  414 20 r_j_Heat_Capacity_(cal/mol/K)_898.15K_1.0atm 
+  415 20 r_j_ln(Q)_(kcal/mol)_898.15K_1.0atm 
+  416 20 r_j_Total_Internal_Energy_(au)_898.15K_1.0atm 
+  417 20 r_j_Total_Enthalpy_(au)_898.15K_1.0atm 
+  418 20 r_j_Total_Free_Energy_(au)_898.15K_1.0atm 
+  419 20 r_j_Entropy_(cal/mol/K)_918.15K_1.0atm 
+  420 20 r_j_Enthalpy_(kcal/mol)_918.15K_1.0atm 
+  421 20 r_j_Free_Energy_(kcal/mol)_918.15K_1.0atm 
+  422 20 r_j_Internal_Energy_(kcal/mol)_918.15K_1.0atm 
+  423 20 r_j_Heat_Capacity_(cal/mol/K)_918.15K_1.0atm 
+  424 20 r_j_ln(Q)_(kcal/mol)_918.15K_1.0atm 
+  425 20 r_j_Total_Internal_Energy_(au)_918.15K_1.0atm 
+  426 20 r_j_Total_Enthalpy_(au)_918.15K_1.0atm 
+  427 20 r_j_Total_Free_Energy_(au)_918.15K_1.0atm 
+  428 20 r_j_Entropy_(cal/mol/K)_938.15K_1.0atm 
+  429 20 r_j_Enthalpy_(kcal/mol)_938.15K_1.0atm 
+  430 20 r_j_Free_Energy_(kcal/mol)_938.15K_1.0atm 
+  431 20 r_j_Internal_Energy_(kcal/mol)_938.15K_1.0atm 
+  432 20 r_j_Heat_Capacity_(cal/mol/K)_938.15K_1.0atm 
+  433 20 r_j_ln(Q)_(kcal/mol)_938.15K_1.0atm 
+  434 20 r_j_Total_Internal_Energy_(au)_938.15K_1.0atm 
+  435 20 r_j_Total_Enthalpy_(au)_938.15K_1.0atm 
+  436 20 r_j_Total_Free_Energy_(au)_938.15K_1.0atm 
+  437 20 r_j_Entropy_(cal/mol/K)_958.15K_1.0atm 
+  438 20 r_j_Enthalpy_(kcal/mol)_958.15K_1.0atm 
+  439 20 r_j_Free_Energy_(kcal/mol)_958.15K_1.0atm 
+  440 20 r_j_Internal_Energy_(kcal/mol)_958.15K_1.0atm 
+  441 20 r_j_Heat_Capacity_(cal/mol/K)_958.15K_1.0atm 
+  442 20 r_j_ln(Q)_(kcal/mol)_958.15K_1.0atm 
+  443 20 r_j_Total_Internal_Energy_(au)_958.15K_1.0atm 
+  444 20 r_j_Total_Enthalpy_(au)_958.15K_1.0atm 
+  445 20 r_j_Total_Free_Energy_(au)_958.15K_1.0atm 
+  446 20 r_j_Entropy_(cal/mol/K)_978.15K_1.0atm 
+  447 20 r_j_Enthalpy_(kcal/mol)_978.15K_1.0atm 
+  448 20 r_j_Free_Energy_(kcal/mol)_978.15K_1.0atm 
+  449 20 r_j_Internal_Energy_(kcal/mol)_978.15K_1.0atm 
+  450 20 r_j_Heat_Capacity_(cal/mol/K)_978.15K_1.0atm 
+  451 20 r_j_ln(Q)_(kcal/mol)_978.15K_1.0atm 
+  452 20 r_j_Total_Internal_Energy_(au)_978.15K_1.0atm 
+  453 20 r_j_Total_Enthalpy_(au)_978.15K_1.0atm 
+  454 20 r_j_Total_Free_Energy_(au)_978.15K_1.0atm 
+  455 20 r_j_Entropy_(cal/mol/K)_998.15K_1.0atm 
+  456 20 r_j_Enthalpy_(kcal/mol)_998.15K_1.0atm 
+  457 20 r_j_Free_Energy_(kcal/mol)_998.15K_1.0atm 
+  458 20 r_j_Internal_Energy_(kcal/mol)_998.15K_1.0atm 
+  459 20 r_j_Heat_Capacity_(cal/mol/K)_998.15K_1.0atm 
+  460 20 r_j_ln(Q)_(kcal/mol)_998.15K_1.0atm 
+  461 20 r_j_Total_Internal_Energy_(au)_998.15K_1.0atm 
+  462 20 r_j_Total_Enthalpy_(au)_998.15K_1.0atm 
+  463 20 r_j_Total_Free_Energy_(au)_998.15K_1.0atm 
+  464 20 r_j_Entropy_(cal/mol/K)_1018.15K_1.0atm 
+  465 20 r_j_Enthalpy_(kcal/mol)_1018.15K_1.0atm 
+  466 20 r_j_Free_Energy_(kcal/mol)_1018.15K_1.0atm 
+  467 20 r_j_Internal_Energy_(kcal/mol)_1018.15K_1.0atm 
+  468 20 r_j_Heat_Capacity_(cal/mol/K)_1018.15K_1.0atm 
+  469 20 r_j_ln(Q)_(kcal/mol)_1018.15K_1.0atm 
+  470 20 r_j_Total_Internal_Energy_(au)_1018.15K_1.0atm 
+  471 20 r_j_Total_Enthalpy_(au)_1018.15K_1.0atm 
+  472 20 r_j_Total_Free_Energy_(au)_1018.15K_1.0atm 
+  473 20 r_j_Entropy_(cal/mol/K)_1038.15K_1.0atm 
+  474 20 r_j_Enthalpy_(kcal/mol)_1038.15K_1.0atm 
+  475 20 r_j_Free_Energy_(kcal/mol)_1038.15K_1.0atm 
+  476 20 r_j_Internal_Energy_(kcal/mol)_1038.15K_1.0atm 
+  477 20 r_j_Heat_Capacity_(cal/mol/K)_1038.15K_1.0atm 
+  478 20 r_j_ln(Q)_(kcal/mol)_1038.15K_1.0atm 
+  479 20 r_j_Total_Internal_Energy_(au)_1038.15K_1.0atm 
+  480 20 r_j_Total_Enthalpy_(au)_1038.15K_1.0atm 
+  481 20 r_j_Total_Free_Energy_(au)_1038.15K_1.0atm 
+  482 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  r_m_charge1
+  r_m_charge2
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 3 0.707273 0.013270 1.293749 2 0.48369 0.48369 6 0 C1  0.483689547519882 2 1 2 1 2 1 2 2021179242851914713 
+  2 14 -0.748213 -0.024670 1.034311 2 -0.51888 -0.51888 6 1 C2  -0.518876167810401 3 1 3 1 3 1 3 2021179242851914713 
+  3 41 1.208338 -0.861128 0.880521 21 0.00824 0.00824 1 0 H1  0.00823542075155986 8 1 8 1 8 1 8 H 
+  4 41 1.165426 0.915314 0.891777 21 -0.00720 -0.00720 1 0 H2  -0.00719619547401949 9 1 9 1 9 1 9 H 
+  5 44 -1.275727 -0.969350 1.024886 21 0.18918 0.18918 1 0 H3  0.189177470412966 11 1 11 1 11 1 11 H 
+  6 44 -1.318103 0.891394 0.964023 21 0.18652 0.18652 1 0 H4  0.186524758669954 10 1 10 1 10 1 10 H 
+  7 17 0.714811 2.200116 2.938518 70 -0.69459 -0.69459 8 0 O1  -0.694592201722012 5 1 5 1 5 1 5 O 
+  8 3 0.941371 1.132467 3.482576 2 0.94961 0.94961 6 0 C3  0.949611582029458 4 1 4 1 4 1 4 C 
+  9 16 1.154472 0.842427 4.689715 70 -0.86083 -0.86083 8 0 O2  -0.86083435339186 6 1 6 1 6 1 6 O 
+  10 16 1.004893 -0.045373 2.710967 70 -0.64451 -0.64451 8 0 O3  -0.644508901430935 1 1 1 1 1 1 1 O 
+  11 93 1.314936 -1.014634 4.393501 4 0.90877 0.90877 3 0 Li1  0.908769040445406 7 1 7 1 7 1 7 Li 
+  :::
+ } 
+ m_bond[24] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 1 10 1 1
+  5 2 1 1 0
+  6 2 6 1 0
+  7 2 5 1 0
+  8 3 1 1 0
+  9 4 1 1 0
+  10 5 2 1 0
+  11 6 2 1 0
+  12 7 8 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 9 1 0
+  16 8 11 1 0
+  17 9 8 1 0
+  18 9 11 1 0
+  19 10 1 1 1
+  20 10 8 1 0
+  21 10 11 0 0
+  22 11 8 1 0
+  23 11 9 1 0
+  24 11 10 0 0
+  :::
+ } 
+} 
+

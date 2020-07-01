@@ -1,0 +1,1917 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.462225 1.499076 -0.121133 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.756339 0.227474 -0.029635 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 -0.153526 -0.597592 -0.287144 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 1.928093 -0.070321 0.308468 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.258218 -1.900124 0.118320 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.699676 -0.000011 0.999242 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.780147 -0.000008 0.999145 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.100814 -0.875549 0.470482 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.098574 0.891602 0.508775 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.319295 0.414277 0.155269 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  6 44 -1.326490 -0.520486 1.778223 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  10 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 5 1 0
+  6 2 6 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 9 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 0 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 9 0 0
+  21 11 8 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.462225 1.499076 -0.121133 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.756339 0.227474 -0.029635 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 -0.153526 -0.597592 -0.287144 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 1.928093 -0.070321 0.308468 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.258218 -1.900124 0.118320 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  b_j_Ignore_Atom_Stereo
+  :::
+  1 14 0.699676 -0.000011 0.999242 2 6 1 C2  3 1 3 1 3 1 3 2021179242851914713  <>
+  2 3 -0.780147 -0.000008 0.999145 2 6 0 C1  2 1 2 1 2 1 2 2021179242851914713  1
+  3 41 -1.181312 -0.505127 1.888520 21 1 0 H1  8 1 8 1 8 1 8 H  <>
+  4 41 -1.179009 1.017583 0.990946 21 1 0 H2  9 1 9 1 9 1 9 H  <>
+  5 44 1.238846 0.774012 1.532742 21 1 0 H3  10 1 10 1 10 1 10 H  <>
+  6 44 1.245993 -0.835014 0.574203 21 1 0 H4  11 1 11 1 11 1 11 H  <>
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 O  <>
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 C  <>
+  9 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 O  1
+  10 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 O  <>
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 Li  <>
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 2 1 0
+  2 1 5 1 0
+  3 1 6 1 0
+  4 2 4 1 0
+  5 2 3 1 0
+  6 2 1 1 0
+  7 3 2 1 0
+  8 4 2 1 0
+  9 5 1 1 0
+  10 6 1 1 0
+  11 7 8 1 0
+  12 8 9 1 0
+  13 8 7 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 0 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 9 0 0
+  21 11 8 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.699676 -0.000011 0.999242 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.780147 -0.000008 0.999145 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.100814 -0.875549 0.470482 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.098574 0.891602 0.508775 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.319295 0.414277 0.155269 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  6 44 -1.326490 -0.520486 1.778223 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 5 1 0
+  6 2 6 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  b_j_Ignore_Atom_Stereo
+  :::
+  1 14 0.699676 -0.000011 0.999242 2 6 1 C2  3 1 3 1 3 1 3 2021179242851914713  <>
+  2 3 -0.780147 -0.000008 0.999145 2 6 0 C1  2 1 2 1 2 1 2 2021179242851914713  1
+  3 41 -1.181312 -0.505127 1.888520 21 1 0 H1  8 1 8 1 8 1 8 H  <>
+  4 41 -1.179009 1.017583 0.990946 21 1 0 H2  9 1 9 1 9 1 9 H  <>
+  5 44 1.238846 0.774012 1.532742 21 1 0 H3  10 1 10 1 10 1 10 H  <>
+  6 44 1.245993 -0.835014 0.574203 21 1 0 H4  11 1 11 1 11 1 11 H  <>
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 O  <>
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 C  <>
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 O  <>
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 O  1
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 Li  <>
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 2 1 0
+  2 1 5 1 0
+  3 1 6 1 0
+  4 2 4 1 0
+  5 2 3 1 0
+  6 2 1 1 0
+  7 3 2 1 0
+  8 4 2 1 0
+  9 5 1 1 0
+  10 6 1 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.675063 0.001381 1.288818 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.756052 0.001053 0.912274 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.192935 -0.885123 0.897686 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.190218 0.882441 0.897667 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.060681 0.397164 -0.049358 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  6 44 -1.485275 -0.502847 1.537310 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 5 1 0
+  6 2 6 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.675030 -0.001518 0.709393 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.756042 -0.000909 1.086100 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.190050 -0.882692 1.100463 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  4 41 1.193126 0.884872 1.100489 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  5 44 -1.060642 -0.396982 2.047756 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  6 44 -1.485234 0.503155 0.461160 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 3 1 0
+  2 1 4 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 5 1 0
+  6 2 6 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.710642 -0.133223 1.266432 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.752047 -0.026971 1.068630 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.191594 -0.657383 0.429170 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.174893 0.852979 1.347221 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.407610 -0.824587 1.400893 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  6 44 -1.159074 0.788793 0.482716 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.713728 0.253643 1.141111 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.750281 0.089690 1.000849 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.155471 -0.567569 1.722093 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.208406 0.270247 0.166602 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.149935 -0.527059 0.204397 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  6 44 -1.418990 0.480657 1.760010 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 5 1 0
+  6 2 6 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.710642 -0.133223 1.266432 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.752047 -0.026971 1.068630 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.191594 -0.657383 0.429170 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.174893 0.852979 1.347221 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.407610 -0.824587 1.400893 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  6 44 -1.159074 0.788793 0.482716 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.710642 -0.133223 1.266432 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.752047 -0.026971 1.068630 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.191594 -0.657383 0.429170 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.174893 0.852979 1.347221 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.407610 -0.824587 1.400893 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  6 44 -1.159074 0.788793 0.482716 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.710642 -0.133223 1.266432 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.752047 -0.026971 1.068630 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.191594 -0.657383 0.429170 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.174893 0.852979 1.347221 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.407610 -0.824587 1.400893 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  6 44 -1.159074 0.788793 0.482716 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.710642 -0.133223 1.266432 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.752047 -0.026971 1.068630 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.191594 -0.657383 0.429170 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.174893 0.852979 1.347221 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.407610 -0.824587 1.400893 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  6 44 -1.159074 0.788793 0.482716 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.622912 -0.000010 0.999237 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.703384 -0.000008 0.999150 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.191156 -0.926278 0.999027 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.191479 0.926049 0.999031 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.271787 -0.926186 0.999311 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.271977 0.926043 0.999307 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.458500 1.498418 -0.118098 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 0.758939 0.228015 -0.030592 2 6 0 C1  2 1 8 1 8 1 8 C 
+  9 16 1.931112 -0.068262 0.305755 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 -0.149897 -0.598446 -0.289401 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.252696 -1.901212 0.121212 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ :::
+ Scratch 
+  Scratch 
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  b_j_Ignore_Atom_Stereo
+  s_m_custom_atom_type
+  :::
+  1 3 0.710642 -0.133223 1.266432 2 6 0 C1  2 1 2 1 2 1 2 1 2021179242851914713 
+  2 14 -0.752047 -0.026971 1.068630 2 6 1 C2  3 1 3 1 3 1 3 <> 2021179242851914713 
+  3 41 1.191594 -0.657383 0.429170 21 1 0 H1  8 1 8 1 8 1 8 <> H 
+  4 41 1.174893 0.852979 1.347221 21 1 0 H2  9 1 9 1 9 1 9 <> H 
+  5 44 -1.407610 -0.824587 1.400893 21 1 0 H4  11 1 11 1 11 1 11 <> H 
+  6 44 -1.159074 0.788793 0.482716 21 1 0 H3  10 1 10 1 10 1 10 <> H 
+  7 17 0.441568 1.525736 -0.117207 70 8 0 O2  5 1 5 1 5 1 5 <> O 
+  8 3 0.791356 0.364866 -0.019469 2 6 0 C3  4 1 4 1 4 1 4 <> C 
+  9 16 1.896426 -0.164203 0.288381 70 8 0 O3  6 1 6 1 6 1 6 <> O 
+  10 16 -0.147664 -0.673412 -0.296388 70 8 0 O1  1 1 1 1 1 1 1 1 O 
+  11 93 1.269664 -1.894474 0.133559 4 3 0 Li1  7 1 7 1 7 1 7 <> Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 1 0
+  4 2 1 1 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 10 1 0
+  13 8 7 1 0
+  14 8 9 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 0 0
+  20 11 10 0 0
+  21 11 8 1 0
+  22 11 9 1 0
+  :::
+ } 
+} 
+

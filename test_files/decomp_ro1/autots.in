@@ -1,0 +1,30 @@
+reactant = ['rct1.mae', 'rct2.mae']
+product = ['pro.mae']
+free_energy = True
+eliminate_multiple_frequencies = True
+debug = True
+multiplicity = 2
+ts_vet_max_freq = -30.0
+units = ev
+&JaguarKeywords
+irder = 1
+epsout = 18.5
+isolv = 7
+ip12 = 2
+ip70 = 2
+maxitg = 200
+isymm = 0
+basis = def2-tzvpd
+maxit = 250
+ip472 = 2
+babel = xyz
+dftname = wb97x-D
+ip6 = 3
+ifreq = 1
+nogas = 2
+ip193 = 2
+ip24 = 2
+ip5 = 2
+nmder = 2
+ip192 = 3
+&

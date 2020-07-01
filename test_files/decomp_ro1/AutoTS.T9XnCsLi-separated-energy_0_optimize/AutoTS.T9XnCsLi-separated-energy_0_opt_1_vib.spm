@@ -1,0 +1,57 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_table { 
+ s_j_spectrum_type
+ s_j_x_label
+ s_j_y_label
+ :::
+ "Infrared Vibrational Frequencies" 
+  r_j_Frequency_(cm-1) 
+  r_j_Intensity_(km/mol) 
+ m_column[3] { 
+  s_m_data_name
+  s_m_column_name
+  i_m_width
+  b_m_visible
+  :::
+  1 r_j_Frequency_(cm-1)  "Frequency (cm-1)"  10 1
+  2 r_j_Intensity_(km/mol)  "Intensity (km/mol)"  10 1
+  3 s_j_Symmetry  "Symmetry"  10 0
+  :::
+ } 
+ m_row[9] { 
+  r_j_Frequency_(cm-1)
+  r_j_Intensity_(km/mol)
+  s_j_Symmetry
+  :::
+  1 -62.8974890037021 66.4493686460715 "" 
+  2 102.737818791088 17.5160024863616 "" 
+  3 262.132940027458 21.384723861269 "" 
+  4 417.535717200345 213.17857211257 "" 
+  5 547.122091968492 16.0398474709182 "" 
+  6 806.731561998621 46.7808291993571 "" 
+  7 1102.79698709431 15.2118539160506 "" 
+  8 1176.6068729451 0.00631869514013543 "" 
+  9 1609.96148799119 272.307151711909 "" 
+  :::
+ } 
+ m_exists[9] { 
+  s_m_exists
+  :::
+  1 111 
+  2 111 
+  3 111 
+  4 111 
+  5 111 
+  6 111 
+  7 111 
+  8 111 
+  9 111 
+  :::
+ } 
+} 
+

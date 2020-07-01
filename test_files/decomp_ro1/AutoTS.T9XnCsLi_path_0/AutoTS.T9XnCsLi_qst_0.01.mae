@@ -1,0 +1,1548 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  1
+  -349.937304054333
+  -349.971886391652
+  -349.971886391652
+  -0.331940988888913
+  -0.33652296950479
+  0.0331733686168617
+  -0.0675388011973465
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  272
+  -21.7007441620289
+  0
+  0
+  0
+  0
+  0.771106140682555
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.480066 0.049541 0.081052 2 6 0 C1  0
+  2 2 -0.910208 0.058965 -0.022596 2 6 0 C2  0
+  3 41 1.021150 -0.855926 -0.156860 21 1 0 H1  0
+  4 41 1.021054 0.978666 -0.027304 21 1 0 H2  0
+  5 41 -1.466462 -0.864741 -0.106634 21 1 0 H3  0
+  6 41 -1.460408 0.986724 0.051573 21 1 0 H4  0
+  7 21 0.476437 2.120503 2.180971 70 8 1 O1  0
+  8 3 0.641379 1.028804 2.718904 2 6 0 C3  0
+  9 16 0.739369 0.763670 3.962935 70 8 0 O2  0
+  10 16 0.757068 -0.124486 1.994663 70 8 0 O3  0
+  11 93 0.785667 -1.095779 3.699480 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  4
+  -349.937304054333
+  -349.966124299401
+  -349.966124299401
+  -0.338468157161039
+  -0.332315246223857
+  0.0326464272683386
+  -0.0856537448144313
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -18.0849767074657
+  0
+  0
+  0
+  0
+  0.776117893661493
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.459953 0.051372 -0.018274 2 6 0 C1  0
+  2 2 -0.914752 0.054966 -0.068795 2 6 0 C2  0
+  3 41 1.009348 -0.856732 -0.217530 21 1 0 H1  0
+  4 41 1.014016 0.974617 -0.090709 21 1 0 H2  0
+  5 41 -1.471843 -0.869130 -0.142228 21 1 0 H3  0
+  6 41 -1.466197 0.980203 0.026206 21 1 0 H4  0
+  7 21 0.477351 2.113860 2.198745 70 8 1 O1  0
+  8 3 0.647562 1.020782 2.740986 2 6 0 C3  0
+  9 16 0.745250 0.778188 3.991948 70 8 0 O2  0
+  10 16 0.767206 -0.127581 2.032084 70 8 0 O3  0
+  11 93 0.782974 -1.086986 3.745218 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  5
+  -349.937304054333
+  -349.962385258017
+  -349.962385258017
+  -0.344034243775392
+  -0.330094933607626
+  0.0323267460829252
+  -0.102121130509972
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -15.7386928306083
+  0
+  0
+  0
+  0
+  0.772900394124413
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.436406 0.050317 -0.120721 2 6 0 C1  0
+  2 2 -0.922721 0.048965 -0.126828 2 6 0 C2  0
+  3 41 0.993048 -0.859110 -0.284981 21 1 0 H1  0
+  4 41 1.003790 0.966022 -0.164179 21 1 0 H2  0
+  5 41 -1.480666 -0.875375 -0.190875 21 1 0 H3  0
+  6 41 -1.475042 0.972001 -0.015254 21 1 0 H4  0
+  7 21 0.480247 2.108531 2.222168 70 8 1 O1  0
+  8 3 0.654988 1.012833 2.768100 2 6 0 C3  0
+  9 16 0.753156 0.793543 4.024631 70 8 0 O2  0
+  10 16 0.775704 -0.128090 2.070538 70 8 0 O3  0
+  11 93 0.786528 -1.079367 3.790932 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  6
+  -349.937304054333
+  -349.960357813776
+  -349.960357813776
+  -0.355615248556035
+  -0.330099091832272
+  0.0317188234997035
+  -0.115648742572652
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -14.4664523696034
+  0
+  0
+  0
+  0
+  0.764866669830568
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.409910 0.045789 -0.225947 2 6 0 C1  0
+  2 2 -0.934642 0.040759 -0.196839 2 6 0 C2  0
+  3 41 0.972710 -0.864067 -0.359352 21 1 0 H1  0
+  4 41 0.989684 0.953728 -0.245670 21 1 0 H2  0
+  5 41 -1.493674 -0.883565 -0.253131 21 1 0 H3  0
+  6 41 -1.487669 0.962069 -0.073236 21 1 0 H4  0
+  7 21 0.485578 2.104862 2.251378 70 8 1 O1  0
+  8 3 0.663709 1.005171 2.800309 2 6 0 C3  0
+  9 16 0.762994 0.809714 4.060949 70 8 0 O2  0
+  10 16 0.782355 -0.125804 2.109795 70 8 0 O3  0
+  11 93 0.796203 -1.073118 3.836337 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  7
+  -349.937304054333
+  -349.960101877765
+  -349.960101877765
+  -0.35493654276139
+  -0.331003262012816
+  0.0313660051602787
+  -0.121226658658788
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -14.3058500989861
+  0
+  0
+  0
+  0
+  0.760740855495008
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.393961 0.041174 -0.285294 2 6 0 C1  0
+  2 2 -0.943660 0.034933 -0.241931 2 6 0 C2  0
+  3 41 0.959485 -0.868809 -0.404145 21 1 0 H1  0
+  4 41 0.979394 0.945475 -0.293913 21 1 0 H2  0
+  5 41 -1.503506 -0.889209 -0.294966 21 1 0 H3  0
+  6 41 -1.497105 0.955615 -0.114393 21 1 0 H4  0
+  7 21 0.490098 2.103870 2.270588 70 8 1 O1  0
+  8 3 0.669251 1.001188 2.820820 2 6 0 C3  0
+  9 16 0.769486 0.819109 4.082939 70 8 0 O2  0
+  10 16 0.784829 -0.122962 2.131794 70 8 0 O3  0
+  11 93 0.804829 -1.070474 3.861093 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  8
+  -349.937304054333
+  -349.963064614561
+  -349.963064614561
+  -0.354148927719192
+  -0.334851194482114
+  0.031341819125616
+  -0.110206304585111
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -16.1649954954555
+  0
+  0
+  0
+  0
+  0.761730300227477
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.399017 0.046552 -0.247867 2 6 0 C1  0
+  2 2 -0.932982 0.031572 -0.210257 2 6 0 C2  0
+  3 41 0.970241 -0.865458 -0.371931 21 1 0 H1  0
+  4 41 0.961190 0.970213 -0.245161 21 1 0 H2  0
+  5 41 -1.485706 -0.898532 -0.255208 21 1 0 H3  0
+  6 41 -1.500720 0.947030 -0.098646 21 1 0 H4  0
+  7 21 0.493141 2.109126 2.255266 70 8 1 O1  0
+  8 3 0.666596 1.026397 2.805157 2 6 0 C3  0
+  9 16 0.803970 0.791923 4.051663 70 8 0 O2  0
+  10 16 0.757992 -0.111060 2.130796 70 8 0 O3  0
+  11 93 0.757119 -1.095644 3.858596 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  9
+  -349.937304054333
+  -349.964212162266
+  -349.964212162266
+  -0.351391824733531
+  -0.337395108679393
+  0.0313138090615377
+  -0.101488809960538
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -16.8850925475769
+  0
+  0
+  0
+  0
+  0.762777282344778
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.405502 0.037904 -0.235298 2 6 0 C1  0
+  2 2 -0.930207 0.020901 -0.200317 2 6 0 C2  0
+  3 41 0.975993 -0.873722 -0.359288 21 1 0 H1  0
+  4 41 0.957524 0.967755 -0.229428 21 1 0 H2  0
+  5 41 -1.484943 -0.909098 -0.237205 21 1 0 H3  0
+  6 41 -1.503475 0.934676 -0.102744 21 1 0 H4  0
+  7 21 0.488091 2.142109 2.275873 70 8 1 O1  0
+  8 3 0.665418 1.051905 2.794586 2 6 0 C3  0
+  9 16 0.830228 0.761071 4.029826 70 8 0 O2  0
+  10 16 0.742013 -0.104175 2.124270 70 8 0 O3  0
+  11 93 0.731364 -1.121951 3.849785 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  10
+  -349.937304054333
+  -349.963901516414
+  -349.963901516414
+  -0.348846816036422
+  -0.337141746792954
+  0.0315331468794855
+  -0.0935464536402057
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -16.6901593338558
+  0
+  0
+  0
+  0
+  0.76622688340769
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.430192 0.037157 -0.177118 2 6 0 C1  0
+  2 2 -0.906377 0.032912 -0.140784 2 6 0 C2  0
+  3 41 0.989606 -0.879315 -0.311765 21 1 0 H1  0
+  4 41 0.987655 0.963557 -0.187358 21 1 0 H2  0
+  5 41 -1.468703 -0.891901 -0.178869 21 1 0 H3  0
+  6 41 -1.468004 0.953293 -0.040647 21 1 0 H4  0
+  7 21 0.450251 2.144412 2.258529 70 8 1 O1  0
+  8 3 0.649506 1.058981 2.770994 2 6 0 C3  0
+  9 16 0.834062 0.747271 4.001930 70 8 0 O2  0
+  10 16 0.743492 -0.104614 2.097372 70 8 0 O3  0
+  11 93 0.736033 -1.129847 3.823093 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  11
+  -349.937304054333
+  -349.963981877554
+  -349.963981877554
+  -0.34869086023286
+  -0.335502932194277
+  0.0316811125633436
+  -0.0931987936180102
+  0
+  0
+  0
+  0
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -16.7405867098112
+  0
+  0
+  0
+  0
+  0.768755853133744
+  2
+ m_depend[30] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.436747 0.042118 -0.154848 2 6 0 C1  0
+  2 2 -0.906514 0.033800 -0.122235 2 6 0 C2  0
+  3 41 0.998343 -0.871325 -0.300152 21 1 0 H1  0
+  4 41 0.991796 0.969689 -0.170928 21 1 0 H2  0
+  5 41 -1.465734 -0.892643 -0.166321 21 1 0 H3  0
+  6 41 -1.470686 0.952086 -0.018448 21 1 0 H4  0
+  7 21 0.456780 2.138704 2.249904 70 8 1 O1  0
+  8 3 0.652177 1.051796 2.765601 2 6 0 C3  0
+  9 16 0.827941 0.754279 3.998951 70 8 0 O2  0
+  10 16 0.740751 -0.107609 2.081949 70 8 0 O3  0
+  11 93 0.723914 -1.125447 3.815100 4 3 0 Li1  0
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_Spin_multiplicity
+ s_j_QM_Method
+ s_j_QM_Basis
+ i_j_Geom_Iter_Num
+ r_j_Gas_Phase_Energy
+ r_j_Solution_Phase_Energy
+ r_j_Final_Energy
+ r_j_alpha_HOMO
+ r_j_beta_HOMO
+ r_j_alpha_LUMO
+ r_j_beta_LUMO
+ r_j_QM_Dipole_(debye)
+ r_j_QM_Dipole_X_(debye)
+ r_j_QM_Dipole_Y_(debye)
+ r_j_QM_Dipole_Z_(debye)
+ s_j_Jaguar_input_file
+ s_j_Jaguar_output_file
+ i_m_Molecular_charge
+ s_j_Task
+ s_j_Jaguar_restart_input_file
+ s_j_Jaguar_restart_mae_file
+ s_j_Jaguar_log_file
+ s_j_Jaguar_mae_file
+ i_j_Number_of_canonical_orbitals
+ r_j_Solvation_Energy_(electrostatic,kcal/mol)
+ r_j_Lowest_Frequency_(cm-1)
+ r_j_Highest_Frequency_(cm-1)
+ r_j_2nd_Lowest_Frequency_(cm-1)
+ i_j_Num_Negative_Frequencies
+ r_j_Zero_Point_Energy_(kcal/mol)
+ r_j_Entropy_(cal/mol/K)_298.15K_1.0atm
+ r_j_Enthalpy_(kcal/mol)_298.15K_1.0atm
+ r_j_Free_Energy_(kcal/mol)_298.15K_1.0atm
+ r_j_Internal_Energy_(kcal/mol)_298.15K_1.0atm
+ r_j_Heat_Capacity_(cal/mol/K)_298.15K_1.0atm
+ r_j_ln(Q)_(kcal/mol)_298.15K_1.0atm
+ r_j_Total_Internal_Energy_(au)_298.15K_1.0atm
+ r_j_Total_Enthalpy_(au)_298.15K_1.0atm
+ r_j_Total_Free_Energy_(au)_298.15K_1.0atm
+ r_j_S2_Value
+ i_m_ct_format
+ :::
+ Scratch 
+  ts 
+  2
+  UDFT(wb97x-d) 
+  def2-tzvpd 
+  1
+  -349.933225780863
+  -349.963998990312
+  -349.963998990312
+  -0.34893849094364
+  -0.336001596145231
+  0.0315318413345165
+  -0.0938452494464316
+  10.0536446773221
+  -0.638005353924453
+  -10.0102761023121
+  0.680509237035107
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.out 
+  0
+  "Transition State Search" 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.in 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.01.mae 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.log 
+  /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1/AutoTS.T9XnCsLi_path_0/AutoTS.T9XnCsLi_qst_0.mae 
+  273
+  -19.3104803517697
+  -256.544658329646
+  3280.61797498557
+  -25.3691714936628
+  2
+  42.5374812619862
+  87.1366311260067
+  5.3169481814254
+  -20.6628383887935
+  4.72446259259813
+  24.0155797204234
+  34.874837090455
+  -349.888682288152
+  -349.88773810226
+  -349.929139527756
+  0.76694701092768
+  2
+ m_depend[40] { 
+  # First column is dependency index #
+  i_m_depend_dependency
+  s_m_depend_property
+  :::
+  1 20 i_m_Spin_multiplicity 
+  2 20 i_m_Molecular_charge 
+  3 20 s_j_Task 
+  4 20 s_j_Jaguar_input_file 
+  5 20 s_j_Jaguar_restart_input_file 
+  6 20 s_j_Jaguar_restart_mae_file 
+  7 20 s_j_Jaguar_output_file 
+  8 20 s_j_Jaguar_log_file 
+  9 20 s_j_Jaguar_mae_file 
+  10 20 s_j_QM_Method 
+  11 20 s_j_QM_Basis 
+  12 20 i_j_Number_of_canonical_orbitals 
+  13 20 i_j_Geom_Iter_Num 
+  14 20 r_j_Gas_Phase_Energy 
+  15 20 r_j_Solution_Phase_Energy 
+  16 20 r_j_Final_Energy 
+  17 20 r_j_Solvation_Energy_(electrostatic,kcal/mol) 
+  18 20 r_j_alpha_HOMO 
+  19 20 r_j_alpha_LUMO 
+  20 20 r_j_beta_HOMO 
+  21 20 r_j_beta_LUMO 
+  22 20 r_j_QM_Dipole_(debye) 
+  23 20 r_j_QM_Dipole_X_(debye) 
+  24 20 r_j_QM_Dipole_Y_(debye) 
+  25 20 r_j_QM_Dipole_Z_(debye) 
+  26 20 r_j_Lowest_Frequency_(cm-1) 
+  27 20 r_j_Highest_Frequency_(cm-1) 
+  28 20 r_j_2nd_Lowest_Frequency_(cm-1) 
+  29 20 i_j_Num_Negative_Frequencies 
+  30 20 r_j_Zero_Point_Energy_(kcal/mol) 
+  31 20 r_j_Entropy_(cal/mol/K)_298.15K_1.0atm 
+  32 20 r_j_Enthalpy_(kcal/mol)_298.15K_1.0atm 
+  33 20 r_j_Free_Energy_(kcal/mol)_298.15K_1.0atm 
+  34 20 r_j_Internal_Energy_(kcal/mol)_298.15K_1.0atm 
+  35 20 r_j_Heat_Capacity_(cal/mol/K)_298.15K_1.0atm 
+  36 20 r_j_ln(Q)_(kcal/mol)_298.15K_1.0atm 
+  37 20 r_j_Total_Internal_Energy_(au)_298.15K_1.0atm 
+  38 20 r_j_Total_Enthalpy_(au)_298.15K_1.0atm 
+  39 20 r_j_Total_Free_Energy_(au)_298.15K_1.0atm 
+  40 20 r_j_S2_Value 
+  :::
+ } 
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  r_m_charge1
+  r_m_charge2
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  r_j_ESP_Charges
+  :::
+  1 2 0.432337 0.040392 -0.172927 2 -0.26204 -0.26204 6 0 C1  -0.262036570908985
+  2 2 -0.907918 0.029901 -0.137830 2 -0.27981 -0.27981 6 0 C2  -0.279807590161086
+  3 41 0.995547 -0.872670 -0.313859 21 0.18895 0.18895 1 0 H1  0.188950997466759
+  4 41 0.985738 0.969065 -0.184011 21 0.18489 0.18489 1 0 H2  0.184892419772853
+  5 41 -1.466410 -0.897222 -0.179421 21 0.17944 0.17944 1 0 H3  0.179439263930952
+  6 41 -1.474436 0.947146 -0.036835 21 0.17692 0.17692 1 0 H4  0.176918057028745
+  7 21 0.458355 2.142091 2.257214 70 -0.68053 -0.68053 8 1 O1  -0.680530631105783
+  8 3 0.656106 1.054643 2.769685 2 0.89836 0.89836 6 0 C3  0.898358348267421
+  9 16 0.841096 0.752771 4.000587 70 -0.78183 -0.78183 8 0 O2  -0.781832116513808
+  10 16 0.738087 -0.104133 2.087572 70 -0.53063 -0.53063 8 0 O3  -0.53063459119454
+  11 93 0.719209 -1.130075 3.825203 4 0.90628 0.90628 3 0 Li1  0.906282413417473
+  :::
+ } 
+ m_bond[11] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 4 1
+  2 1 3 1
+  3 1 2 2
+  4 2 6 1
+  5 2 5 1
+  6 7 8 1
+  7 8 9 1
+  8 8 10 1
+  9 8 11 1
+  10 9 11 1
+  11 10 11 1
+  :::
+ } 
+} 
+

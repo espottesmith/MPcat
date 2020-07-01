@@ -1,0 +1,676 @@
+
+============================================================================
+ AutoTS
+============================================================================
+            Version: 2020-1
+         Start time: Thu Mar 19 13:50:58 2020
+       $SCHRODINGER: /global/home/groups/lr_mp/ewcspottesmith/schrodinger2020-1
+        Launch Host: n0000.scs00
+   Launch Directory: /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1
+    Running on Host: n0260.lr6
+      Run Directory: /clusterfs/mp/ewcspottesmith/data/jaguar/initial_tests/decomp_ro1
+    Level of Theory: wb97x-d/def2-tzvpd, Solution Phase
+       Command Line: $SCHRODINGER/jaguar run AutoTS.py -PARALLEL 32 -use_one_node -nsubjobs 1 -jobname AutoTS.T9XnCsLi autots.in 
+============================================================================
+
+
+Searching for active bonds
+==================================================
+
+Getting operations at order 0
+--------------------------------
+filtered number of operations (0) at order 0
+--------------------------------
+At order 0 found 0 initial solutions
+After filtering spectators found 0  solutions
+--------------------------------
+After filtering chirality found 0  solutions
+Getting operations at order 1
+--------------------------------
+filtered number of operations (4) at order 1
+Operation Set 0 
+Structure(259) Delete 1 4
+Operation Set 1 
+Structure(259) Delete 1 2
+Operation Set 2 
+Structure(259) Delete 4 5
+Operation Set 3 
+Structure(259) Delete 4 6
+--------------------------------
+At order 1 found 1 initial solutions
+inspecting solution for spectators
+Structure(259) Delete 1 2
+unmodified structures [Structure(35), Structure(123)] []
+have_spectators False
+After filtering spectators found 1  solutions
+Operation Set 0 
+Structure(259) Delete 1 2
+--------------------------------
+After filtering chirality found 1  solutions
+Timer (active bond search) : 0.03 secs
+Found Solutions
+Start solution
+Structure(259) Delete 1 2
+End Solution
+
+Building reaction complex from molecules
+==================================================
+
+ignoring stereo for the following atoms [9]
+score (0, -2, 0.21831413918746795)
+misalignments:
+ignoring stereo for the following atoms [9]
+score (0, -2, 0.2183141391874679)
+misalignments:
+ignoring stereo for the following atoms [10]
+score (0, -2, 0.21822919698973087)
+misalignments:
+ignoring stereo for the following atoms [10]
+score (0, -2, 0.2182291969897308)
+misalignments:
+Best maps of core
+(0, -2, 0.2182291969897308)
+(0, -2, 0.21822919698973087)
+ignoring stereo for the following atoms [1, 10]
+score (0, -2, 0.3478682178765821)
+misalignments:
+1 ANZ ANR
+ignoring stereo for the following atoms [1, 10]
+score (0, -2, 0.34801075590454594)
+misalignments:
+1 ANZ ANS
+Best app maps
+(0, -2, 0.3478682178765821)
+ignoring stereo for the following atoms [1, 10]
+score (1, -2, 0.6054071973249908)
+misalignments:
+1 ANZ ANR
+2 ANZ None
+ignoring stereo for the following atoms [1, 10]
+score (1, -2, 0.9358941459101352)
+misalignments:
+1 ANZ ANR
+2 ANZ None
+Best app maps
+(1, -2, 0.6054071973249908)
+ignoring stereo for the following atoms [1, 10]
+score (1, -2, 0.6054071973249908)
+misalignments:
+1 ANZ ANR
+2 ANZ None
+Best app maps
+(1, -2, 0.6054071973249908)
+ignoring stereo for the following atoms [1, 10]
+score (1, -2, 0.6054071973249908)
+misalignments:
+1 ANZ ANR
+2 ANZ None
+Best app maps
+(1, -2, 0.6054071973249908)
+ignoring stereo for the following atoms [1, 10]
+score (1, -2, 0.6054071973249908)
+misalignments:
+1 ANZ ANR
+2 ANZ None
+Best app maps
+(1, -2, 0.6054071973249908)
+ignoring stereo for the following atoms [1, 10]
+score (1, -2, 0.6054071973249908)
+misalignments:
+1 ANZ ANR
+2 ANZ None
+Best app maps
+(1, -2, 0.6054071973249908)
+ignoring stereo for the following atoms [1, 10]
+score (1, -2, 0.6054071973249908)
+misalignments:
+1 ANZ ANR
+2 ANZ None
+Best app maps
+(1, -2, 0.6054071973249908)
+Timer (atom correspondence) : 1.59 secs
+Sn2 renumbering not applied: Sn2 correction requires 1 active bond on each side of reaction
+reactant active double bonds
+product active double bonds
+Qualifies as syn addition/elimination False
+Is addition reaction? True
+Attempting to renumber syn addition
+Addition atoms []
+is addition True
+Warning: Not performing syn-addition correction
+
+Posing reaction complexes
+==================================================
+
+=Without constraints=
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+St1
+St2
+     Torsion: 10 1 2 5 -29.6321
+     Torsion: 2 1 10 8 -77.9364
+rxn center [1, 10]
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+=With constraints=
+St1
+    Molecule:  0
+    Molecule:  1
+St2
+    Molecule:  0
+        Torsion: 10 1 2 5
+n_params st1 [0, 6]
+n_params st2 [7]
+Timer (Path distance optimization) : 4.34 secs
+
+--------------------
+Optimization history
+--------------------
+Cycle=0 Distance=1.154946
+
+Cycle=1 Distance=0.890855
+
+Cycle=2 Distance=0.770120
+
+Cycle=3 Distance=0.706341
+
+Cycle=4 Distance=0.692157
+
+Cycle=5 Distance=0.687872
+
+Cycle=6 Distance=0.682882
+
+Cycle=7 Distance=0.681828
+
+Cycle=8 Distance=0.679860
+
+Cycle=9 Distance=0.676650
+
+Cycle=10 Distance=0.672215
+
+Cycle=11 Distance=0.664687
+
+Cycle=12 Distance=0.651832
+
+Cycle=13 Distance=0.631708
+
+Cycle=14 Distance=0.612628
+
+Cycle=15 Distance=0.605770
+
+Cycle=16 Distance=0.603997
+
+Cycle=17 Distance=0.602033
+
+Cycle=18 Distance=0.600833
+
+Cycle=19 Distance=0.591084
+
+Cycle=20 Distance=0.574823
+
+Cycle=21 Distance=0.546849
+
+Cycle=22 Distance=0.498999
+
+Cycle=23 Distance=0.423687
+
+Cycle=24 Distance=0.348546
+
+Cycle=25 Distance=0.308510
+
+Cycle=26 Distance=0.286343
+
+Cycle=27 Distance=0.284672
+
+Cycle=28 Distance=0.282915
+
+Cycle=29 Distance=0.279755
+
+Cycle=30 Distance=0.273959
+
+Cycle=31 Distance=0.263489
+
+Cycle=32 Distance=0.245751
+
+Cycle=33 Distance=0.221808
+
+Cycle=34 Distance=0.211315
+
+Cycle=35 Distance=0.205032
+
+Cycle=36 Distance=0.203713
+
+Cycle=37 Distance=0.203540
+
+Cycle=38 Distance=0.203362
+
+Cycle=39 Distance=0.203051
+
+Cycle=40 Distance=0.202498
+
+Cycle=41 Distance=0.201556
+
+Cycle=42 Distance=0.200190
+
+Cycle=43 Distance=0.199426
+
+Cycle=44 Distance=0.199154
+
+Cycle=45 Distance=0.199084
+
+Cycle=46 Distance=0.199076
+
+Cycle=47 Distance=0.199067
+
+Cycle=48 Distance=0.199052
+
+Cycle=49 Distance=0.199024
+
+Cycle=50 Distance=0.198971
+
+Cycle=51 Distance=0.198877
+
+Cycle=52 Distance=0.198709
+
+Cycle=53 Distance=0.198431
+
+Cycle=54 Distance=0.198037
+
+Cycle=55 Distance=0.197726
+
+Cycle=56 Distance=0.197426
+
+Cycle=57 Distance=0.197324
+
+Cycle=58 Distance=0.197312
+
+Cycle=59 Distance=0.197311
+
+Cycle=60 Distance=0.197311
+
+Cycle=61 Distance=0.197311
+
+Cycle=62 Distance=0.197311
+
+Cycle=63 Distance=0.197310
+
+Cycle=64 Distance=0.197308
+
+Cycle=65 Distance=0.197306
+
+Cycle=66 Distance=0.197301
+
+Cycle=67 Distance=0.197296
+
+Cycle=68 Distance=0.197292
+
+Cycle=69 Distance=0.197288
+
+--------------------
+
+success True
+message Optimization terminated successfully.
+Timer (complex alignment) : 13.89 secs
+Timer (build complex) : 15.80 secs
+
+Optimizing initial complexes.
+==================================================
+
+
+Executing 2 distributed subjobs:
+---------------------------------
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi_opt_0.in -TPP 32
+(2) jaguar run AutoTS.T9XnCsLi_opt_1.in -TPP 32
+Timer (distribute subjobs) : 33536.31 secs (9 hrs, 18 mins, 56 secs)
+Timer (optimization) : 33546.03 secs (9 hrs, 19 mins, 06 secs)
+
+==================================================
+Starting on path #0
+==================================================
+
+
+Position reactant and product complexes
+==================================================
+
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+
+Guessing transition state from template
+==================================================
+
+Found a template match of order 1
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Timer (TS guess) : 67.94 secs (0 hrs, 01 mins, 07 secs)
+
+Relaxing TS guess.
+==================================================
+
+
+Executing 1 distributed subjob:
+--------------------------------
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi_relax_ts_0.in -TPP 32
+Timer (distribute subjobs) : 24555.62 secs (6 hrs, 49 mins, 15 secs)
+Structure relaxation AutoTS.T9XnCsLi_relax_ts_0 did not succeed: 
+Job failure(s)
+Jobname: AutoTS.T9XnCsLi_relax_ts_0
+Error code: 1591
+Message:    Incorrect number of vibrational modes
+   nfreq=          26  nmodes=          21
+
+
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+Warning: FF typing failed, cannot add VDW in path optimization
+
+Optimizing TS guess
+==================================================
+
+
+Running Batch TS optimization of 1 jobs
+==================================================
+
+
+Executing 1 distributed subjob:
+--------------------------------
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi_qst_0.in -TPP 32
+Timer (distribute subjobs) : 21383.13 secs (5 hrs, 56 mins, 23 secs)
+
+Performing frequency analysis of successful TS optimizations
+==================================================
+
+-----------------------------------
+Perform geometric analysis of TS
+-----------------------------------
+Bond formation threshold: 1.15
+Bond breakage threshold:  1.80
+-----------------------------------
+  atom 1   atom 2 rij/rcov   vetted
+-----------------------------------
+       C        O     1.52     True
+-----------------------------------
+Geometry passed vetting: True
+
+
+Executing 1 distributed subjob:
+--------------------------------
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi_qst_0_freq.in -TPP 32
+Timer (distribute subjobs) : 19321.66 secs (5 hrs, 22 mins, 01 secs)
+
+Analyzing results of batch TS optimization
+==================================================
+
+
+Inspecting quality of TS frequencies
+==================================================
+
+Number of Negative Frequencies 1
+Frequency 1 =   -257.63
+Vibrational mode has been vetted
+
+1 of 1 batch TS optimizations succeeded
+Timer (qst) : 65285.48 secs (18 hrs, 08 mins, 05 secs)
+
+Connecting found TS with endpoints
+==================================================
+
+
+Running Batch IRC calculation of 1 jobs
+==================================================
+
+
+Executing 1 distributed subjob:
+--------------------------------
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi_irc_0.in -TPP 32
+Timer (distribute subjobs) : 9.26 secs
+IRC AutoTS.T9XnCsLi_irc_0 was not successful: Job failure(s)
+Jobname: AutoTS.T9XnCsLi_irc_0
+Error code: 1089
+Message:   Cannot compute dipole derivatives unless a frequency calculation is 
+  requested or a &path section is used (see Jaguar manual)
+
+
+
+No paths were built from irc result, do mm_irc for selected best TS. 
+==================================================
+
+
+QM IRC was unsuccessful or was skipped.
+Running MM based IRC.
+==================================================
+
+FF IRC optimization of product was not successful:  Lewis structure check failed on the specified structure.
+Check formal charges and bond orders.
+mmlewis_apply returned error code 1 (MMLEWIS_ERR) for arguments (Structure(9300),) with message: "WARNING mmlewis warning: Wrong Lewis structure in structure input file
+mmlewis warning: with title: Scratch
+mmlewis warning: Problems were identified with the following atoms:
+mmlewis warning:  1 7 10 
+mmlewis warning: Now attempting to fix the lewis structure.
+FATAL mmlewis error: Problems remain with the following atoms:
+mmlewis error:  2 10 11"
+
+IRC matched both reactant and product
+==================================================
+
+Timer (irc) : 14.94 secs
+1 paths have been found.
+
+Computing complex energies
+==================================================
+
+-----------------------
+ canonical.py workflow
+-----------------------
+There are 2 structures of which 2 are isomers.
+1 keyword combinations were requested.
+2 setup calculations will be done (on the isomers).
+2 final calculations will be done.
+
+Running 2 setup calculations...
+(The remaining structures do not need preprocessing.)
+
+Executing 2 distributed subjobs:
+---------------------------------
+
+Processing the following subjobs:
+(1) jaguar run Scratch_isomer1_co.in
+(2) jaguar run Scratch_isomer2_co.in
+Timer (distribute subjobs) : 16.28 secs
+
+Running 2 final calculations...
+
+Executing 2 distributed subjobs:
+---------------------------------
+
+Processing the following subjobs:
+(1) jaguar run Scratch_isomer1.in -TPP 32
+(2) jaguar run Scratch_isomer2.in -TPP 32
+Timer (distribute subjobs) : 33508.32 secs (9 hrs, 18 mins, 28 secs)
+
+Computing infinitely separated energies
+==================================================
+
+Getting molecular electronic states from Mulliken analysis
+
+Executing 2 distributed subjobs:
+---------------------------------
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi-separated-energy_0_opt_0.in -TPP 32
+(2) jaguar run AutoTS.T9XnCsLi-separated-energy_0_opt_1.in -TPP 32
+Timer (distribute subjobs) : 3150.71 secs (0 hrs, 52 mins, 30 secs)
+Getting molecular electronic states from Mulliken analysis
+
+Executing 1 distributed subjob:
+--------------------------------
+
+Processing the following subjobs:
+(1) jaguar run AutoTS.T9XnCsLi-separated-energy_1_opt_0.in -TPP 32
+Timer (distribute subjobs) : 16845.25 secs (4 hrs, 40 mins, 45 secs)
+
+Calculation Summary
+==================================================
+
+
+
+ =====================================================================
+                   Structure Energies (Hartree)                   
+ =====================================================================
+          Structure          Total      Separated  Gibbs (298.15K)
+ =====================================================================
+           reactant    -349.958926    -349.970474      -349.949752
+ transition_state_1    -349.963999    -349.963999      -349.926775
+            product    -350.003176    -350.003176      -349.962605
+ =====================================================================
+
+
+
+----------------------------------------------------------------------------------------------------------------
+                                             Final Reaction Results                                             
+                                           Complex Energy (kcal/mol)                                           
+----------------------------------------------------------------------------------------------------------------
+ Rxn      Er        Ep        Ets       Rxn E     Act E     frequency  Status of IRC?  Path number  Approx TS
+   1      0.00    -27.77     -3.18     -27.77     -3.18      -257.63       Failed              0        False 
+----------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+                                             Final Reaction Results                                             
+                                        Inf. Separated Energy (kcal/mol)                                        
+----------------------------------------------------------------------------------------------------------------
+ Rxn      Er        Ep        Ets       Rxn E     Act E     frequency  Status of IRC?  Path number  Approx TS
+   1      0.00    -20.52      4.06     -20.52      4.06      -257.63       Failed              0        False 
+----------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
+                                             Final Reaction Results                                             
+                    Gibbs Free Energy at 298.15K and concentration of 1 mol/liter (kcal/mol)                    
+----------------------------------------------------------------------------------------------------------------
+ Rxn      Gr        Gp        Gts       Rxn G     Act G     frequency  Status of IRC?  Path number  Approx TS
+   1      0.00     -8.07     14.42      -8.07     14.42      -257.63       Failed              0        False 
+----------------------------------------------------------------------------------------------------------------
+
+Structures in table are stored in AutoTS.T9XnCsLi_full_path.mae
+Summary table is written to AutoTS.T9XnCsLi_full_path_summary.txt
+Summary table is written to AutoTS.T9XnCsLi_full_path_summary.csv in csv format
+----------------------------------------------------
+Gibbs Free energy and kinetics data
+for elementary reaction step #1
+----------------------------------------------------
+The half life is defined to be the time at which
+the concentration of one of the reactants is half way
+between initial and equilibrium values.
+If the reaction order is higher than order one 
+all other reactants are assumed to be at unit 
+concentration.  Gibbs energies are given at a standard state
+of 1 Molar concentration.
+---------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+           Gibbs        Gibbs        forward rate   reverse rate   Log10 Keq      Remaining                  
+Temp       activation   reaction     constant       constant                      reactant                   
+(Celsius)  (kcal/mol)   (kcal/mol)   (s^-1 M^-1 )   (s^-1)         (unitless)     at t1/2 (%)  half life     
+-----------------------------------------------------------------------------------------------------------------------
+-195.8     8.0536e+00   -1.4915e+01  2.8554e-11     2.0884e-53     4.2136e+01     5.0000e-01   7.70 centuries
+ -78.5     1.1535e+01   -1.1204e+01  4.5394e-01     1.1952e-13     1.2580e+01     5.0000e-01   1.53 seconds
+   0.0     1.3737e+01   -8.8085e+00  5.8094e+01     5.2061e-06     7.0476e+00     5.0000e-01   11.93 milliseconds
+  25.0     1.4418e+01   -8.0653e+00  1.6768e+02     2.0541e-04     5.9119e+00     5.0000e-01   4.13 milliseconds
+  37.0     1.4742e+01   -7.7120e+00  2.6464e+02     9.7366e-04     5.4343e+00     5.0000e-01   2.62 milliseconds
+  78.2     1.5836e+01   -6.5165e+00  1.0337e+03     9.1415e-02     4.0534e+00     4.9996e-01   6.70e+02 microseconds
+ 100.0     1.6405e+01   -5.8944e+00  1.9176e+03     6.7694e-01     3.4522e+00     4.9982e-01   3.61e+02 microseconds
+ 200.0     1.8937e+01   -3.1285e+00  1.7650e+04     6.3345e+02     1.4450e+00     4.8268e-01   37.34 microseconds
+ 300.0     2.1356e+01   -4.9404e-01  8.5883e+04     5.5658e+04     1.8838e-01     3.0339e-01   4.21 microseconds
+
+ * M = (mol/L)
+
+
+1 Transition State has been found for this single path.
+==================================================
+
+                                     AutoTS diagnostic report                                     
+---------------------------------------------------------------------------------------------------
+                         property                            value                diagnostic passes
+---------------------------------------------------------------------------------------------------
+  Initial optimization was stable                             True                              Yes
+             TS template was used                             True                              Yes
+           Path smoothness metric                              N/A                              Yes
+                  Level of theorywb97x-d/def2-tzvpd, Solution Phase                              Yes
+           TS optimization method                              qst                              Yes
+               Number of TS found                                1                              Yes
+  Number of imaginary frequencies                                1                              Yes
+               All TS were vetted                             True                              Yes
+  All structures connected by IRC                             True                              Yes
+    All constraints are satisfied                              N/A                              Yes
+
+               0123456789012345678901234567890123456789012345678901234567890123456789               
+----------------------------------------------------------------------------------------------------
+header                                                                                    header    
+header                                                                                    header    
+header                                                                                    header    
+header                                                                                    header    
+header                                                                                    header    
+line=   0                                                                                 line=   0 
+line=   1                                       4.06                                      line=   1 
+line=   2                                 /--------------\                                line=   2 
+line=   3                              /                                                  line=   3 
+line=   4                            /                    \                               line=   4 
+line=   5                          /                                                      line=   5 
+line=   6                        /                         \                              line=   6 
+line=   7           0.00       /                                                          line=   7 
+line=   8      --------------/                              \                             line=   8 
+line=   9                                                                                 line=   9 
+line=  10                                                    \                            line=  10 
+line=  11                                                                                 line=  11 
+line=  12                                                     \                           line=  12 
+line=  13                                                                                 line=  13 
+line=  14                                                      \                          line=  14 
+line=  15                                                                                 line=  15 
+line=  16                                                       \                         line=  16 
+line=  17                                                                                 line=  17 
+line=  18                                                        \                        line=  18 
+line=  19                                                                                 line=  19 
+line=  20                                                         \                       line=  20 
+line=  21                                                                                 line=  21 
+line=  22                                                          \                      line=  22 
+line=  23                                                                                 line=  23 
+line=  24                                                           \                     line=  24 
+line=  25                                                                                 line=  25 
+line=  26                                                            \                    line=  26 
+line=  27                                                                                 line=  27 
+line=  28                                                             \                   line=  28 
+line=  29                                                                                 line=  29 
+line=  30                                                                                 line=  30 
+line=  31                                                                                 line=  31 
+line=  32                                                                                 line=  32 
+line=  33                                                                                 line=  33 
+line=  34                                                                                 line=  34 
+line=  35                                                                                 line=  35 
+line=  36                                                                                 line=  36 
+line=  37                                                                                 line=  37 
+line=  38                                                                  -20.52         line=  38 
+line=  39                                                             \--------------     line=  39 
+footer                                                                                    footer    
+footer                                                                                    footer    
+footer                                                                                    footer    
+footer                                                                                    footer    
+----------------------------------------------------------------------------------------------------
+               0123456789012345678901234567890123456789012345678901234567890123456789               
+
+Timer (Total AutoTS Time) : 152469.28 secs (1 day, 18 hrs, 21 mins, 09 secs)

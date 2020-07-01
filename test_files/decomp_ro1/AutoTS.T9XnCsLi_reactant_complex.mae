@@ -1,0 +1,83 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_name
+ i_m_ct_format
+ i_m_Molecular_charge
+ i_m_Spin_multiplicity
+ :::
+ Scratch 
+  Scratch 
+  2
+  0
+  2
+ m_atom[11] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_color
+  i_m_atomic_number
+  i_m_formal_charge
+  s_m_atom_name
+  i_j_input_atom_index
+  i_j_input_mol_index
+  i_j_original_atom_index
+  i_j_original_mol_index
+  i_j_static_original_atom_index
+  i_j_static_original_mol_index
+  i_m_atom_mapper_index
+  s_m_custom_atom_type
+  :::
+  1 2 0.441587 -0.003245 0.220064 2 6 0 C1  1 2 1 1 1 1 1 2021179242851914713 
+  2 2 -0.884709 -0.003243 0.219977 2 6 0 C2  2 2 2 1 2 1 2 2021179242851914713 
+  3 41 1.009831 -0.929512 0.219854 21 1 0 H1  3 2 3 1 3 1 3 H 
+  4 41 1.010154 0.922814 0.219857 21 1 0 H2  4 2 4 1 4 1 4 H 
+  5 41 -1.453112 -0.929421 0.220137 21 1 0 H3  5 2 5 1 5 1 5 H 
+  6 41 -1.453302 0.922808 0.220134 21 1 0 H4  6 2 6 1 6 1 6 H 
+  7 21 0.854959 2.158991 3.720041 70 8 1 O1  1 1 7 1 7 1 7 O 
+  8 3 1.132160 0.994716 4.248691 2 6 0 C3  2 1 8 1 8 1 8 C 
+  9 16 1.309840 0.949690 5.490182 70 8 0 O2  3 1 9 1 9 1 9 O 
+  10 16 1.198481 0.010257 3.472518 70 8 0 O3  4 1 10 1 10 1 10 O 
+  11 93 1.588511 -0.959535 5.127947 4 3 0 Li1  5 1 11 1 11 1 11 Li 
+  :::
+ } 
+ m_bond[22] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  b_j_reaction_bond_active
+  :::
+  1 1 4 1 0
+  2 1 3 1 0
+  3 1 2 2 0
+  4 2 1 2 0
+  5 2 6 1 0
+  6 2 5 1 0
+  7 3 1 1 0
+  8 4 1 1 0
+  9 5 2 1 0
+  10 6 2 1 0
+  11 7 8 1 0
+  12 8 7 1 0
+  13 8 9 1 0
+  14 8 10 1 0
+  15 8 11 1 0
+  16 9 8 1 0
+  17 9 11 1 0
+  18 10 8 1 0
+  19 10 11 1 0
+  20 11 8 1 0
+  21 11 9 1 0
+  22 11 10 1 0
+  :::
+ } 
+} 
+
