@@ -78,20 +78,15 @@ class AutoTSOutput(MSONable):
             self.data["input"]["solution_phase"] = True
 
     def _parse_calculations(self):
-        header_pattern = r"Processing the following subjobs:"
-        table_pattern = r"\([0-9]+\) jaguar run ([A-Za-z0-9_\.\-]+)(?: -TPP [0-9]+)?"
-        footer_pattern = r"Timer \(distribute subjobs\) : [0-9\.]+ secs \([A-Za-z0-9 ,\.]+\)"
-
-        temp_calcs = read_table_pattern(self.text, header_pattern, table_pattern,
-                                        footer_pattern)
+        temp_calcs = read_pattern(self.text,
+                                  {"key": r"\([0-9]+\) jaguar run ([A-Za-z0-9_\.\-]+) -TPP [0-9]+"}).get("key")
 
         if temp_calcs is None or len(temp_calcs) == 0:
             self.data["calculations"] = None
         else:
             self.data["calculations"] = list()
-            for table in temp_calcs:
-                for row in table:
-                    self.data["calculations"].append(row[0].replace(".in", ""))
+            for calc in temp_calcs:
+                self.data["calculations"].append(calc[0].replace(".in", ""))
 
     def _parse_warnings(self):
         temp_warnings = read_pattern(self.text,
