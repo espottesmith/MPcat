@@ -59,8 +59,7 @@ class AutoTSInput(MSONable):
             None
         """
 
-        input_file = ReactiqInput(inputfile=filename,
-                                  keywords=self.autots_variables,
+        input_file = ReactiqInput(keywords=self.autots_variables,
                                   jaguar_keywords=self.gen_variables,
                                   jobname=jobname)
         input_file.save(filename)

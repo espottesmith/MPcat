@@ -107,7 +107,7 @@ class TestAutoTSSet(unittest.TestCase):
                                  "units": "ev",
                                  "use_alternate": True}
 
-        self.gen_variables = {"dftname": "wb97X-D",
+        self.gen_variables = {"dftname": "wb97x-d",
                               "basis": "def2-tzvpd",
                               "babel": "xyz",
                               "ip472": 2,  # Output all steps of geometry optimization in *.mae
@@ -149,7 +149,7 @@ class TestAutoTSSet(unittest.TestCase):
                                     overwrite_inputs_gen={"noauto": 3})
 
         self.assertEqual(non_default_set.gen_variables["basis"], "6-31+g(d)")
-        self.assertEqual(non_default_set.gen_variables["functional"], "b3lyp")
+        self.assertEqual(non_default_set.gen_variables["dftname"], "b3lyp")
         self.assertEqual(non_default_set.gen_variables["maxit"], 500)
         self.assertEqual(non_default_set.gen_variables["maxitg"], 500)
         self.assertEqual(non_default_set.gen_variables["noauto"], 3)

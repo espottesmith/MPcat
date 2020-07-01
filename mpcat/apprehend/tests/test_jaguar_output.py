@@ -12,9 +12,11 @@ test_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..",
 
 def prepare_files():
     successful_file = JagOutput(os.path.join(test_dir, "autots_success_partial",
-                                             "AutoTS.T9XnCsLi_opt_0.out"))
+                                             "AutoTS.T9XnCsLi_opt_0.out"),
+                                parse_molecules=False)
     failed_file = JagOutput(os.path.join(test_dir, "autots_failure_partial",
-                                         "AutoTS.T9XnCsLi_opt_0.out"))
+                                         "AutoTS.T9XnCsLi_opt_0.out"),
+                            parse_molecules=False)
 
     dumpfn(successful_file, os.path.join(test_dir, "autots_success_partial", "success_jag.json"))
     dumpfn(failed_file, os.path.join(test_dir, "autots_failure_partial", "failure_jag.json"))
@@ -28,13 +30,15 @@ class TestJagOutput(unittest.TestCase):
 
     def test_success(self):
         successful_file = JagOutput(os.path.join(test_dir, "autots_success_partial",
-                                                 "AutoTS.T9XnCsLi_opt_0.out"))
+                                                 "AutoTS.T9XnCsLi_opt_0.out"),
+                                    parse_molecules=False)
 
         self.assertTrue(all_equal(successful_file.data, self.successful_file.data))
 
     def test_failure(self):
         failed_file = JagOutput(os.path.join(test_dir, "autots_failure_partial",
-                                             "AutoTS.T9XnCsLi_opt_0.out"))
+                                             "AutoTS.T9XnCsLi_opt_0.out"),
+                                parse_molecules=False)
 
         self.assertTrue(all_equal(failed_file.data, self.failed_file.data))
 
