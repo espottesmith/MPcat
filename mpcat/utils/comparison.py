@@ -41,6 +41,12 @@ def all_equal(a: Dict, b: Dict, exclude_keys: Optional[List] = None):
         elif isinstance(a[key], np.ndarray) and isinstance(b[key], np.ndarray):
             if not np.allclose(a[key], b[key]):
                 return False
+        elif isinstance(a[key], np.ndarray):
+            if not np.allclose(a[key], np.array(b[key])):
+                return False
+        elif isinstance(b[key], np.ndarray):
+            if not np.allclose(np.array(a[key]), b[key]):
+                return False
         else:
             try:
                 if a[key] != b[key]:
