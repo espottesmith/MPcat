@@ -88,7 +88,7 @@ class AutoTSDrone(AbstractDrone):
         d["schema"] = {"code": "mpcat", "version": version}
         d["path"] = self.path
 
-        autots_input = AutoTSInput.from_file(workflow_input, read_molecules=True)
+        autots_input = AutoTSInput.from_file(os.path.join(self.path, workflow_input), read_molecules=True)
 
         d["input"] = {"reactants": autots_input.reactants,
                       "products": autots_input.products,
@@ -115,7 +115,7 @@ class AutoTSDrone(AbstractDrone):
                 else:
                     chosen_output = probable_outputs[0]
 
-        autots_output = AutoTSOutput(chosen_output)
+        autots_output = AutoTSOutput(os.path.join(self.path, chosen_output))
 
         d["calculation_names"] = autots_output.data["calculations"]
 
