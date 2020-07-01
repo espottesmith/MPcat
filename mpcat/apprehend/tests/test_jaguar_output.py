@@ -38,5 +38,6 @@ class TestJagOutput(unittest.TestCase):
 
         self.assertTrue(all_equal(failed_file.data, self.failed_file.data))
 
+
 if __name__ == "__main__":
     unittest.main()
