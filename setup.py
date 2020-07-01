@@ -12,7 +12,7 @@ setup(
     author='Evan Walter Clark Spotte-Smith',
     author_email='espottesmith@gmail.com',
     python_requires=">=3.6",
-    install_requires=["pymatgen", "atomate", "maggma", "monty>3.0.0",
+    install_requires=["pymatgen", "maggma", "monty>3.0.0",
                       "numpy==1.18.0", "scipy==1.4.1"],
     extras_require={':python_version < "3.7"': ["dataclasses>=0.6"]},
     description="""An interface between the Materials Project software suite and the Schrodinger

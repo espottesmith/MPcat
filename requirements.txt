@@ -1,5 +1,4 @@
-pymatgen
-atomate
+git+git://github.com/shyamd/pymatgen@stable
 maggma
 monty>3.0.0
 numpy==1.18.0
