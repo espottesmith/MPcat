@@ -18,8 +18,10 @@ def prepare_files():
                                          "AutoTS.T9XnCsLi_opt_0.out"),
                             parse_molecules=False)
 
-    dumpfn(successful_file, os.path.join(test_dir, "autots_success_partial", "success_jag.json"))
-    dumpfn(failed_file, os.path.join(test_dir, "autots_failure_partial", "failure_jag.json"))
+    dumpfn(successful_file.as_dict(),
+           os.path.join(test_dir, "autots_success_partial", "success_jag.json"))
+    dumpfn(failed_file.as_dict(),
+           os.path.join(test_dir, "autots_failure_partial", "failure_jag.json"))
 
 
 class TestJagOutput(unittest.TestCase):
