@@ -35,14 +35,14 @@ class TestJagOutput(unittest.TestCase):
                                                  "AutoTS.T9XnCsLi_opt_0.out"),
                                     parse_molecules=False)
 
-        self.assertTrue(all_equal(successful_file.data, self.successful_file.data))
+        self.assertTrue(all_equal(successful_file.data, self.successful_file["data"]))
 
     def test_failure(self):
         failed_file = JagOutput(os.path.join(test_dir, "autots_failure_partial",
                                              "AutoTS.T9XnCsLi_opt_0.out"),
                                 parse_molecules=False)
 
-        self.assertTrue(all_equal(failed_file.data, self.failed_file.data))
+        self.assertTrue(all_equal(failed_file.data, self.failed_file["data"]))
 
 
 if __name__ == "__main__":
