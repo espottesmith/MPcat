@@ -260,7 +260,7 @@ class JagOutput(MSONable):
             output.data["start_time"] = datetime.datetime.strptime(d["data"]["start_time"],
                                                                    "%Y/%m/%d, %H:%M:%S")
         if d["data"]["end_time"] is not None:
-            output.data["end_time"] = datetime.datetime.strptime(d["data"]["endtime"],
+            output.data["end_time"] = datetime.datetime.strptime(d["data"]["end_time"],
                                                                  "%Y/%m/%d, %H:%M:%S")
         output.filename = d["filename"]
 
