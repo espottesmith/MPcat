@@ -2,7 +2,7 @@ import os
 import unittest
 
 from mpcat.aggregate.drones import AutoTSDrone
-from monty.serialization import loadfn
+from monty.serialization import loadfn, dumpfn
 
 
 test_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..",
@@ -14,6 +14,8 @@ class TestAutoTSDrone(unittest.TestCase):
     def test_compare_to_reference(self):
         drone = AutoTSDrone(path=os.path.join(test_dir, "decomp_ro1"))
         doc = drone.assimilate()
+        dumpfn(doc, "test.json")
+        doc = loadfn("test.json")
 
         reference = loadfn(os.path.join(test_dir, "decomp_ro1_doc.json"))
 
@@ -23,6 +25,8 @@ class TestAutoTSDrone(unittest.TestCase):
         self.assertEqual(doc["calcs"], reference["calcs"])
         self.assertEqual(doc["completed"], reference["completed"])
         self.assertEqual(doc["calculation_names"], reference["calculation_names"])
+
+        os.remove("test.json")
 
 
 if __name__ == "__main__":
