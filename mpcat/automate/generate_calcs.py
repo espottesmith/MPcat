@@ -5,9 +5,7 @@ from typing import Optional, List, Dict, Type
 import datetime
 
 from pymatgen.core.structure import Molecule
-from pymatgen.reaction_network.reaction_network import (Reaction,
-                                                        RedoxReaction,
-                                                        ReactionPath,
+from pymatgen.reaction_network.reaction_network import (ReactionPath,
                                                         ReactionNetwork)
 
 from mpcat.apprehend.autots_input import AutoTSSet
@@ -133,7 +131,7 @@ class AutoTSJob:
             raise RuntimeError("Job launch failed!")
 
 
-def launch_mass_jobs(reactions: List[Type[Reaction]],
+def launch_mass_jobs(reactions: List[Dict[str, List[Molecule]]],
                      base_dir: str,
                      schrodinger_dir: Optional[str] = "$SCHRODINGER",
                      job_name_prefix: Optional[str] = None,
@@ -188,27 +186,23 @@ def launch_mass_jobs(reactions: List[Type[Reaction]],
 
     # Make an AutoTSJob object for each reaction
     for rr, reaction in enumerate(reactions):
-        if isinstance(reaction, RedoxReaction):
-            print("Cannot find transition states for RedoxReactions! Skipping reaction {} in reactions".format(rr))
-            continue
 
         # Verify that reaction is balanced in terms of charge and species
-        reactants = [r.molecule for r in reaction.reactants]
-        products = [p.molecule for p in reaction.products]
 
-        charge_rct = sum([r.charge for r in reactants])
-        charge_pro = sum([p.charge for p in products])
+        charge_rct = sum([r.charge for r in reaction["reactants"]])
+        charge_pro = sum([p.charge for p in reaction["products"]])
 
         if charge_rct != charge_pro:
             print("Reactants and products do not have balanced charge! Skipping reaction {} in reactions".format(rr))
             continue
 
-        if not compositions_equal(reactants, products):
+        if not compositions_equal(reaction["reactants"], reaction["products"]):
             print("Reactants and products are not balanced! Skipping reaction {} in reactions".format(rr))
             continue
 
         job_name = job_name_prefix + datetime.datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + str(jobs_made)
-        job = AutoTSJob(reactants, products, os.path.join(base_dir, job_name),
+        job = AutoTSJob(reaction["reactants"], reaction["products"],
+                        os.path.join(base_dir, job_name),
                         schrodinger_dir=schrodinger_dir,
                         job_name=job_name, num_cores=num_cores, host=host,
                         save_scratch=save_scratch, input_params=input_params)
@@ -241,8 +235,7 @@ def launch_reaction_path(reaction_network: ReactionNetwork,
                          input_params: Optional[Dict] = None,
                          command_line_args: Optional[Dict] = None):
     """
-    For all reactions along a reaction path, if those reactions do not already
-        have transition states associated with them, prepare and launch AutoTS
+    For all reactions along a reaction path, prepare and launch AutoTS
         calculations for them.
 
     Args:
@@ -281,4 +274,23 @@ def launch_reaction_path(reaction_network: ReactionNetwork,
         None
     """
 
-    pass
+    reactions = list()
+
+    for node in reaction_path:
+        # We only care about reaction nodes
+        if "," in node:
+            sides = node.split(',')
+            rct_ids = [int(r.replace("PR_", "")) for r in sides[0].split("+")]
+            pro_ids = [int(p) for p in sides[1].split("+")]
+
+            rcts = [reaction_network.entries_list[e].molecule for e in rct_ids]
+            pros = [reaction_network.entries_list[e].molecule for e in pro_ids]
+            reactions.append({"reactants": rcts, "products": pros})
+
+    launch_mass_jobs(reactions, base_dir=base_dir,
+                     schrodinger_dir=schrodinger_dir,
+                     job_name_prefix=job_name_prefix,
+                     num_cores=num_cores,
+                     host=host, save_scratch=save_scratch,
+                     input_params=input_params,
+                     command_line_args=command_line_args)

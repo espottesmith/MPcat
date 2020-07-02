@@ -150,7 +150,7 @@ class AutoTSDrone(AbstractDrone):
                     d["calcs"].append(jag_out.data)
 
             if not found:
-                raise RuntimeWarning("Expected calculation {} missing from path!".format(calculation))
+                print("Expected calculation {} missing from path!".format(calculation))
 
         full_paths = [f for f in self.files if f.endswith("full_path.mae")]
         if len(full_paths) > 0:
