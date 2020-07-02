@@ -1,17 +1,17 @@
 import os
+import subprocess
 import shutil
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Type
+import datetime
 
 from pymatgen.core.structure import Molecule
 from pymatgen.reaction_network.reaction_network import (Reaction,
-                                                        IntramolSingleBondChangeReaction,
-                                                        IntermolecularReaction,
-                                                        CoordinationBondChangeReaction,
-                                                        ConcertedReaction,
+                                                        RedoxReaction,
                                                         ReactionPath,
                                                         ReactionNetwork)
 
-from mpcat.apprehend.autots_input import AutoTSInput, AutoTSSet
+from mpcat.apprehend.autots_input import AutoTSSet
+from mpcat.utils.comparison import compositions_equal
 
 
 class AutoTSJob:
@@ -72,7 +72,14 @@ class AutoTSJob:
 
     def setup_calculation(self):
         """
-        Prepare for calculation - prepare directory with all necessary input files.
+        Prepare for calculation - prepare directory with all necessary input
+            files.
+
+        Args:
+            None
+
+        Returns:
+            None
         """
 
         if not os.path.exists(self.path):
@@ -86,8 +93,192 @@ class AutoTSJob:
 
     def run(self, command_line_args: Optional[Dict] = None):
         """
+        Execute the AutoTS job
 
-        :return:
+        Args:
+            command_line_args (dict): A dictionary of flag: value pairs to be
+            provided to the autots command-line interface. Ex:
+            {"WAIT": None,
+             "subdir": None,
+             "nsubjobs": 5}
+             will be interpreted as "-WAIT -subdir -nsubjobs 5"
+
+        Returns:
+            None
         """
-        #TODO
-        pass
+
+        os.chdir(self.path)
+
+        command = [self.schrodinger_dir + "/autots",
+                   "-jobname", self.job_name,
+                   "-PARALLEL", str(self.num_cores),
+                   "-HOST", self.host, "-use_one_node"]
+
+        if self.save_scratch:
+            command.append("-SAVE")
+
+        if command_line_args is not None:
+            for key, value in command_line_args.items():
+                command.append("-" + str(key))
+
+                if value is not None:
+                    command.append(str(value))
+
+        command.append("autots.in")
+
+        process = subprocess.run(command,
+                                 capture_output=True,
+                                 text=True)
+        if process.returncode != 0:
+            raise RuntimeError("Job launch failed!")
+
+
+def launch_mass_jobs(reactions: List[Type[Reaction]],
+                     base_dir: str,
+                     schrodinger_dir: Optional[str] = "$SCHRODINGER",
+                     job_name_prefix: Optional[str] = None,
+                     num_cores: Optional[int] = 40,
+                     host: Optional[str] = "localhost",
+                     save_scratch: Optional[bool] = False,
+                     input_params: Optional[Dict] = None,
+                     command_line_args: Optional[Dict] = None):
+
+    """
+    Create many AutoTSJobs from
+        pymatgen.reaction_network.reaction_network.Reaction objects
+
+    Args:
+        reactions (list of Reaction objects or subclasses):
+        base_dir (str): Root directory where all calculation directories should
+            be made
+        schrodinger_dir (str): A path to the Schrodinger Suite of software.
+            This is used to call AutoTS and other utilities. By default,
+            this is "$SCHRODINGER", which should be an environment variable
+            set at the time of installation.
+        job_name_prefix (str): All jobs in this set of reactions will be given a
+            unique name, but this prefix will be prepended to all calculations
+            in this set.
+        num_cores (int): How many cores should the program be parallelized
+            over (default 40). When multiple subjobs need to be run
+            simultaneously, AutoTS will distribute these cores automatically
+            between subjobs
+        host (str): Which host should the calculation be run on? By default,
+            this is "localhost", which should generally mean that the
+            calculation is run on the current node without using a queueing
+            system
+        save_scratch (bool): If True (default False), save a *.zip file
+            containing the contents of the calculation scratch directory
+        input_params (dict): Keywords and associated values to be provided
+            to AutoTSSet
+        command_line_args (dict): A dictionary of flag: value pairs to be
+            provided to the autots command-line interface. Ex:
+            {"WAIT": None,
+             "subdir": None,
+             "nsubjobs": 5}
+             will be interpreted as "-WAIT -subdir -nsubjobs 5"
+
+
+    Returns:
+        None
+    """
+
+    jobs = list()
+
+    jobs_made = 0
+
+    # Make an AutoTSJob object for each reaction
+    for rr, reaction in enumerate(reactions):
+        if isinstance(reaction, RedoxReaction):
+            print("Cannot find transition states for RedoxReactions! Skipping reaction {} in reactions".format(rr))
+            continue
+
+        # Verify that reaction is balanced in terms of charge and species
+        reactants = [r.molecule for r in reaction.reactants]
+        products = [p.molecule for p in reaction.products]
+
+        charge_rct = sum([r.charge for r in reactants])
+        charge_pro = sum([p.charge for p in products])
+
+        if charge_rct != charge_pro:
+            print("Reactants and products do not have balanced charge! Skipping reaction {} in reactions".format(rr))
+            continue
+
+        if not compositions_equal(reactants, products):
+            print("Reactants and products are not balanced! Skipping reaction {} in reactions".format(rr))
+            continue
+
+        job_name = job_name_prefix + datetime.datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + str(jobs_made)
+        job = AutoTSJob(reactants, products, os.path.join(base_dir, job_name),
+                        schrodinger_dir=schrodinger_dir,
+                        job_name=job_name, num_cores=num_cores, host=host,
+                        save_scratch=save_scratch, input_params=input_params)
+        jobs.append(job)
+        jobs_made += 1
+
+    # Prepare all jobs
+    for job in jobs:
+        job.setup_calculation()
+
+    return_point = os.getcwd()
+
+    for job in jobs:
+        try:
+            job.run(command_line_args=command_line_args)
+        except RuntimeError:
+            print("Failed to run job {}".format(job.job_name))
+
+        os.chdir(return_point)
+
+
+def launch_reaction_path(reaction_network: ReactionNetwork,
+                         reaction_path: ReactionPath,
+                         base_dir: str,
+                         schrodinger_dir: Optional[str] = "$SCHRODINGER",
+                         job_name_prefix: Optional[str] = None,
+                         num_cores: Optional[int] = 40,
+                         host: Optional[str] = "localhost",
+                         save_scratch: Optional[bool] = False,
+                         input_params: Optional[Dict] = None,
+                         command_line_args: Optional[Dict] = None):
+    """
+    For all reactions along a reaction path, if those reactions do not already
+        have transition states associated with them, prepare and launch AutoTS
+        calculations for them.
+
+    Args:
+        reaction_network (ReactionNetwork): A network containing the reactions
+            in the ReactionPath
+        reaction_path (ReactionPath): The path to be studied
+        base_dir (str): Root directory where all calculation directories should
+            be made
+        schrodinger_dir (str): A path to the Schrodinger Suite of software.
+            This is used to call AutoTS and other utilities. By default,
+            this is "$SCHRODINGER", which should be an environment variable
+            set at the time of installation.
+        job_name_prefix (str): All jobs in this set of reactions will be given a
+            unique name, but this prefix will be prepended to all calculations
+            in this set.
+        num_cores (int): How many cores should the program be parallelized
+            over (default 40). When multiple subjobs need to be run
+            simultaneously, AutoTS will distribute these cores automatically
+            between subjobs
+        host (str): Which host should the calculation be run on? By default,
+            this is "localhost", which should generally mean that the
+            calculation is run on the current node without using a queueing
+            system
+        save_scratch (bool): If True (default False), save a *.zip file
+            containing the contents of the calculation scratch directory
+        input_params (dict): Keywords and associated values to be provided
+            to AutoTSSet
+        command_line_args (dict): A dictionary of flag: value pairs to be
+            provided to the autots command-line interface. Ex:
+            {"WAIT": None,
+             "subdir": None,
+             "nsubjobs": 5}
+             will be interpreted as "-WAIT -subdir -nsubjobs 5"
+
+    Returns:
+        None
+    """
+
+    pass

@@ -59,11 +59,15 @@ class AutoTSInput(MSONable):
             None
         """
 
+        base_dir = os.path.dirname(filename)
+
         if write_molecules:
             for rr, reactant in enumerate(self.reactants):
-                molecule_to_maestro_file(reactant, "rct_{}.mae".format(rr))
+                molecule_to_maestro_file(reactant, os.path.join(base_dir,
+                                                                "rct_{}.mae".format(rr)))
             for pp, product in enumerate(self.products):
-                molecule_to_maestro_file(product, "pro_{}.mae".format(pp))
+                molecule_to_maestro_file(product, os.path.join(base_dir,
+                                                               "pro_{}.mae".format(pp)))
 
         input_file = ReactiqInput(keywords=self.autots_variables,
                                   jaguar_keywords=self.gen_variables,
