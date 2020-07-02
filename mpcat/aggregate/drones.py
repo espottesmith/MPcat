@@ -131,9 +131,9 @@ class AutoTSDrone(AbstractDrone):
                            "optimized_structure_energies": autots_output.data["output"]["struct_energies"]}
             d["diagnostic"] = autots_output.data["diagnostic"]
         else:
-            d["output"] = None
+            d["output"] = dict()
             #TODO: could actually parse diagnostic for failed calcs; just requires tweaking of regex
-            d["diagnostic"] = None
+            d["diagnostic"] = dict()
 
         d["calcs"] = list()
         for calculation in d["calculation_names"]:
