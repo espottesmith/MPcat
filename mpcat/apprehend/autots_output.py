@@ -37,7 +37,7 @@ class AutoTSOutput(MSONable):
                                            terminate_on_match=True).get("key")
 
         time = read_pattern(self.text,
-                            {"key": r"Timer \(Total AutoTS time\) : ([0-9\.]+) secs \([0-9A-Za-z,\. ]+\)"},
+                            {"key": r"Timer \(Total AutoTS Time\) : ([0-9\.]+) secs \([0-9A-Za-z,\. ]+\)"},
                             terminate_on_match=True).get("key")
         if time is not None:
             self.data["walltime"] = float(time[0][0])

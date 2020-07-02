@@ -17,7 +17,12 @@ class TestAutoTSDrone(unittest.TestCase):
 
         reference = loadfn(os.path.join(test_dir, "decomp_ro1_doc.json"))
 
-        self.assertEqual(doc, reference)
+        self.assertEqual(doc["schema"], reference["schema"])
+        self.assertEqual(doc["input"], reference["input"])
+        self.assertEqual(doc["output"], reference["output"])
+        self.assertEqual(doc["calcs"], reference["calcs"])
+        self.assertEqual(doc["completed"], reference["completed"])
+        self.assertEqual(doc["calculation_names"], reference["calculation_names"])
 
 
 if __name__ == "__main__":
