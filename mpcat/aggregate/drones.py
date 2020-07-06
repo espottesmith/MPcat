@@ -1,13 +1,15 @@
 # coding: utf-8
 
 import os
-import datetime
+from datetime import datetime
 
-from typing import Optional
+from typing import Optional, List
+from pathlib import Path, PosixPath
 
 from monty.json import jsanitize
 
 from pymatgen.apps.borg.hive import AbstractDrone
+from maggma.core.drone import Document, Drone, RecordIdentifier
 
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 from mpcat.apprehend.autots_input import AutoTSInput
@@ -18,7 +20,100 @@ from mpcat.apprehend.jaguar_output import JagOutput
 version = "0.0.1"
 
 
-class AutoTSDrone(AbstractDrone):
+class AutoTSDrone(Drone):
+    """
+    A drone to parse AutoTS calculations and enter them into a database.
+    """
+
+    def __init__(self, store, path: Path):
+        super().__init__(store=store, path=path)
+
+    def compute_record_identifier_key(self, doc: Document) -> str:
+        """
+        Compute the RecordIdentifier key that this document correspond to
+
+        Args:
+            doc: document which the record identifier key will be inferred from
+
+        Returns:
+            RecordIdentifiierKey
+        """
+
+        if "AutoTS." in doc.path.parts[-1]:
+            return doc.path.parent.as_posix()
+        else:
+            return doc.path.as_posix()
+
+    def compute_record_identifier(self, record_key: str, doc_list: List[Document]) -> RecordIdentifier:
+        """
+        Compute meta data for this list of documents, and generate a RecordIdentifier object
+        :param record_key: record keys that indicate a record
+        :param doc_list: document on disk that this record include
+        :return:
+            RecordIdentifier that represent this doc_list
+        """
+        recordIdentifier = RecordIdentifier(
+            last_updated=datetime.now(), documents=doc_list, record_key=record_key
+        )
+        recordIdentifier.state_hash = recordIdentifier.compute_state_hash()
+        return recordIdentifier
+
+    @staticmethod
+    def documents_calc_dir(calc_dir: Path) -> List[Document]:
+        """
+        Identify all important documents within an AutoTS calculation directory.
+
+        Args:
+            calc_dir: Path object that indicates a path to an individual AutoTS
+                calculation
+
+        Returns:
+            List of Documents
+        """
+
+        root_contents = [f for f in os.listdir(calc_dir.as_posix())]
+
+        subdirs = [calc_dir / f for f in root_contents if (calc_dir / f).is_dir() and "AutoTS" in f]
+        files = [f for f in root_contents if (calc_dir / f).is_file()]
+
+        files_paths = list()
+        for file in files:
+            if "AutoTS" in file and file.split(".", maxsplit=1)[-1] in ["mae", "out", "in",
+                                                                        "mae.gz", "out.gz", "in.gz"]:
+                files_paths.append(calc_dir / file)
+            elif ("pro" in file or "rct" in file) and file.split(".", maxsplit=1)[-1] in ["mae",
+                                                                                          "mae.gz"]:
+                files_paths.append(calc_dir / file)
+            elif file.endswith(".in") or file.endswith(".in.gz"):
+                files_paths.append(calc_dir / file)
+
+        for subdir in subdirs:
+            sub_files = [f for f in os.listdir(subdir.as_posix())]
+            sub_paths = [subdir / f for f in sub_files]
+            for ff, file in sub_files:
+                if file.split(".", maxsplit=1)[-1] in ["mae", "out", "in",
+                                                       ""]:
+                    files_paths.append(file)
+
+        return [Document(path=fp, name=fp.name) for fp in files_paths]
+
+    def read(self, path: Path) -> List[RecordIdentifier]:
+        """
+        Given a folder path to a data folder, read all the files, and return a dictionary
+        that maps each RecordKey -> [RecordIdentifier]
+
+        ** Note: require user to implement the function computeRecordIdentifierKey
+
+        Args:
+            path: Path object that indicate a path to a data folder
+
+        Returns:
+            List of Record Identifiers
+        """
+        pass
+
+
+class AutoTSDrone_Old(AbstractDrone):
     """
     A drone to parse AutoTS calculations and convert them into a task document.
     """
