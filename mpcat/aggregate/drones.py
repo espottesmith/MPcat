@@ -3,7 +3,7 @@
 import os
 from datetime import datetime
 
-from typing import Optional, List
+from typing import Optional, List, Dict
 from pathlib import Path, PosixPath
 
 from monty.json import jsanitize
@@ -59,7 +59,7 @@ class AutoTSDrone(Drone):
         return recordIdentifier
 
     @staticmethod
-    def documents_calc_dir(calc_dir: Path) -> List[Document]:
+    def get_documents_calc_dir(calc_dir: Path) -> List[Document]:
         """
         Identify all important documents within an AutoTS calculation directory.
 
@@ -78,10 +78,10 @@ class AutoTSDrone(Drone):
 
         files_paths = list()
         for file in files:
-            if "AutoTS" in file and file.split(".", maxsplit=1)[-1] in ["mae", "out", "in",
+            if "AutoTS" in file and file.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
                                                                         "mae.gz", "out.gz", "in.gz"]:
                 files_paths.append(calc_dir / file)
-            elif ("pro" in file or "rct" in file) and file.split(".", maxsplit=1)[-1] in ["mae",
+            elif ("pro" in file or "rct" in file) and file.split(".", maxsplit=2)[-1] in ["mae",
                                                                                           "mae.gz"]:
                 files_paths.append(calc_dir / file)
             elif file.endswith(".in") or file.endswith(".in.gz"):
@@ -91,9 +91,9 @@ class AutoTSDrone(Drone):
             sub_files = [f for f in os.listdir(subdir.as_posix())]
             sub_paths = [subdir / f for f in sub_files]
             for ff, file in sub_files:
-                if file.split(".", maxsplit=1)[-1] in ["mae", "out", "in",
-                                                       ""]:
-                    files_paths.append(file)
+                if file.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
+                                                       "mae.gz", "out.gz", "in.gz"]:
+                    files_paths.append(sub_paths[ff])
 
         return [Document(path=fp, name=fp.name) for fp in files_paths]
 
@@ -110,10 +110,112 @@ class AutoTSDrone(Drone):
         Returns:
             List of Record Identifiers
         """
-        pass
+
+        calc_dirs = [path / f for f in os.listdir(path.as_posix()) if (path / f).is_dir()]
+
+        record_identifiers = list()
+        for calc_dir in calc_dirs:
+            documents = self.get_documents_calc_dir(calc_dir)
+            document_names = [doc.name for doc in documents]
+
+            if len(documents) == 0:
+                continue
+            elif "autots.in" not in document_names or "AutoTS.T9XnCsLi.out" not in document_names:
+                continue
+            else:
+                record_identifiers.append(self.compute_record_identifier(calc_dir.as_posix(),
+                                                                         documents))
+
+        return record_identifiers
+
+    def compute_data(self, recordID: RecordIdentifier) -> Dict:
+        """
+        User can specify what raw data they want to save from the Documents that this recordID refers to
+
+        Args:
+            recordID: recordID that needs to be re-saved
+
+        Returns:
+            Dictionary of NAME_OF_DATA -> DATA
+                        ex:
+                            for a recordID refering to 1,
+                            {
+                                "citation": cite.bibtex ,
+                                "text": data.txt
+                            }
+        """
+        d = dict()
+        d["schema"] = {"code": "mpcat", "version": version}
+        d["path"] = recordID.record_key
+
+        documents = recordID.documents
+        document_names = [doc.name for doc in documents]
+
+        # If no input or no output - should never happen
+        if "autots.in" not in document_names or "AutoTS.T9XnCsLi.out" not in document_names:
+            raise ValueError("Input or output file missing in recordID!")
+
+        autots_input = AutoTSInput.from_file(os.path.join(d["path"], "autots.in"),
+                                             read_molecules=True)
+
+        d["input"] = {"reactants": autots_input.reactants,
+                      "products": autots_input.products,
+                      "autots_variables": autots_input.autots_variables,
+                      "gen_variables": autots_input.gen_variables}
+
+        autots_output = AutoTSOutput(os.path.join(d["path"],
+                                                  "AutoTS.T9XnCsLi.out"))
+
+        d["calculation_names"] = autots_output.data["calculations"]
+
+        d["warnings"] = autots_output.data["warnings"]
+        d["errors"] = autots_output.data["errors"]
+        d["completed"] = autots_output.data["complete"]
+        d["walltime"] = autots_output.data["walltime"]
+        if d["completed"]:
+            d["output"] = {"temperature": autots_output.data["output"]["temperature_dependence"],
+                           "free_energy": autots_output.data["output"]["gibbs_energies"],
+                           "separated_energies": autots_output.data["output"]["separated_energies"],
+                           "complex_energies": autots_output.data["output"]["complex_energies"],
+                           "optimized_structure_energies": autots_output.data["output"]["struct_energies"]}
+            d["diagnostic"] = autots_output.data["diagnostic"]
+        else:
+            d["output"] = dict()
+            #TODO: could actually parse diagnostic for failed calcs; just requires tweaking of regex
+            d["diagnostic"] = dict()
+
+        d["calcs"] = list()
+        for calculation in d["calculation_names"]:
+            found = False
+            for document in documents:
+                if document.name in [calculation + ".out",
+                                     calculation + ".out.gz"]:
+                    found = True
+                    jag_out = JagOutput(document.path.to_posix(),
+                                        allow_failure=True,
+                                        parse_molecules=True)
+                    d["calcs"].append(jag_out.data)
+
+            if not found:
+                print("Expected calculation {} missing from path!".format(calculation))
+
+        full_paths = [d for d in documents if "full_path.mae" in d.name]
+        if len(full_paths) > 0:
+            d["output"]["path_molecules"] = maestro_file_to_molecule(full_paths[0].path.to_posix())
+
+        rct_complexes = [d for d in documents if "reactant_complex.mae" in d.name]
+        if len(rct_complexes) > 0:
+            d["output"]["reactant_complex"] = maestro_file_to_molecule(rct_complexes[0].path.to_posix())[0]
+
+        pro_complexes = [d for d in documents if "product_complex.mae" in d.name]
+        if len(pro_complexes) > 0:
+            d["output"]["product_complex"] = maestro_file_to_molecule(pro_complexes[0].path.to_posix())[0]
+
+        d["last_updated"] = datetime.utcnow()
+        return d
 
 
-class AutoTSDrone_Old(AbstractDrone):
+class AutoTSDronePMG(AbstractDrone):
     """
     A drone to parse AutoTS calculations and convert them into a task document.
     """
@@ -276,5 +378,5 @@ class AutoTSDrone_Old(AbstractDrone):
                 raise RuntimeWarning("The keys {0} in {1} not set".format(diff, k))
 
     @staticmethod
-    def get_valid_paths(self, path):
+    def get_valid_paths(path):
         return [path]
