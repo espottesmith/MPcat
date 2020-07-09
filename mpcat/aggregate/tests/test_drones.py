@@ -1,7 +1,9 @@
+# coding: utf-8
+
 import os
 import unittest
 
-from mpcat.aggregate.drones import AutoTSDrone
+from mpcat.aggregate.drones import AutoTSCalcDrone, AutoTSBuilderDrone
 from monty.serialization import loadfn, dumpfn
 
 
@@ -9,10 +11,10 @@ test_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..",
                         "test_files")
 
 
-class TestAutoTSDrone(unittest.TestCase):
+class TestAutoTSDronePMG(unittest.TestCase):
 
     def test_compare_to_reference(self):
-        drone = AutoTSDrone(path=os.path.join(test_dir, "decomp_ro1"))
+        drone = AutoTSCalcDrone(path=os.path.join(test_dir, "decomp_ro1"))
         doc = drone.assimilate()
         dumpfn(doc, "test.json")
         doc = loadfn("test.json")

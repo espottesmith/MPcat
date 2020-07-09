@@ -1,9 +1,9 @@
+# coding: utf-8
+
 import os
 import unittest
 
 import numpy as np
-
-from monty.serialization import loadfn, dumpfn
 
 from pymatgen.core.structure import Molecule
 

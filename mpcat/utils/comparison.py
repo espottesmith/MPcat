@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from typing import Dict, Optional, List
 
 import numpy as np

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from monty.io import zopen
 from monty.json import MSONable
 from pymatgen.io.qchem.utils import (read_table_pattern,
