@@ -126,9 +126,7 @@ class AutoTSJob:
 
         command.append("autots.in")
 
-        process = subprocess.run(command,
-                                 capture_output=True,
-                                 text=True)
+        process = subprocess.run(command)
         if process.returncode != 0:
             raise RuntimeError("Job launch failed!")
 
