@@ -38,8 +38,6 @@ class AutoTSInput(MSONable):
         self.autots_variables = autots_variables
         self.gen_variables = gen_variables
 
-        self.autots_variables["reactant"] = ["rct_{}.mae".format(rr) for rr in range(len(self.reactants))]
-        self.autots_variables["product"] = ["pro_{}.mae".format(pp) for pp in range(len(self.products))]
         self.autots_variables["charge"] = sum([m.charge for m in self.reactants])
 
         nelectrons = sum([m._nelectrons for m in self.reactants])
@@ -62,6 +60,11 @@ class AutoTSInput(MSONable):
         """
 
         base_dir = os.path.dirname(filename)
+
+        self.autots_variables["reactant"] = [os.path.join(base_dir, "rct_{}.mae".format(rr))
+                                             for rr in range(len(self.reactants))]
+        self.autots_variables["product"] = [os.path.join(base_dir, "pro_{}.mae".format(pp))
+                                            for pp in range(len(self.products))]
 
         if write_molecules:
             for rr, reactant in enumerate(self.reactants):
