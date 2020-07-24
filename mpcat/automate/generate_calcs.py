@@ -148,7 +148,8 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Molecule]]],
         pymatgen.reaction_network.reaction_network.Reaction objects
 
     Args:
-        reactions (list of Reaction objects or subclasses):
+        reactions (list of dicts of Molecules): Dict, with keys "reactants" and
+            "products", and values being lists of Molecules
         base_dir (str): Root directory where all calculation directories should
             be made
         schrodinger_dir (str): A path to the Schrodinger Suite of software.
