@@ -61,7 +61,10 @@ class AutoTSJob:
         self.products = products
         self.path = path
 
-        self.schrodinger_dir = schrodinger_dir
+        if schrodinger_dir == "$SCHRODINGER":
+            self.schrodinger_dir = os.environ[schrodinger_dir]
+        else:
+            self.schrodinger_dir = schrodinger_dir
 
         self.job_name = job_name
         self.num_cores = num_cores
@@ -109,7 +112,7 @@ class AutoTSJob:
 
         os.chdir(self.path)
 
-        command = [self.schrodinger_dir + "/autots",
+        command = [os.path.join(self.schrodinger_dir, "autots"),
                    "-jobname", self.job_name,
                    "-PARALLEL", str(self.num_cores),
                    "-HOST", self.host, "-use_one_node"]
