@@ -23,7 +23,7 @@ class AutoTSJob:
                  reactants: List[Molecule],
                  products: List[Molecule],
                  path: str,
-                 schrodinger_dir: Optional[str] = "$SCHRODINGER",
+                 schrodinger_dir: Optional[str] = "SCHRODINGER",
                  job_name: Optional[str] = None,
                  num_cores: Optional[int] = 40,
                  host: Optional[str] = "localhost",
@@ -61,8 +61,8 @@ class AutoTSJob:
         self.products = products
         self.path = path
 
-        if schrodinger_dir == "$SCHRODINGER":
-            self.schrodinger_dir = os.environ[schrodinger_dir]
+        if schrodinger_dir == "SCHRODINGER":
+            self.schrodinger_dir = os.environ["SCHRODINGER"]
         else:
             self.schrodinger_dir = schrodinger_dir
 
