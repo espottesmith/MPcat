@@ -113,9 +113,12 @@ class AutoTSJob:
         os.chdir(self.path)
 
         command = [os.path.join(self.schrodinger_dir, "autots"),
-                   "-jobname", self.job_name,
                    "-PARALLEL", str(self.num_cores),
                    "-HOST", self.host, "-use_one_node"]
+
+        if self.job_name is not None:
+            command.append("-jobname")
+            command.append(str(self.job_name))
 
         if self.save_scratch:
             command.append("-SAVE")
