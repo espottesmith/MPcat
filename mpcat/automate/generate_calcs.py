@@ -110,6 +110,7 @@ class AutoTSJob:
             None
         """
 
+        cur_dir = os.getcwd()
         os.chdir(self.path)
 
         command = [os.path.join(self.schrodinger_dir, "autots"),
@@ -133,6 +134,9 @@ class AutoTSJob:
         command.append("autots.in")
 
         process = subprocess.run(command)
+
+        os.chdir(cur_dir)
+
         if process.returncode != 0:
             raise RuntimeError("Job launch failed!")
 

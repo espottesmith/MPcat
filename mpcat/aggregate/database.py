@@ -8,6 +8,11 @@ from pymongo import MongoClient, ReturnDocument, ReplaceOne, UpdateOne
 from monty.json import jsanitize
 from monty.serialization import loadfn
 
+from pymatgen.core.structure import Molecule
+from pymatgen.analysis.graphs import MoleculeGraph
+from pymatgen.analysis.local_env import OpenBabelNN
+from pymatgen.analysis.fragmenter import metal_edge_extender
+
 
 class CatDB:
     """
@@ -18,7 +23,8 @@ class CatDB:
     """
 
     def __init__(self, host: str, port: int, database_name: str, user: str,
-                 password: str, collection: Optional[str] = "mpcat"):
+                 password: str, task_collection: Optional[str] = "mpcat_tasks",
+                 queue_collection: Optional[str] = "mpcat_queue"):
         """
 
         Args:
@@ -27,8 +33,10 @@ class CatDB:
             database_name (str): The name of the database
             user (str): The name of the user for this connection to the database
             password (str): The password for user
-            collection (str): The name of the collection in which to store
-                tasks. Default is "mpcat"
+            task_collection (str): The name of the collection in which to store
+                tasks. Default is "mpcat_tasks"
+            queue_collection (str): The name of the collection in which to store
+                information about calculations to be run. Default is "mpcat_queue"
         """
 
         self.host = host
@@ -36,7 +44,8 @@ class CatDB:
         self.database_name = database_name
         self.user = user
         self.password = password
-        self.collection = collection
+        self.task_collection = task_collection
+        self.queue_cllection = queue_collection
 
         try:
             self.client = MongoClient(host=self.host, port=self.port,
@@ -54,8 +63,10 @@ class CatDB:
 
         if self.database["counter"].find({"_id": "taskid"}).count() == 0:
             self.database["counter"].insert_one({"_id": "taskid", "c": 0})
+        if self.database["counter"].find({"_id": "rxnid"}).count() == 0:
+            self.database["counter"].insert_one({"_id": "rxnid", "c": 0})
 
-    def insert(self, doc: Dict):
+    def insert_task_doc(self, doc: Dict):
         """
         Insert a task doc into the database.
 
@@ -66,8 +77,8 @@ class CatDB:
             None
         """
 
-        previous = self.database[self.collection].find_one({"path": doc["path"]},
-                                                           ["path", "task_id"])
+        previous = self.database[self.task_collection].find_one({"path": doc["path"]},
+                                                                ["path", "task_id"])
 
         doc["last_updated"] = datetime.datetime.now()
 
@@ -80,10 +91,10 @@ class CatDB:
             doc["task_id"] = previous["task_id"]
 
         doc = jsanitize(doc, allow_bson=True)
-        self.database[self.collection].update_one({"path": doc["path"]},
-                                                  {"$set": doc}, upsert=True)
+        self.database[self.task_collection].update_one({"path": doc["path"]},
+                                                       {"$set": doc}, upsert=True)
 
-    def update(self, docs: List[Dict], key: Optional[str] = "path"):
+    def update_task_doc(self, docs: List[Dict], key: Optional[str] = "path"):
         """
         Update a number of docs at once.
 
@@ -106,7 +117,25 @@ class CatDB:
             requests.append(ReplaceOne({key: doc[key]}, doc, upsert=True))
 
         if len(requests) > 0:
-            self.database[self.collection].bulk_write(requests, ordered=False)
+            self.database[self.task_collection].bulk_write(requests,
+                                                           ordered=False)
+
+    def insert_reaction(self, reactants: List[Molecule], products: List[Molecule],
+                        name: Optional[str], calculation_type: Optional[str] = "autots",
+                        input_params: Optional[Dict] = None):
+        """
+        Add a reaction to the "queue" (self.queue_collection collection).
+
+        TODO: This
+
+        :param reactants:
+        :param products:
+        :param name:
+        :param calculation_type:
+        :param input_params:
+        :return:
+        """
+        pass
 
     @classmethod
     def from_db_file(cls, db_file, admin=True):
