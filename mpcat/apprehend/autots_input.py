@@ -156,8 +156,7 @@ class AutoTSSet(AutoTSInput):
                             "free_energy": True,
                             "require_irc_success": True,
                             "ts_vet_max_freq": -40.0,
-                            "units": "ev",
-                            "use_alternate": True}
+                            "units": "ev"}
 
         if dft_rung == 1:
             dftname = "b3lyp"
