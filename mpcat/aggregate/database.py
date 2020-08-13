@@ -120,22 +120,36 @@ class CatDB:
             self.database[self.task_collection].bulk_write(requests,
                                                            ordered=False)
 
-    def insert_reaction(self, reactants: List[Molecule], products: List[Molecule],
-                        name: Optional[str], calculation_type: Optional[str] = "autots",
-                        input_params: Optional[Dict] = None):
+    def insert_calculation(self, reactants: List[Molecule], products: List[Molecule],
+                           name: Optional[str] = None, calculation_type: Optional[str] = "autots",
+                           input_params: Optional[Dict] = None):
         """
         Add a reaction to the "queue" (self.queue_collection collection).
 
-        TODO: This
+        Args:
+            reactants (list of Molecule objects): The reactants of the reaction.
+                Can be separated molecules or a reaction complex
+            products (list of Molecule objects): The products of the reaction.
+                Can be separated molecules or a reaction complex
+            name (str, or None): Name of the reaction. No
+            calculation_type (str): Type of calculation. Currently, only
+                "autots" (default) is supported, but eventually, general Jaguar
+                calculations (using "jaguar") will be supported.
+            input_params (Dict, or None): Dictionary with all input parameters
+                for this calculation. These keywords and the associated values
+                will be provided to AutoTSSet (or, eventually, JaguarSet).
 
-        :param reactants:
-        :param products:
-        :param name:
-        :param calculation_type:
-        :param input_params:
-        :return:
+        Returns:
+            None
         """
-        pass
+
+        entry = dict()
+
+        if calculation_type != "autots":
+            raise NotImplementedError("Currently, only 'autots' is supported as a calculation type.")
+
+        raise NotImplementedError("TODO")
+
 
     @classmethod
     def from_db_file(cls, db_file, admin=True):
