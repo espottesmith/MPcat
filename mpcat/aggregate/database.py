@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import datetime
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, Union
 
 from pymongo import MongoClient, ReturnDocument, ReplaceOne, UpdateOne
 
@@ -12,6 +12,10 @@ from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 from pymatgen.analysis.local_env import OpenBabelNN
 from pymatgen.analysis.fragmenter import metal_edge_extender
+
+from mpcat.utils.reaction import (get_reaction_graphs,
+                                  get_reaction_template,
+                                  union_molgraph)
 
 
 class CatDB:
@@ -120,9 +124,11 @@ class CatDB:
             self.database[self.task_collection].bulk_write(requests,
                                                            ordered=False)
 
-    def insert_calculation(self, reactants: List[Molecule], products: List[Molecule],
-                           name: Optional[str] = None, calculation_type: Optional[str] = "autots",
-                           input_params: Optional[Dict] = None):
+    def insert_calculation(self, reactants: Union[List[Molecule], List[MoleculeGraph]],
+                           products: Union[List[Molecule], List[MoleculeGraph]],
+                           name: Optional[str] = None,
+                           input_params: Optional[Dict] = None,
+                           tags: Optional[Dict] = None):
         """
         Add a reaction to the "queue" (self.queue_collection collection).
 
@@ -132,23 +138,70 @@ class CatDB:
             products (list of Molecule objects): The products of the reaction.
                 Can be separated molecules or a reaction complex
             name (str, or None): Name of the reaction. No
-            calculation_type (str): Type of calculation. Currently, only
-                "autots" (default) is supported, but eventually, general Jaguar
-                calculations (using "jaguar") will be supported.
             input_params (Dict, or None): Dictionary with all input parameters
                 for this calculation. These keywords and the associated values
                 will be provided to AutoTSSet (or, eventually, JaguarSet).
+            tags (Dict, or None): Dictionary with some calculation metadata
+                Ex: {"class": "production", "time": 3}
 
         Returns:
             None
         """
 
-        entry = dict()
+        entry = {"state": "READY"}
 
-        if calculation_type != "autots":
-            raise NotImplementedError("Currently, only 'autots' is supported as a calculation type.")
+        if len(reactants) == 0 or len(products) == 0:
+            raise ValueError("reactants and products must be non-empty lists!")
 
-        raise NotImplementedError("TODO")
+        if isinstance(reactants[0], Molecule):
+            rct_mgs = [MoleculeGraph.with_local_env_strategy(m, OpenBabelNN()) for m in reactants]
+            entry["reactants"] = [metal_edge_extender(mg) for mg in rct_mgs]
+        else:
+            entry["reactants"] = reactants
+
+        if isinstance(products[0], Molecule):
+            pro_mgs = [MoleculeGraph.with_local_env_strategy(m, OpenBabelNN()) for m in products]
+            entry["products"] = [metal_edge_extender(mg) for mg in pro_mgs]
+        else:
+            entry["products"] = products
+
+        rct_charge = sum([m.molecule.charge for m in entry["reactants"]])
+        pro_charge = sum([m.molecule.charge for m in entry["products"]])
+
+        if rct_charge != pro_charge:
+            raise ValueError("Reactants and products do not have the same charge!")
+
+        entry["charge"] = rct_charge
+
+        rct_nelectrons = sum([m.molecule._nelectrons for m in entry["reactants"]])
+        pro_nelectrons = sum([m.molecule._nelectrons for m in entry["products"]])
+
+        if rct_nelectrons != pro_nelectrons:
+            raise ValueError("Reactants and products do not have the same number of electrons!")
+
+        entry["nelectrons"] = int(rct_nelectrons)
+        entry["spin_multiplicity"] = 1 if entry["nelectrons"] % 2 == 0 else 2
+
+        if name is None:
+            rct_names = [m.composition.alphabetical_formula + "_" + str(m.charge) for m in reactants]
+            pro_names = [m.composition.alphabetical_formula + "_" + str(m.charge) for m in products]
+            entry["name"] = " + ".join(rct_names) + " -> " + " + ".join(pro_names)
+        else:
+            entry["name"] = name
+
+        entry["input"] = input_params
+        entry["tags"] = tags
+
+        union_rct = union_molgraph(entry["reactants"])
+        union_pro = union_molgraph(entry["products"])
+
+
+
+        entry["rxn_id"] = self.database["counter"].find_one_and_update({"_id": "rxnid"},
+                                                                       {"$inc": {"c": 1}},
+                                                                       return_document=ReturnDocument.AFTER)["c"]
+        entry["created_on"] = datetime.datetime.now(datetime.timezone.utc)
+        entry["updated_on"] = datetime.datetime.now(datetime.timezone.utc)
 
 
     @classmethod
