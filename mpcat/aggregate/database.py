@@ -258,5 +258,5 @@ class CatDB:
         return cls(creds["host"], int(creds.get("port", 27017)),
                    creds["database"],
                    user, password,
-                   creds.get("collection", "mpcat"))
-
+                   data_collection=creds.get("data_collection", "mpcat_data"),
+                   queue_collection=creds.get("queue_collection", "mpcat_queue"))
