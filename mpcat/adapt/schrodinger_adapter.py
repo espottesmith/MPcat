@@ -4,6 +4,7 @@ import random
 import os
 
 from pymatgen.core.structure import Molecule
+from pymatgen.analysis.graphs import MoleculeGraph
 
 from schrodinger.structure import Structure, StructureReader, StructureWriter
 
@@ -113,3 +114,40 @@ def molecule_to_schrodinger_struct(molecule: Molecule):
     os.remove("temp_conversion{}.sdf".format(file_suffix))
 
     return struct
+
+
+def mol_graph_to_schrodinger_struct(mol_graph: MoleculeGraph):
+    """
+    Convert a pymatgen MoleculeGraph object to a Schrodinger Structure object
+
+    Args:
+        mol_graph (pymatgen.analysis.graphs.MoleculeGraph): MoleculeGraph to be
+            converted
+
+    Returns:
+        struct: schrodinger.structure.Structure object
+    """
+
+    struct = molecule_to_schrodinger_struct(mol_graph.molecule)
+
+    # Credit to Xiaowei Xie
+    for edge in mol_graph.graph.edges.data():
+        struct.addBond(edge[0] + 1, edge[1] + 1, 1)
+
+    return struct
+
+
+def mol_graph_to_maestro_file(molecule: MoleculeGraph, filename: str):
+    """
+    Write a pymatgen MoleculeGraph object to a Maestro file.
+
+    Args;
+        molecule (MoleculeGraph): MoleculeGraph to be written
+        filename (str): Path to file where molecule will be written.
+
+    Returns:
+         None
+    """
+
+    struct = mol_graph_to_schrodinger_struct(molecule)
+    StructureWriter.write(struct, filename)

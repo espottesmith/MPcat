@@ -3,15 +3,17 @@
 import os
 import subprocess
 import shutil
-from typing import Optional, List, Dict, Type
+from typing import Optional, List, Dict, Type, Union
 import datetime
 
 from pymatgen.core.structure import Molecule
-# from pymatgen.reaction_network.reaction_network import (ReactionPath,
-#                                                         ReactionNetwork)
+from pymatgen.analysis.graphs import MoleculeGraph
+from pymatgen.analysis.local_env import OpenBabelNN
+from pymatgen.analysis.fragmenter import metal_edge_extender
 
 from mpcat.apprehend.autots_input import AutoTSSet
 from mpcat.utils.comparison import compositions_equal
+from mpcat.utils.generate import mol_to_mol_graph
 
 
 class AutoTSJob:
@@ -20,8 +22,8 @@ class AutoTSJob:
     """
 
     def __init__(self,
-                 reactants: List[Molecule],
-                 products: List[Molecule],
+                 reactants: List[Union[Molecule, MoleculeGraph]],
+                 products: List[Union[Molecule, MoleculeGraph]],
                  path: str,
                  schrodinger_dir: Optional[str] = "SCHRODINGER",
                  job_name: Optional[str] = None,
@@ -57,8 +59,15 @@ class AutoTSJob:
                 to AutoTSSet
         """
 
-        self.reactants = reactants
-        self.products = products
+        self.reactants = list()
+        self.products = list()
+
+        for reactant in reactants:
+            self.reactants.append(mol_to_mol_graph(reactant))
+
+        for product in products:
+            self.products.append(mol_to_mol_graph(product))
+
         self.path = path
 
         if schrodinger_dir == "SCHRODINGER":
@@ -141,7 +150,7 @@ class AutoTSJob:
             raise RuntimeError("Job launch failed!")
 
 
-def launch_mass_jobs(reactions: List[Dict[str, List[Molecule]]],
+def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGraph]]]],
                      base_dir: str,
                      schrodinger_dir: Optional[str] = "$SCHRODINGER",
                      job_name_prefix: Optional[str] = None,
@@ -199,6 +208,27 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Molecule]]],
     for rr, reaction in enumerate(reactions):
 
         # Verify that reaction is balanced in terms of charge and species
+        charge_rct = 0
+        charge_pro = 0
+
+        reactants = list()
+        products = list()
+
+        for mol in reaction["reactants"]:
+            if isinstance(mol, Molecule):
+                charge_rct += mol.charge
+                reactants.append(mol)
+            else:
+                charge_rct += mol.molecule.charge
+                reactants.append(mol.molecule)
+
+        for mol in reaction["products"]:
+            if isinstance(mol, Molecule):
+                charge_pro += mol.charge
+                products.append(mol)
+            else:
+                charge_pro += mol.molecule.charge
+                products.append(mol.molecule)
 
         charge_rct = sum([r.charge for r in reaction["reactants"]])
         charge_pro = sum([p.charge for p in reaction["products"]])
@@ -207,7 +237,7 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Molecule]]],
             print("Reactants and products do not have balanced charge! Skipping reaction {} in reactions".format(rr))
             continue
 
-        if not compositions_equal(reaction["reactants"], reaction["products"]):
+        if not compositions_equal(reactants, products):
             print("Reactants and products are not balanced! Skipping reaction {} in reactions".format(rr))
             continue
 
@@ -233,75 +263,3 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Molecule]]],
             print("Failed to run job {}".format(job.job_name))
 
         os.chdir(return_point)
-
-
-# def launch_reaction_path(reaction_network: ReactionNetwork,
-#                          reaction_path: ReactionPath,
-#                          base_dir: str,
-#                          schrodinger_dir: Optional[str] = "$SCHRODINGER",
-#                          job_name_prefix: Optional[str] = None,
-#                          num_cores: Optional[int] = 40,
-#                          host: Optional[str] = "localhost",
-#                          save_scratch: Optional[bool] = False,
-#                          input_params: Optional[Dict] = None,
-#                          command_line_args: Optional[Dict] = None):
-#     """
-#     For all reactions along a reaction path, prepare and launch AutoTS
-#         calculations for them.
-#
-#     Args:
-#         reaction_network (ReactionNetwork): A network containing the reactions
-#             in the ReactionPath
-#         reaction_path (ReactionPath): The path to be studied
-#         base_dir (str): Root directory where all calculation directories should
-#             be made
-#         schrodinger_dir (str): A path to the Schrodinger Suite of software.
-#             This is used to call AutoTS and other utilities. By default,
-#             this is "$SCHRODINGER", which should be an environment variable
-#             set at the time of installation.
-#         job_name_prefix (str): All jobs in this set of reactions will be given a
-#             unique name, but this prefix will be prepended to all calculations
-#             in this set.
-#         num_cores (int): How many cores should the program be parallelized
-#             over (default 40). When multiple subjobs need to be run
-#             simultaneously, AutoTS will distribute these cores automatically
-#             between subjobs
-#         host (str): Which host should the calculation be run on? By default,
-#             this is "localhost", which should generally mean that the
-#             calculation is run on the current node without using a queueing
-#             system
-#         save_scratch (bool): If True (default False), save a *.zip file
-#             containing the contents of the calculation scratch directory
-#         input_params (dict): Keywords and associated values to be provided
-#             to AutoTSSet
-#         command_line_args (dict): A dictionary of flag: value pairs to be
-#             provided to the autots command-line interface. Ex:
-#             {"WAIT": None,
-#              "subdir": None,
-#              "nsubjobs": 5}
-#              will be interpreted as "-WAIT -subdir -nsubjobs 5"
-#
-#     Returns:
-#         None
-#     """
-#
-#     reactions = list()
-#
-#     for node in reaction_path:
-#         # We only care about reaction nodes
-#         if "," in node:
-#             sides = node.split(',')
-#             rct_ids = [int(r.replace("PR_", "")) for r in sides[0].split("+")]
-#             pro_ids = [int(p) for p in sides[1].split("+")]
-#
-#             rcts = [reaction_network.entries_list[e].molecule for e in rct_ids]
-#             pros = [reaction_network.entries_list[e].molecule for e in pro_ids]
-#             reactions.append({"reactants": rcts, "products": pros})
-#
-#     launch_mass_jobs(reactions, base_dir=base_dir,
-#                      schrodinger_dir=schrodinger_dir,
-#                      job_name_prefix=job_name_prefix,
-#                      num_cores=num_cores,
-#                      host=host, save_scratch=save_scratch,
-#                      input_params=input_params,
-#                      command_line_args=command_line_args)

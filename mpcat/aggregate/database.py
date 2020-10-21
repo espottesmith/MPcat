@@ -27,7 +27,7 @@ class CatDB:
     """
 
     def __init__(self, host: str, port: int, database_name: str, user: str,
-                 password: str, task_collection: Optional[str] = "mpcat_tasks",
+                 password: str, data_collection: Optional[str] = "mpcat_data",
                  queue_collection: Optional[str] = "mpcat_queue"):
         """
 
@@ -37,7 +37,7 @@ class CatDB:
             database_name (str): The name of the database
             user (str): The name of the user for this connection to the database
             password (str): The password for user
-            task_collection (str): The name of the collection in which to store
+            data_collection (str): The name of the collection in which to store
                 tasks. Default is "mpcat_tasks"
             queue_collection (str): The name of the collection in which to store
                 information about calculations to be run. Default is "mpcat_queue"
@@ -48,7 +48,7 @@ class CatDB:
         self.database_name = database_name
         self.user = user
         self.password = password
-        self.task_collection = task_collection
+        self.data_collection = data_collection
         self.queue_cllection = queue_collection
 
         try:
@@ -65,14 +65,14 @@ class CatDB:
         except:
             raise RuntimeError("Cannot authenticate user!")
 
-        if self.database["counter"].find({"_id": "taskid"}).count() == 0:
-            self.database["counter"].insert_one({"_id": "taskid", "c": 0})
+        if self.database["counter"].find({"_id": "datumid"}).count() == 0:
+            self.database["counter"].insert_one({"_id": "datumid", "c": 0})
         if self.database["counter"].find({"_id": "rxnid"}).count() == 0:
             self.database["counter"].insert_one({"_id": "rxnid", "c": 0})
 
-    def insert_task_doc(self, doc: Dict):
+    def insert_data_doc(self, doc: Dict):
         """
-        Insert a task doc into the database.
+        Insert a data doc into the database.
 
         Args:
             doc (dict): The task document to be inserted
@@ -81,26 +81,26 @@ class CatDB:
             None
         """
 
-        previous = self.database[self.task_collection].find_one({"path": doc["path"]},
-                                                                ["path", "task_id"])
+        previous = self.database[self.data_collection].find_one({"path": doc["path"]},
+                                                                ["path", "datumid"])
 
         doc["last_updated"] = datetime.datetime.now()
 
         if previous is None:
-            if not doc.get("task_id", None):
-                doc["task_id"] = self.database["counter"].find_one_and_update({"_id": "taskid"},
+            if not doc.get("datumid", None):
+                doc["datumid"] = self.database["counter"].find_one_and_update({"_id": "datumid"},
                                                                               {"$inc": {"c": 1}},
                                                                               return_document=ReturnDocument.AFTER)["c"]
         else:
-            doc["task_id"] = previous["task_id"]
+            doc["datumid"] = previous["datumid"]
 
         doc = jsanitize(doc, allow_bson=True)
-        self.database[self.task_collection].update_one({"path": doc["path"]},
+        self.database[self.data_collection].update_one({"path": doc["path"]},
                                                        {"$set": doc}, upsert=True)
 
-    def update_task_doc(self, docs: List[Dict], key: Optional[str] = "path"):
+    def update_data_doc(self, docs: List[Dict], key: Optional[str] = "path"):
         """
-        Update a number of docs at once.
+        Update a number of data docs at once.
 
         Args:
             docs (list of dicts): Task docs to be updated.
@@ -121,14 +121,15 @@ class CatDB:
             requests.append(ReplaceOne({key: doc[key]}, doc, upsert=True))
 
         if len(requests) > 0:
-            self.database[self.task_collection].bulk_write(requests,
+            self.database[self.data_collection].bulk_write(requests,
                                                            ordered=False)
 
     def insert_calculation(self, reactants: Union[List[Molecule], List[MoleculeGraph]],
                            products: Union[List[Molecule], List[MoleculeGraph]],
                            name: Optional[str] = None,
                            input_params: Optional[Dict] = None,
-                           tags: Optional[Dict] = None):
+                           tags: Optional[Dict] = None,
+                           priority: Optional[int] = None):
         """
         Add a reaction to the "queue" (self.queue_collection collection).
 
@@ -143,6 +144,12 @@ class CatDB:
                 will be provided to AutoTSSet (or, eventually, JaguarSet).
             tags (Dict, or None): Dictionary with some calculation metadata
                 Ex: {"class": "production", "time": 3}
+            priority (int, or None): To identify jobs that should or should
+                not be run, calculations can be prioritized. The higher the
+                priority, the more important the calculation. If the priority is
+                None (default), then the job will not be selected unless
+                chosen specifically by ID or other query. If the number is
+                negative (< 0), the calculation will never be selected.
 
         Returns:
             None
@@ -191,18 +198,31 @@ class CatDB:
 
         entry["input"] = input_params
         entry["tags"] = tags
+        entry["priority"] = priority
 
         union_rct = union_molgraph(entry["reactants"])
         union_pro = union_molgraph(entry["products"])
 
+        entry["molgraph_rct"] = union_rct.as_dict()
+        entry["molgraph_pro"] = union_pro.as_dict()
 
+        reaction_graph = get_reaction_graphs(union_rct, union_pro,
+                                             allowed_form=2, allowed_break=2,
+                                             stop_at_one=True)
+        entry["reaction_graph"] = reaction_graph.as_dict()
 
-        entry["rxn_id"] = self.database["counter"].find_one_and_update({"_id": "rxnid"},
-                                                                       {"$inc": {"c": 1}},
-                                                                       return_document=ReturnDocument.AFTER)["c"]
+        entry["reactants"] = [r.as_dict() for r in entry["reactants"]]
+        entry["products"] = [p.as_dict() for p in entry["products"]]
+
+        entry["rxnid"] = self.database["counter"].find_one_and_update({"_id": "rxnid"},
+                                                                      {"$inc": {"c": 1}},
+                                                                      return_document=ReturnDocument.AFTER)["c"]
         entry["created_on"] = datetime.datetime.now(datetime.timezone.utc)
         entry["updated_on"] = datetime.datetime.now(datetime.timezone.utc)
 
+        doc = jsanitize(entry, allow_bson=True)
+        self.database[self.queue_cllection].update_one({"rxnid": doc["rxnid"]},
+                                                       {"$set": doc}, upsert=True)
 
     @classmethod
     def from_db_file(cls, db_file, admin=True):

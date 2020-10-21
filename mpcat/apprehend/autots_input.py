@@ -1,16 +1,21 @@
 # coding: utf-8
 
 import os
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Union
 import copy
 
 from monty.json import MSONable
 from pymatgen.core.structure import Molecule
+from pymatgen.analysis.graphs import MoleculeGraph
+from pymatgen.analysis.local_env import OpenBabelNN
+from pymatgen.analysis.fragmenter import metal_edge_extender
 
 from schrodinger.application.jaguar.reactiq_input import (ReactiqInput)
 
 from mpcat.adapt.schrodinger_adapter import (molecule_to_maestro_file,
+                                             mol_graph_to_maestro_file,
                                              maestro_file_to_molecule)
+from mpcat.utils.generate import mol_to_mol_graph
 
 
 class AutoTSInput(MSONable):
@@ -30,11 +35,15 @@ class AutoTSInput(MSONable):
             {"irder": 1, "maxitg": 200, "basis": "def2-tzvpd", "babel": "xyz"}
     """
 
-    def __init__(self, reactants: List[Molecule], products: List[Molecule],
+    def __init__(self, reactants: List[Union[Molecule, MoleculeGraph]], products: List[Molecule],
                  autots_variables: Dict, gen_variables: Dict):
 
-        self.reactants = reactants
-        self.products = products
+        for reactant in reactants:
+            self.reactants.append(mol_to_mol_graph(reactant))
+
+        for product in products:
+            self.products.append(mol_to_mol_graph(product))
+
         self.autots_variables = autots_variables
         self.gen_variables = gen_variables
 
@@ -68,11 +77,11 @@ class AutoTSInput(MSONable):
 
         if write_molecules:
             for rr, reactant in enumerate(self.reactants):
-                molecule_to_maestro_file(reactant, os.path.join(base_dir,
-                                                                "rct_{}.mae".format(rr)))
+                mol_graph_to_maestro_file(reactant, os.path.join(base_dir,
+                                                                 "rct_{}.mae".format(rr)))
             for pp, product in enumerate(self.products):
-                molecule_to_maestro_file(product, os.path.join(base_dir,
-                                                               "pro_{}.mae".format(pp)))
+                mol_graph_to_maestro_file(product, os.path.join(base_dir,
+                                                                "pro_{}.mae".format(pp)))
 
         input_file = ReactiqInput(keywords=self.autots_variables,
                                   jaguar_keywords=self.gen_variables,
@@ -139,8 +148,8 @@ class AutoTSSet(AutoTSInput):
                  overwrite_inputs_gen=None):
         """
         Args:
-            reactants (list of Molecule objects):
-            products (list of Molecule objects):
+            reactants (list of Molecule or MoleculeGraph objects):
+            products (list of Molecule or MoleculeGraph objects):
             basis_set (str):
             dft_rung (int):
             pcm_dielectric (float):
