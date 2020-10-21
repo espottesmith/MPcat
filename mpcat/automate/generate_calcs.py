@@ -2,14 +2,11 @@
 
 import os
 import subprocess
-import shutil
-from typing import Optional, List, Dict, Type, Union
+from typing import Optional, List, Dict, Union
 import datetime
 
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
-from pymatgen.analysis.local_env import OpenBabelNN
-from pymatgen.analysis.fragmenter import metal_edge_extender
 
 from mpcat.apprehend.autots_input import AutoTSSet
 from mpcat.utils.comparison import compositions_equal

@@ -3,7 +3,7 @@
 import datetime
 from typing import Optional, Dict, List, Union
 
-from pymongo import MongoClient, ReturnDocument, ReplaceOne, UpdateOne
+from pymongo import MongoClient, ReturnDocument, ReplaceOne
 
 from monty.json import jsanitize
 from monty.serialization import loadfn
@@ -14,7 +14,6 @@ from pymatgen.analysis.local_env import OpenBabelNN
 from pymatgen.analysis.fragmenter import metal_edge_extender
 
 from mpcat.utils.reaction import (get_reaction_graphs,
-                                  get_reaction_template,
                                   union_molgraph)
 
 

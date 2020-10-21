@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from typing import Optional, List, Dict, Type, Union
+from typing import Union
 
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph

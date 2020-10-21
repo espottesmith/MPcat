@@ -7,13 +7,10 @@ import copy
 from monty.json import MSONable
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
-from pymatgen.analysis.local_env import OpenBabelNN
-from pymatgen.analysis.fragmenter import metal_edge_extender
 
 from schrodinger.application.jaguar.reactiq_input import (ReactiqInput)
 
-from mpcat.adapt.schrodinger_adapter import (molecule_to_maestro_file,
-                                             mol_graph_to_maestro_file,
+from mpcat.adapt.schrodinger_adapter import (mol_graph_to_maestro_file,
                                              maestro_file_to_molecule)
 from mpcat.utils.generate import mol_to_mol_graph
 
