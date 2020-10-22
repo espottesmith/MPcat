@@ -340,7 +340,7 @@ def launch_jobs_from_queue(database: CatDB,
         products = [MoleculeGraph.from_dict(p) for p in calc["products"]]
         time_now = datetime.datetime.now(datetime.timezone.utc)
         timestamp = time_now.strftime("%Y%m%d_%H%M%S")
-        name = "_".join(["launcher", calc["rxnid"], timestamp])
+        name = "_".join(["launcher", str(calc["rxnid"]), timestamp])
         job = AutoTSJob(reactants, products,
                         os.path.join(base_dir, name),
                         schrodinger_dir=schrodinger_dir,
