@@ -50,7 +50,7 @@ class CatDB:
         self.user = user
         self.password = password
         self.data_collection = data_collection
-        self.queue_cllection = queue_collection
+        self.queue_collection = queue_collection
 
         try:
             self.client = MongoClient(host=self.host, port=self.port,
@@ -228,7 +228,7 @@ class CatDB:
         entry["updated_on"] = datetime.datetime.now(datetime.timezone.utc)
 
         doc = jsanitize(entry, allow_bson=True)
-        self.database[self.queue_cllection].update_one({"rxnid": doc["rxnid"]},
+        self.database[self.queue_collection].update_one({"rxnid": doc["rxnid"]},
                                                        {"$set": doc}, upsert=True)
 
     @classmethod

@@ -308,17 +308,19 @@ def launch_jobs_from_queue(database: CatDB,
     """
 
     # If query is None, just grab all possible calculations
+    queue_collection = database.database[database.queue_collection]
+
     if query is None:
-        initial_query = [e for e in database.queue_cllection.find({"state": "READY"}, {"_id": 0,
-                                                                                       "rxnid": 1,
-                                                                                       "priority": 1})]
+        initial_query = [e for e in queue_collection.find({"state": "READY"}, {"_id": 0,
+                                                                               "rxnid": 1,
+                                                                               "priority": 1})]
     else:
         if "state" not in query:
             query["state"] = "READY"
-        initial_query = [e for e in database.queue_cllection.find(query,
-                                                                  {"_id": 0,
-                                                                   "rxnid": 1,
-                                                                   "priority": 1})]
+        initial_query = [e for e in queue_collection.find(query,
+                                                          {"_id": 0,
+                                                           "rxnid": 1,
+                                                           "priority": 1})]
 
     if by_priority:
         initial_query = sorted([i for i in initial_query if i["priority"] is not None],
@@ -329,7 +331,7 @@ def launch_jobs_from_queue(database: CatDB,
         raise ValueError("num_launches too high! Only {} jobs available".format(len(initial_query)))
 
     rxn_ids = [r["rxnid"] for r in initial_query[0:num_launches]]
-    to_calculate = list(database.queue_cllection.find({"rxnid": {"$in": rxn_ids}}))
+    to_calculate = list(queue_collection.find({"rxnid": {"$in": rxn_ids}}))
 
     requests = list()
 
@@ -355,4 +357,4 @@ def launch_jobs_from_queue(database: CatDB,
         job.run(command_line_args=command_line_args)
 
     if len(requests) > 0:
-        database.queue_cllection.bulk_write(requests, ordered=False)
+        queue_collection.bulk_write(requests, ordered=False)
