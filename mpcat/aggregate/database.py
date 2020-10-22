@@ -27,7 +27,8 @@ class CatDB:
 
     def __init__(self, host: str, port: int, database_name: str, user: str,
                  password: str, data_collection: Optional[str] = "mpcat_data",
-                 queue_collection: Optional[str] = "mpcat_queue"):
+                 queue_collection: Optional[str] = "mpcat_queue",
+                 **kwargs):
         """
 
         Args:
@@ -40,6 +41,7 @@ class CatDB:
                 tasks. Default is "mpcat_tasks"
             queue_collection (str): The name of the collection in which to store
                 information about calculations to be run. Default is "mpcat_queue"
+            kwargs: additional keyword arguments
         """
 
         self.host = host
@@ -53,14 +55,16 @@ class CatDB:
         try:
             self.client = MongoClient(host=self.host, port=self.port,
                                       username=self.user,
-                                      password=self.password)
+                                      password=self.password,
+                                      **kwargs)
 
             self.database = self.client[self.database_name]
         except:
             raise RuntimeError("Cannot connect to DB!")
 
         try:
-            self.database.authenticate(self.user, self.password)
+            self.database.authenticate(self.user, self.password,
+                                       source=kwargs.get("authsource", None))
         except:
             raise RuntimeError("Cannot authenticate user!")
 
@@ -266,4 +270,5 @@ class CatDB:
                    creds["database"],
                    user, password,
                    data_collection=creds.get("data_collection", "mpcat_data"),
-                   queue_collection=creds.get("queue_collection", "mpcat_queue"))
+                   queue_collection=creds.get("queue_collection", "mpcat_queue"),
+                   **kwargs)
