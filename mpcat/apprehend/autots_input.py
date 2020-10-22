@@ -35,9 +35,11 @@ class AutoTSInput(MSONable):
     def __init__(self, reactants: List[Union[Molecule, MoleculeGraph]], products: List[Molecule],
                  autots_variables: Dict, gen_variables: Dict):
 
+        self.reactants = list()
         for reactant in reactants:
             self.reactants.append(mol_to_mol_graph(reactant))
 
+        self.products = list()
         for product in products:
             self.products.append(mol_to_mol_graph(product))
 
