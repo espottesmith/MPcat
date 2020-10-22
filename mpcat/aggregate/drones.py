@@ -88,21 +88,23 @@ class AutoTSCalcDrone(AbstractDrone):
 
         files_paths = list()
         for file in files:
-            if "AutoTS" in file and file.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
-                                                                        "mae.gz", "out.gz", "in.gz"]:
+            f = file.as_posix()
+            if "AutoTS" in f and f.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
+                                                                  "mae.gz", "out.gz", "in.gz"]:
                 files_paths.append(calc_dir / file)
-            elif ("pro" in file or "rct" in file) and file.split(".", maxsplit=2)[-1] in ["mae",
-                                                                                          "mae.gz"]:
+            elif ("pro" in f or "rct" in f) and f.split(".", maxsplit=2)[-1] in ["mae",
+                                                                                 "mae.gz"]:
                 files_paths.append(calc_dir / file)
-            elif file.endswith(".in") or file.endswith(".in.gz"):
+            elif f.endswith(".in") or f.endswith(".in.gz"):
                 files_paths.append(calc_dir / file)
 
         for subdir in subdirs:
             sub_files = [f for f in os.listdir(subdir.as_posix())]
             sub_paths = [subdir / f for f in sub_files]
             for ff, file in sub_files:
-                if file.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
-                                                       "mae.gz", "out.gz", "in.gz"]:
+                f = file.as_posix()
+                if f.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
+                                                    "mae.gz", "out.gz", "in.gz"]:
                     files_paths.append(sub_paths[ff])
 
         return files_paths
