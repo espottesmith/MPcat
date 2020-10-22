@@ -181,7 +181,7 @@ class AutoTSCalcDrone(AbstractDrone):
             d["diagnostic"] = dict()
 
         d["calcs"] = list()
-        for calculation in d["calculation_names"]:
+        for calculation in d.get("calculation_names", list()):
             found = False
             for document in self.documents:
                 if (calculation + ".out") in document.name:
