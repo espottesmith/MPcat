@@ -154,7 +154,7 @@ class AutoTSCalcDrone(AbstractDrone):
 
         output_document = None
         for document in self.documents:
-            if document.name == "AutoTS.T9NxCsLi.out":
+            if document.name == "AutoTS.T9XnCsLi.out":
                 output_document = document
                 break
         if output_document is None:
