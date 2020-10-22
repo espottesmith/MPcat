@@ -323,7 +323,7 @@ class AutoTSBuilderDrone:
 
         return [path for path, to_update in zip(paths, to_update_list) if to_update]
 
-    def update_targets(self, items: List):
+    def update_targets(self, items: List[Path]):
         """
         Use AutoTSCalcDrone to update select entries in the database
 
@@ -338,8 +338,12 @@ class AutoTSBuilderDrone:
 
         for path in items:
             drone = AutoTSCalcDrone(path)
-            doc = drone.assimilate()
-            docs.append(doc)
+            try:
+                doc = drone.assimilate()
+                docs.append(doc)
+            except ValueError:
+                print("Cannot parse {}".format(path.as_posix()))
+                continue
 
         if len(docs) > 0:
             self.db.update_data_doc(docs, key="path")
