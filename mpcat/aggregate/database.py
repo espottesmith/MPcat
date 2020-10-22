@@ -212,7 +212,11 @@ class CatDB:
         reaction_graph = get_reaction_graphs(union_rct, union_pro,
                                              allowed_form=2, allowed_break=2,
                                              stop_at_one=True)
-        entry["reaction_graph"] = reaction_graph.as_dict()
+        if len(reaction_graph) == 0:
+            raise RuntimeError("No valid reaction could be found between "
+                               "reactants and products!")
+
+        entry["reaction_graph"] = reaction_graph[0].as_dict()
 
         entry["reactants"] = [r.as_dict() for r in entry["reactants"]]
         entry["products"] = [p.as_dict() for p in entry["products"]]
