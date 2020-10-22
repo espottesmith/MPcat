@@ -83,7 +83,7 @@ class AutoTSCalcDrone(AbstractDrone):
 
         root_contents = [f for f in calc_dir.iterdir()]
 
-        subdirs = [f for f in root_contents if f.is_dir() and "AutoTS" in f.name]
+        subdirs = [f for f in root_contents if (calc_dir / f).is_dir() and "AutoTS" in f.name]
         files = [f for f in root_contents if (calc_dir / f).is_file()]
 
         files_paths = list()
@@ -99,12 +99,11 @@ class AutoTSCalcDrone(AbstractDrone):
                 files_paths.append(calc_dir / file)
 
         for subdir in subdirs:
-            sub_files = [f for f in os.listdir(subdir.as_posix())]
+            sub_files = [f.as_posix() for f in (calc_dir / subdir).iterdir() if (calc_dir / subdir / f).is_file()]
             sub_paths = [subdir / f for f in sub_files]
             for ff, file in enumerate(sub_files):
-                f = file.as_posix()
-                if f.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
-                                                    "mae.gz", "out.gz", "in.gz"]:
+                if file.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
+                                                       "mae.gz", "out.gz", "in.gz"]:
                     files_paths.append(sub_paths[ff])
 
         return files_paths
