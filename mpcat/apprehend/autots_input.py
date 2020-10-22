@@ -46,7 +46,13 @@ class AutoTSInput(MSONable):
         self.autots_variables = autots_variables
         self.gen_variables = gen_variables
 
-        self.autots_variables["charge"] = int(sum([m.charge for m in self.reactants]))
+        rct_sum = int(sum([m.molecule.charge for m in self.reactants]))
+        pro_sum = int(sum([m.molecule.charge for m in self.products]))
+
+        if rct_sum != pro_sum:
+            raise ValueError("Reactant and product charges do not match!")
+
+        self.autots_variables["charge"] = rct_sum
 
         nelectrons = int(sum([m._nelectrons for m in self.reactants]))
         self.autots_variables["multiplicity"] = 1 if nelectrons % 2 == 0 else 2
