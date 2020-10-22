@@ -349,8 +349,8 @@ def launch_jobs_from_queue(database: CatDB,
                         save_scratch=save_scratch,
                         input_params=calc["input"])
 
-        requests.append(UpdateOne({"rxnid": calc["rxnid"]}, {"state": "SUBMITTED",
-                                                             "updated_on": time_now},
+        requests.append(UpdateOne({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
+                                                             "updated_on": time_now}},
                                   upsert=True))
 
         job.setup_calculation()
