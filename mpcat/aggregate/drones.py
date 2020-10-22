@@ -101,7 +101,7 @@ class AutoTSCalcDrone(AbstractDrone):
         for subdir in subdirs:
             sub_files = [f for f in os.listdir(subdir.as_posix())]
             sub_paths = [subdir / f for f in sub_files]
-            for ff, file in sub_files:
+            for ff, file in enumerate(sub_files):
                 f = file.as_posix()
                 if f.split(".", maxsplit=2)[-1] in ["mae", "out", "in",
                                                     "mae.gz", "out.gz", "in.gz"]:
