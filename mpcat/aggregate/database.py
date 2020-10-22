@@ -43,7 +43,7 @@ class CatDB:
         """
 
         self.host = host
-        self.port = port
+        self.port = int(port)
         self.database_name = database_name
         self.user = user
         self.password = password
@@ -254,6 +254,13 @@ class CatDB:
         else:
             user = creds.get("readonly_user")
             password = creds.get("readonly_password")
+
+        kwargs = creds.get("mongoclient_kwargs", {})  # any other MongoClient kwargs can go here ...
+
+        if "authsource" in creds:
+            kwargs["authsource"] = creds["authsource"]
+        else:
+            kwargs["authsource"] = creds["database"]
 
         return cls(creds["host"], int(creds.get("port", 27017)),
                    creds["database"],
