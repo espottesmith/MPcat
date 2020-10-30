@@ -13,6 +13,7 @@ from pymatgen.analysis.graphs import MoleculeGraph
 from pymatgen.analysis.local_env import OpenBabelNN
 from pymatgen.analysis.fragmenter import metal_edge_extender
 
+from mpcat.utils.generate import mol_to_mol_graph
 from mpcat.utils.reaction import (get_reaction_graphs,
                                   union_molgraph)
 
@@ -163,17 +164,14 @@ class CatDB:
         if len(reactants) == 0 or len(products) == 0:
             raise ValueError("reactants and products must be non-empty lists!")
 
-        if isinstance(reactants[0], Molecule):
-            rct_mgs = [MoleculeGraph.with_local_env_strategy(m, OpenBabelNN()) for m in reactants]
-            entry["reactants"] = [metal_edge_extender(mg) for mg in rct_mgs]
-        else:
-            entry["reactants"] = reactants
+        entry["reactants"] = list()
+        entry["products"] = list()
 
-        if isinstance(products[0], Molecule):
-            pro_mgs = [MoleculeGraph.with_local_env_strategy(m, OpenBabelNN()) for m in products]
-            entry["products"] = [metal_edge_extender(mg) for mg in pro_mgs]
-        else:
-            entry["products"] = products
+        for reactant in reactants:
+            entry["reactants"].append(mol_to_mol_graph(reactant))
+
+        for product in products:
+            entry["products"].append(mol_to_mol_graph(product))
 
         rct_charge = sum([m.molecule.charge for m in entry["reactants"]])
         pro_charge = sum([m.molecule.charge for m in entry["products"]])
