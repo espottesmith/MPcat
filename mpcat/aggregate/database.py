@@ -191,8 +191,10 @@ class CatDB:
         entry["spin_multiplicity"] = 1 if entry["nelectrons"] % 2 == 0 else 2
 
         if name is None:
-            rct_names = [m.molecule.composition.alphabetical_formula + "_" + str(m.molecule.charge) for m in reactants]
-            pro_names = [m.molecule.composition.alphabetical_formula + "_" + str(m.molecule.charge) for m in products]
+            rct_names = [m.molecule.composition.alphabetical_formula + "_" + str(m.molecule.charge)
+                         for m in entry["reactants"]]
+            pro_names = [m.molecule.composition.alphabetical_formula + "_" + str(m.molecule.charge)
+                         for m in entry["products"]]
             entry["name"] = " + ".join(rct_names) + " -> " + " + ".join(pro_names)
         else:
             entry["name"] = name
