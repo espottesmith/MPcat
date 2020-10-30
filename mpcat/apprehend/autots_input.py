@@ -15,6 +15,14 @@ from mpcat.adapt.schrodinger_adapter import (mol_graph_to_maestro_file,
 from mpcat.utils.generate import mol_to_mol_graph
 
 
+class JaguarInput(MSONable):
+    """
+    An object representing a Jaguar input, including the molecule information
+    and any calculation parameters.
+    """
+    pass
+
+
 class AutoTSInput(MSONable):
     """
     An object representing an AutoTS input, including the actual workflow input
