@@ -8,6 +8,7 @@ from pathlib import Path
 import hashlib
 
 from monty.json import jsanitize
+from monty.serialization import loadfn
 
 from pymatgen.apps.borg.hive import AbstractDrone
 # from maggma.core.drone import Document, Drone, RecordIdentifier
@@ -86,7 +87,7 @@ class AutoTSCalcDrone(AbstractDrone):
         subdirs = [f for f in root_contents if (calc_dir / f).is_dir() and "AutoTS" in f.name]
         files = [f for f in root_contents if (calc_dir / f).is_file()]
 
-        allowed_suffixes = ["mae", "out", "in", "mae.gz", "out.gz", "in.gz"]
+        allowed_suffixes = ["mae", "out", "in", "mae.gz", "out.gz", "in.gz", ".json"]
 
         files_paths = list()
         for file in files:
@@ -143,6 +144,19 @@ class AutoTSCalcDrone(AbstractDrone):
         d["schema"] = {"code": "mpcat", "version": version}
         d["path"] = self.path.as_posix()
         d["hash"] = compute_state_hash(self.documents)
+
+        calc_data = dict()
+        for document in self.documents:
+            if document.name == "calc.json":
+                calc_data = loadfn(document.as_posix())
+                break
+
+        d["rxnid"] = calc_data.get("rxnid")
+        d["tags"] = calc_data.get("tags")
+        d["name"] = calc_data.get("name")
+        d["charge"] = calc_data.get("charge")
+        d["spin_multiplicity"] = calc_data.get("spin_multiplicity")
+        d["nelectrons"] = calc_data.get("nelectrons")
 
         autots_input = AutoTSInput.from_file((self.path / "autots.in").as_posix(),
                                              read_molecules=True)

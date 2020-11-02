@@ -7,6 +7,8 @@ import datetime
 
 from pymongo import UpdateOne
 
+from monty.serialization import dumpfn
+
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 
@@ -354,6 +356,7 @@ def launch_jobs_from_queue(database: CatDB,
                                   upsert=True))
 
         job.setup_calculation()
+        dumpfn(calc, os.path.join(base_dir, name, "calc.json"))
         job.run(command_line_args=command_line_args)
 
     if len(requests) > 0:
