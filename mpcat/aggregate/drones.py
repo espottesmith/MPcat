@@ -192,7 +192,7 @@ class AutoTSCalcDrone(AbstractDrone):
                     d["calcs"].append(jag_out.data)
 
             if not found:
-                print("Expected calculation {} missing from path!".format(calculation))
+                print("Expected calculation {} missing from path {}!".format(calculation, self.path.as_posix()))
 
         full_paths = [d for d in self.documents if "full_path.mae" in d.name]
         if len(full_paths) > 0:
