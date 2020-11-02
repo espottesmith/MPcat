@@ -162,7 +162,7 @@ class AutoTSCalcDrone(AbstractDrone):
 
         autots_output = AutoTSOutput(output_document.as_posix())
 
-        d["calculation_names"] = autots_output.data["calculations"]
+        d["calculation_names"] = autots_output.data.get("calculations", list())
 
         d["warnings"] = autots_output.data["warnings"]
         d["errors"] = autots_output.data["errors"]
