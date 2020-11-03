@@ -47,7 +47,7 @@ def compute_state_hash(documents: List[Path]) -> str:
 
 class AutoTSCalcDrone(AbstractDrone):
     """
-    A drone to parse AutoTS calculations and convert them into a task document.
+    A drone to parse AutoTS calculations and convert them into task documents.
     """
 
     schema = {
@@ -92,8 +92,7 @@ class AutoTSCalcDrone(AbstractDrone):
             f = file.as_posix()
             if "AutoTS" in f and any([f.endswith(x) for x in allowed_suffixes]):
                 files_paths.append(calc_dir / file)
-            elif ("pro" in f or "rct" in f) and f.split(".", maxsplit=2)[-1] in ["mae",
-                                                                                 "mae.gz"]:
+            elif ("pro" in f or "rct" in f) and (f.endswith("mae") or f.endswith("mae.gz")):
                 files_paths.append(calc_dir / file)
             elif f.endswith(".in") or f.endswith(".in.gz"):
                 files_paths.append(calc_dir / file)
@@ -102,7 +101,7 @@ class AutoTSCalcDrone(AbstractDrone):
             sub_files = [f.as_posix() for f in (calc_dir / subdir).iterdir() if (calc_dir / subdir / f).is_file()]
             sub_paths = [subdir / f for f in sub_files]
             for ff, file in enumerate(sub_files):
-                if any([f.endswith(x) for x in allowed_suffixes]):
+                if any([file.endswith(x) for x in allowed_suffixes]):
                     files_paths.append(sub_paths[ff])
 
         return files_paths
@@ -378,3 +377,4 @@ class AutoTSBuilderDrone:
         to_update = self.find_records_to_update(mapping)
 
         self.update_targets(to_update)
+
