@@ -1,9 +1,8 @@
 # coding: utf-8
 
-import os
 from datetime import datetime
 
-from typing import Optional, List, Dict
+from typing import List, Dict
 from pathlib import Path
 import hashlib
 
@@ -11,7 +10,6 @@ from monty.json import jsanitize
 from monty.serialization import loadfn
 
 from pymatgen.apps.borg.hive import AbstractDrone
-# from maggma.core.drone import Document, Drone, RecordIdentifier
 
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 from mpcat.apprehend.autots_input import AutoTSInput

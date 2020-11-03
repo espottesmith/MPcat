@@ -1,6 +1,6 @@
 import copy
 from itertools import combinations, product
-from typing import Union, Optional, List, Dict
+from typing import Optional, List
 from difflib import SequenceMatcher
 
 import numpy as np
@@ -8,10 +8,7 @@ import numpy as np
 import networkx as nx
 import networkx.algorithms.isomorphism as iso
 
-from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
-from pymatgen.analysis.local_env import OpenBabelNN
-from pymatgen.analysis.fragmenter import metal_edge_extender
 
 
 #TODO: Should there actually be a ReactionGraph class that subclasses MoleculeGraph

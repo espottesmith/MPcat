@@ -1,7 +1,8 @@
 # coding: utf-8
 
 import random
-import os
+from typing import Union
+from pathlib import Path
 
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
@@ -9,7 +10,7 @@ from pymatgen.analysis.graphs import MoleculeGraph
 from schrodinger.structure import Structure, StructureReader, StructureWriter
 
 
-def file_to_schrodinger_structure(filename: str):
+def file_to_schrodinger_structure(filename: Union[str, Path]):
     """
     Convert a file (sdf, pdb, sd, mol2, maestro, or maestro_text) to a
         Schrodinger Structure object.
@@ -21,13 +22,18 @@ def file_to_schrodinger_structure(filename: str):
         structures (list of schrodinger.structure.Structure objects)
     """
 
-    reader = StructureReader(filename)
+    if isinstance(filename, Path):
+        fn = filename.as_posix()
+    else:
+        fn = filename
+
+    reader = StructureReader(fn)
 
     structures = [s for s in reader]
     return structures
 
 
-def maestro_file_to_molecule(filename: str):
+def maestro_file_to_molecule(filename: Union[str, Path]):
     """
     Convert a Maestro file (*.mae) to pymatgen Molecule objects
 
@@ -37,13 +43,14 @@ def maestro_file_to_molecule(filename: str):
     Returns:
         molecules (list of pymatgen.core.structure.Molecule objects)
     """
+
     structures = file_to_schrodinger_structure(filename=filename)
 
     molecules = [schrodinger_struct_to_molecule(s) for s in structures]
     return molecules
 
 
-def molecule_to_maestro_file(molecule: Molecule, filename: str):
+def molecule_to_maestro_file(molecule: Molecule, filename: Union[str, Path]):
     """
     Write a Pymatgen Molecule object to a Maestro file.
 
@@ -55,8 +62,13 @@ def molecule_to_maestro_file(molecule: Molecule, filename: str):
          None
     """
 
+    if isinstance(filename, Path):
+        fn = filename.as_posix()
+    else:
+        fn = filename
+
     struct = molecule_to_schrodinger_struct(molecule)
-    StructureWriter.write(struct, filename)
+    StructureWriter.write(struct, fn)
 
 
 def schrodinger_struct_to_molecule(structure: Structure):
@@ -111,7 +123,7 @@ def molecule_to_schrodinger_struct(molecule: Molecule):
         atom.formal_charge = 0
     struct.atom[1].formal_charge = molecule.charge
 
-    os.remove("temp_conversion{}.sdf".format(file_suffix))
+    Path("temp_conversion{}.sdf".format(file_suffix)).unlink()
 
     return struct
 
@@ -137,7 +149,7 @@ def mol_graph_to_schrodinger_struct(mol_graph: MoleculeGraph):
     return struct
 
 
-def mol_graph_to_maestro_file(molecule: MoleculeGraph, filename: str):
+def mol_graph_to_maestro_file(molecule: MoleculeGraph, filename: Union[str, Path]):
     """
     Write a pymatgen MoleculeGraph object to a Maestro file.
 
@@ -149,5 +161,10 @@ def mol_graph_to_maestro_file(molecule: MoleculeGraph, filename: str):
          None
     """
 
+    if isinstance(filename, Path):
+        fn = filename.as_posix()
+    else:
+        fn = filename
+
     struct = mol_graph_to_schrodinger_struct(molecule)
-    StructureWriter.write(struct, filename)
+    StructureWriter.write(struct, fn)

@@ -1,6 +1,5 @@
 # coding: utf-8
 
-import os
 import unittest
 
 import numpy as np
@@ -8,10 +7,6 @@ import numpy as np
 from pymatgen.core.structure import Molecule
 
 from mpcat.utils.comparison import all_equal, compositions_equal
-
-
-test_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..",
-                        "test_files")
 
 
 class ComparisonTest(unittest.TestCase):

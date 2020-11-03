@@ -1,29 +1,25 @@
 # coding: utf-8
 
-import os
 import unittest
+from pathlib import Path
 
 from mpcat.apprehend.autots_input import AutoTSInput, AutoTSSet
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 
 
-test_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..",
-                        "test_files")
+test_dir = Path(__file__).resolve().parent.parent.parent / "test_files"
 
 
 class TestAutoTSInput(unittest.TestCase):
     def setUp(self) -> None:
-        self.reactant_1 = maestro_file_to_molecule(os.path.join(test_dir,
-                                                                "autots_success_partial",
-                                                                "rct1.mae"))[0]
+        self.reactant_1 = maestro_file_to_molecule(
+            test_dir / "autots_success_partial" / "rct1.mae")[0]
 
-        self.reactant_2 = maestro_file_to_molecule(os.path.join(test_dir,
-                                                                "autots_success_partial",
-                                                                "rct2.mae"))[0]
+        self.reactant_2 = maestro_file_to_molecule(
+            test_dir / "autots_success_partial" / "rct2.mae")[0]
 
-        self.product = maestro_file_to_molecule(os.path.join(test_dir,
-                                                             "autots_success_partial",
-                                                             "pro.mae"))[0]
+        self.product = maestro_file_to_molecule(
+            test_dir / "autots_success_partial" / "pro.mae")[0]
 
         self.autots_variables = {"eliminate_multiple_frequencies": True,
                                  "free_energy": True,
@@ -90,17 +86,14 @@ class TestAutoTSInput(unittest.TestCase):
 class TestAutoTSSet(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.reactant_1 = maestro_file_to_molecule(os.path.join(test_dir,
-                                                                "autots_success_partial",
-                                                                "rct1.mae"))[0]
+        self.reactant_1 = maestro_file_to_molecule(
+            test_dir / "autots_success_partial" / "rct1.mae")[0]
 
-        self.reactant_2 = maestro_file_to_molecule(os.path.join(test_dir,
-                                                                "autots_success_partial",
-                                                                "rct2.mae"))[0]
+        self.reactant_2 = maestro_file_to_molecule(
+            test_dir / "autots_success_partial" / "rct2.mae")[0]
 
-        self.product = maestro_file_to_molecule(os.path.join(test_dir,
-                                                             "autots_success_partial",
-                                                             "pro.mae"))[0]
+        self.product = maestro_file_to_molecule(
+            test_dir / "autots_success_partial" / "pro.mae")[0]
 
         self.autots_variables = {"eliminate_multiple_frequencies": True,
                                  "free_energy": True,
