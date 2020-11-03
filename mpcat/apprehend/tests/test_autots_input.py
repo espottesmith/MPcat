@@ -7,7 +7,7 @@ from mpcat.apprehend.autots_input import AutoTSInput, AutoTSSet
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 
 
-test_dir = Path(__file__).resolve().parent.parent.parent / "test_files"
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 
 
 class TestAutoTSInput(unittest.TestCase):

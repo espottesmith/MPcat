@@ -9,7 +9,7 @@ from mpcat.apprehend.jaguar_output import JagOutput
 from mpcat.utils.comparison import all_equal
 
 
-test_dir = Path(__file__).resolve().parent.parent.parent / "test_files"
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 
 
 def prepare_files():

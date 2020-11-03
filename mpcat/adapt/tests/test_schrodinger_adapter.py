@@ -17,7 +17,7 @@ from mpcat.adapt.schrodinger_adapter import (file_to_schrodinger_structure,
                                              molecule_to_schrodinger_struct)
 
 module_dir = Path(__file__).resolve().parent
-test_dir = Path(__file__).resolve().parent.parent.parent / "test_files"
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 molecule_dir = test_dir / "molecules"
 
 

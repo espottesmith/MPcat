@@ -11,7 +11,7 @@ from pymatgen.analysis.fragmenter import metal_edge_extender
 from mpcat.utils.generate import mol_to_mol_graph
 
 
-test_dir = Path(__file__).resolve().parent.parent.parent / "test_files"
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 
 
 class GenerateTest(unittest.TestCase):

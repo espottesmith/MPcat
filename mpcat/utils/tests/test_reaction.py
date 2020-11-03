@@ -15,7 +15,7 @@ from mpcat.utils.reaction import (get_reaction_graphs,
                                   get_reaction_template)
 
 
-test_dir = Path(__file__).resolve().parent.parent.parent / "test_files"
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 
 
 class ReactionTest(unittest.TestCase):

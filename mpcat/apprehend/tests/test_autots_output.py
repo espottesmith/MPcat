@@ -8,7 +8,7 @@ from monty.serialization import loadfn, dumpfn
 from mpcat.apprehend.autots_output import AutoTSOutput
 from mpcat.utils.comparison import all_equal
 
-test_dir = Path(__file__).resolve().parent.parent.parent / "test_files"
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 
 
 def prepare_files():
