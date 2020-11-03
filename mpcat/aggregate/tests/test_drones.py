@@ -7,7 +7,7 @@ from mpcat.aggregate.drones import AutoTSCalcDrone
 from monty.serialization import loadfn, dumpfn
 
 
-test_dir = Path(__file__).resolve().parent.parent.parent / "test_files"
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 
 
 class TestAutoTSDronePMG(unittest.TestCase):
