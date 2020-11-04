@@ -115,12 +115,10 @@ class TestSchrodingerAdapter(unittest.TestCase):
         struct_bonds = set()
         for bond in struct.bond:
             struct_bonds.add(tuple(sorted([bond.atom1.index - 1, bond.atom2.index - 1])))
-        print(struct_bonds)
 
         mg_bonds = set()
         for bond in mg.graph.edges():
             mg_bonds.add(tuple(sorted([bond[0], bond[1]])))
-        print(mg_bonds)
 
         self.assertSetEqual(struct_bonds, mg_bonds)
 
@@ -157,12 +155,10 @@ class TestSchrodingerAdapter(unittest.TestCase):
         struct_bonds = set()
         for bond in struct.bond:
             struct_bonds.add(tuple(sorted([bond.atom1.index - 1, bond.atom2.index - 1])))
-        print(struct_bonds)
 
         mg_bonds = set()
         for bond in mg.graph.edges():
             mg_bonds.add(tuple(sorted([bond[0], bond[1]])))
-        print(mg_bonds)
 
         self.assertSetEqual(struct_bonds, mg_bonds)
 
