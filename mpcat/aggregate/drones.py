@@ -85,7 +85,7 @@ class AutoTSCalcDrone(AbstractDrone):
         subdirs = [f for f in root_contents if (calc_dir / f).is_dir() and "AutoTS" in f.name]
         files = [f for f in root_contents if (calc_dir / f).is_file()]
 
-        allowed_suffixes = ["mae", "out", "in", "mae.gz", "out.gz", "in.gz", ".json"]
+        allowed_suffixes = ["mae", "out", "in", "mae.gz", "out.gz", "in.gz"]
 
         files_paths = list()
         for file in files:
@@ -95,6 +95,8 @@ class AutoTSCalcDrone(AbstractDrone):
             elif ("pro" in f or "rct" in f) and (f.endswith("mae") or f.endswith("mae.gz")):
                 files_paths.append(calc_dir / file)
             elif f.endswith(".in") or f.endswith(".in.gz"):
+                files_paths.append(calc_dir / file)
+            elif f in ["calc.json", "calc.json.gz"]:
                 files_paths.append(calc_dir / file)
 
         for subdir in subdirs:
