@@ -145,9 +145,9 @@ def schrodinger_struct_to_mol_graph(structure: Structure):
             elements.append(atom.element)
             positions.append(atom.xyz)
 
-        for bond in molecule.bond:
-            bonds.append((bond.atom1.index - 1,
-                          bond.atom2.index - 1))
+    for bond in structure.bond:
+        bonds.append((bond.atom1.index - 1,
+                      bond.atom2.index - 1))
 
     mol = Molecule(elements, positions)
     mol.set_charge_and_spin(charge=formal_charge)
