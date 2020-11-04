@@ -1,11 +1,12 @@
 # coding: utf-8
 
 import os
+from pathlib import Path
 
-from typing import Optional
+from typing import Optional, Union
 
 
-def store_reaction_template(path: Optional[str] = None,
+def store_reaction_template(path: Optional[Union[str, Path]] = None,
                             schrodinger_dir: Optional[str] = "$SCHRODINGER",
                             input_file: Optional[str] = None,
                             output_file: Optional[str] = None,
@@ -37,12 +38,15 @@ def store_reaction_template(path: Optional[str] = None,
         None
     """
 
-    cwd = os.getcwd()
+    cwd = Path.cwd()
 
     if path is not None:
-        os.chdir(path)
+        if isinstance(path, Path):
+            os.chdir(path.as_posix())
+        else:
+            os.chdir(path)
 
-    command = [schrodinger_dir + "utilities/store_reaction_template"]
+    command = [schrodinger_dir + "/utilities/store_reaction_template"]
     if input_file is not None:
         command.append("-input_file")
         command.append(input_file)
@@ -55,5 +59,5 @@ def store_reaction_template(path: Optional[str] = None,
     os.system(" ".join(command))
 
     if path is not None:
-        os.chdir(cwd)
+        os.chdir(cwd.as_posix())
 

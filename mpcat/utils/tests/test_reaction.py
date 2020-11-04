@@ -1,10 +1,8 @@
 # coding: utf-8
 
-import os
 import unittest
 import copy
-
-import numpy as np
+from pathlib import Path
 
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
@@ -17,8 +15,7 @@ from mpcat.utils.reaction import (get_reaction_graphs,
                                   get_reaction_template)
 
 
-test_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..",
-                        "test_files")
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 
 
 class ReactionTest(unittest.TestCase):
@@ -26,37 +23,29 @@ class ReactionTest(unittest.TestCase):
     def test_get_reaction_graphs(self):
 
         # Test that isomorphic graphs return themselves
-        li2co3 = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                       "molecules",
-                                                                                       "li2co3_1.xyz")),
-                                                       OpenBabelNN())
+        li2co3 = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "molecules" / "li2co3_1.xyz").as_posix()),
+            OpenBabelNN())
         li2co3 = metal_edge_extender(li2co3)
         li2co3_copy = copy.deepcopy(li2co3)
 
         self.assertEqual(get_reaction_graphs(li2co3, li2co3_copy), [li2co3])
 
         # Test for case where graphs cannot be compared (different species, etc.)
-        ethane = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                       "molecules",
-                                                                                       "ethane.mol")),
-                                                       OpenBabelNN())
+        ethane = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "molecules" / "ethane.mol").as_posix()),
+            OpenBabelNN())
 
         self.assertEqual(get_reaction_graphs(li2co3, ethane), list())
 
         # Test for case of a single bond-breaking
-        break_rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                          "reactions",
-                                                                                          "isomorphism",
-                                                                                          "break",
-                                                                                          "rct.xyz")),
-                                                          OpenBabelNN())
+        break_rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "isomorphism" / "break" / "rct.xyz").as_posix()),
+            OpenBabelNN())
         break_rct = metal_edge_extender(break_rct)
-        break_pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                          "reactions",
-                                                                                          "isomorphism",
-                                                                                          "break",
-                                                                                          "pro.xyz")),
-                                                          OpenBabelNN())
+        break_pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "isomorphism" / "break" / "pro.xyz").as_posix()),
+            OpenBabelNN())
         break_pro = metal_edge_extender(break_pro)
 
         break_rxn = get_reaction_graphs(break_rct, break_pro)
@@ -68,19 +57,13 @@ class ReactionTest(unittest.TestCase):
         self.assertFalse(break_rxn[0].graph[4][5][0].get("formed", True))
 
         # Test for case of a single bond-forming
-        form_rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                         "reactions",
-                                                                                         "isomorphism",
-                                                                                         "form",
-                                                                                         "rct.xyz")),
-                                                         OpenBabelNN())
+        form_rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "isomorphism" / "form" / "rct.xyz").as_posix()),
+            OpenBabelNN())
         form_rct = metal_edge_extender(form_rct)
-        form_pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                         "reactions",
-                                                                                         "isomorphism",
-                                                                                         "form",
-                                                                                         "pro.xyz")),
-                                                         OpenBabelNN())
+        form_pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "isomorphism" / "form" / "pro.xyz").as_posix()),
+            OpenBabelNN())
         form_pro = metal_edge_extender(form_pro)
 
         form_rxn = get_reaction_graphs(form_rct, form_pro)
@@ -90,19 +73,13 @@ class ReactionTest(unittest.TestCase):
         self.assertFalse(form_rxn[0].graph[0][3][0].get("broken", True))
 
         # Test for case of complex bond breaking and formation
-        bf_rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                       "reactions",
-                                                                                       "isomorphism",
-                                                                                       "break_form",
-                                                                                       "rct.xyz")),
-                                                       OpenBabelNN())
+        bf_rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "isomorphism" / "break_form" / "rct.xyz").as_posix()),
+            OpenBabelNN())
         bf_rct = metal_edge_extender(bf_rct)
-        bf_pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                       "reactions",
-                                                                                       "isomorphism",
-                                                                                       "break_form",
-                                                                                       "pro.xyz")),
-                                                       OpenBabelNN())
+        bf_pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "isomorphism" / "break_form" / "pro.xyz").as_posix()),
+            OpenBabelNN())
         bf_pro = metal_edge_extender(bf_pro)
 
         bf_rxn = get_reaction_graphs(bf_rct, bf_pro)
@@ -130,52 +107,34 @@ class ReactionTest(unittest.TestCase):
             _ = union_molgraph([])
 
         # Test "good", well-behaved case
-        good_one = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                         "molecules",
-                                                                                         "union",
-                                                                                         "good",
-                                                                                         "1.xyz")),
-                                                        OpenBabelNN())
+        good_one = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "molecules" / "union" / "good" / "1.xyz").as_posix()),
+            OpenBabelNN())
         good_one = metal_edge_extender(good_one)
-        good_two = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                         "molecules",
-                                                                                         "union",
-                                                                                         "good",
-                                                                                         "2.xyz")),
-                                                        OpenBabelNN())
+        good_two = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "molecules" / "union" / "good" / "2.xyz").as_posix()),
+            OpenBabelNN())
         good_two = metal_edge_extender(good_two)
-        good_union = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                           "molecules",
-                                                                                           "union",
-                                                                                           "good",
-                                                                                           "union.xyz")),
-                                                          OpenBabelNN())
+        good_union = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "molecules" / "union" / "good" / "union.xyz").as_posix()),
+            OpenBabelNN())
         good_union = metal_edge_extender(good_union)
 
         good = union_molgraph([good_one, good_two])
         self.assertTrue(good_union.isomorphic_to(good))
 
         # Test "bad" case where proximity might be an issue
-        bad_one = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                        "molecules",
-                                                                                        "union",
-                                                                                        "bad",
-                                                                                        "1.xyz")),
-                                                        OpenBabelNN())
+        bad_one = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "molecules" / "union" / "bad" / "1.xyz").as_posix()),
+            OpenBabelNN())
         bad_one = metal_edge_extender(bad_one)
-        bad_two = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                        "molecules",
-                                                                                        "union",
-                                                                                        "bad",
-                                                                                        "2.xyz")),
-                                                        OpenBabelNN())
+        bad_two = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "molecules" / "union" / "bad" / "2.xyz").as_posix()),
+            OpenBabelNN())
         bad_two = metal_edge_extender(bad_two)
-        bad_union = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                          "molecules",
-                                                                                          "union",
-                                                                                          "bad",
-                                                                                          "union.xyz")),
-                                                          OpenBabelNN())
+        bad_union = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "molecules" / "union" / "bad" / "union.xyz")),
+            OpenBabelNN())
         bad_union = metal_edge_extender(bad_union)
 
         bad = union_molgraph([bad_one, bad_two])
@@ -186,16 +145,12 @@ class ReactionTest(unittest.TestCase):
 
     def test_get_atom_mappings(self):
 
-        rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                    "reactions",
-                                                                                    "da",
-                                                                                    "rct.xyz")),
-                                                    CovalentBondNN())
-        pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                    "reactions",
-                                                                                    "da",
-                                                                                    "pro.xyz")),
-                                                    CovalentBondNN())
+        rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "da" / "rct.xyz").as_posix()),
+            CovalentBondNN())
+        pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "da" / "pro.xyz").as_posix()),
+            CovalentBondNN())
 
         # Test with no valid mapping
         mapping = get_atom_mappings(rct, pro, allowed_form=1, allowed_break=0)
@@ -214,22 +169,21 @@ class ReactionTest(unittest.TestCase):
         mapping = get_atom_mappings(rct, pro, allowed_form=2, allowed_break=0,
                                     stop_at_one=False, give_best=True)
         self.assertEqual(len(mapping), 1)
-        self.assertDictEqual(mapping[0], {2: 0, 5: 1, 11: 2, 0: 3, 12: 4, 4: 5, 10: 6, 13: 7, 1: 8, 3: 9, 14: 10,
-                                          6: 11, 8: 12, 9: 13, 15: 14, 16: 15, 17: 16, 7: 17, 18: 18})
+        self.assertDictEqual(mapping[0], {2: 0, 5: 1, 11: 2, 0: 3, 12: 4, 4: 5,
+                                          10: 6, 13: 7, 1: 8, 3: 9, 14: 10,
+                                          6: 11, 8: 12, 9: 13, 15: 14, 16: 15,
+                                          17: 16, 7: 17, 18: 18})
 
     def test_get_reaction_template(self):
-        rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                    "reactions",
-                                                                                    "da",
-                                                                                    "rct.xyz")),
-                                                    CovalentBondNN())
-        pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(os.path.join(test_dir,
-                                                                                    "reactions",
-                                                                                    "da",
-                                                                                    "pro.xyz")),
-                                                    CovalentBondNN())
+        rct = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "da" / "rct.xyz").as_posix()),
+            CovalentBondNN())
+        pro = MoleculeGraph.with_local_env_strategy(Molecule.from_file(
+            (test_dir / "reactions" / "da" / "pro.xyz").as_posix()),
+            CovalentBondNN())
 
-        rg = get_reaction_graphs(rct, pro, allowed_form=2, allowed_break=0, stop_at_one=True)[0]
+        rg = get_reaction_graphs(rct, pro, allowed_form=2,
+                                 allowed_break=0, stop_at_one=True)[0]
 
         template_0 = get_reaction_template(rg)
         self.assertSetEqual(set(template_0.nodes), {2, 5, 11, 12})

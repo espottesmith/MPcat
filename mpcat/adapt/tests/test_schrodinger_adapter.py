@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import os
+from pathlib import Path
 
 import unittest
 
@@ -10,28 +10,31 @@ except ImportError:
     ob = None
 
 from pymatgen.core.structure import Molecule
+from pymatgen.analysis.graphs import MoleculeGraph
+from pymatgen.analysis.local_env import OpenBabelNN
 
 from mpcat.adapt.schrodinger_adapter import (file_to_schrodinger_structure,
                                              maestro_file_to_molecule,
                                              schrodinger_struct_to_molecule,
-                                             molecule_to_schrodinger_struct)
+                                             schrodinger_struct_to_mol_graph,
+                                             molecule_to_schrodinger_struct,
+                                             mol_graph_to_schrodinger_struct)
 
-module_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)))
-test_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..", "test_files")
-molecule_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..",
-                            "test_files", "molecules")
+module_dir = Path(__file__).resolve().parent
+test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
+molecule_dir = test_dir / "molecules"
 
 
 class TestSchrodingerAdapter(unittest.TestCase):
 
     def setUp(self) -> None:
         if ob:
-            self.molecule = Molecule.from_file(os.path.join(molecule_dir, "ethane.mol"))
-            self.molecule.to("sdf", os.path.join(molecule_dir, "ethane.sdf"))
+            self.molecule = Molecule.from_file((molecule_dir / "ethane.mol").as_posix())
+            self.molecule.to("sdf", (molecule_dir / "ethane.sdf").as_posix())
 
     @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
     def test_file_to_schrodinger_structure(self):
-        structures = file_to_schrodinger_structure(os.path.join(molecule_dir, "ethane.sdf"))
+        structures = file_to_schrodinger_structure(molecule_dir / "ethane.sdf")
         self.assertEqual(len(structures), 1)
 
         elements = [a.element for a in structures[0].molecule[1].atom]
@@ -52,7 +55,7 @@ class TestSchrodingerAdapter(unittest.TestCase):
 
     @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
     def test_maestro_file_to_molecule(self):
-        molecules = maestro_file_to_molecule(os.path.join(molecule_dir, "ec.01.mae"))
+        molecules = maestro_file_to_molecule(molecule_dir / "ec.01.mae")
         self.assertEqual(len(molecules), 1)
 
         elements = [str(s) for s in molecules[0].species]
@@ -75,7 +78,7 @@ class TestSchrodingerAdapter(unittest.TestCase):
 
     @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
     def test_schrodinger_struct_to_molecule(self):
-        struct = file_to_schrodinger_structure(os.path.join(molecule_dir, "ethane.sdf"))[0]
+        struct = file_to_schrodinger_structure(molecule_dir / "ethane.sdf")[0]
         for atom in struct.atom:
             atom.formal_charge = 0
         struct.atom[1].formal_charge = -1
@@ -92,6 +95,34 @@ class TestSchrodingerAdapter(unittest.TestCase):
                                  list(struct.molecule[1].atom[ii + 1].xyz))
 
     @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
+    def test_schrodinger_struct_to_mol_graph(self):
+        struct = file_to_schrodinger_structure(molecule_dir / "ethane.sdf")[0]
+        for atom in struct.atom:
+            atom.formal_charge = 0
+        struct.atom[1].formal_charge = -1
+        mg = schrodinger_struct_to_mol_graph(struct)
+
+        self.assertListEqual([a.element for a in struct.molecule[1].atom],
+                             [str(s) for s in mg.molecule.species])
+
+        self.assertEqual(mg.molecule.charge, struct.formal_charge)
+        self.assertEqual(mg.molecule.charge, -1)
+
+        for ii in range(len(mg.molecule)):
+            self.assertListEqual(list(mg.molecule.cart_coords[ii]),
+                                 list(struct.molecule[1].atom[ii + 1].xyz))
+
+        struct_bonds = set()
+        for bond in struct.bond:
+            struct_bonds.add(tuple(sorted([bond.atom1.index - 1, bond.atom2.index - 1])))
+
+        mg_bonds = set()
+        for bond in mg.graph.edges():
+            mg_bonds.add(tuple(sorted([bond[0], bond[1]])))
+
+        self.assertSetEqual(struct_bonds, mg_bonds)
+
+    @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
     def test_molecule_to_schrodinger_struct(self):
         self.molecule.set_charge_and_spin(charge=-1)
         struct = molecule_to_schrodinger_struct(self.molecule)
@@ -104,6 +135,32 @@ class TestSchrodingerAdapter(unittest.TestCase):
         for ii in range(len(self.molecule)):
             self.assertListEqual(list(self.molecule.cart_coords[ii]),
                                  list(struct.molecule[1].atom[ii + 1].xyz))
+
+    @unittest.skipIf(not ob, "Openbabel not present. Skipping...")
+    def test_mol_graph_to_schrodinger_struct(self):
+        self.molecule.set_charge_and_spin(charge=-1)
+        mg = MoleculeGraph.with_local_env_strategy(self.molecule, OpenBabelNN())
+
+        struct = mol_graph_to_schrodinger_struct(mg)
+
+        self.assertListEqual([a.element for a in struct.molecule[1].atom],
+                             [str(s) for s in mg.molecule.species])
+
+        self.assertEqual(struct.formal_charge, -1)
+
+        for ii in range(len(mg.molecule)):
+            self.assertListEqual(list(mg.molecule.cart_coords[ii]),
+                                 list(struct.molecule[1].atom[ii + 1].xyz))
+
+        struct_bonds = set()
+        for bond in struct.bond:
+            struct_bonds.add(tuple(sorted([bond.atom1.index - 1, bond.atom2.index - 1])))
+
+        mg_bonds = set()
+        for bond in mg.graph.edges():
+            mg_bonds.add(tuple(sorted([bond[0], bond[1]])))
+
+        self.assertSetEqual(struct_bonds, mg_bonds)
 
 
 if __name__ == "__main__":

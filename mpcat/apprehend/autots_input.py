@@ -1,8 +1,8 @@
 # coding: utf-8
 
-import os
 from typing import List, Dict, Optional, Union
 import copy
+from pathlib import Path
 
 from monty.json import MSONable
 from pymatgen.core.structure import Molecule
@@ -65,7 +65,7 @@ class AutoTSInput(MSONable):
         nelectrons = int(sum([m.molecule._nelectrons for m in self.reactants]))
         self.autots_variables["multiplicity"] = 1 if nelectrons % 2 == 0 else 2
 
-    def write(self, filename: str, write_molecules: Optional[bool] = True,
+    def write(self, filename: Union[str, Path], write_molecules: Optional[bool] = True,
               jobname: Optional[str] = None):
         """
         Write an AutoTS input file.
@@ -81,20 +81,23 @@ class AutoTSInput(MSONable):
             None
         """
 
-        base_dir = os.path.dirname(filename)
+        if isinstance(filename, str):
+            base_dir = Path(filename).parent
+        else:
+            base_dir = filename.parent
 
-        self.autots_variables["reactant"] = [os.path.join(base_dir, "rct_{}.mae".format(rr))
+        self.autots_variables["reactant"] = [(base_dir / "rct_{}.mae".format(rr)).as_posix()
                                              for rr in range(len(self.reactants))]
-        self.autots_variables["product"] = [os.path.join(base_dir, "pro_{}.mae".format(pp))
+        self.autots_variables["product"] = [(base_dir / "pro_{}.mae".format(pp)).as_posix()
                                             for pp in range(len(self.products))]
 
         if write_molecules:
             for rr, reactant in enumerate(self.reactants):
-                mol_graph_to_maestro_file(reactant, os.path.join(base_dir,
-                                                                 "rct_{}.mae".format(rr)))
+                mol_graph_to_maestro_file(reactant,
+                                          base_dir / "rct_{}.mae".format(rr))
             for pp, product in enumerate(self.products):
-                mol_graph_to_maestro_file(product, os.path.join(base_dir,
-                                                                "pro_{}.mae".format(pp)))
+                mol_graph_to_maestro_file(product,
+                                          base_dir / "pro_{}.mae".format(pp))
 
         input_file = ReactiqInput(keywords=self.autots_variables,
                                   jaguar_keywords=self.gen_variables,
@@ -102,7 +105,7 @@ class AutoTSInput(MSONable):
         input_file.save(filename)
 
     @classmethod
-    def from_file(cls, filename: str, read_molecules: bool = True):
+    def from_file(cls, filename: Union[str, Path], read_molecules: bool = True):
         """
         Parse an AutoTS workflow input file and store its data into an
             AutoTSInput object.
@@ -116,8 +119,13 @@ class AutoTSInput(MSONable):
             autots_input: AutoTSInput object
         """
 
+        if isinstance(filename, Path):
+            fn = filename.as_posix()
+        else:
+            fn = filename
+
         input_file = ReactiqInput()
-        input_file.read(filename)
+        input_file.read(fn)
 
         keywords = input_file._keywords.keys()
         autots_variables = dict()
@@ -128,14 +136,14 @@ class AutoTSInput(MSONable):
         gen_variables = copy.deepcopy(input_file._jaguar_user_keys)
 
         if read_molecules:
-            base_dir = os.path.dirname(filename)
+            base_dir = Path(filename).parent
 
             reactants = input_file.getValue("reactant")
             products = input_file.getValue("product")
 
-            rct_mols = [maestro_file_to_molecule(os.path.join(base_dir, r))[0]
+            rct_mols = [maestro_file_to_molecule(base_dir / r)[0]
                         for r in reactants]
-            pro_mols = [maestro_file_to_molecule(os.path.join(base_dir, p))[0]
+            pro_mols = [maestro_file_to_molecule(base_dir / p)[0]
                         for p in products]
         else:
             rct_mols = list()

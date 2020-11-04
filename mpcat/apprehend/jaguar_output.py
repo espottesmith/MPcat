@@ -1,8 +1,8 @@
 # coding: utf-8
 
-import os
 from typing import Optional
 import datetime
+from pathlib import Path
 
 from monty.json import MSONable, jsanitize
 
@@ -185,7 +185,7 @@ class JagOutput(MSONable):
         self.filename = filename
         self.data = dict()
         if self.filename != "":
-            base_dir = os.path.dirname(self.filename)
+            base_dir = Path(self.filename).resolve().parent
             jag_out = JaguarOutput(output=filename, partial_ok=allow_failure)
 
             self.data["job_name"] = jag_out.name
@@ -229,10 +229,10 @@ class JagOutput(MSONable):
             self.data["output"]["output_file"] = jag_out.mae_out
 
             if parse_molecules:
-                self.data["input"]["molecule"] = maestro_file_to_molecule(os.path.join(base_dir,
-                                                                                       self.data["input"]["input_file"]))[0]
-                self.data["molecule_trajectory"] = maestro_file_to_molecule(os.path.join(base_dir,
-                                                                                         self.data["output"]["output_file"]))
+                self.data["input"]["molecule"] = maestro_file_to_molecule(
+                    base_dir / self.data["input"]["input_file"])[0]
+                self.data["molecule_trajectory"] = maestro_file_to_molecule(
+                    base_dir / self.data["output"]["output_file"])
                 self.data["output"]["molecule"] = self.data["molecule_trajectory"][-1]
 
             else:

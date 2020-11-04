@@ -4,6 +4,7 @@ import os
 import subprocess
 from typing import Optional, List, Dict, Union
 import datetime
+from pathlib import Path
 
 from pymongo import UpdateOne
 
@@ -26,7 +27,7 @@ class AutoTSJob:
     def __init__(self,
                  reactants: List[Union[Molecule, MoleculeGraph]],
                  products: List[Union[Molecule, MoleculeGraph]],
-                 path: str,
+                 path: Union[str, Path],
                  schrodinger_dir: Optional[str] = "SCHRODINGER",
                  job_name: Optional[str] = None,
                  num_cores: Optional[int] = 40,
@@ -70,12 +71,18 @@ class AutoTSJob:
         for product in products:
             self.products.append(mol_to_mol_graph(product))
 
-        self.path = path
+        if isinstance(path, Path):
+            self.path = path
+        else:
+            self.path = Path(path)
 
         if schrodinger_dir == "SCHRODINGER":
-            self.schrodinger_dir = os.environ["SCHRODINGER"]
+            self.schrodinger_dir = Path(os.environ["SCHRODINGER"])
         else:
-            self.schrodinger_dir = schrodinger_dir
+            if isinstance(schrodinger_dir, str):
+                self.schrodinger_dir = Path(schrodinger_dir)
+            else:
+                self.schrodinger_dir = schrodinger_dir
 
         self.job_name = job_name
         self.num_cores = num_cores
@@ -96,13 +103,13 @@ class AutoTSJob:
             None
         """
 
-        if not os.path.exists(self.path):
-            os.mkdir(self.path)
+        if not self.path.exists():
+            self.path.mkdir()
 
         calc_set = AutoTSSet(self.reactants, self.products,
                              **self.input_params)
 
-        calc_set.write(os.path.join(self.path, "autots.in"), write_molecules=True,
+        calc_set.write(self.path / "autots.in", write_molecules=True,
                        jobname=self.job_name)
 
     def run(self, command_line_args: Optional[Dict] = None):
@@ -121,10 +128,10 @@ class AutoTSJob:
             None
         """
 
-        cur_dir = os.getcwd()
-        os.chdir(self.path)
+        cur_dir = Path.cwd()
+        os.chdir(self.path.as_posix())
 
-        command = [os.path.join(self.schrodinger_dir, "autots"),
+        command = [(self.schrodinger_dir / "autots").as_posix(),
                    "-PARALLEL", str(self.num_cores),
                    "-HOST", self.host, "-use_one_node"]
 
@@ -146,15 +153,15 @@ class AutoTSJob:
 
         process = subprocess.run(command)
 
-        os.chdir(cur_dir)
+        os.chdir(cur_dir.as_posix())
 
         if process.returncode != 0:
             raise RuntimeError("Job launch failed!")
 
 
 def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGraph]]]],
-                     base_dir: str,
-                     schrodinger_dir: Optional[str] = "$SCHRODINGER",
+                     base_dir: Union[str, Path],
+                     schrodinger_dir: Optional[Union[str, Path]] = "$SCHRODINGER",
                      job_name_prefix: Optional[str] = None,
                      num_cores: Optional[int] = 40,
                      host: Optional[str] = "localhost",
@@ -202,6 +209,9 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGrap
         None
     """
 
+    if isinstance(base_dir, str):
+        base_dir = Path(base_dir)
+
     jobs = list()
 
     jobs_made = 0
@@ -245,7 +255,7 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGrap
 
         job_name = job_name_prefix + datetime.datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + str(jobs_made)
         job = AutoTSJob(reaction["reactants"], reaction["products"],
-                        os.path.join(base_dir, job_name),
+                        (base_dir / job_name),
                         schrodinger_dir=schrodinger_dir,
                         job_name=job_name, num_cores=num_cores, host=host,
                         save_scratch=save_scratch, input_params=input_params)
@@ -256,7 +266,7 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGrap
     for job in jobs:
         job.setup_calculation()
 
-    return_point = os.getcwd()
+    return_point = Path.cwd()
 
     for job in jobs:
         try:
@@ -264,11 +274,11 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGrap
         except RuntimeError:
             print("Failed to run job {}".format(job.job_name))
 
-        os.chdir(return_point)
+        os.chdir(return_point.as_posix())
 
 
 def launch_jobs_from_queue(database: CatDB,
-                           base_dir: str,
+                           base_dir: Union[str, Path],
                            num_launches: int = 1,
                            by_priority: bool = False,
                            query: Optional[Dict] = None,
@@ -309,13 +319,17 @@ def launch_jobs_from_queue(database: CatDB,
              will be interpreted as "-WAIT -subdir -nsubjobs 5"
     """
 
+    if isinstance(base_dir, str):
+        base_dir = Path(base_dir)
+
     # If query is None, just grab all possible calculations
     queue_collection = database.database[database.queue_collection]
 
     if query is None:
-        initial_query = [e for e in queue_collection.find({"state": "READY"}, {"_id": 0,
-                                                                               "rxnid": 1,
-                                                                               "priority": 1})]
+        initial_query = [e for e in queue_collection.find({"state": "READY"},
+                                                          {"_id": 0,
+                                                           "rxnid": 1,
+                                                           "priority": 1})]
     else:
         if "state" not in query:
             query["state"] = "READY"
@@ -344,7 +358,7 @@ def launch_jobs_from_queue(database: CatDB,
         timestamp = time_now.strftime("%Y%m%d_%H%M%S_%f")
         name = "_".join(["launcher", str(calc["rxnid"]), timestamp])
         job = AutoTSJob(reactants, products,
-                        os.path.join(base_dir, name),
+                        base_dir / name,
                         schrodinger_dir=schrodinger_dir,
                         num_cores=num_cores,
                         host=host,
@@ -356,7 +370,7 @@ def launch_jobs_from_queue(database: CatDB,
                                   upsert=True))
 
         job.setup_calculation()
-        dumpfn(calc, os.path.join(base_dir, name, "calc.json"))
+        dumpfn(calc, (base_dir / name / "calc.json").as_posix())
         job.run(command_line_args=command_line_args)
 
     if len(requests) > 0:

@@ -2,6 +2,7 @@
 
 import datetime
 from typing import Optional, Dict, List, Union
+from pathlib import Path
 
 from pymongo import MongoClient, ReturnDocument, ReplaceOne
 
@@ -10,8 +11,6 @@ from monty.serialization import loadfn
 
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
-from pymatgen.analysis.local_env import OpenBabelNN
-from pymatgen.analysis.fragmenter import metal_edge_extender
 
 from mpcat.utils.generate import mol_to_mol_graph
 from mpcat.utils.reaction import (get_reaction_graphs,
@@ -232,7 +231,8 @@ class CatDB:
                                                        {"$set": doc}, upsert=True)
 
     @classmethod
-    def from_db_file(cls, db_file, admin=True):
+    def from_db_file(cls, db_file: Union[str, Path],
+                     admin: Optional[bool]=True):
         """
         Create MMDB from database file. File requires host, port, database,
         collection, and optionally admin_user/readonly_user and
@@ -248,7 +248,11 @@ class CatDB:
         Returns:
             MMDb object
         """
-        creds = loadfn(db_file)
+
+        if isinstance(db_file, Path):
+            creds = loadfn(db_file.as_posix())
+        else:
+            creds = loadfn(db_file)
 
         if admin and "admin_user" not in creds and "readonly_user" in creds:
             raise ValueError("Trying to use admin credentials, "
