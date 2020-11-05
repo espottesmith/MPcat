@@ -370,7 +370,21 @@ def launch_jobs_from_queue(database: CatDB,
                                   upsert=True))
 
         job.setup_calculation()
-        dumpfn(calc, (base_dir / name / "calc.json").as_posix())
+
+        calc_dict = {"rxnid": calc.get("rxnid"), "name": calc.get("name"),
+                     "charge": calc.get("charge"),
+                     "spin_multiplicity": calc.get("spin_multiplicity"),
+                     "nelectrons": calc.get("nelectrons"),
+                     "priority": calc.get("priority"),
+                     "input": calc.get("input"),
+                     "reactants": calc.get("reactants"),
+                     "products": calc.get("products"),
+                     "reaction_graph": calc.get("reaction_graph"),
+                     "molgraph_pro": calc.get("molgraph_pro"),
+                     "molgraph_rct": calc.get("molgraph_rct"),
+                     "tags": calc.get("tags")}
+
+        dumpfn(calc_dict, (base_dir / name / "calc.json").as_posix(), indent=2)
         job.run(command_line_args=command_line_args)
 
     if len(requests) > 0:

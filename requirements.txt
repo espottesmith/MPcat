@@ -1,5 +1,4 @@
 git+git://github.com/shyamd/pymatgen@stable
-maggma
 monty>3.0.0
 numpy==1.18.0
 scipy==1.5.1
@@ -11,3 +10,4 @@ flake8==3.7.9
 pylint==2.4.4
 dataclasses>=0.6; python_version < '3.7'
 openbabel>=3.0
+pymongo==3.9.0
