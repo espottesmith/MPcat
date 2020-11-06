@@ -1,6 +1,6 @@
 pymatgen
 monty>3.0.0
-numpy1.18.0
+numpy==1.18.0
 scipy
 pytest==5.3.2
 pytest-cov==2.8.1
