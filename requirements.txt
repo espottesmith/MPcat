@@ -1,7 +1,7 @@
-git+git://github.com/shyamd/pymatgen@stable
+pymatgen
 monty>3.0.0
-numpy==1.18.0
-scipy==1.5.1
+numpy1.18.0
+scipy
 pytest==5.3.2
 pytest-cov==2.8.1
 coverage==5.0.1
