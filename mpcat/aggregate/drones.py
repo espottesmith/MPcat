@@ -11,6 +11,8 @@ from monty.serialization import loadfn
 
 from pymatgen.apps.borg.hive import AbstractDrone
 
+from schrodinger.application.jaguar.textparser import JaguarParseError
+
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 from mpcat.apprehend.autots_input import AutoTSInput
 from mpcat.apprehend.autots_output import AutoTSOutput
@@ -201,8 +203,12 @@ class AutoTSCalcDrone(AbstractDrone):
             for document in self.documents:
                 if (calculation + ".out") in document.name:
                     found = True
-                    jag_out = JagOutput(document.as_posix())
-                    d["calcs"].append(jag_out.data)
+                    try:
+                        jag_out = JagOutput(document.as_posix())
+                        d["calcs"].append(jag_out.data)
+                    except JaguarParseError:
+                        print("Error parsing " + calculation + " in path " + self.path.as_posix())
+                        break
 
             if not found:
                 print("Expected calculation {} missing from path {}!".format(calculation, self.path.as_posix()))

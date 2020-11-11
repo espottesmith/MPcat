@@ -230,6 +230,10 @@ class CatDB:
         self.database[self.queue_collection].update_one({"rxnid": doc["rxnid"]},
                                                        {"$set": doc}, upsert=True)
 
+    def sync_queue_data(self):
+        # TODO: Implement this
+        pass
+
     @classmethod
     def from_db_file(cls, db_file: Union[str, Path],
                      admin: Optional[bool]=True):
