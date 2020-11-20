@@ -17,7 +17,10 @@ def main():
 
     config = loadfn(config_file)
 
-    db = CatDB.from_db_file(config["db_file"])
+    if mpcat_config:
+        db = CatDB.from_db_file(os.path.join(mpcat_config, config["db_file"]))
+    else:
+        db = CatDB.from_db_file(config["db_file"])
 
     if str(config["num_launches"]).lower() == "infinite":
         while True:
