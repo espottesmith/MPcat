@@ -287,7 +287,7 @@ def launch_jobs_from_queue(database: CatDB,
                            query: Optional[Dict] = None,
                            schrodinger_dir: Optional[str] = "SCHRODINGER",
                            num_cores: Optional[int] = 40,
-                           host: Optional[str] = "localhost",
+                           host: Optional[str] = None,
                            save_scratch: Optional[bool] = False,
                            command_line_args: Optional[Dict] = None):
     """
