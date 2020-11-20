@@ -31,7 +31,7 @@ class AutoTSJob:
                  schrodinger_dir: Optional[str] = "SCHRODINGER",
                  job_name: Optional[str] = None,
                  num_cores: Optional[int] = 40,
-                 host: Optional[str] = "localhost",
+                 host: Optional[str] = None,
                  save_scratch: Optional[bool] = False,
                  input_params: Optional[Dict] = None):
 
@@ -132,8 +132,11 @@ class AutoTSJob:
         os.chdir(self.path.as_posix())
 
         command = [(self.schrodinger_dir / "autots").as_posix(),
-                   "-PARALLEL", str(self.num_cores),
-                   "-HOST", self.host, "-use_one_node"]
+                   "-PARALLEL", str(self.num_cores), "-use_one_node"]
+
+        if self.host is not None:
+            command.append("-HOST")
+            command.append(self.host)
 
         if self.job_name is not None:
             command.append("-jobname")
