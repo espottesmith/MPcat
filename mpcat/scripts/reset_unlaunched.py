@@ -31,14 +31,9 @@ def main():
 
         rxn_id = None
         if "autots.in" in files and "AutoTS.T9XnCsLi.out" not in files:
-            if "calc.json" in files:
-                calc = loadfn((calc_dir / "calc.json").as_posix())
-                rxn_id = calc.get("rxnid")
-                to_restart.append(calc_dir)
-            else:
-                if calc_dir.name.startswith("launcher"):
-                    rxn_id = int(calc_dir.name.split("_")[1])
-                    to_restart.append(calc_dir)
+            if calc_dir.name.startswith("launcher"):
+                rxn_id = int(calc_dir.name.split("_")[1])
+                to_restart.append(rxn_id)
         if rxn_id is None:
             print("Could not determine rxnid for", calc_dir.name)
 
