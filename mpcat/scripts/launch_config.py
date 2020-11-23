@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 import os
+import pathlib
 
 from monty.serialization import loadfn
 
 from mpcat.aggregate.database import CatDB
 from mpcat.automate.generate_calcs import launch_jobs_from_queue
+
+#TODO: Change to use pathlib
 
 
 def main():
