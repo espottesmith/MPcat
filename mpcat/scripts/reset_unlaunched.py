@@ -2,6 +2,7 @@
 
 import os
 from pathlib import Path
+import datetime
 
 from monty.serialization import loadfn
 
@@ -38,7 +39,10 @@ def main():
                 print("Could not determine rxnid for", calc_dir.name)
 
     result = db.database[db.queue_collection].update_many({"rxnid": {"$in": to_restart}},
-                                                          {"$set": {"state": "READY"}})
+                                                          {"$set": {"state": "READY",
+                                                                    "updated_on": datetime.datetime.now(
+                                                                        datetime.timezone.utc
+                                                                    )}})
     print("Updated {} entries".format(result.modified_count))
 
 
