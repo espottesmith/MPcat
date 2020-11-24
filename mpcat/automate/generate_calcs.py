@@ -355,8 +355,6 @@ def launch_jobs_from_queue(database: CatDB,
     rxn_ids = [r["rxnid"] for r in initial_query[0:num_launches]]
     to_calculate = list(queue_collection.find({"rxnid": {"$in": rxn_ids}}))
 
-    requests = list()
-
     for calc in to_calculate:
         time_now = datetime.datetime.now(datetime.timezone.utc)
         reactants = [MoleculeGraph.from_dict(r) for r in calc["reactants"]]
@@ -374,13 +372,8 @@ def launch_jobs_from_queue(database: CatDB,
         try:
             job.setup_calculation()
 
-            if "WAIT" in command_line_args:
-                requests.append(UpdateOne({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
-                                                                 "updated_on": time_now}},
-                                          upsert=True))
-            else:
-                queue_collection.update_one({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
-                                                                                "updated_on": time_now}})
+            queue_collection.update_one({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
+                                                                            "updated_on": time_now}})
 
             calc_dict = {"rxnid": calc.get("rxnid"), "name": calc.get("name"),
                          "charge": calc.get("charge"),
@@ -402,6 +395,3 @@ def launch_jobs_from_queue(database: CatDB,
             queue_collection.update_one({"rxnid": calc["rxnid"]},
                                         {"$set": {"state": "UNSUPPORTED",
                                                   "updated_on": time_now}})
-
-    if len(requests) > 0:
-        queue_collection.bulk_write(requests, ordered=False)
