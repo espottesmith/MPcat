@@ -12,8 +12,14 @@ setup(
     author='Evan Walter Clark Spotte-Smith',
     author_email='espottesmith@gmail.com',
     python_requires=">=3.6",
-    install_requires=["pymatgen", "maggma", "monty>3.0.0",
-                      "numpy", "scipy"],
+    install_requires=[
+        "pymatgen",
+        "fireworks",
+        "custodian",
+        "monty>3.0.0",
+        "numpy",
+        "scipy"
+    ],
     extras_require={':python_version < "3.7"': ["dataclasses>=0.6"]},
     description="""An interface between the Materials Project software suite and the Schrodinger
 Python API, designed to allow for high-throughput execution of Jaguar 

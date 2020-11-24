@@ -5,6 +5,7 @@ import subprocess
 from typing import Optional, List, Dict, Union
 import datetime
 from pathlib import Path
+import time
 
 from pymongo import UpdateOne
 
@@ -12,6 +13,8 @@ from monty.serialization import dumpfn
 
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
+
+from schrodinger.application.jaguar.autots_exceptions import UnsupportedReaction
 
 from mpcat.aggregate.database import CatDB
 from mpcat.apprehend.autots_input import AutoTSSet
@@ -356,13 +359,6 @@ def launch_jobs_from_queue(database: CatDB,
 
     for calc in to_calculate:
         time_now = datetime.datetime.now(datetime.timezone.utc)
-        if "WAIT" in command_line_args:
-            requests.append(UpdateOne({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
-                                                                 "updated_on": time_now}},
-                                      upsert=True))
-        else:
-            queue_collection.update_one({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
-                                                                            "updated_on": time_now}})
         reactants = [MoleculeGraph.from_dict(r) for r in calc["reactants"]]
         products = [MoleculeGraph.from_dict(p) for p in calc["products"]]
         timestamp = time_now.strftime("%Y%m%d_%H%M%S_%f")
@@ -375,23 +371,37 @@ def launch_jobs_from_queue(database: CatDB,
                         save_scratch=save_scratch,
                         input_params=calc["input"])
 
-        job.setup_calculation()
+        try:
+            job.setup_calculation()
 
-        calc_dict = {"rxnid": calc.get("rxnid"), "name": calc.get("name"),
-                     "charge": calc.get("charge"),
-                     "spin_multiplicity": calc.get("spin_multiplicity"),
-                     "nelectrons": calc.get("nelectrons"),
-                     "priority": calc.get("priority"),
-                     "input": calc.get("input"),
-                     "reactants": calc.get("reactants"),
-                     "products": calc.get("products"),
-                     "reaction_graph": calc.get("reaction_graph"),
-                     "molgraph_pro": calc.get("molgraph_pro"),
-                     "molgraph_rct": calc.get("molgraph_rct"),
-                     "tags": calc.get("tags")}
+            if "WAIT" in command_line_args:
+                requests.append(UpdateOne({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
+                                                                 "updated_on": time_now}},
+                                          upsert=True))
+            else:
+                queue_collection.update_one({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
+                                                                                "updated_on": time_now}})
 
-        dumpfn(calc_dict, (base_dir / name / "calc.json").as_posix(), indent=2)
-        job.run(command_line_args=command_line_args)
+            calc_dict = {"rxnid": calc.get("rxnid"), "name": calc.get("name"),
+                         "charge": calc.get("charge"),
+                         "spin_multiplicity": calc.get("spin_multiplicity"),
+                         "nelectrons": calc.get("nelectrons"),
+                         "priority": calc.get("priority"),
+                         "input": calc.get("input"),
+                         "reactants": calc.get("reactants"),
+                         "products": calc.get("products"),
+                         "reaction_graph": calc.get("reaction_graph"),
+                         "molgraph_pro": calc.get("molgraph_pro"),
+                         "molgraph_rct": calc.get("molgraph_rct"),
+                         "tags": calc.get("tags")}
+
+            dumpfn(calc_dict, (base_dir / name / "calc.json").as_posix(), indent=2)
+            job.run(command_line_args=command_line_args)
+
+        except UnsupportedReaction:
+            queue_collection.update_one({"rxnid": calc["rxnid"]},
+                                        {"$set": {"state": "UNSUPPORTED",
+                                                  "updated_on": time_now}})
 
     if len(requests) > 0:
         queue_collection.bulk_write(requests, ordered=False)

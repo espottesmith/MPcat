@@ -1,4 +1,6 @@
 pymatgen
+fireworks
+custodian
 monty>3.0.0
 numpy==1.18.0
 scipy
