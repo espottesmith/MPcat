@@ -355,6 +355,7 @@ def launch_jobs_from_queue(database: CatDB,
     requests = list()
 
     for calc in to_calculate:
+        time_now = datetime.datetime.now(datetime.timezone.utc)
         if "WAIT" in command_line_args:
             requests.append(UpdateOne({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
                                                                  "updated_on": time_now}},
@@ -364,7 +365,6 @@ def launch_jobs_from_queue(database: CatDB,
                                                                             "updated_on": time_now}})
         reactants = [MoleculeGraph.from_dict(r) for r in calc["reactants"]]
         products = [MoleculeGraph.from_dict(p) for p in calc["products"]]
-        time_now = datetime.datetime.now(datetime.timezone.utc)
         timestamp = time_now.strftime("%Y%m%d_%H%M%S_%f")
         name = "_".join(["launcher", str(calc["rxnid"]), timestamp])
         job = AutoTSJob(reactants, products,
