@@ -355,6 +355,13 @@ def launch_jobs_from_queue(database: CatDB,
     requests = list()
 
     for calc in to_calculate:
+        if "WAIT" in command_line_args:
+            requests.append(UpdateOne({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
+                                                                 "updated_on": time_now}},
+                                      upsert=True))
+        else:
+            queue_collection.update_one({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
+                                                                            "updated_on": time_now}})
         reactants = [MoleculeGraph.from_dict(r) for r in calc["reactants"]]
         products = [MoleculeGraph.from_dict(p) for p in calc["products"]]
         time_now = datetime.datetime.now(datetime.timezone.utc)
@@ -367,14 +374,6 @@ def launch_jobs_from_queue(database: CatDB,
                         host=host,
                         save_scratch=save_scratch,
                         input_params=calc["input"])
-
-        if "WAIT" in command_line_args:
-            requests.append(UpdateOne({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
-                                                                 "updated_on": time_now}},
-                                      upsert=True))
-        else:
-            queue_collection.update_one({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
-                                                                            "updated_on": time_now}})
 
         job.setup_calculation()
 
