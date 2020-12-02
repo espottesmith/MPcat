@@ -132,7 +132,8 @@ class CatDB:
                            name: Optional[str] = None,
                            input_params: Optional[Dict] = None,
                            tags: Optional[Dict] = None,
-                           priority: Optional[int] = None):
+                           priority: Optional[int] = None,
+                           include_reaction_graph: Optional[bool] = False):
         """
         Add a reaction to the "queue" (self.queue_collection collection).
 
@@ -153,6 +154,10 @@ class CatDB:
                 None (default), then the job will not be selected unless
                 chosen specifically by ID or other query. If the number is
                 negative (< 0), the calculation will never be selected.
+            include_reaction_graph (bool): Should a reaction graph be generated
+                from the reactant and product MoleculeGraphs? This might be
+                skipped because it can be costly to perform subgraph isomorphisms
+                and identify the appropriate reaction graph.
 
         Returns:
             None
@@ -208,14 +213,17 @@ class CatDB:
         entry["molgraph_rct"] = union_rct.as_dict()
         entry["molgraph_pro"] = union_pro.as_dict()
 
-        reaction_graph = get_reaction_graphs(union_rct, union_pro,
-                                             allowed_form=2, allowed_break=2,
-                                             stop_at_one=True)
-        if len(reaction_graph) == 0:
-            raise RuntimeError("No valid reaction could be found between "
-                               "reactants and products!")
+        if include_reaction_graph:
+            reaction_graph = get_reaction_graphs(union_rct, union_pro,
+                                                 allowed_form=2, allowed_break=2,
+                                                 stop_at_one=True)
+            if len(reaction_graph) == 0:
+                raise RuntimeError("No valid reaction could be found between "
+                                   "reactants and products!")
 
-        entry["reaction_graph"] = reaction_graph[0].as_dict()
+            entry["reaction_graph"] = reaction_graph[0].as_dict()
+        else:
+            entry["reaction_graph"] = None
 
         entry["reactants"] = [r.as_dict() for r in entry["reactants"]]
         entry["products"] = [p.as_dict() for p in entry["products"]]
@@ -228,7 +236,7 @@ class CatDB:
 
         doc = jsanitize(entry, allow_bson=True)
         self.database[self.queue_collection].update_one({"rxnid": doc["rxnid"]},
-                                                       {"$set": doc}, upsert=True)
+                                                        {"$set": doc}, upsert=True)
 
     def sync_queue_data(self):
         # TODO: Implement this
