@@ -16,7 +16,7 @@ from schrodinger.application.jaguar.textparser import JaguarParseError
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 from mpcat.apprehend.autots_input import AutoTSInput
 from mpcat.apprehend.autots_output import AutoTSOutput
-from mpcat.apprehend.jaguar_output import JagOutput
+from mpcat.apprehend.jaguar_output import JagOutput, JaguarOutputParseError
 from mpcat.aggregate.database import CatDB
 
 
@@ -206,7 +206,7 @@ class AutoTSCalcDrone(AbstractDrone):
                     try:
                         jag_out = JagOutput(document.as_posix())
                         d["calcs"].append(jag_out.data)
-                    except JaguarParseError:
+                    except (JaguarParseError, JaguarOutputParseError):
                         print("Error parsing " + calculation + " in path " + self.path.as_posix())
                         break
 

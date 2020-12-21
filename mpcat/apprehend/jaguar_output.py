@@ -12,6 +12,11 @@ from schrodinger.application.jaguar.results import JaguarResults
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 
 
+class JaguarOutputParseError(Exception):
+    """Exception for errors that occur while parsing Jaguar output files"""
+    pass
+
+
 def parse_jaguar_results(jagresult: JaguarResults):
     """
     Helper function to parse a JaguarResults object.
@@ -186,7 +191,10 @@ class JagOutput(MSONable):
         self.data = dict()
         if self.filename != "":
             base_dir = Path(self.filename).resolve().parent
-            jag_out = JaguarOutput(output=filename, partial_ok=allow_failure)
+            try:
+                jag_out = JaguarOutput(output=filename, partial_ok=allow_failure)
+            except StopIteration:
+                raise JaguarOutputParseError
 
             self.data["job_name"] = jag_out.name
             self.data["full_filename"] = jag_out.filename
