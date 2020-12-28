@@ -98,7 +98,7 @@ class AutoTSCalcDrone(AbstractDrone):
                 files_paths.append(calc_dir / file)
             elif f.endswith(".in") or f.endswith(".in.gz"):
                 files_paths.append(calc_dir / file)
-            elif f in ["calc.json", "calc.json.gz"]:
+            elif "calc.json" in f:
                 files_paths.append(calc_dir / file)
 
         for subdir in subdirs:
