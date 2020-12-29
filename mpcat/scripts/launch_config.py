@@ -1,29 +1,11 @@
 #!/usr/bin/env python
 
-import os
-import pathlib
-
-from monty.serialization import loadfn
-
-from mpcat.aggregate.database import CatDB
 from mpcat.automate.generate_calcs import launch_jobs_from_queue
-
-#TODO: Change to use pathlib
+from mpcat.utils.config import load_from_config
 
 
 def main():
-    mpcat_config = os.getenv("MPCAT_CONFIG")
-    if mpcat_config:
-        config_file = os.path.join(mpcat_config, "config.json")
-    else:
-        config_file = "config.json"
-
-    config = loadfn(config_file)
-
-    if mpcat_config:
-        db = CatDB.from_db_file(os.path.join(mpcat_config, config["db_file"]))
-    else:
-        db = CatDB.from_db_file(config["db_file"])
+    config, db = load_from_config()
 
     if str(config["num_launches"]).lower() == "infinite":
         while True:

@@ -1,27 +1,14 @@
 #!/usr/bin/env python
 
-import os
 from pathlib import Path
 import datetime
 
-from monty.serialization import loadfn
-
-from mpcat.aggregate.database import CatDB
+from mpcat.utils.config import load_from_config
 
 
 def main():
-    mpcat_config = os.getenv("MPCAT_CONFIG")
-    if mpcat_config:
-        config_file = Path(mpcat_config) / "config.json"
-    else:
-        config_file = Path("config.json")
 
-    config = loadfn(config_file.as_posix())
-
-    if mpcat_config:
-        db = CatDB.from_db_file(Path(mpcat_config) / config["db_file"])
-    else:
-        db = CatDB.from_db_file(config["db_file"])
+    config, db = load_from_config()
 
     base_dir = Path(config["base_dir"])
 
@@ -38,12 +25,13 @@ def main():
             if rxn_id is None:
                 print("Could not determine rxnid for", calc_dir.name)
 
-    result = db.database[db.queue_collection].update_many({"rxnid": {"$in": to_restart}},
+    result = db.database[db.queue_collection].update_many({"rxnid": {"$in": to_restart},
+                                                           "state": "SUBMITTED"},
                                                           {"$set": {"state": "READY",
                                                                     "updated_on": datetime.datetime.now(
                                                                         datetime.timezone.utc
                                                                     )}})
-    print("Updated {} entries".format(result.modified_count))
+    print("UPDATED {} ENTRIES".format(result.modified_count))
 
 
 if __name__ == "__main__":
