@@ -1,17 +1,14 @@
-from typing import Dict, Optional, Union, List
+from typing import Dict, Optional, Union
 import datetime
 
 from pymatgen.core.structure import Molecule
 
 from fireworks import LaunchPad, Workflow
 
-from atomate.qchem.database import QChemCalcDb
 from atomate.qchem.fireworks.core import FrequencyFlatteningTransitionStateFW
 from atomate.qchem.workflows.base.FF_and_critic import get_wf_FFTSopt_and_critic
 from atomate.qchem.workflows.base.ts_search import (
     get_workflow_reaction_path,
-    get_workflow_reaction_path_with_ts,
-    get_workflow_reaction_path_with_ts_and_critic
 )
 from atomate.vasp.powerups import add_tags
 
