@@ -5,6 +5,7 @@ from datetime import datetime
 from typing import List, Dict
 from pathlib import Path
 import hashlib
+from json import loads
 
 from monty.json import jsanitize
 from monty.serialization import loadfn
@@ -149,7 +150,7 @@ class AutoTSCalcDrone(AbstractDrone):
         calc_data = dict()
         for document in self.documents:
             if document.name == "calc.json":
-                calc_data = loadfn(document.as_posix())
+                calc_data = loads(open(document.as_posix()).read())
                 break
 
         d["rxnid"] = calc_data.get("rxnid")

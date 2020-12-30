@@ -155,6 +155,9 @@ def union_molgraph(mol_graphs: List[MoleculeGraph],
                               mapping[edge[1]],
                               edge_properties=edge[2])
 
+    total_charge = sum([e.molecule.charge for e in mol_graphs])
+    combined.molecule.set_charge_and_spin(total_charge)
+
     combined.set_node_attributes()
     return combined
 
