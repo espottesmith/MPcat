@@ -1,4 +1,5 @@
 from typing import Dict, Optional, Union
+import datetime
 
 from pymatgen.core.structure import Molecule
 
@@ -81,6 +82,10 @@ def optimize_successful_ts(
                 if tags is not None:
                     wf = add_tags(wf, tags)
                 lp.add_wf(wf)
+
+        time_now = datetime.datetime.now(datetime.timezone.utc)
+        db.database[db.data_collection].update_one({"rxnid": rxnid}, {"$set": {"run_atomate": True,
+                                                                               "updated_on": time_now}})
 
 
 def reaction_path_successful_ts(
