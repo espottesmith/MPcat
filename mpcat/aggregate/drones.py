@@ -363,7 +363,7 @@ class AutoTSBuilderDrone:
             try:
                 doc = drone.assimilate()
                 docs.append(doc)
-            except ValueError:
+            except:
                 print("Cannot parse {}".format(path.as_posix()))
                 continue
 
