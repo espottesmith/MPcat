@@ -6,6 +6,7 @@ from typing import Optional, List, Dict, Union
 import datetime
 from pathlib import Path
 import time
+import random
 
 from pymongo import UpdateOne
 
@@ -287,6 +288,7 @@ def launch_jobs_from_queue(database: CatDB,
                            base_dir: Union[str, Path],
                            num_launches: int = 1,
                            by_priority: bool = False,
+                           randomize: bool = False,
                            query: Optional[Dict] = None,
                            schrodinger_dir: Optional[str] = "SCHRODINGER",
                            num_cores: Optional[int] = 40,
@@ -348,6 +350,8 @@ def launch_jobs_from_queue(database: CatDB,
         initial_query = sorted([i for i in initial_query if i["priority"] is not None],
                                key=lambda x: x["priority"],
                                reverse=True)
+    if randomize:
+        random.shuffle(initial_query)
 
     if num_launches > len(initial_query):
         raise ValueError("num_launches too high! Only {} jobs available".format(len(initial_query)))
