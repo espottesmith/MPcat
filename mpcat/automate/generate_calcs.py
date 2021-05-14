@@ -390,7 +390,8 @@ def launch_jobs_from_queue(database: CatDB,
                          "reaction_graph": calc.get("reaction_graph"),
                          "molgraph_pro": calc.get("molgraph_pro"),
                          "molgraph_rct": calc.get("molgraph_rct"),
-                         "tags": calc.get("tags")}
+                         "tags": calc.get("tags"),
+                         "additional_data": calc.get("additional_data")}
 
             dumpfn(calc_dict, (base_dir / name / "calc.json").as_posix(), indent=2)
             job.run(command_line_args=command_line_args)

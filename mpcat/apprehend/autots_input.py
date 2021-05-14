@@ -30,18 +30,20 @@ class AutoTSInput(MSONable):
     as well as the reactants and products of the reaction.
 
     Args:
-        reactants (list of Molecule objects)
-        products (list of Molecule objects)
+        reactants (list of Molecule or MoleculeGraph objects)
+        products (list of Molecule or MoleculeGraph objects)
         autots_variables (dict): Dictionary of AutoTS-specific keywords
             variables and values. For instance,
             {"units": "ev", "use_template": False}
         gen_variables (dict): Dictionary of Jaguar $gen section keyword
             variables and values. For instance,
             {"irder": 1, "maxitg": 200, "basis": "def2-tzvpd", "babel": "xyz"}
+        spin_multiplicity (int): overall system spin multiplicity
     """
 
     def __init__(self, reactants: List[Union[Molecule, MoleculeGraph]], products: List[Molecule],
-                 autots_variables: Dict, gen_variables: Dict):
+                 autots_variables: Dict, gen_variables: Dict,
+                 spin_multiplicity: Optional[int] = None):
 
         self.reactants = list()
         for reactant in reactants:
@@ -63,7 +65,17 @@ class AutoTSInput(MSONable):
         self.autots_variables["charge"] = rct_sum
 
         nelectrons = int(sum([m.molecule._nelectrons for m in self.reactants]))
-        self.autots_variables["multiplicity"] = 1 if nelectrons % 2 == 0 else 2
+        if spin_multiplicity is None:
+            if len(self.reactants) == len(self.products) == 1:
+                self.autots_variables["multiplicity"] = self.reactants[0].molecule.spin_multiplicity
+            else:
+                self.autots_variables["multiplicity"] = 1 if nelectrons % 2 == 0 else 2
+        else:
+            if (spin_multiplicity % 2) == (nelectrons % 2):
+                raise ValueError("Invalid spin multiplicity: {} with {} electrons!".format(spin_multiplicity, nelectrons))
+            else:
+                self.autots_variables["multiplicity"] = spin_multiplicity
+
 
     def write(self, filename: Union[str, Path], write_molecules: Optional[bool] = True,
               jobname: Optional[str] = None):
@@ -160,6 +172,7 @@ class AutoTSSet(AutoTSInput):
     def __init__(self,
                  reactants,
                  products,
+                 spin_multiplicity=None,
                  basis_set="def2-tzvpd",
                  dft_rung=4,
                  pcm_dielectric=None,
@@ -189,11 +202,11 @@ class AutoTSSet(AutoTSInput):
                             "units": "ev"}
 
         if dft_rung == 1:
-            dftname = "b3lyp"
+            dftname = "hfs"
         elif dft_rung == 2:
-            dftname = "cam-b3lyp"
+            dftname = "b97-d3"
         elif dft_rung == 3:
-            dftname = "cam-b3lyp-d3"
+            dftname = "m06-l"
         elif dft_rung == 4:
             dftname = "wb97x-d"
         else:
@@ -235,4 +248,5 @@ class AutoTSSet(AutoTSInput):
             for key, value in overwrite_inputs_gen.items():
                 gen_variables[key] = value
 
-        super().__init__(reactants, products, autots_variables, gen_variables)
+        super().__init__(reactants, products, autots_variables, gen_variables,
+                         spin_multiplicity=spin_multiplicity)

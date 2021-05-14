@@ -133,7 +133,8 @@ class CatDB:
                            input_params: Optional[Dict] = None,
                            tags: Optional[Dict] = None,
                            priority: Optional[int] = None,
-                           include_reaction_graph: Optional[bool] = False):
+                           include_reaction_graph: Optional[bool] = False,
+                           additional_data: Optional[Dict] = None):
         """
         Add a reaction to the "queue" (self.queue_collection collection).
 
@@ -158,6 +159,8 @@ class CatDB:
                 from the reactant and product MoleculeGraphs? This might be
                 skipped because it can be costly to perform subgraph isomorphisms
                 and identify the appropriate reaction graph.
+            additional_data (dict): Any additional data that should be stored
+                with a calculation.
 
         Returns:
             None
@@ -233,6 +236,8 @@ class CatDB:
                                                                       return_document=ReturnDocument.AFTER)["c"]
         entry["created_on"] = datetime.datetime.now(datetime.timezone.utc)
         entry["updated_on"] = datetime.datetime.now(datetime.timezone.utc)
+
+        entry["additional_data"] = additional_data
 
         doc = jsanitize(entry, allow_bson=True)
         self.database[self.queue_collection].update_one({"rxnid": doc["rxnid"]},

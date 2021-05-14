@@ -155,6 +155,7 @@ class AutoTSCalcDrone(AbstractDrone):
 
         d["rxnid"] = calc_data.get("rxnid")
         d["tags"] = calc_data.get("tags")
+        d["additional_data"] = calc_data.get("additional_data")
         d["name"] = calc_data.get("name")
         d["charge"] = calc_data.get("charge")
         d["spin_multiplicity"] = calc_data.get("spin_multiplicity")
