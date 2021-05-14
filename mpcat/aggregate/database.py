@@ -129,6 +129,7 @@ class CatDB:
 
     def insert_calculation(self, reactants: Union[List[Molecule], List[MoleculeGraph]],
                            products: Union[List[Molecule], List[MoleculeGraph]],
+                           spin_multiplicity: Optional[int] = None,
                            name: Optional[str] = None,
                            input_params: Optional[Dict] = None,
                            tags: Optional[Dict] = None,
@@ -195,7 +196,16 @@ class CatDB:
             raise ValueError("Reactants and products do not have the same number of electrons!")
 
         entry["nelectrons"] = int(rct_nelectrons)
-        entry["spin_multiplicity"] = 1 if entry["nelectrons"] % 2 == 0 else 2
+        if spin_multiplicity is None:
+            if len(entry["reactants"]) == len(entry["products"]) == 1:
+                entry["spin_multiplicity"] = entry["reactants"][0].molecule.spin_multiplicity
+            else:
+                entry["spin_multiplicity"] = 1 if entry["nelectrons"] % 2 == 0 else 2
+        else:
+            if (spin_multiplicity % 2) == (entry["nelectrons"] % 2):
+                raise ValueError("Invalid spin multiplicity: {} with {} electrons!".format(spin_multiplicity, entry["nelectrons"]))
+            else:
+                entry["spin_multiplicity"] = spin_multiplicity
 
         if name is None:
             rct_names = [m.molecule.composition.alphabetical_formula + "_" + str(m.molecule.charge)
