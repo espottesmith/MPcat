@@ -1,0 +1,1683 @@
+
+    __        __   _                            _        
+    \ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___  
+     \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
+      \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |
+       \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/ 
+                                    ____ ____  __  __ 
+                       _ __  _   _ / ___/ ___||  \/  |
+                      | '_ \| | | | |  _\___ \| |\/| |
+                      | |_) | |_| | |_| |___) | |  | |
+                      | .__/ \__, |\____|____/|_|  |_|
+                      |_|    |___/                    
+#==========================================================================#
+#| If this code has benefited your research, please support us by citing: |#
+#|                                                                        |# 
+#| Aldaz, C.; Kammeraad J. A.; Zimmerman P. M. "Discovery of conical      |#
+#| intersection mediated photochemistry with growing string methods",     |#
+#| Phys. Chem. Chem. Phys., 2018, 20, 27394                               |#
+#| http://dx.doi.org/10.1039/c8cp04703k                                   |#
+#|                                                                        |# 
+#| Wang, L.-P.; Song, C.C. (2016) "Geometry optimization made simple with |#
+#| translation and rotation coordinates", J. Chem, Phys. 144, 214108.     |#
+#| http://dx.doi.org/10.1063/1.4952956                                    |#
+#==========================================================================#
+
+
+    
+forcing number of processors to be 32!!!
+#========================================================#
+#| [92m              Parsed GSM Keys : Values              [0m |#
+#========================================================#
+ADD_NODE_TOL              0.01 
+BDIST_RATIO               0.5 
+CONV_TOL                  0.0005 
+DMAX                      1.0 
+DQMAG_MAX                 0.8 
+EST_Package               QChem 
+ID                        0 
+PES_type                  PES 
+adiabatic_index           [0] 
+conv_Ediff                100.0 
+conv_dE                   1.0 
+conv_gmax                 100.0 
+coordinate_type           TRIC 
+growth_direction          0 
+gsm_print_level           1 
+gsm_type                  SE_GSM 
+isomers_file              isomers.txt 
+linesearch                NoLineSearch 
+lot_inp_file              qin 
+max_gsm_iters             100 
+multiplicity              [2] 
+nproc                     32 
+num_nodes                 30 
+opt_print_level           1 
+optimizer                 eigenvector_follow 
+product_geom_fixed        False 
+reactant_geom_fixed       True 
+sigma                     1.0 
+use_multiprocessing       False 
+xyzfile                   input.xyz 
+----------------------------------------------------------
+#========================================================#
+#| [92m    Build the QChem level of theory (LOT) object    [0m |#
+#========================================================#
+ initializing LOT from geom
+ making temp folder /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/0_2/
+/clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/QChem_input.txt
+#========================================================#
+#| [92m              Building the PES objects              [0m |#
+#========================================================#
+#========================================================#
+#| [92m       Building the reactant object with TRIC       [0m |#
+#========================================================#
+#========================================================#
+#| [92m               Building the topology                [0m |#
+#========================================================#
+#========================================================#
+#| [92m                   building bonds                   [0m |#
+#========================================================#
+None
+ In build bonds
+done
+#========================================================#
+#| [92m       driving coordinates [['BREAK', 2, 11]]       [0m |#
+#========================================================#
+#========================================================#
+#| [92m      Building Primitive Internal Coordinates       [0m |#
+#========================================================#
+ Creating block info
+ number of primitive blocks is  1
+ Done creating block info,
+ Now Making Primitives by block
+ Done making primitives
+ Made a total of 42 primitives
+ num blocks  1
+ done making primitives
+ make prim 0.013
+#========================================================#
+#| [92m     Building Delocalized Internal Coordinates      [0m |#
+#========================================================#
+ setting primitives from options!
+ num of primitives 42
+ Time to copy prims 0.002
+ Timings: Build G: 0.019 Eig: 0.020
+#========================================================#
+#| [92m               Building the reactant                [0m |#
+#========================================================#
+ getting cartesian coordinates from geom
+ Time to get coords= 0.000
+ initializing LOT from geom
+ making temp folder /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/0_2/
+/clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/QChem_input.txt
+ Time to create PES,elements 0.010
+ getting coord_object from options
+ Time  to build coordinate system= 0.000
+ making primitive Hessian
+ Time to build Prim Hessian 0.001
+ forming Hessian in basis
+ molecule constructed
+#========================================================#
+#| [92m           Building the Optimizer object            [0m |#
+#========================================================#
+#========================================================#
+#| [92m              Building the GSM object               [0m |#
+#========================================================#
+ gaddmax: 0.01
+ Assuming the isomers are initialized!
+ Done initializing isomer
+ Primitive Internal Coordinates
+[Translation-X 1-11, Translation-Y 1-11, Translation-Z 1-11, Rotation-A 1-11, Rotation-B 1-11, Rotation-C 1-11, Distance 1-5, Distance 2-5, Distance 2-11, Distance 3-6, Distance 3-7, Distance 4-7, Distance 5-6, Distance 6-9, Distance 6-10, Distance 8-11, Angle 5-2-11, Angle 6-3-7, Angle 1-5-6, Angle 2-5-6, Angle 3-6-5, Angle 3-6-9, Angle 3-6-10, Angle 5-6-9, Angle 5-6-10, Angle 9-6-10, Angle 3-7-4, LinearAngleX 2-11-8, LinearAngleY 2-11-8, Out-of-Plane 5-1-2-6, Dihedral 11-2-5-1, Dihedral 11-2-5-6, Dihedral 7-3-6-5, Dihedral 7-3-6-9, Dihedral 7-3-6-10, Dihedral 6-3-7-4, Dihedral 1-5-6-3, Dihedral 1-5-6-9, Dihedral 1-5-6-10, Dihedral 2-5-6-3, Dihedral 2-5-6-9, Dihedral 2-5-6-10]
+ number of primitives is 42
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ getting tangent from node  0
+ bond (2, 11) target (greater than): 3.330, current d: 1.904 diff: -1.426 
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ Initial energy is -281901.2827
+#========================================================#
+#| [92m                Adding reactant node                [0m |#
+#========================================================#
+ adding node: 1 between 0 29 from 0
+ getting tangent from node  0
+ bond (2, 11) target (greater than): 3.330, current d: 1.904 diff: -1.426 
+ Copying from MoleculA 0
+ setting primitives from options!
+ num of primitives 42
+ Time to copy prims 0.002
+ Timings: Build G: 0.014 Eig: 0.001
+ getting cartesian coordinates from geom
+ Time to get coords= 0.000
+ copying QCSCRATCH files
+ cp -r /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/0_2 /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/1_2
+ initializing LOT from geom
+ making temp folder /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/1_2/
+/clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/QChem_input.txt
+ Time to create PES,elements 0.038
+ getting coord_object from options
+ Time  to build coordinate system= 0.000
+ molecule constructed
+ updating coord basis
+ Timings: Build G: 0.012 Eig: 0.001
+ dqmag: -0.770 from bdist: 1.426
+ dq0[constraint]: -0.770
+ Iter: 1 Err-dQ = 4.97397e-03 RMSD: 1.71265e-01 Damp: 1.00000e+00
+ Iter: 2 Err-dQ (Best) = 5.28255e-06 (4.97397e-03) RMSD: 6.50965e-04 Damp: 1.00000e+00 (Good)
+ Iter: 3 Err-dQ (Best) = 1.49166e-11 (5.28255e-06) RMSD: 1.54026e-06 Damp: 1.00000e+00 (Good)
+ Cartesian coordinates obtained after 3 microiterations (rmsd = 1.540e-06 |dQ| = 1.492e-11)
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ getting tangent from node  1
+ bond (2, 11) target (greater than): 3.330, current d: 2.675 diff: -0.655 
+ nn=2,nR=2
+ Aligning
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ getting energy for node 1: 7.9410
+#========================================================#
+#| [92m                  In growth_iters                   [0m |#
+#========================================================#
+ getting tangent from between 1 0 pointing towards 1
+ updating coord basis
+ Timings: Build G: 0.012 Eig: 0.001
+ getting tangent from node  1
+ bond (2, 11) target (greater than): 3.330, current d: 2.675 diff: -0.655 
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.000
+------------printing dqmaga---------------
+ 0.8096
+ setting active node to 1 
+ conv_tol of node 0 is 0.0005
+ conv_tol of node 1 is 0.0005
+ conv_tol of node 1 is 0.0100
+#========================================================#
+#| [92m               Starting growth iter 0               [0m |#
+#========================================================#
+
+#========================================================#
+#| [92m                 Optimizing node 1                  [0m |#
+#========================================================#
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ setting node 1 opt_type to ICTAN
+ initial E 7.9410
+ CONV_TOL 0.01000
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.000
+ On opt step 1 for node 1
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ Decreasing DMAX to 0.01060734395082346
+ dEstep=-0.0414
+ Node: 1 Opt step: 1 E: 7.8996 predE: -0.0911 ratio: 0.455 gradrms: 0.00202 ss: 0.011 DMAX: 0.011
+ gmax 0.0061 disp 0.0107 Ediff -0.0414 gradrms 0.0020
+
+ converged
+ opt-summary 1
+ Node: 1 Opt step: 1 E: 7.8996 predE: -0.0911 ratio: 0.455 gradrms: 0.00202 ss: 0.011 DMAX: 0.011
+
+ node: 01 gradrms: 0.002019
+ Energies  7.900 
+ nodemax  1
+ ispast1 0
+ ispast2 0
+ ispast3 1
+ cgrad: -0.015 nodemax: 1 nR: 2
+ check_for_reaction_g isrxn: True nadd+nbrk: 1
+ ispast= 0
+ bdist 0.655
+ nnodes  2
+ all uphill?  True
+ dissociative?  False
+ min nodes  [0]
+ max nodes  []
+ emax and nmax in find peaks 7.8996,1 
+ found 0 significant peak(s) TOL 1.00
+#========================================================#
+#| [92m                Adding reactant node                [0m |#
+#========================================================#
+ adding node: 2 between 1 29 from 1
+ getting tangent from node  1
+ bond (2, 11) target (greater than): 3.330, current d: 2.675 diff: -0.655 
+ Copying from MoleculA 1
+ setting primitives from options!
+ num of primitives 42
+ Time to copy prims 0.002
+ Timings: Build G: 0.011 Eig: 0.001
+ getting cartesian coordinates from geom
+ Time to get coords= 0.000
+ copying QCSCRATCH files
+ cp -r /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/1_2 /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/2_2
+ initializing LOT from geom
+ making temp folder /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/2_2/
+/clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/QChem_input.txt
+ Time to create PES,elements 0.031
+ getting coord_object from options
+ Time  to build coordinate system= 0.000
+ molecule constructed
+ updating coord basis
+ Timings: Build G: 0.012 Eig: 0.001
+ dqmag: -0.462 from bdist: 0.655
+ dq0[constraint]: -0.462
+ Iter: 1 Err-dQ = 1.22034e-03 RMSD: 1.02788e-01 Damp: 1.00000e+00
+ Iter: 2 Err-dQ (Best) = 3.40799e-07 (1.22034e-03) RMSD: 1.80333e-04 Damp: 1.00000e+00 (Good)
+ Cartesian coordinates obtained after 2 microiterations (rmsd = 1.803e-04 |dQ| = 3.408e-07)
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ getting tangent from node  2
+ bond (2, 11) target (greater than): 3.330, current d: 3.137 diff: -0.193 
+ nn=3,nR=3
+ Aligning
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ getting energy for node 2: 11.1949
+ setting active node to 2 
+ conv_tol of node 0 is 0.0005
+ conv_tol of node 1 is 0.0005
+ conv_tol of node 2 is 0.0005
+ conv_tol of node 2 is 0.0100
+ getting tangent from between 1 0 pointing towards 1
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+ getting tangent from between 2 1 pointing towards 2
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.001
+ getting tangent from node  2
+ bond (2, 11) target (greater than): 3.330, current d: 3.137 diff: -0.193 
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+------------printing dqmaga---------------
+ 0.6802 0.4396
+ gopt_iter:  0 totalgrad: 0.0105 gradrms: 0.0003815 max E:   7.9
+
+#========================================================#
+#| [92m               Starting growth iter 1               [0m |#
+#========================================================#
+
+#========================================================#
+#| [92m                 Optimizing node 2                  [0m |#
+#========================================================#
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ setting node 2 opt_type to ICTAN
+ initial E 11.1949
+ CONV_TOL 0.01000
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+ On opt step 1 for node 2
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ Decreasing DMAX to 0.008862358491430326
+ dEstep=-0.0334
+ Node: 2 Opt step: 1 E: 11.1615 predE: -0.0422 ratio: 0.791 gradrms: 0.00132 ss: 0.009 DMAX: 0.009
+ gmax 0.0038 disp 0.0085 Ediff -0.0334 gradrms 0.0013
+
+ converged
+ opt-summary 2
+ Node: 2 Opt step: 1 E: 11.1615 predE: -0.0422 ratio: 0.791 gradrms: 0.00132 ss: 0.009 DMAX: 0.009
+
+ node: 01 gradrms: 0.002019 node: 02 gradrms: 0.001321
+ Energies  7.900  11.162 
+ nodemax  2
+ ispast1 0
+ ispast2 0
+ ispast3 1
+ cgrad: -0.008 nodemax: 2 nR: 3
+ check_for_reaction_g isrxn: True nadd+nbrk: 1
+ ispast= 0
+ bdist 0.193
+ nnodes  3
+ all uphill?  True
+ dissociative?  False
+ min nodes  [0]
+ max nodes  []
+ emax and nmax in find peaks 11.1615,2 
+ found 0 significant peak(s) TOL 1.00
+#========================================================#
+#| [92m                Adding reactant node                [0m |#
+#========================================================#
+ adding node: 3 between 2 29 from 2
+ getting tangent from node  2
+ bond (2, 11) target (greater than): 3.330, current d: 3.137 diff: -0.193 
+ Copying from MoleculA 2
+ setting primitives from options!
+ num of primitives 42
+ Time to copy prims 0.002
+ Timings: Build G: 0.011 Eig: 0.001
+ getting cartesian coordinates from geom
+ Time to get coords= 0.000
+ copying QCSCRATCH files
+ cp -r /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/2_2 /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/3_2
+ initializing LOT from geom
+ making temp folder /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/3_2/
+/clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/QChem_input.txt
+ Time to create PES,elements 0.020
+ getting coord_object from options
+ Time  to build coordinate system= 0.000
+ molecule constructed
+ updating coord basis
+ Timings: Build G: 0.012 Eig: 0.000
+ dqmag: -0.277 from bdist: 0.193
+ dq0[constraint]: -0.277
+ Iter: 1 Err-dQ = 3.56340e-04 RMSD: 6.16823e-02 Damp: 1.00000e+00
+ Iter: 2 Err-dQ (Best) = 2.97734e-08 (3.56340e-04) RMSD: 5.58052e-05 Damp: 1.00000e+00 (Good)
+ Cartesian coordinates obtained after 2 microiterations (rmsd = 5.581e-05 |dQ| = 2.977e-08)
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ getting tangent from node  3
+ bond (2, 11) target (greater than): 3.330, current d: 3.414 diff: 0.084 
+ nn=4,nR=4
+ Aligning
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ getting energy for node 3: 12.2494
+ setting active node to 3 
+ conv_tol of node 0 is 0.0005
+ conv_tol of node 1 is 0.0005
+ conv_tol of node 2 is 0.0005
+ conv_tol of node 3 is 0.0005
+ conv_tol of node 3 is 0.0100
+ getting tangent from between 1 0 pointing towards 1
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+ getting tangent from between 2 1 pointing towards 2
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.000
+ getting tangent from between 3 2 pointing towards 3
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.001
+ getting tangent from node  3
+ bond (2, 11) target (greater than): 3.330, current d: 3.414 diff: 0.084 
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.000
+------------printing dqmaga---------------
+ 0.6803 0.5269 0.2899
+ gopt_iter:  1 totalgrad: 0.0174 gradrms: 0.0004559 max E: 11.16
+
+#========================================================#
+#| [92m               Starting growth iter 2               [0m |#
+#========================================================#
+
+#========================================================#
+#| [92m                 Optimizing node 3                  [0m |#
+#========================================================#
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ setting node 3 opt_type to ICTAN
+ initial E 12.2494
+ CONV_TOL 0.01000
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+ On opt step 1 for node 3
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ Decreasing DMAX to 0.008460235657117413
+ dEstep=-0.0245
+ Node: 3 Opt step: 1 E: 12.2248 predE: -0.0340 ratio: 0.722 gradrms: 0.00122 ss: 0.008 DMAX: 0.008
+ gmax 0.0044 disp 0.0079 Ediff -0.0245 gradrms 0.0012
+
+ converged
+ opt-summary 3
+ Node: 3 Opt step: 1 E: 12.2248 predE: -0.0340 ratio: 0.722 gradrms: 0.00122 ss: 0.008 DMAX: 0.008
+
+ node: 01 gradrms: 0.002019 node: 02 gradrms: 0.001321 node: 03 gradrms: 0.001223
+ Energies  7.900  11.162  12.225 
+ nodemax  3
+ ispast1 0
+ ispast2 0
+ ispast3 1
+ cgrad: 0.005 nodemax: 3 nR: 4
+ check_for_reaction_g isrxn: True nadd+nbrk: 1
+ ispast= 0
+ bdist 0.000
+ nnodes  4
+ all uphill?  True
+ dissociative?  False
+ min nodes  [0]
+ max nodes  []
+ emax and nmax in find peaks 12.2248,3 
+ found 0 significant peak(s) TOL 1.00
+#========================================================#
+#| [92m                Adding reactant node                [0m |#
+#========================================================#
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ adding node: 4 between 3 29 from 3
+ getting tangent from node  3
+ bond (2, 11) target (greater than): 3.330, current d: 3.414 diff: 0.084 
+bdist too small 0.000
+can't add anymore nodes, bdist too small
+ getting tangent from between 2 3 pointing towards 2
+ optimizing last node
+0.0005
+ initial E 12.2248
+ CONV_TOL 0.00050
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+ On opt step 1 for node 3
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ Decreasing DMAX to 0.007796357906078
+ dEstep=-0.0161
+ Node: 3 Opt step: 1 E: 12.2087 predE: -0.0212 ratio: 0.760 gradrms: 0.00098 ss: 0.008 DMAX: 0.008
+ gmax 0.0026 disp 0.0085 Ediff -0.0161 gradrms 0.0010
+
+ updating coord basis
+ Timings: Build G: 0.010 Eig: 0.001
+
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ On opt step 2 for node 3
+ updating prim hess
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ dEstep=-0.0118
+ increasing DMAX
+ Node: 3 Opt step: 2 E: 12.1969 predE: -0.0156 ratio: 0.755 gradrms: 0.00084 ss: 0.008 DMAX: 0.019
+ gmax 0.0027 disp 0.0089 Ediff -0.0118 gradrms 0.0008
+
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ On opt step 3 for node 3
+ updating prim hess
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ Decreasing DMAX to 0.010390709090976434
+ dEstep=-0.0089
+ Node: 3 Opt step: 3 E: 12.1880 predE: -0.0161 ratio: 0.556 gradrms: 0.00111 ss: 0.010 DMAX: 0.010
+ gmax 0.0036 disp 0.0115 Ediff -0.0089 gradrms 0.0011
+
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ On opt step 4 for node 3
+ updating prim hess
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ dEstep=-0.0036
+ Node: 3 Opt step: 4 E: 12.1843 predE: -0.0201 ratio: 0.182 gradrms: 0.00150 ss: 0.010 DMAX: 0.010
+ gmax 0.0044 disp 0.0123 Ediff -0.0036 gradrms 0.0015
+
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ On opt step 5 for node 3
+ updating prim hess
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ dEstep=-0.0062
+ Node: 3 Opt step: 5 E: 12.1781 predE: -0.0253 ratio: 0.244 gradrms: 0.00134 ss: 0.010 DMAX: 0.010
+ gmax 0.0043 disp 0.0118 Ediff -0.0062 gradrms 0.0013
+
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ On opt step 6 for node 3
+ updating prim hess
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ dEstep=-0.0047
+ Node: 3 Opt step: 6 E: 12.1735 predE: -0.0182 ratio: 0.257 gradrms: 0.00126 ss: 0.010 DMAX: 0.010
+ gmax 0.0038 disp 0.0121 Ediff -0.0047 gradrms 0.0013
+
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ On opt step 7 for node 3
+ updating prim hess
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ dEstep=0.0110
+ decreasing DMAX
+ Node: 3 Opt step: 7 E: 12.1845 predE: -0.0205 ratio: -0.537 gradrms: 0.00253 ss: 0.010 DMAX: 0.007
+ gmax 0.0059 disp 0.0122 Ediff 0.0110 gradrms 0.0025
+
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ On opt step 8 for node 3
+ updating prim hess
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ dEstep=-0.0178
+ Node: 3 Opt step: 8 E: 12.1667 predE: -0.0418 ratio: 0.426 gradrms: 0.00084 ss: 0.007 DMAX: 0.007
+ gmax 0.0019 disp 0.0078 Ediff -0.0178 gradrms 0.0008
+
+ updating coord basis
+ Timings: Build G: 0.009 Eig: 0.001
+
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ On opt step 9 for node 3
+ updating prim hess
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ dEstep=-0.0034
+ Node: 3 Opt step: 9 E: 12.1632 predE: -0.0100 ratio: 0.343 gradrms: 0.00046 ss: 0.007 DMAX: 0.007
+ gmax 0.0011 disp 0.0091 Ediff -0.0034 gradrms 0.0005
+
+ converged
+ opt-summary 3
+ Node: 3 Opt step: 1 E: 12.2087 predE: -0.0212 ratio: 0.760 gradrms: 0.00098 ss: 0.008 DMAX: 0.008
+ Node: 3 Opt step: 2 E: 12.1969 predE: -0.0156 ratio: 0.755 gradrms: 0.00084 ss: 0.008 DMAX: 0.019
+ Node: 3 Opt step: 3 E: 12.1880 predE: -0.0161 ratio: 0.556 gradrms: 0.00111 ss: 0.010 DMAX: 0.010
+ Node: 3 Opt step: 4 E: 12.1843 predE: -0.0201 ratio: 0.182 gradrms: 0.00150 ss: 0.010 DMAX: 0.010
+ Node: 3 Opt step: 5 E: 12.1781 predE: -0.0253 ratio: 0.244 gradrms: 0.00134 ss: 0.010 DMAX: 0.010
+ Node: 3 Opt step: 6 E: 12.1735 predE: -0.0182 ratio: 0.257 gradrms: 0.00126 ss: 0.010 DMAX: 0.010
+ Node: 3 Opt step: 7 E: 12.1845 predE: -0.0205 ratio: -0.537 gradrms: 0.00253 ss: 0.010 DMAX: 0.007
+ Node: 3 Opt step: 8 E: 12.1667 predE: -0.0418 ratio: 0.426 gradrms: 0.00084 ss: 0.007 DMAX: 0.007
+ Node: 3 Opt step: 9 E: 12.1632 predE: -0.0100 ratio: 0.343 gradrms: 0.00046 ss: 0.007 DMAX: 0.007
+
+ Energies  7.900  11.162  12.225 
+ nodemax  3
+ ispast1 0
+ ispast2 0
+ ispast3 1
+ cgrad: -0.005 nodemax: 3 nR: 4
+ check_for_reaction_g isrxn: True nadd+nbrk: 1
+ ispast= 0
+ bdist 0.000
+ nnodes  4
+ all uphill?  True
+ dissociative?  False
+ min nodes  [0]
+ max nodes  []
+ emax and nmax in find peaks 12.2248,3 
+ found 0 significant peak(s) TOL 1.00
+ creating newic molecule--used for ic_reparam
+ Copying from MoleculA 0
+ setting primitives from options!
+ num of primitives 42
+ Time to copy prims 0.002
+ Timings: Build G: 0.012 Eig: 0.001
+ getting cartesian coordinates from geom
+ Time to get coords= 0.000
+ copying QCSCRATCH files
+ cp -r /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/0_2 /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/1_2
+ initializing LOT from geom
+ making temp folder /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/1_2/
+/clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/QChem_input.txt
+ Time to create PES,elements 0.037
+ getting coord_object from options
+ Time  to build coordinate system= 0.000
+ molecule constructed
+ Number of nodes is  4
+ Warning last node still not optimized fully
+ SSM growth phase over
+ beginning opt phase
+Setting all interior nodes to active
+ initial ic_reparam
+#========================================================#
+#| [92m            reparametrizing string nodes            [0m |#
+#========================================================#
+ getting tangent from between 1 0 pointing towards 1
+ updating coord basis
+ Timings: Build G: 0.012 Eig: 0.001
+ getting tangent from between 2 1 pointing towards 2
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ getting tangent from between 3 2 pointing towards 3
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ totaldqmag = 3.289
+ using average
+ rpart:   0.33  0.33  0.33 
+ disp[1]: -0.29  disp[2]: -0.25 
+ disprms: 0.382
+
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ Iter: 1 Err-dQ = 6.33415e-04 RMSD: 6.47914e-02 Damp: 1.00000e+00
+ Iter: 2 Err-dQ (Best) = 8.74566e-08 (6.33415e-04) RMSD: 7.66550e-05 Damp: 1.00000e+00 (Good)
+ Cartesian coordinates obtained after 2 microiterations (rmsd = 7.666e-05 |dQ| = 8.746e-08)
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ Iter: 1 Err-dQ = 3.40486e-04 RMSD: 5.59781e-02 Damp: 1.00000e+00
+ Iter: 2 Err-dQ (Best) = 3.29667e-08 (3.40486e-04) RMSD: 5.29362e-05 Damp: 1.00000e+00 (Good)
+ Cartesian coordinates obtained after 2 microiterations (rmsd = 5.294e-05 |dQ| = 3.297e-08)
+ getting tangent from between 1 0 pointing towards 1
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ getting tangent from between 2 1 pointing towards 2
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ getting tangent from between 3 2 pointing towards 3
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ totaldqmag = 3.360
+ disp[1]: 0.025  disp[2]: 0.017 
+ disprms: 0.0306
+
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ Iter: 1 Err-dQ = 5.19510e-06 RMSD: 5.68573e-03 Damp: 1.00000e+00
+ Iter: 2 Err-dQ (Best) = 6.39401e-12 (5.19510e-06) RMSD: 6.57262e-07 Damp: 1.00000e+00 (Good)
+ Cartesian coordinates obtained after 2 microiterations (rmsd = 6.573e-07 |dQ| = 6.394e-12)
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ Iter: 1 Err-dQ = 1.55849e-06 RMSD: 3.73775e-03 Damp: 1.00000e+00
+ Iter: 2 Err-dQ (Best) = 6.33381e-13 (1.55849e-06) RMSD: 2.84885e-07 Damp: 1.00000e+00 (Good)
+ Cartesian coordinates obtained after 2 microiterations (rmsd = 2.849e-07 |dQ| = 6.334e-13)
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ getting tangent from between 1 0 pointing towards 1
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ getting tangent from between 2 1 pointing towards 2
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ getting tangent from between 3 2 pointing towards 3
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.000
+ totaldqmag = 3.361
+ disp[1]: -0.003  disp[2]: 0.0079 
+ disprms: 0.00849
+
+ spacings (end ic_reparam, steps: 3/25):
+ 1.1  1.1  1.1 
+  disprms: 0.00849
+
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ V_profile (after reparam):     0.000    4.975    9.802   12.163 
+#========================================================#
+#| [92m                    In opt_iters                    [0m |#
+#========================================================#
+
+*********************************************************************
+****************** set climber and finder to True *******************
+*********************************************************************
+#========================================================#
+#| [92m                Starting opt iter 0                 [0m |#
+#========================================================#
+ getting tangent from between 1 2 pointing towards 1
+ updating coord basis
+ Timings: Build G: 0.012 Eig: 0.001
+ getting tangent from between 2 3 pointing towards 2
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.001
+------------printing dqmaga---------------
+ 1.115 1.123   0.0
+
+#========================================================#
+#| [92m                 Optimizing node 1                  [0m |#
+#========================================================#
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ setting node 1 opt_type to ICTAN
+ initial E 4.9746
+ CONV_TOL 0.00125
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.001
+ On opt step 1 for node 1
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ Decreasing DMAX to 0.007343074510500209
+ dEstep=-0.0175
+ Node: 1 Opt step: 1 E: 4.9571 predE: -0.0179 ratio: 0.974 gradrms: 0.00083 ss: 0.007 DMAX: 0.007
+ gmax 0.0029 disp 0.0151 Ediff -0.0175 gradrms 0.0008
+
+ converged
+ opt-summary 1
+ Node: 1 Opt step: 1 E: 4.9571 predE: -0.0179 ratio: 0.974 gradrms: 0.00083 ss: 0.007 DMAX: 0.007
+
+
+#========================================================#
+#| [92m                 Optimizing node 2                  [0m |#
+#========================================================#
+You are running Q-Chem version: 5.2.2
+
+#
+# job setting
+#
+local host:  n0085.lr6
+current dir: /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+input file:  mol.inp
+output file: mol.out
+nprocs     : 0
+nthreads   : 32
+#
+# qchem installation setting
+#
+QC:          /clusterfs/mp/software/qchem
+QCAUX:       /clusterfs/mp/software/qchem/qcaux
+QCPROG:      /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+QCPROG_S:    /clusterfs/mp/software/qchem/exe/qcprog.exe_s
+PARALLEL:    -DSERIAL
+QCMPI:       MPICH
+#
+# qchem directory setting
+#
+qcrun:       scratch
+QCSCRATCH:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QCLOCALSCR:  /tmp
+QCTMPDIR:    /tmp
+QCFILEPREF:  /tmp/scratch
+QCSAVEDIR:   /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended/scratch
+workdirs:    /tmp/scratch
+workdir0:    /tmp/scratch
+partmpdirs =  
+#
+# parallel setting
+#
+QCRSH:           ssh
+QCMPI:           mpich
+QCMPIRUN:        /clusterfs/mp/software/qchem/bin/mpi/mpirun_qchem
+QCMACHINEFILE:   /tmp/scratch/hostfile
+
+#
+# env setting
+#
+exported envs:   QC QCAUX QCSCRATCH QCRUNNAME QCFILEPREF QCPROG QCPROG_S GUIFILE
+copy savedir ...
+ setting node 2 opt_type to ICTAN
+ initial E 9.8020
+ CONV_TOL 0.00125
+ updating coord basis
+ Timings: Build G: 0.011 Eig: 0.001
+ On opt step 1 for node 2
+ evaluate fx in linesearch
+In directory:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+QSCRATCH:  /clusterfs/mp/ewcspottesmith/data/pygsm/single_ended
+qchem -nt 32 -save mol.inp mol.out scratch
+ dEstep=-0.0245
+ increasing DMAX
+ Node: 2 Opt step: 1 E: 9.7775 predE: -0.0243 ratio: 1.007 gradrms: 0.00113 ss: 0.009 DMAX: 0.020
+ gmax 0.0045 disp 0.0095 Ediff -0.0245 gradrms 0.0011
+
+ converged
+ opt-summary 2
+ Node: 2 Opt step: 1 E: 9.7775 predE: -0.0243 ratio: 1.007 gradrms: 0.00113 ss: 0.009 DMAX: 0.020
+
+
+ V_profile:     0.000    4.957    9.778   12.163 
+ nnodes  4
+ all uphill?  True
+ dissociative?  False
+ min nodes  [0]
+ max nodes  []
+ emax and nmax in find peaks 12.1632,3 
+ found 0 significant peak(s) TOL 0.50
+ max E(2) 9.778
+ ts_cgradq 0.0107
+ dE_iter =0.02
+ node: 01 gradrms: 0.000826 node: 02 gradrms: 0.001129
+fp == -1, check V_profile
+total dissociation
+ Printing string to opt_converged_000.xyz
+rm: cannot remove 'scratch/opt_iters_000_*.xyz': No such file or directory
+Finished GSM!
+ TS energy: 9.7775
+ absolute energy TS node -281891.5052
+ min reactant node: 0 min product node 2 TS node is 2
+ Delta E is -9.7775
