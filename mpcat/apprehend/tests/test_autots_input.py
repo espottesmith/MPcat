@@ -168,7 +168,7 @@ class TestTSSet(unittest.TestCase):
                                 overwrite_inputs_gen={"noauto": 3})
 
         self.assertEqual(non_default_set.gen_variables["basis"], "6-31+g(d)")
-        self.assertEqual(non_default_set.gen_variables["dftname"], "b3lyp")
+        self.assertEqual(non_default_set.gen_variables["dftname"], "hfs")
         self.assertEqual(non_default_set.gen_variables["maxit"], 500)
         self.assertEqual(non_default_set.gen_variables["maxitg"], 500)
         self.assertEqual(non_default_set.gen_variables["noauto"], 3)
