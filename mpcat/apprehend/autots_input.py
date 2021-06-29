@@ -250,7 +250,9 @@ class AutoTSSet(AutoTSInput):
                 m = pcm_settings["molar_mass"]
                 r = ((3 * m / 6.023 * delta) / (4 * np.pi * rho) * 10) ** (1/3)
                 gen_variables["radprb"] = r
-            gen_variables["pcm_model"] = "cosmo"
+            else:
+                gen_variables["solvent"] = pcm_settings["solvent"]
+            gen_variables["pcm_model"] = pcm_settings["model"]
 
         if overwrite_inputs_autots is not None:
             for key, value in overwrite_inputs_autots.items():
