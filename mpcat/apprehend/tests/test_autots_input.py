@@ -3,14 +3,14 @@
 import unittest
 from pathlib import Path
 
-from mpcat.apprehend.autots_input import AutoTSInput, AutoTSSet
+from mpcat.apprehend.autots_input import TSInput, TSSet
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 
 
 test_dir = Path(__file__).resolve().parent.parent.parent.parent / "test_files"
 
 
-class TestAutoTSInput(unittest.TestCase):
+class TestTSInput(unittest.TestCase):
     def setUp(self) -> None:
         self.reactant_1 = maestro_file_to_molecule(
             test_dir / "autots_success_partial" / "rct1.mae")[0]
@@ -50,7 +50,7 @@ class TestAutoTSInput(unittest.TestCase):
                               }
 
     def test_generate(self):
-        autots_input = AutoTSInput([self.reactant_1, self.reactant_2],
+        autots_input = TSInput([self.reactant_1, self.reactant_2],
                                    [self.product],
                                    self.autots_variables,
                                    self.gen_variables)
@@ -62,7 +62,7 @@ class TestAutoTSInput(unittest.TestCase):
         self.assertDictEqual(self.gen_variables, autots_input.gen_variables)
 
     def test_to_from_file(self):
-        writing = AutoTSInput([self.reactant_1, self.reactant_2],
+        writing = TSInput([self.reactant_1, self.reactant_2],
                               [self.product],
                               self.autots_variables,
                               self.gen_variables)
@@ -72,7 +72,7 @@ class TestAutoTSInput(unittest.TestCase):
         self.assertEqual(self.reactant_2, maestro_file_to_molecule("rct_1.mae")[0])
         self.assertEqual(self.product, maestro_file_to_molecule("pro_0.mae")[0])
 
-        reading = AutoTSInput.from_file("test.in", read_molecules=True)
+        reading = TSInput.from_file("test.in", read_molecules=True)
         self.assertEqual(reading.reactants[0], writing.reactants[0])
         self.assertEqual(reading.reactants[1], writing.reactants[1])
         self.assertEqual(reading.products[0], writing.products[0])
@@ -83,7 +83,7 @@ class TestAutoTSInput(unittest.TestCase):
             self.assertEqual(v, reading.gen_variables[k])
 
 
-class TestAutoTSSet(unittest.TestCase):
+class TestTSSet(unittest.TestCase):
 
     def setUp(self) -> None:
         self.reactant_1 = maestro_file_to_molecule(
@@ -102,29 +102,31 @@ class TestAutoTSSet(unittest.TestCase):
                                  "units": "ev",
                                  "use_alternate": True}
 
-        self.gen_variables = {"dftname": "wb97x-d",
+        self.gen_variables = {"dftname": "wb97xd",
                               "basis": "def2-tzvpd",
                               "babel": "xyz",
                               "ip472": 2,  # Output all steps of geometry optimization in *.mae
-                              "ip172": 2,  # Print RESP file
+                              # "ip172": 2,  # Print RESP file
                               "ip175": 2,  # Print XYZ files
-                              "ifreq": 1,  # Frequency calculation
-                              "irder": 1,  # IR vibrational modes calculated
-                              "nmder": 2,  # Numerical second derivatives
+                              # "ifreq": 1,  # Frequency calculation
+                              # "irder": 1,  # IR vibrational modes calculated
+                              # "nmder": 2,  # Numerical second derivatives
                               "nogas": 2,  # Skip gas-phase optimization, if PCM is used
                               "maxitg": 250,  # Maximum number of geometry optimization iterations
-                              "intopt_switch": 0,  # Do not switch from internal to Cartesian coordinates
-                              "optcoord_update": 0,  # Do not run checks to change coordinate system
-                              "props_each_step": 1,  # Calculate properties at each optimization step
-                              "mulken": 1,  # Calculate Mulliken properties by atom
+                              # "intopt_switch": 0,  # Do not switch from internal to Cartesian coordinates
+                              # "optcoord_update": 0,  # Do not run checks to change coordinate system
+                              # "props_each_step": 1,  # Calculate properties at each optimization step
+                              # "iaccg": 5  # Tight convergence criteria for optimization
+                              # "mulken": 1,  # Calculate Mulliken properties by atom
                               "maxit": 400,  # Maximum number of SCF iterations
                               "iacc": 2,  # Use "accurate" SCF convergence criteria
+                              # "noauto": 3  # All calculations done on fine grid
                               "isymm": 0,  # Do not use symmetry
-                              "espunit": 6  # Electrostatic potential in units of eV
+                              # "espunit": 6  # Electrostatic potential in units of eV
                               }
 
     def test_defaults(self):
-        default_set = AutoTSSet([self.reactant_1, self.reactant_2],
+        default_set = TSSet([self.reactant_1, self.reactant_2],
                                 [self.product])
 
         for key, value in self.gen_variables.items():
@@ -133,15 +135,15 @@ class TestAutoTSSet(unittest.TestCase):
             self.assertEqual(value, default_set.autots_variables[key])
 
     def test_not_defaults(self):
-        non_default_set = AutoTSSet([self.reactant_1, self.reactant_2],
-                                    [self.product],
-                                    basis_set="6-31+g(d)",
-                                    dft_rung=1,
-                                    pcm_dielectric=40.0,
-                                    max_scf_cycles=500,
-                                    geom_opt_max_cycles=500,
-                                    overwrite_inputs_autots={"ts_vet_max_freq": -10.0},
-                                    overwrite_inputs_gen={"noauto": 3})
+        non_default_set = TSSet([self.reactant_1, self.reactant_2],
+                                [self.product],
+                                basis_set="6-31+g(d)",
+                                dft_rung=1,
+                                pcm_settings={"solvent": "benzene"},
+                                max_scf_cycles=500,
+                                geom_opt_max_cycles=500,
+                                overwrite_inputs_autots={"ts_vet_max_freq": -10.0},
+                                overwrite_inputs_gen={"noauto": 3})
 
         self.assertEqual(non_default_set.gen_variables["basis"], "6-31+g(d)")
         self.assertEqual(non_default_set.gen_variables["dftname"], "b3lyp")
@@ -149,7 +151,7 @@ class TestAutoTSSet(unittest.TestCase):
         self.assertEqual(non_default_set.gen_variables["maxitg"], 500)
         self.assertEqual(non_default_set.gen_variables["noauto"], 3)
         self.assertEqual(non_default_set.gen_variables["isolv"], 7)
-        self.assertEqual(non_default_set.gen_variables["epsout"], 40.0)
+        self.assertEqual(non_default_set.gen_variables["solvent"], "benzene")
         self.assertEqual(non_default_set.gen_variables["pcm_model"], "cosmo")
 
         self.assertEqual(non_default_set.autots_variables["ts_vet_max_freq"], -10.0)

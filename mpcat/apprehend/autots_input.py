@@ -10,7 +10,7 @@ from monty.json import MSONable
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 
-from schrodinger.application.jaguar.reactiq_input import (ReactiqInput)
+from schrodinger.application.jaguar.autots_input import AutoTSInput
 
 from mpcat.adapt.schrodinger_adapter import (mol_graph_to_maestro_file,
                                              maestro_file_to_molecule)
@@ -25,7 +25,7 @@ class JaguarInput(MSONable):
     pass
 
 
-class AutoTSInput(MSONable):
+class TSInput(MSONable):
     """
     An object representing an AutoTS input, including the actual workflow input
     file, complete with all AutoTS-specific and Jaguar $gen keyword variables,
@@ -113,16 +113,16 @@ class AutoTSInput(MSONable):
                 mol_graph_to_maestro_file(product,
                                           base_dir / "pro_{}.mae".format(pp))
 
-        input_file = ReactiqInput(keywords=self.autots_variables,
-                                  jaguar_keywords=self.gen_variables,
-                                  jobname=jobname)
+        input_file = AutoTSInput(keywords=self.autots_variables,
+                                 jaguar_keywords=self.gen_variables,
+                                 jobname=jobname)
         input_file.save(filename)
 
     @classmethod
     def from_file(cls, filename: Union[str, Path], read_molecules: bool = True):
         """
         Parse an AutoTS workflow input file and store its data into an
-            AutoTSInput object.
+            TSInput object.
 
         Args:
             filename (str): Path to an existing AutoTS input file.
@@ -130,7 +130,7 @@ class AutoTSInput(MSONable):
                 product files
 
         Returns:
-            autots_input: AutoTSInput object
+            autots_input: TSInput object
         """
 
         if isinstance(filename, Path):
@@ -166,9 +166,9 @@ class AutoTSInput(MSONable):
         return cls(rct_mols, pro_mols, autots_variables, gen_variables)
 
 
-class AutoTSSet(AutoTSInput):
+class TSSet(TSInput):
     """
-    Build an AutoTSInput given various input parameters.
+    Build an TSInput given various input parameters.
     """
 
     def __init__(self,

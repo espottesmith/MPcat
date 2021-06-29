@@ -6,7 +6,7 @@ from pymatgen.io.qchem.utils import (read_table_pattern,
                                      read_pattern)
 
 
-class AutoTSOutput(MSONable):
+class TSOutput(MSONable):
     """
     Class to parse AutoTS output files.
     """
