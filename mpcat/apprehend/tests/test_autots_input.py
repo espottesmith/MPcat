@@ -116,12 +116,11 @@ class TestTSSet(unittest.TestCase):
         self.product = maestro_file_to_molecule(
             test_dir / "autots_success_partial" / "pro.mae")[0]
 
-        self.autots_variables = {"eliminate_multiple_frequencies": True,
-                                 "free_energy": True,
+        self.autots_variables = {"free_energy": True,
                                  "require_irc_success": True,
                                  "ts_vet_max_freq": -40.0,
                                  "units": "ev",
-                                 "use_alternate": True}
+                                 "flexible_metal_coordination": True}
 
         self.gen_variables = {"dftname": "wb97x-d",
                               "basis": "def2-tzvpd",
