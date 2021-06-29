@@ -147,7 +147,7 @@ class CatDB:
             name (str, or None): Name of the reaction. No
             input_params (Dict, or None): Dictionary with all input parameters
                 for this calculation. These keywords and the associated values
-                will be provided to AutoTSSet (or, eventually, JaguarSet).
+                will be provided to TSSet (or, eventually, JaguarSet).
             tags (Dict, or None): Dictionary with some calculation metadata
                 Ex: {"class": "production", "time": 3}
             priority (int, or None): To identify jobs that should or should

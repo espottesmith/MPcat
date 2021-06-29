@@ -18,7 +18,7 @@ from pymatgen.analysis.graphs import MoleculeGraph
 from schrodinger.application.jaguar.autots_exceptions import UnsupportedReaction
 
 from mpcat.aggregate.database import CatDB
-from mpcat.apprehend.autots_input import AutoTSSet
+from mpcat.apprehend.autots_input import TSSet
 from mpcat.utils.comparison import compositions_equal
 from mpcat.utils.generate import mol_to_mol_graph
 
@@ -63,7 +63,7 @@ class AutoTSJob:
             save_scratch (bool): If True (default False), save a *.zip file
                 containing the contents of the calculation scratch directory
             input_params (dict): Keywords and associated values to be provided
-                to AutoTSSet
+                to TSSet
         """
 
         self.reactants = list()
@@ -110,7 +110,7 @@ class AutoTSJob:
         if not self.path.exists():
             self.path.mkdir()
 
-        calc_set = AutoTSSet(self.reactants, self.products,
+        calc_set = TSSet(self.reactants, self.products,
                              **self.input_params)
 
         calc_set.write(self.path / "autots.in", write_molecules=True,
@@ -203,7 +203,7 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGrap
         save_scratch (bool): If True (default False), save a *.zip file
             containing the contents of the calculation scratch directory
         input_params (dict): Keywords and associated values to be provided
-            to AutoTSSet
+            to TSSet
         command_line_args (dict): A dictionary of flag: value pairs to be
             provided to the autots command-line interface. Ex:
             {"WAIT": None,
