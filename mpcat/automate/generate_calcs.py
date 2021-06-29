@@ -136,7 +136,7 @@ class AutoTSJob:
         os.chdir(self.path.as_posix())
 
         command = [(self.schrodinger_dir / "autots").as_posix(),
-                   "-PARALLEL", str(self.num_cores), "-use_one_node"]
+                   "-PARALLEL", str(self.num_cores)]
 
         if self.host is not None:
             command.append("-HOST")
@@ -367,6 +367,7 @@ def launch_jobs_from_queue(database: CatDB,
         name = "_".join(["launcher", str(calc["rxnid"]), timestamp])
         job = AutoTSJob(reactants, products,
                         base_dir / name,
+                        job_name=str(calc["rxnid"]),
                         schrodinger_dir=schrodinger_dir,
                         num_cores=num_cores,
                         host=host,
@@ -379,7 +380,8 @@ def launch_jobs_from_queue(database: CatDB,
             queue_collection.update_one({"rxnid": calc["rxnid"]}, {"$set": {"state": "SUBMITTED",
                                                                             "updated_on": time_now}})
 
-            calc_dict = {"rxnid": calc.get("rxnid"), "name": calc.get("name"),
+            calc_dict = {"rxnid": calc.get("rxnid"),
+                         "name": calc.get("name"),
                          "charge": calc.get("charge"),
                          "spin_multiplicity": calc.get("spin_multiplicity"),
                          "nelectrons": calc.get("nelectrons"),

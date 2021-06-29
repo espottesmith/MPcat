@@ -4,6 +4,8 @@ from typing import List, Dict, Optional, Union
 import copy
 from pathlib import Path
 
+import numpy as np
+
 from monty.json import MSONable
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
@@ -175,7 +177,7 @@ class AutoTSSet(AutoTSInput):
                  spin_multiplicity=None,
                  basis_set="def2-tzvpd",
                  dft_rung=4,
-                 pcm_dielectric=None,
+                 pcm_settings=None,
                  max_scf_cycles=400,
                  geom_opt_max_cycles=250,
                  overwrite_inputs_autots=None,
@@ -186,7 +188,7 @@ class AutoTSSet(AutoTSInput):
             products (list of Molecule or MoleculeGraph objects):
             basis_set (str):
             dft_rung (int):
-            pcm_dielectric (float):
+            pcm_settings (Dict):
             max_scf_cycles (int):
             geom_opt_max_cycles (int):
             overwrite_inputs_autots (dict): Dictionary to overwrite default
@@ -195,11 +197,11 @@ class AutoTSSet(AutoTSInput):
                 Jaguar gen parameters
         """
 
-        autots_variables = {"eliminate_multiple_frequencies": True,
-                            "free_energy": True,
+        autots_variables = {"free_energy": True,
                             "require_irc_success": True,
                             "ts_vet_max_freq": -40.0,
-                            "units": "ev"}
+                            "units": "ev",
+                            "flexible_metal_coordination": True}
 
         if dft_rung == 1:
             dftname = "hfs"
@@ -216,28 +218,38 @@ class AutoTSSet(AutoTSInput):
                          "basis": basis_set,
                          "babel": "xyz",
                          "ip472": 2,  # Output all steps of geometry optimization in *.mae
-                         "ip172": 2,  # Print RESP file
+                         # "ip172": 2,  # Print RESP file
                          "ip175": 2,  # Print XYZ files
-                         "ifreq": 1,  # Frequency calculation
-                         "irder": 1,  # IR vibrational modes calculated
-                         "nmder": 2,  # Numerical second derivatives
+                         # "ifreq": 1,  # Frequency calculation
+                         # "irder": 1,  # IR vibrational modes calculated
+                         # "nmder": 2,  # Numerical second derivatives
                          "nogas": 2,  # Skip gas-phase optimization, if PCM is used
                          "maxitg": geom_opt_max_cycles,  # Maximum number of geometry optimization iterations
-                         "intopt_switch": 0,  # Do not switch from internal to Cartesian coordinates
-                         "optcoord_update": 0,  # Do not run checks to change coordinate system
-                         "props_each_step": 1,  # Calculate properties at each optimization step
+                         # "intopt_switch": 0,  # Do not switch from internal to Cartesian coordinates
+                         # "optcoord_update": 0,  # Do not run checks to change coordinate system
+                         # "props_each_step": 1,  # Calculate properties at each optimization step
                          # "iaccg": 5  # Tight convergence criteria for optimization
-                         "mulken": 1,  # Calculate Mulliken properties by atom
+                         # "mulken": 1,  # Calculate Mulliken properties by atom
                          "maxit": max_scf_cycles,  # Maximum number of SCF iterations
                          "iacc": 2,  # Use "accurate" SCF convergence criteria
                          # "noauto": 3  # All calculations done on fine grid
                          "isymm": 0,  # Do not use symmetry
-                         "espunit": 6  # Electrostatic potential in units of eV
+                         # "espunit": 6  # Electrostatic potential in units of eV
                          }
 
-        if pcm_dielectric is not None:
+        if pcm_settings is not None:
             gen_variables["isolv"] = 7
-            gen_variables["epsout"] = pcm_dielectric
+            if pcm_settings["solvent"] == "other":
+                gen_variables["sovlent"] = "other"
+                gen_variables["epsout"] = pcm_settings["dielectric"]
+                gen_variables["epsout_opt"] = pcm_settings["optical"]
+
+                # Calculate the probe radius
+                delta = 0.5
+                rho = pcm_settings["density"]
+                m = pcm_settings["molar_mass"]
+                r = ((3 * m / 6.023 * delta) / (4 * np.pi * rho) * 10) ** (1/3)
+                gen_variables["radprb"] = r
             gen_variables["pcm_model"] = "cosmo"
 
         if overwrite_inputs_autots is not None:
