@@ -138,7 +138,7 @@ class TSInput(MSONable):
         else:
             fn = filename
 
-        input_file = ReactiqInput()
+        input_file = AutoTSInput()
         input_file.read(fn)
 
         keywords = input_file._keywords.keys()

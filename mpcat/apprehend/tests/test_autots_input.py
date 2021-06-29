@@ -3,6 +3,9 @@
 import unittest
 from pathlib import Path
 
+from pymatgen.analysis.graphs import MoleculeGraph
+from pymatgen.analysis.local_env import OpenBabelNN, metal_edge_extender
+
 from mpcat.apprehend.autots_input import TSInput, TSSet
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
 
@@ -55,9 +58,27 @@ class TestTSInput(unittest.TestCase):
                                    self.autots_variables,
                                    self.gen_variables)
 
-        self.assertEqual(self.reactant_1, autots_input.reactants[0])
-        self.assertEqual(self.reactant_2, autots_input.reactants[1])
-        self.assertEqual(self.product, autots_input.products[0])
+        self.assertEqual(
+            metal_edge_extender(
+                MoleculeGraph.with_local_env_strategy(
+                    self.reactant_1, OpenBabelNN()
+                )
+            ),
+            autots_input.reactants[0])
+        self.assertEqual(
+            metal_edge_extender(
+                MoleculeGraph.with_local_env_strategy(
+                    self.reactant_2, OpenBabelNN()
+                )
+            ),
+            autots_input.reactants[1])
+        self.assertEqual(
+            metal_edge_extender(
+                MoleculeGraph.with_local_env_strategy(
+                    self.product, OpenBabelNN()
+                )
+            ),
+            autots_input.products[0])
         self.assertDictEqual(self.autots_variables, autots_input.autots_variables)
         self.assertDictEqual(self.gen_variables, autots_input.gen_variables)
 
@@ -102,7 +123,7 @@ class TestTSSet(unittest.TestCase):
                                  "units": "ev",
                                  "use_alternate": True}
 
-        self.gen_variables = {"dftname": "wb97xd",
+        self.gen_variables = {"dftname": "wb97x-d",
                               "basis": "def2-tzvpd",
                               "babel": "xyz",
                               "ip472": 2,  # Output all steps of geometry optimization in *.mae
@@ -139,7 +160,8 @@ class TestTSSet(unittest.TestCase):
                                 [self.product],
                                 basis_set="6-31+g(d)",
                                 dft_rung=1,
-                                pcm_settings={"solvent": "benzene"},
+                                pcm_settings={"solvent": "benzene",
+                                              "model": "cosmo"},
                                 max_scf_cycles=500,
                                 geom_opt_max_cycles=500,
                                 overwrite_inputs_autots={"ts_vet_max_freq": -10.0},
