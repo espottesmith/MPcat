@@ -240,7 +240,7 @@ class TSSet(TSInput):
         if pcm_settings is not None:
             gen_variables["isolv"] = 7
             if pcm_settings["solvent"] == "other":
-                gen_variables["sovlent"] = "other"
+                gen_variables["solvent"] = "other"
                 gen_variables["epsout"] = pcm_settings["dielectric"]
                 gen_variables["epsout_opt"] = pcm_settings["optical"]
 
