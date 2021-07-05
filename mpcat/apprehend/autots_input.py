@@ -248,7 +248,7 @@ class TSSet(TSInput):
                 delta = 0.5
                 rho = pcm_settings["density"]
                 m = pcm_settings["molar_mass"]
-                r = ((3 * m / 6.023 * delta) / (4 * np.pi * rho) * 10) ** (1/3)
+                r = round(((3 * m / 6.023 * delta) / (4 * np.pi * rho) * 10) ** (1/3), 3)
                 gen_variables["radprb"] = r
             else:
                 gen_variables["solvent"] = pcm_settings["solvent"]
