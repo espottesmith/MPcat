@@ -109,6 +109,14 @@ class AutoTSCalcDrone(AbstractDrone):
                 if any([file.endswith(x) for x in allowed_suffixes]):
                     files_paths.append(sub_paths[ff])
 
+            sub_subdirs = [f.as_posix() for f in (calc_dir / subdir).iterdir() if (calc_dir / subdir / f).is_dir()]
+            for sub_subdir in sub_subdirs:
+                subsub_files = [f.as_posix() for f in (calc_dir / subdir / sub_subdir).iterdir() if (calc_dir / subdir / sub_subdir / f).is_file()]
+                subsub_paths = [subdir/ sub_subdir / f for f in subsub_files]
+                for ff, file in enumerate(subsub_files):
+                    if any([file.endswith(x) for x in allowed_suffixes]):
+                        files_paths.append(subsub_paths[ff])
+
         return files_paths
 
     def assimilate(self):
