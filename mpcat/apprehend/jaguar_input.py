@@ -124,7 +124,7 @@ class JagInput(MSONable):
         if jagin:
             self.jagin = jagin
         else:
-            self.jagin = JaguarInput(name=name, stucture=self.struct)
+            self.jagin = JaguarInput(name=name, structure=self.struct)
 
         self.modify_gen(gen_variables)
 
