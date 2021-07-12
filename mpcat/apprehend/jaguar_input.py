@@ -568,4 +568,66 @@ class ScanSet(JagSet):
 
 
 class IRCSet(JagSet):
-    pass
+    """
+    JagSet object for use with intrinsic reaction coordinate (IRC) calculations.
+
+    Args;
+         molecule (Union[Molecule, MoleculeGraph]): molecule object that will
+            be the subject of this calculation. Will be converted to a Schrodinger
+            Structure object.
+        name (str): Name for this Jaguar input. Default is "jaguar.in"
+        dft_rung (int): Which type of DFT functional should be used. Values
+            between 1-4 are accepted, with default functionals being chosen:
+            1: "hfs"
+            2: "b97-d3"
+            3: "m06-l"
+            4: "wb97x-d"
+        basis_set (str): Basis set to be used. Default is "def2-svpd(-f)", a relatively
+            small split-valence basis with polarization and diffuse functions
+            included.
+        pcm_settings (Dict): If not None (default), then the polarizable continuum model
+            (PCM) will be used to construct an implicit solvation environment around
+            the molecule of interest. pcm_settings requires at least two keys,
+            solvent and model. If solvent is "other", then four additional keys are
+            required, dielectric (solvent dielectric constant), optical (square of the
+            solvent index of refraction), density (solvent density in g/cm^3) and
+            molar_mass (solvent molar mass in g/mol).
+        max_scf_cycles (int): Maximum SCF cycles to be allowed before the calculation
+            fails. The detault is 400, but for simple calculations, a much lower number
+            (perhaps 100) is reasonable.
+        endpoints_only (bool): If True (default False), then perform a "three-point"
+            IRC, where the goal is to identify the endpoints, not to characterize
+            the entire reaction pathway.
+        overwrite_inputs_gen (Dict): Dictionary of Jaguar inputs that should overwrite
+            defaults
+    """
+
+    def __init__(self,
+                 molecule: Union[Molecule, MoleculeGraph],
+                 name: str = "jaguar.in",
+                 dft_rung: int = 4,
+                 basis_set: str = "def2-svpd(-f)",
+                 pcm_settings: Optional[Dict] = None,
+                 max_scf_cycles: int = 400,
+                 endpoints_only: bool = False,
+                 overwrite_inputs_gen: Optional[Dict] = None):
+
+        if overwrite_inputs_gen is None:
+            gen = dict()
+        else:
+            gen = overwrite_inputs_gen
+
+        gen["irc"] = 1
+        gen["irc_grad_check"] = 0
+
+        if endpoints_only:
+            if "three_pt_irc" not in gen:
+                gen["three_pt_irc"] = 1  # Only calculate endpoints, and not entire reaction pathway
+        else:
+            if "ircmax" not in gen:
+                gen["ircmax"] = 10  # Allow for up to 10 points along IRC on each side of TS
+            if "ircmxcyc" not in gen:
+                gen["ircmxcyc"] = 50  # Maximum number of steps for optimization of each point along IRC
+
+        super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set, pcm_settings=pcm_settings,
+                         max_scf_cycles=max_scf_cycles, overwrite_inputs_gen=gen)
