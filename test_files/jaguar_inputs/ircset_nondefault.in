@@ -1,5 +1,6 @@
-MAEFILE: ircset_nondefault.in.mae
+MAEFILE: ircset_nondefault.mae
 &gen
+inhess=4
 isolv=7
 solvent=benzene
 isymm=0
@@ -9,12 +10,12 @@ molchg=0
 multip=1
 ip472=2
 babel=xyz
-ircmxcyc=50
+ircmxcyc=300
 dftname=hfs
 irc_grad_check=0
 nogas=2
 ip175=2
-ircmax=10
+ircmax=100
 irc=1
 iacc=1
 &

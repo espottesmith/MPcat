@@ -1,5 +1,6 @@
 MAEFILE: ircset_defaults.in.mae
 &gen
+inhess=4
 isymm=0
 basis=def2-svpd(-f)
 maxit=400
@@ -7,12 +8,12 @@ molchg=0
 multip=1
 ip472=2
 babel=xyz
-ircmxcyc=50
+ircmxcyc=300
 dftname=wb97x-d
 irc_grad_check=0
 nogas=2
 ip175=2
-ircmax=10
+ircmax=100
 irc=1
 iacc=2
 &
