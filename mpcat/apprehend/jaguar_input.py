@@ -620,14 +620,17 @@ class IRCSet(JagSet):
         gen["irc"] = "1"
         gen["irc_grad_check"] = "0"
 
+        if "inhess" not in gen:
+            gen["inhess"] = 4
+
         if endpoints_only:
             if "three_pt_irc" not in gen:
                 gen["three_pt_irc"] = "1"  # Only calculate endpoints, and not entire reaction pathway
         else:
             if "ircmax" not in gen:
-                gen["ircmax"] = "10"  # Allow for up to 10 points along IRC on each side of TS
+                gen["ircmax"] = "100"  # Allow for up to 10 points along IRC on each side of TS
             if "ircmxcyc" not in gen:
-                gen["ircmxcyc"] = "50"  # Maximum number of steps for optimization of each point along IRC
+                gen["ircmxcyc"] = "300"  # Maximum number of steps for optimization of each point along IRC
 
         super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set, pcm_settings=pcm_settings,
                          max_scf_cycles=max_scf_cycles, overwrite_inputs_gen=gen)
