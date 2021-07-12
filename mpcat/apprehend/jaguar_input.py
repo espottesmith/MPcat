@@ -62,7 +62,7 @@ def generate_gen(dft_rung: int,
 
     gen["dftname"] = dftname
     gen["basis"] = basis_set
-    gen["matit"] = max_scf_cycles
+    gen["maxit"] = max_scf_cycles
 
     if pcm_settings is not None:
         gen["isolv"] = 7
