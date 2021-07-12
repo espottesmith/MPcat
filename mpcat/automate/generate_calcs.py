@@ -7,6 +7,7 @@ import datetime
 from pathlib import Path
 import time
 import random
+from enum import Enum
 
 from pymongo import UpdateOne
 
@@ -18,9 +19,173 @@ from pymatgen.analysis.graphs import MoleculeGraph
 from schrodinger.application.jaguar.autots_exceptions import UnsupportedReaction
 
 from mpcat.aggregate.database import CatDB
+from mpcat.apprehend.jaguar_input import (JagSet, OptSet, TSOptSet, FreqSet, ScanSet, IRCSet)
 from mpcat.apprehend.autots_input import TSSet
 from mpcat.utils.comparison import compositions_equal
 from mpcat.utils.generate import mol_to_mol_graph
+
+
+#TODO: Fix documentation in this file
+#TODO: Make a Job superclass; significant overlap between JaguarJob and AutoTSJob
+
+
+class JaguarJobType(Enum):
+    SP = 0
+    OPT = 1
+    TS = 2
+    FREQ = 3
+    SCAN = 4
+    IRC = 5
+
+job_type_mapping = {"sp": JaguarJobType.SP,
+                    "opt": JaguarJobType.OPT,
+                    "ts": JaguarJobType.TS,
+                    "freq": JaguarJobType.FREQ,
+                    "scan": JaguarJobType.SCAN,
+                    "irc": JaguarJobType.IRC}
+
+
+class JaguarJob:
+    """
+    A helper class to prepare and execute Jaguar calculations.
+    """
+
+    def __init__(self,
+                 molecule: Union[Molecule, MoleculeGraph],
+                 job_type: Union[str, JaguarJobType],
+                 path: Union[str, Path],
+                 schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGER",
+                 job_name: Optional[str] = None,
+                 num_cores: Optional[int] = 40,
+                 host: Optional[str] = None,
+                 save_scratch: Optional[bool] = False,
+                 input_params: Optional[Dict] = None):
+
+        """
+
+        :param molecule:
+        :param job_type:
+        :param path:
+        :param schrodinger_dir:
+        :param job_name:
+        :param num_cores:
+        :param host:
+        :param save_scratch:
+        :param input_params:
+        """
+
+        self.molecule = mol_to_mol_graph(molecule)
+
+        if isinstance(job_type, str):
+            if job_type.lower() not in job_type_mapping:
+                raise ValueError("Job type {} unknown!".format(job_type))
+
+            self.job_type = job_type_mapping[job_type.lower()]
+        else:
+            self.job_type = job_type
+
+        if isinstance(path, Path):
+            self.path = path
+        else:
+            self.path = Path(path)
+
+        if schrodinger_dir == "SCHRODINGER":
+            self.schrodinger_dir = Path(os.environ["SCHRODINGER"])
+        else:
+            if isinstance(schrodinger_dir, str):
+                self.schrodinger_dir = Path(schrodinger_dir)
+            else:
+                self.schrodinger_dir = schrodinger_dir
+
+        self.job_name = job_name
+        self.num_cores = num_cores
+        self.host = host
+        self.save_scratch = save_scratch
+
+        self.input_params = input_params
+
+    def setup_calculation(self):
+        """
+        Prepare for calculation - prepare directory with all necessary input
+            files.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+
+        if not self.path.exists():
+            self.path.mkdir()
+
+        job_name = self.job_name or "jaguar"
+
+        if self.job_type == JaguarJobType.SP:
+            calc_set = JagSet(self.molecule, name=job_name, **self.input_params)
+        elif self.job_type == JaguarJobType.OPT:
+            calc_set = OptSet(self.molecule, name=job_name, **self.input_params)
+        elif self.job_type == JaguarJobType.TS:
+            calc_set = TSOptSet(self.molecule, name=job_name, **self.input_params)
+        elif self.job_type == JaguarJobType.FREQ:
+            calc_set = FreqSet(self.molecule, name=job_name, **self.input_params)
+        elif self.job_type == JaguarJobType.SCAN:
+            calc_set = ScanSet(self.molecule, name=job_name, **self.input_params)
+        elif self.job_type == JaguarJobType.IRC:
+            calc_set = IRCSet(self.molecule, name=job_name, **self.input_params)
+        else:
+            raise NotImplementedError("No calculation set available for given calculation type!")
+
+        calc_set.write(self.path)
+
+    def run(self, command_line_args: Optional[Dict] = None):
+        """
+        Execute the Jaguar job
+
+        Args:
+            command_line_args (dict): A dictionary of flag: value pairs to be
+            provided to the autots command-line interface. Ex:
+            {"WAIT": None,
+            "max_threads": 20}
+             will be interpreted as "-WAIT -max_threads 20"
+
+        Returns:
+            None
+        """
+
+        job_name = self.job_name or "jaguar"
+
+        cur_dir = Path.cwd()
+        os.chdir(self.path.as_posix())
+
+        command = [(self.schrodinger_dir / "jaguar").as_posix(), "run",
+                   "-PARALLEL", str(self.num_cores)]
+
+        command.append("-jobname")
+        command.append(str(self.job_name))
+
+        if self.host is not None:
+            command.append("-HOST")
+            command.append(self.host)
+
+        if self.save_scratch:
+            command.append("-SAVE")
+
+        if command_line_args is not None:
+            for key, value in command_line_args.items():
+                command.append("-" + str(key))
+
+                if value is not None:
+                    command.append(str(value))
+
+        command.append("{}.in".format(job_name))
+
+        process = subprocess.run(command)
+
+        os.chdir(cur_dir.as_posix())
+
+        if process.returncode != 0:
+            raise RuntimeError("Job launch failed!")
 
 
 class AutoTSJob:
@@ -32,7 +197,7 @@ class AutoTSJob:
                  reactants: List[Union[Molecule, MoleculeGraph]],
                  products: List[Union[Molecule, MoleculeGraph]],
                  path: Union[str, Path],
-                 schrodinger_dir: Optional[str] = "SCHRODINGER",
+                 schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGER",
                  job_name: Optional[str] = None,
                  num_cores: Optional[int] = 40,
                  host: Optional[str] = None,
@@ -166,7 +331,7 @@ class AutoTSJob:
             raise RuntimeError("Job launch failed!")
 
 
-def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGraph]]]],
+def launch_mass_autots_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGraph]]]],
                      base_dir: Union[str, Path],
                      schrodinger_dir: Optional[Union[str, Path]] = "$SCHRODINGER",
                      job_name_prefix: Optional[str] = None,
@@ -284,18 +449,18 @@ def launch_mass_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGrap
         os.chdir(return_point.as_posix())
 
 
-def launch_jobs_from_queue(database: CatDB,
-                           base_dir: Union[str, Path],
-                           num_launches: int = 1,
-                           by_priority: bool = False,
-                           randomize: bool = False,
-                           query: Optional[Dict] = None,
-                           schrodinger_dir: Optional[str] = "SCHRODINGER",
-                           job_name: Optional[bool] = False,
-                           num_cores: Optional[int] = 40,
-                           host: Optional[str] = None,
-                           save_scratch: Optional[bool] = False,
-                           command_line_args: Optional[Dict] = None):
+def launch_autots_jobs_from_queue(database: CatDB,
+                                  base_dir: Union[str, Path],
+                                  num_launches: int = 1,
+                                  by_priority: bool = False,
+                                  randomize: bool = False,
+                                  query: Optional[Dict] = None,
+                                  schrodinger_dir: Optional[str] = "SCHRODINGER",
+                                  job_name: Optional[bool] = False,
+                                  num_cores: Optional[int] = 40,
+                                  host: Optional[str] = None,
+                                  save_scratch: Optional[bool] = False,
+                                  command_line_args: Optional[Dict] = None):
     """
     Use a CatDB.queue_collection to automatically submit jobs to a job manager.
 

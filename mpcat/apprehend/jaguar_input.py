@@ -320,7 +320,7 @@ class OptSet(JagSet):
                          overwrite_inputs_gen=gen)
 
 
-class TSSet(JagSet):
+class TSOptSet(JagSet):
     """
     JagSet object for use with transition-state optimization calculations
 
