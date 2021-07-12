@@ -11,6 +11,7 @@ from monty.json import MSONable
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 
+import schrodinger.infra.mm as mm
 from schrodinger.application.jaguar.input import JaguarInput, read
 from schrodinger.application.jaguar import validation
 
@@ -321,12 +322,174 @@ class OptSet(JagSet):
 
 class TSSet(JagSet):
     """
-    JagSet object for use with geometry optimization calculations
+    JagSet object for use with transition-state optimization calculations
 
     Args;
          molecule (Union[Molecule, MoleculeGraph]): molecule object that will
             be the subject of this calculation. Will be converted to a Schrodinger
             Structure object.
+            NOTE: If the quadratic synchronous transit (QST) method is being used,
+            this molecule should be the TS guess. Reactant and product structures
+            should be provided separately (see below).
+        name (str): Name for this Jaguar input. Default is "jaguar.in"
+        dft_rung (int): Which type of DFT functional should be used. Values
+            between 1-4 are accepted, with default functionals being chosen:
+            1: "hfs"
+            2: "b97-d3"
+            3: "m06-l"
+            4: "wb97x-d"
+        basis_set (str): Basis set to be used. Default is "def2-svpd(-f)", a relatively
+            small split-valence basis with polarization and diffuse functions
+            included.
+        pcm_settings (Dict): If not None (default), then the polarizable continuum model
+            (PCM) will be used to construct an implicit solvation environment around
+            the molecule of interest. pcm_settings requires at least two keys,
+            solvent and model. If solvent is "other", then four additional keys are
+            required, dielectric (solvent dielectric constant), optical (square of the
+            solvent index of refraction), density (solvent density in g/cm^3) and
+            molar_mass (solvent molar mass in g/mol).
+        max_scf_cycles (int): Maximum SCF cycles to be allowed before the calculation
+            fails. The detault is 400, but for simple calculations, a much lower number
+            (perhaps 100) is reasonable.
+        geom_opt_max_cycles (int): Maximum number of cycles allowed before a
+            geometry optimization fails. The default is 250, but for simple calculations,
+            a much lower number (perhaps 100) is reasonable.
+        use_qst (bool): If True (default False), perform a quadratic synchronous transit
+            calculation. If this is True, then reactant_molecule and product_molecule
+            must be set (see below).
+        reactant_molecule (Optional[Union[Molecule, MoleculeGraph]]): Reactant molecule,
+            used only for quadratic synchronous transit (QST) calculations. Default None.
+        product_molecule (Optional[Union[Molecule, MoleculeGraph]]): Product molecule,
+            used only for quadratic synchronous transit (QST) calculuations. Default None.
+        use_analytic_hessian (bool): If True (default), then at the beginning of the
+            calculation, an analytic Hessian will be calculated.
+        overwrite_inputs_gen (Dict): Dictionary of Jaguar inputs that should overwrite
+            defaults
+    """
+
+    def __init__(self,
+                 molecule: Union[Molecule, MoleculeGraph],
+                 name: str = "jaguar.in",
+                 dft_rung: int = 4,
+                 basis_set: str = "def2-svpd(-f)",
+                 pcm_settings: Optional[Dict] = None,
+                 max_scf_cycles: int = 400,
+                 geom_opt_max_cycles: int = 250,
+                 use_qst: bool = False,
+                 reactant_molecule: Optional[Union[Molecule, MoleculeGraph]] = None,
+                 product_molecule: Optional[Union[Molecule, MoleculeGraph]] = None,
+                 use_analytic_hessian: bool = True,
+                 overwrite_inputs_gen: Optional[Dict] = None):
+
+        if overwrite_inputs_gen is None:
+            gen = dict()
+        else:
+            gen = overwrite_inputs_gen
+
+        gen["igeopt"] = 2
+
+        if "maxitg" not in gen:
+            gen["maxitg"] = geom_opt_max_cycles
+        if "iqst" not in gen and use_qst:
+            if reactant_molecule is None or product_molecule is None:
+                raise ValueError("For QST calculation, reactant_molecule and product_molecule must be set!")
+            gen["iqst"] = 1  # Use quadratic synchronous transit TS search method
+        if "no_mul_imag_freq" not in gen:
+            gen["no_mul_imag_freq"] = 1  # Perturb TS structure to remove multiple imaginary frequencies
+        if "inhess" not in gen and use_analytic_hessian:
+            gen["inhess"] = 4  # Calculate an analytic quantum mechanical Hessian initially
+
+        super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set,
+                         pcm_settings=pcm_settings, max_scf_cycles=max_scf_cycles,
+                         overwrite_inputs_gen=gen)
+
+        # TODO: test this
+        if use_qst:
+            if isinstance(reactant_molecule, Molecule):
+                rct = molecule_to_schrodinger_struct(reactant_molecule)
+            else:
+                rct = mol_graph_to_schrodinger_struct(reactant_molecule)
+
+            if isinstance(product_molecule, Molecule):
+                pro = molecule_to_schrodinger_struct(product_molecule)
+            else:
+                pro = mol_graph_to_schrodinger_struct(product_molecule)
+
+            self.jagin.setStructure(rct, zmat=1)
+            self.jagin.setStructure(pro, zmat=2)
+
+
+class FreqSet(JagSet):
+    """
+    JagSet object for use with vibrational frequency calculations
+
+    Args;
+         molecule (Union[Molecule, MoleculeGraph]): molecule object that will
+            be the subject of this calculation. Will be converted to a Schrodinger
+            Structure object.
+        name (str): Name for this Jaguar input. Default is "jaguar.in"
+        dft_rung (int): Which type of DFT functional should be used. Values
+            between 1-4 are accepted, with default functionals being chosen:
+            1: "hfs"
+            2: "b97-d3"
+            3: "m06-l"
+            4: "wb97x-d"
+        basis_set (str): Basis set to be used. Default is "def2-svpd(-f)", a relatively
+            small split-valence basis with polarization and diffuse functions
+            included.
+        pcm_settings (Dict): If not None (default), then the polarizable continuum model
+            (PCM) will be used to construct an implicit solvation environment around
+            the molecule of interest. pcm_settings requires at least two keys,
+            solvent and model. If solvent is "other", then four additional keys are
+            required, dielectric (solvent dielectric constant), optical (square of the
+            solvent index of refraction), density (solvent density in g/cm^3) and
+            molar_mass (solvent molar mass in g/mol).
+        max_scf_cycles (int): Maximum SCF cycles to be allowed before the calculation
+            fails. The detault is 400, but for simple calculations, a much lower number
+            (perhaps 100) is reasonable.
+        overwrite_inputs_gen (Dict): Dictionary of Jaguar inputs that should overwrite
+            defaults
+    """
+
+    def __init__(self,
+                 molecule: Union[Molecule, MoleculeGraph],
+                 name: str = "jaguar.in",
+                 dft_rung: int = 4,
+                 basis_set: str = "def2-svpd(-f)",
+                 pcm_settings: Optional[Dict] = None,
+                 max_scf_cycles: int = 400,
+                 overwrite_inputs_gen: Optional[Dict] = None):
+
+        if overwrite_inputs_gen is None:
+            gen = dict()
+        else:
+            gen = overwrite_inputs_gen
+
+        gen["ifreq"] = 1
+
+        if "iraman" not in gen:
+            gen["iraman"] = 1  # Calculate Raman spectrum
+
+        super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set,
+                         pcm_settings=pcm_settings, max_scf_cycles=max_scf_cycles,
+                         overwrite_inputs_gen=gen)
+
+
+class ScanSet(JagSet):
+    """
+    JagSet object for use with potential energy surface scan calculations
+
+    Args;
+         molecule (Union[Molecule, MoleculeGraph]): molecule object that will
+            be the subject of this calculation. Will be converted to a Schrodinger
+            Structure object.
+        scan_variables (list of dicts): Coordinates to be scanned, along with scan
+            parameters. Ex:
+            scan_variables=[{"coordinate_type": "distance", "atoms": [1, 2],
+                             "initial": 1.0, "final": 2.0, "num_steps": 100, "step": 0.01}]
+            Valid coordinate_type values are "distance", "angle", and "torsion".
+            As many as 5 scan_variables can be given (at least 1 must be given for the
+            scan to be valid), and atom numbers are 0-based
         name (str): Name for this Jaguar input. Default is "jaguar.in"
         dft_rung (int): Which type of DFT functional should be used. Values
             between 1-4 are accepted, with default functionals being chosen:
@@ -356,43 +519,52 @@ class TSSet(JagSet):
 
     def __init__(self,
                  molecule: Union[Molecule, MoleculeGraph],
+                 scan_variables: List[Dict],
                  name: str = "jaguar.in",
                  dft_rung: int = 4,
                  basis_set: str = "def2-svpd(-f)",
                  pcm_settings: Optional[Dict] = None,
                  max_scf_cycles: int = 400,
                  geom_opt_max_cycles: int = 250,
-                 use_qst: bool = False,
-                 use_analytic_hessian: bool = True,
                  overwrite_inputs_gen: Optional[Dict] = None):
+
+        if len(scan_variables) == 0 or len(scan_variables) > 5:
+            raise ValueError("Between 1 and 5 scan_variables must be provided!")
 
         if overwrite_inputs_gen is None:
             gen = dict()
         else:
             gen = overwrite_inputs_gen
 
-        gen["igeopt"] = 2
-
         if "maxitg" not in gen:
             gen["maxitg"] = geom_opt_max_cycles
-        if "iqst" not in gen and use_qst:
-            gen["iqst"] = 1  # Use quadratic synchronous transit TS search method
-        if "no_mul_imag_freq" not in gen:
-            gen["no_mul_imag_freq"] = 1  # Perturb TS structure to remove multiple imaginary frequencies
-        if "inhess" not in gen and use_analytic_hessian:
-            gen["inhess"] = 4  # Calculate an analytic quantum mechanical Hessian initially
 
-        super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set,
-                         pcm_settings=pcm_settings, max_scf_cycles=max_scf_cycles,
-                         overwrite_inputs_gen=gen)
+        super().__init__(molecule, name=name, dft_rung=dft_rung,
+                         basis_set=basis_set, pcm_settings=pcm_settings,
+                         max_scf_cycles=max_scf_cycles, overwrite_inputs_gen=gen)
 
+        for var in scan_variables:
+            if not all([x in var for x in ["coordinate_type", "atoms", "initial", "final", "num_steps", "step"]]):
+                raise ValueError("Invalid scan_variable format! Must have keys 'coordinate_type',"
+                                 " 'atoms', 'initial', 'final', 'num_steps', and 'step'")
 
-class FreqSet(JagSet):
-    pass
+            if var["coordinate_type"].lower() not in ["distance", "angle", "torsion"]:
+                raise ValueError("Invalid coordinate type for scan_variables! Must be one "
+                                 "of 'distance', 'angle', or 'torsion'!")
 
+            if var["coordinate_type"].lower() == "distance":
+                ct = mm.MMJAG_COORD_DISTANCE
+            elif var["coordinate_type"].lower() == "angle":
+                ct = mm.MMJAG_COORD_ANGLE
+            else:
+                ct = mm.MMJAG_COORD_TORSION
 
-class ScanSet(JagSet):
-    pass
+            self.jagin.setScanCoordinate(ct,
+                                         [a + 1 for a in var["atoms"]],
+                                         var["initial"],
+                                         var["final"],
+                                         var["num_steps"],
+                                         var["step"])
 
 
 class IRCSet(JagSet):
