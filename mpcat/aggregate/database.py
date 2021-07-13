@@ -383,6 +383,8 @@ class CatDB:
         return cls(creds["host"], int(creds.get("port", 27017)),
                    creds["database"],
                    user, password,
-                   data_collection=creds.get("data_collection", "autots_data"),
-                   queue_collection=creds.get("queue_collection", "autots_queue"),
+                   jaguar_data_collection=creds.get("jaguar_data_collection", "jaguar_data"),
+                   jaguar_queue_collection=creds.get("jaguar_queue_collection", "jaguar_queue"),
+                   autots_data_collection=creds.get("autots_data_collection", "autots_data"),
+                   autots_queue_collection=creds.get("autots_queue_collection", "autots_queue"),
                    **kwargs)
