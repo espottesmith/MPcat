@@ -155,6 +155,8 @@ def parse_jaguar_results(jagresult: JaguarResults):
     else:
         modes = [jagresult.normal_mode]
 
+    data["scan_values"] = jagresult.scan_values
+
     for mode in modes:
         data["frequencies"].append(mode.frequency)
         data["vibrational_frequency_modes"].append(mode.displacement)

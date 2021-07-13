@@ -15,8 +15,8 @@ from pymatgen.apps.borg.hive import AbstractDrone
 from schrodinger.application.jaguar.textparser import JaguarParseError
 
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
-from mpcat.apprehend.autots_input import AutoTSInput
-from mpcat.apprehend.autots_output import AutoTSOutput
+from mpcat.apprehend.autots_input import TSInput
+from mpcat.apprehend.autots_output import TSOutput
 from mpcat.apprehend.jaguar_output import JagOutput, JaguarOutputParseError
 from mpcat.aggregate.database import CatDB
 
@@ -109,6 +109,14 @@ class AutoTSCalcDrone(AbstractDrone):
                 if any([file.endswith(x) for x in allowed_suffixes]):
                     files_paths.append(sub_paths[ff])
 
+            sub_subdirs = [f.as_posix() for f in (calc_dir / subdir).iterdir() if (calc_dir / subdir / f).is_dir()]
+            for sub_subdir in sub_subdirs:
+                subsub_files = [f.as_posix() for f in (calc_dir / subdir / sub_subdir).iterdir() if (calc_dir / subdir / sub_subdir / f).is_file()]
+                subsub_paths = [subdir/ sub_subdir / f for f in subsub_files]
+                for ff, file in enumerate(subsub_files):
+                    if any([file.endswith(x) for x in allowed_suffixes]):
+                        files_paths.append(subsub_paths[ff])
+
         return files_paths
 
     def assimilate(self):
@@ -161,7 +169,7 @@ class AutoTSCalcDrone(AbstractDrone):
         d["spin_multiplicity"] = calc_data.get("spin_multiplicity")
         d["nelectrons"] = calc_data.get("nelectrons")
 
-        autots_input = AutoTSInput.from_file((self.path / "autots.in").as_posix(),
+        autots_input = TSInput.from_file((self.path / "autots.in").as_posix(),
                                              read_molecules=True)
 
         d["input"] = {"reactants": autots_input.reactants,
@@ -177,7 +185,7 @@ class AutoTSCalcDrone(AbstractDrone):
         if output_document is None:
             raise ValueError("Output file is not in path!")
 
-        autots_output = AutoTSOutput(output_document.as_posix())
+        autots_output = TSOutput(output_document.as_posix())
 
         d["calculation_names"] = autots_output.data.get("calculations")
         if d["calculation_names"] is None:

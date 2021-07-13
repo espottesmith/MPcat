@@ -4,26 +4,21 @@ from typing import List, Dict, Optional, Union
 import copy
 from pathlib import Path
 
+import numpy as np
+
 from monty.json import MSONable
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 
-from schrodinger.application.jaguar.reactiq_input import (ReactiqInput)
+from schrodinger.application.jaguar.autots_input import AutoTSInput
 
 from mpcat.adapt.schrodinger_adapter import (mol_graph_to_maestro_file,
                                              maestro_file_to_molecule)
+from mpcat.apprehend.jaguar_input import generate_gen
 from mpcat.utils.generate import mol_to_mol_graph
 
 
-class JaguarInput(MSONable):
-    """
-    An object representing a Jaguar input, including the molecule information
-    and any calculation parameters.
-    """
-    pass
-
-
-class AutoTSInput(MSONable):
+class TSInput(MSONable):
     """
     An object representing an AutoTS input, including the actual workflow input
     file, complete with all AutoTS-specific and Jaguar $gen keyword variables,
@@ -111,16 +106,16 @@ class AutoTSInput(MSONable):
                 mol_graph_to_maestro_file(product,
                                           base_dir / "pro_{}.mae".format(pp))
 
-        input_file = ReactiqInput(keywords=self.autots_variables,
-                                  jaguar_keywords=self.gen_variables,
-                                  jobname=jobname)
+        input_file = AutoTSInput(keywords=self.autots_variables,
+                                 jaguar_keywords=self.gen_variables,
+                                 jobname=jobname)
         input_file.save(filename)
 
     @classmethod
     def from_file(cls, filename: Union[str, Path], read_molecules: bool = True):
         """
         Parse an AutoTS workflow input file and store its data into an
-            AutoTSInput object.
+            TSInput object.
 
         Args:
             filename (str): Path to an existing AutoTS input file.
@@ -128,7 +123,7 @@ class AutoTSInput(MSONable):
                 product files
 
         Returns:
-            autots_input: AutoTSInput object
+            autots_input: TSInput object
         """
 
         if isinstance(filename, Path):
@@ -136,7 +131,7 @@ class AutoTSInput(MSONable):
         else:
             fn = filename
 
-        input_file = ReactiqInput()
+        input_file = AutoTSInput()
         input_file.read(fn)
 
         keywords = input_file._keywords.keys()
@@ -164,18 +159,18 @@ class AutoTSInput(MSONable):
         return cls(rct_mols, pro_mols, autots_variables, gen_variables)
 
 
-class AutoTSSet(AutoTSInput):
+class TSSet(TSInput):
     """
-    Build an AutoTSInput given various input parameters.
+    Build an TSInput given various input parameters.
     """
 
     def __init__(self,
                  reactants,
                  products,
                  spin_multiplicity=None,
-                 basis_set="def2-tzvpd",
+                 basis_set="def2-svpd(-f)",
                  dft_rung=4,
-                 pcm_dielectric=None,
+                 pcm_settings=None,
                  max_scf_cycles=400,
                  geom_opt_max_cycles=250,
                  overwrite_inputs_autots=None,
@@ -184,9 +179,10 @@ class AutoTSSet(AutoTSInput):
         Args:
             reactants (list of Molecule or MoleculeGraph objects):
             products (list of Molecule or MoleculeGraph objects):
+            spin_multiplicity (int):
             basis_set (str):
             dft_rung (int):
-            pcm_dielectric (float):
+            pcm_settings (Dict):
             max_scf_cycles (int):
             geom_opt_max_cycles (int):
             overwrite_inputs_autots (dict): Dictionary to overwrite default
@@ -195,58 +191,21 @@ class AutoTSSet(AutoTSInput):
                 Jaguar gen parameters
         """
 
-        autots_variables = {"eliminate_multiple_frequencies": True,
-                            "free_energy": True,
+        autots_variables = {"free_energy": True,
                             "require_irc_success": True,
                             "ts_vet_max_freq": -40.0,
-                            "units": "ev"}
+                            "units": "ev",
+                            "flexible_metal_coordination": True}
 
-        if dft_rung == 1:
-            dftname = "hfs"
-        elif dft_rung == 2:
-            dftname = "b97-d3"
-        elif dft_rung == 3:
-            dftname = "m06-l"
-        elif dft_rung == 4:
-            dftname = "wb97x-d"
-        else:
-            raise ValueError("Invalid dft_rung provided!")
-
-        gen_variables = {"dftname": dftname,
-                         "basis": basis_set,
-                         "babel": "xyz",
-                         "ip472": 2,  # Output all steps of geometry optimization in *.mae
-                         "ip172": 2,  # Print RESP file
-                         "ip175": 2,  # Print XYZ files
-                         "ifreq": 1,  # Frequency calculation
-                         "irder": 1,  # IR vibrational modes calculated
-                         "nmder": 2,  # Numerical second derivatives
-                         "nogas": 2,  # Skip gas-phase optimization, if PCM is used
-                         "maxitg": geom_opt_max_cycles,  # Maximum number of geometry optimization iterations
-                         "intopt_switch": 0,  # Do not switch from internal to Cartesian coordinates
-                         "optcoord_update": 0,  # Do not run checks to change coordinate system
-                         "props_each_step": 1,  # Calculate properties at each optimization step
-                         # "iaccg": 5  # Tight convergence criteria for optimization
-                         "mulken": 1,  # Calculate Mulliken properties by atom
-                         "maxit": max_scf_cycles,  # Maximum number of SCF iterations
-                         "iacc": 2,  # Use "accurate" SCF convergence criteria
-                         # "noauto": 3  # All calculations done on fine grid
-                         "isymm": 0,  # Do not use symmetry
-                         "espunit": 6  # Electrostatic potential in units of eV
-                         }
-
-        if pcm_dielectric is not None:
-            gen_variables["isolv"] = 7
-            gen_variables["epsout"] = pcm_dielectric
-            gen_variables["pcm_model"] = "cosmo"
+        gen_variables = generate_gen(dft_rung, basis_set,
+                                     pcm_settings=pcm_settings,
+                                     max_scf_cycles=max_scf_cycles,
+                                     geom_opt_max_cycles=geom_opt_max_cycles,
+                                     overwrite_inputs_gen=overwrite_inputs_gen)
 
         if overwrite_inputs_autots is not None:
             for key, value in overwrite_inputs_autots.items():
                 autots_variables[key] = value
-
-        if overwrite_inputs_gen is not None:
-            for key, value in overwrite_inputs_gen.items():
-                gen_variables[key] = value
 
         super().__init__(reactants, products, autots_variables, gen_variables,
                          spin_multiplicity=spin_multiplicity)
