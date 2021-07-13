@@ -5,11 +5,7 @@ import subprocess
 from typing import Optional, List, Dict, Union
 import datetime
 from pathlib import Path
-import time
 import random
-from enum import Enum
-
-from pymongo import UpdateOne
 
 from monty.serialization import dumpfn
 
@@ -21,28 +17,12 @@ from schrodinger.application.jaguar.autots_exceptions import UnsupportedReaction
 from mpcat.aggregate.database import CatDB
 from mpcat.apprehend.jaguar_input import (JagSet, OptSet, TSOptSet, FreqSet, ScanSet, IRCSet)
 from mpcat.apprehend.autots_input import TSSet
-from mpcat.utils.comparison import compositions_equal
 from mpcat.utils.generate import mol_to_mol_graph
+from mpcat.utils.types import JaguarJobType, job_type_mapping
 
 
 #TODO: Fix documentation in this file
 #TODO: Make a Job superclass; significant overlap between JaguarJob and AutoTSJob
-
-
-class JaguarJobType(Enum):
-    SP = 0
-    OPT = 1
-    TS = 2
-    FREQ = 3
-    SCAN = 4
-    IRC = 5
-
-job_type_mapping = {"sp": JaguarJobType.SP,
-                    "opt": JaguarJobType.OPT,
-                    "ts": JaguarJobType.TS,
-                    "freq": JaguarJobType.FREQ,
-                    "scan": JaguarJobType.SCAN,
-                    "irc": JaguarJobType.IRC}
 
 
 class JaguarJob:
@@ -161,8 +141,9 @@ class JaguarJob:
         command = [(self.schrodinger_dir / "jaguar").as_posix(), "run",
                    "-PARALLEL", str(self.num_cores)]
 
-        command.append("-jobname")
-        command.append(str(self.job_name))
+        if self.job_name is not None:
+            command.append("-jobname")
+            command.append(str(self.job_name))
 
         if self.host is not None:
             command.append("-HOST")
@@ -331,32 +312,32 @@ class AutoTSJob:
             raise RuntimeError("Job launch failed!")
 
 
-def launch_mass_autots_jobs(reactions: List[Dict[str, List[Union[Molecule, MoleculeGraph]]]],
-                     base_dir: Union[str, Path],
-                     schrodinger_dir: Optional[Union[str, Path]] = "$SCHRODINGER",
-                     job_name_prefix: Optional[str] = None,
-                     num_cores: Optional[int] = 40,
-                     host: Optional[str] = "localhost",
-                     save_scratch: Optional[bool] = False,
-                     input_params: Optional[Dict] = None,
-                     command_line_args: Optional[Dict] = None):
-
+def launch_jaguar_from_queue(database: CatDB,
+                             base_dir: Union[str, Path],
+                             num_launches: int = 1,
+                             by_priority: bool = False,
+                             randomize: bool = False,
+                             job_name: bool = False,
+                             query: Optional[Dict] = None,
+                             schrodinger_dir: Optional[str] = "SCHRODINGER",
+                             num_cores: Optional[int] = 40,
+                             host: Optional[str] = None,
+                             save_scratch: Optional[bool] = False,
+                             command_line_args: Optional[Dict] = None):
     """
-    Create many AutoTSJobs from
-        pymatgen.reaction_network.reaction_network.Reaction objects
+    Use a CatDB.queue_collection to automatically submit jobs to a job manager.
 
     Args:
-        reactions (list of dicts of Molecules): Dict, with keys "reactants" and
-            "products", and values being lists of Molecules
-        base_dir (str): Root directory where all calculation directories should
-            be made
+        database (CatDB): Database to query and identify calculations to run
+        base_dir (str): Base directory in which to launch the calculations
+        num_launches (int): Number of jobs to launch
+        by_priority (bool): If True (default False), then prioritize jobs with
+            higher priority, and do not run jobs with no priority assigned
+        query (dict): MongoDB query dictionary.
         schrodinger_dir (str): A path to the Schrodinger Suite of software.
             This is used to call AutoTS and other utilities. By default,
             this is "$SCHRODINGER", which should be an environment variable
             set at the time of installation.
-        job_name_prefix (str): All jobs in this set of reactions will be given a
-            unique name, but this prefix will be prepended to all calculations
-            in this set.
         num_cores (int): How many cores should the program be parallelized
             over (default 40). When multiple subjobs need to be run
             simultaneously, AutoTS will distribute these cores automatically
@@ -367,86 +348,85 @@ def launch_mass_autots_jobs(reactions: List[Dict[str, List[Union[Molecule, Molec
             system
         save_scratch (bool): If True (default False), save a *.zip file
             containing the contents of the calculation scratch directory
-        input_params (dict): Keywords and associated values to be provided
-            to TSSet
         command_line_args (dict): A dictionary of flag: value pairs to be
             provided to the autots command-line interface. Ex:
             {"WAIT": None,
              "subdir": None,
              "nsubjobs": 5}
              will be interpreted as "-WAIT -subdir -nsubjobs 5"
-
-
-    Returns:
-        None
     """
 
     if isinstance(base_dir, str):
         base_dir = Path(base_dir)
 
-    jobs = list()
+    # If query is None, just grab all possible calculations
+    queue_collection = database.database[database.jaguar_queue_collection]
 
-    jobs_made = 0
+    if query is None:
+        query = {"state": "READY"}
+    else:
+        if "state" not in query:
+            query["state"] = "READY"
 
-    # Make an AutoTSJob object for each reaction
-    for rr, reaction in enumerate(reactions):
+    initial_query = [e for e in queue_collection.find(query,
+                                                      {"_id": 0,
+                                                       "calcic": 1,
+                                                       "priority": 1})]
 
-        # Verify that reaction is balanced in terms of charge and species
-        charge_rct = 0
-        charge_pro = 0
+    if by_priority:
+        initial_query = sorted([i for i in initial_query if i["priority"] is not None],
+                               key=lambda x: x["priority"],
+                               reverse=True)
+    if randomize:
+        random.shuffle(initial_query)
 
-        reactants = list()
-        products = list()
+    if num_launches > len(initial_query):
+        raise ValueError("num_launches too high! Only {} jobs available".format(len(initial_query)))
 
-        for mol in reaction["reactants"]:
-            if isinstance(mol, Molecule):
-                charge_rct += mol.charge
-                reactants.append(mol)
-            else:
-                charge_rct += mol.molecule.charge
-                reactants.append(mol.molecule)
+    calc_ids = [r["calcid"] for r in initial_query[0:num_launches]]
+    to_calculate = list(queue_collection.find({"calcid": {"$in": calc_ids}}))
 
-        for mol in reaction["products"]:
-            if isinstance(mol, Molecule):
-                charge_pro += mol.charge
-                products.append(mol)
-            else:
-                charge_pro += mol.molecule.charge
-                products.append(mol.molecule)
-
-        charge_rct = sum([r.charge for r in reaction["reactants"]])
-        charge_pro = sum([p.charge for p in reaction["products"]])
-
-        if charge_rct != charge_pro:
-            print("Reactants and products do not have balanced charge! Skipping reaction {} in reactions".format(rr))
-            continue
-
-        if not compositions_equal(reactants, products):
-            print("Reactants and products are not balanced! Skipping reaction {} in reactions".format(rr))
-            continue
-
-        job_name = job_name_prefix + datetime.datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + str(jobs_made)
-        job = AutoTSJob(reaction["reactants"], reaction["products"],
-                        (base_dir / job_name),
+    for calc in to_calculate:
+        time_now = datetime.datetime.now(datetime.timezone.utc)
+        molecule = MoleculeGraph.from_dict(calc["molecule"])
+        job_type = job_type_mapping[calc["job_type"].lower()]
+        timestamp = time_now.strftime("%Y%m%d_%H%M%S_%f")
+        name = "_".join(["launcher", str(calc["calcid"]), timestamp])
+        job = JaguarJob(molecule,
+                        job_type,
+                        base_dir / name,
+                        job_name=str(calc["calcid"]) if job_name else None,
                         schrodinger_dir=schrodinger_dir,
-                        job_name=job_name, num_cores=num_cores, host=host,
-                        save_scratch=save_scratch, input_params=input_params)
-        jobs.append(job)
-        jobs_made += 1
+                        num_cores=num_cores,
+                        host=host,
+                        save_scratch=save_scratch,
+                        input_params=calc["input"])
 
-    # Prepare all jobs
-    for job in jobs:
-        job.setup_calculation()
-
-    return_point = Path.cwd()
-
-    for job in jobs:
         try:
-            job.run(command_line_args=command_line_args)
-        except RuntimeError:
-            print("Failed to run job {}".format(job.job_name))
+            job.setup_calculation()
 
-        os.chdir(return_point.as_posix())
+            queue_collection.update_one({"calcid": calc["calcid"]}, {"$set": {"state": "SUBMITTED",
+                                                                              "updated_on": time_now}})
+
+            calc_dict = {"calcid": calc.get("calcid"),
+                         "name": calc.get("name"),
+                         "job_type": calc.get("job_type"),
+                         "molecule": calc.get("molecule"),
+                         "charge": calc.get("charge"),
+                         "spin_multiplicity": calc.get("spin_multiplicity"),
+                         "nelectrons": calc.get("nelectrons"),
+                         "priority": calc.get("priority"),
+                         "input": calc.get("input"),
+                         "tags": calc.get("tags"),
+                         "additional_data": calc.get("additional_data")}
+
+            dumpfn(calc_dict, (base_dir / name / "calc.json").as_posix(), indent=2)
+            job.run(command_line_args=command_line_args)
+
+        except UnsupportedReaction:
+            queue_collection.update_one({"rxnid": calc["rxnid"]},
+                                        {"$set": {"state": "UNSUPPORTED",
+                                                  "updated_on": time_now}})
 
 
 def launch_autots_jobs_from_queue(database: CatDB,
@@ -454,9 +434,9 @@ def launch_autots_jobs_from_queue(database: CatDB,
                                   num_launches: int = 1,
                                   by_priority: bool = False,
                                   randomize: bool = False,
+                                  job_name: bool = False,
                                   query: Optional[Dict] = None,
                                   schrodinger_dir: Optional[str] = "SCHRODINGER",
-                                  job_name: Optional[bool] = False,
                                   num_cores: Optional[int] = 40,
                                   host: Optional[str] = None,
                                   save_scratch: Optional[bool] = False,
@@ -497,20 +477,18 @@ def launch_autots_jobs_from_queue(database: CatDB,
         base_dir = Path(base_dir)
 
     # If query is None, just grab all possible calculations
-    queue_collection = database.database[database.queue_collection]
+    queue_collection = database.database[database.autots_queue_collection]
 
     if query is None:
-        initial_query = [e for e in queue_collection.find({"state": "READY"},
-                                                          {"_id": 0,
-                                                           "rxnid": 1,
-                                                           "priority": 1})]
+        query = {"state": "READY"}
     else:
         if "state" not in query:
             query["state"] = "READY"
-        initial_query = [e for e in queue_collection.find(query,
-                                                          {"_id": 0,
-                                                           "rxnid": 1,
-                                                           "priority": 1})]
+
+    initial_query = [e for e in queue_collection.find(query,
+                                                      {"_id": 0,
+                                                       "calcic": 1,
+                                                       "priority": 1})]
 
     if by_priority:
         initial_query = sorted([i for i in initial_query if i["priority"] is not None],
