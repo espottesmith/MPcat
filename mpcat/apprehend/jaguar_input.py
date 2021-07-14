@@ -46,6 +46,7 @@ def generate_gen(dft_rung: int,
                  basis_set: str,
                  pcm_settings: Optional[Dict] = None,
                  max_scf_cycles: int = 400,
+                 max_geom_opt_cycles: Optional[int] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
     gen = get_default_gen()
@@ -63,6 +64,9 @@ def generate_gen(dft_rung: int,
     gen["dftname"] = dftname
     gen["basis"] = basis_set
     gen["maxit"] = max_scf_cycles
+
+    if max_geom_opt_cycles is not None:
+        gen["maxitg"] = max_geom_opt_cycles
 
     if pcm_settings is not None:
         gen["isolv"] = 7

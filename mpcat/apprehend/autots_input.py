@@ -200,7 +200,7 @@ class TSSet(TSInput):
         gen_variables = generate_gen(dft_rung, basis_set,
                                      pcm_settings=pcm_settings,
                                      max_scf_cycles=max_scf_cycles,
-                                     geom_opt_max_cycles=geom_opt_max_cycles,
+                                     max_geom_opt_cycles=geom_opt_max_cycles,
                                      overwrite_inputs_gen=overwrite_inputs_gen)
 
         if overwrite_inputs_autots is not None:
