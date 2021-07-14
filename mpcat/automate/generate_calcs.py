@@ -370,7 +370,7 @@ def launch_jaguar_from_queue(database: CatDB,
 
     initial_query = [e for e in queue_collection.find(query,
                                                       {"_id": 0,
-                                                       "calcic": 1,
+                                                       "calcid": 1,
                                                        "priority": 1})]
 
     if by_priority:
@@ -487,7 +487,7 @@ def launch_autots_from_queue(database: CatDB,
 
     initial_query = [e for e in queue_collection.find(query,
                                                       {"_id": 0,
-                                                       "calcic": 1,
+                                                       "rxnid": 1,
                                                        "priority": 1})]
 
     if by_priority:

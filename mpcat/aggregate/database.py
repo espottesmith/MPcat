@@ -334,7 +334,7 @@ class CatDB:
 
         doc = jsanitize(entry, allow_bson=True)
         self.database[self.autots_queue_collection].update_one({"rxnid": doc["rxnid"]},
-                                                        {"$set": doc}, upsert=True)
+                                                               {"$set": doc}, upsert=True)
 
     @classmethod
     def from_db_file(cls, db_file: Union[str, Path],
