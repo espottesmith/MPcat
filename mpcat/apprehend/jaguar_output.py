@@ -155,7 +155,10 @@ def parse_jaguar_results(jagresult: JaguarResults):
     else:
         modes = [jagresult.normal_mode]
 
-    data["scan_values"] = jagresult.scan_values
+    try:
+        data["scan_values"] = jagresult.scan_values
+    except AttributeError:
+        data["scan_values"] = None
 
     for mode in modes:
         data["frequencies"].append(mode.frequency)
