@@ -205,7 +205,7 @@ class JagSet(JagInput):
     JagInput (Jaguar input object) with some helpful defaults, aimed to improve
     ease of use.
 
-    Args;
+    Args:
          molecule (Union[Molecule, MoleculeGraph]): molecule object that will
             be the subject of this calculation. Will be converted to a Schrodinger
             Structure object.
@@ -262,7 +262,7 @@ class OptSet(JagSet):
     """
     JagSet object for use with geometry optimization calculations
 
-    Args;
+    Args:
          molecule (Union[Molecule, MoleculeGraph]): molecule object that will
             be the subject of this calculation. Will be converted to a Schrodinger
             Structure object.
@@ -328,7 +328,7 @@ class TSOptSet(JagSet):
     """
     JagSet object for use with transition-state optimization calculations
 
-    Args;
+    Args:
          molecule (Union[Molecule, MoleculeGraph]): molecule object that will
             be the subject of this calculation. Will be converted to a Schrodinger
             Structure object.
@@ -427,7 +427,7 @@ class FreqSet(JagSet):
     """
     JagSet object for use with vibrational frequency calculations
 
-    Args;
+    Args:
          molecule (Union[Molecule, MoleculeGraph]): molecule object that will
             be the subject of this calculation. Will be converted to a Schrodinger
             Structure object.
@@ -483,7 +483,7 @@ class ScanSet(JagSet):
     """
     JagSet object for use with potential energy surface scan calculations
 
-    Args;
+    Args:
          molecule (Union[Molecule, MoleculeGraph]): molecule object that will
             be the subject of this calculation. Will be converted to a Schrodinger
             Structure object.
@@ -575,7 +575,7 @@ class IRCSet(JagSet):
     """
     JagSet object for use with intrinsic reaction coordinate (IRC) calculations.
 
-    Args;
+    Args:
          molecule (Union[Molecule, MoleculeGraph]): molecule object that will
             be the subject of this calculation. Will be converted to a Schrodinger
             Structure object.
