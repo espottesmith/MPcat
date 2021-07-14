@@ -429,7 +429,7 @@ def launch_jaguar_from_queue(database: CatDB,
                                                   "updated_on": time_now}})
 
 
-def launch_autots_jobs_from_queue(database: CatDB,
+def launch_autots_from_queue(database: CatDB,
                                   base_dir: Union[str, Path],
                                   num_launches: int = 1,
                                   by_priority: bool = False,
