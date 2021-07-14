@@ -333,7 +333,7 @@ class CatDB:
         entry["additional_data"] = additional_data
 
         doc = jsanitize(entry, allow_bson=True)
-        self.database[self.queue_collection].update_one({"rxnid": doc["rxnid"]},
+        self.database[self.autots_queue_collection].update_one({"rxnid": doc["rxnid"]},
                                                         {"$set": doc}, upsert=True)
 
     @classmethod
