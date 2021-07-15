@@ -82,8 +82,8 @@ class CatDB:
             self.database["counter"].insert_one({"_id": "datumid", "c": 0})
         if self.database["counter"].find({"_id": "rxnid"}).count() == 0:
             self.database["counter"].insert_one({"_id": "rxnid", "c": 0})
-        if self.database["counter"].find({"_id": "calcic"}).count() == 0:
-            self.database["counter"].insert_one({"_id": "calcic", "c": 0})
+        if self.database["counter"].find({"_id": "calcid"}).count() == 0:
+            self.database["counter"].insert_one({"_id": "calcid", "c": 0})
 
     def update_autots_data_docs(self, docs: List[Dict], key: Optional[str] = "path"):
         """
@@ -178,10 +178,10 @@ class CatDB:
 
         entry = {"state": "READY"}
 
-        entry["molecule"] = mol_to_mol_graph(molecule)
-        entry["charge"] = entry["molecule"].charge
-        entry["nelectrons"] = int(entry["molecule"]._nelectrons)
-        entry["spin_multiplicity"] = entry["molecule"].spin_multiplicity
+        entry["molecule"] = mol_to_mol_graph(molecule).as_dict()
+        entry["charge"] = entry["molecule"].molecule.charge
+        entry["nelectrons"] = int(entry["molecule"].molecule._nelectrons)
+        entry["spin_multiplicity"] = entry["molecule"].molecule.spin_multiplicity
 
         if name is None:
             entry["name"] = entry["molecule"].composition.alphabetical_formula
