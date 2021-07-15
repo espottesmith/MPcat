@@ -178,10 +178,11 @@ class CatDB:
 
         entry = {"state": "READY"}
 
-        entry["molecule"] = mol_to_mol_graph(molecule).as_dict()
-        entry["charge"] = entry["molecule"].molecule.charge
-        entry["nelectrons"] = int(entry["molecule"].molecule._nelectrons)
-        entry["spin_multiplicity"] = entry["molecule"].molecule.spin_multiplicity
+        mg = mol_to_mol_graph(molecule)
+        entry["molecule"] = mg.as_dict()
+        entry["charge"] = mg.molecule.charge
+        entry["nelectrons"] = int(mg.molecule._nelectrons)
+        entry["spin_multiplicity"] = mg.molecule.spin_multiplicity
 
         if name is None:
             entry["name"] = entry["molecule"].composition.alphabetical_formula
