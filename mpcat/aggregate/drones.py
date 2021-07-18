@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-from typing import List, Dict
+from typing import List, Dict, Optional, Union
 from pathlib import Path
 import hashlib
 from json import loads
@@ -15,10 +15,12 @@ from pymatgen.apps.borg.hive import AbstractDrone
 from schrodinger.application.jaguar.textparser import JaguarParseError
 
 from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
+from mpcat.apprehend.jaguar_input import JagInput
+from mpcat.apprehend.jaguar_output import JagOutput, JaguarOutputParseError
 from mpcat.apprehend.autots_input import TSInput
 from mpcat.apprehend.autots_output import TSOutput
-from mpcat.apprehend.jaguar_output import JagOutput, JaguarOutputParseError
 from mpcat.aggregate.database import CatDB
+from mpcat.utils.types import JaguarJobType, job_type_mapping
 
 
 version = "0.0.1"
@@ -46,6 +48,216 @@ def compute_state_hash(documents: List[Path]) -> str:
             buf = file.read()
             digest.update(buf)
     return str(digest.hexdigest())
+
+
+class JaguarCalcDrone(AbstractDrone):
+    def __init__(self,
+                 path: Path,
+                 job_type: Optional[Union[str, JaguarJobType]] = None):
+        pass
+
+    @staticmethod
+    def get_documents_calc_dir(calc_dir: Path)  -> List[Path]:
+        """
+        Identify all important documents within a Jaguar calculation directory.
+
+        Args:
+            calc_dir: Path object that indicates a path to an individual AutoTS
+                calculation
+
+        Returns:
+            List of Documents
+        """
+        pass
+
+    def assimilate(self):
+        """
+        Generate the task doc and perform any additional steps on it to prepare
+        for insertion into a DB.
+
+        Args:
+            None
+
+        Returns:
+            task_doc (dict): The compiled results from the calculation.
+        """
+
+        d = self.generate_doc()
+        self.validate_doc(d)
+        return jsanitize(d, strict=True, allow_bson=True)
+
+    def generate_doc(self):
+        """
+        Generate a dictionary from the inputs and outputs of the various
+        Jaguar calculations involved in the Jaguar calculation.
+
+        Args:
+            None
+
+        Returns:
+            d (dict): The compiled results from the calculation.
+        """
+
+        pass
+
+    def validate_doc(self, d: Dict):
+        """
+        Sanity check, aka make sure all the important keys are set. Note that a failure
+        to pass validation is unfortunately unlikely to be noticed by a user.
+        """
+
+        for k, v in self.schema.items():
+            diff = v.difference(set(d.get(k, d).keys()))
+            if diff:
+                raise RuntimeWarning("The keys {0} in {1} not set".format(diff, k))
+
+    @staticmethod
+    def get_valid_paths(path):
+        return [path]
+
+
+class JaguarBuilderDrone:
+    """
+    A drone to parse through a collection of many Jaguar calculations and enter
+    them into a database.
+    """
+
+    def __init__(self, db: CatDB, path: Path):
+        """
+
+        Args:
+            db (CatDB): Database connection for storing calculations.
+            path (Path): Path to the root directory where calculations are
+                stored.
+        """
+
+        self.db = db
+        self.path = path
+
+    def find_valid_directories(self):
+        """
+        Examine all subdirectories in the main path, and determine which of them
+        are expected to be valid calculation directories.
+
+        Args:
+             None
+
+        Returns:
+            valid (list of Paths): List of directories to be parsed
+        """
+
+        directories = [e for e in self.path.iterdir() if e.is_dir()]
+
+        valid = list()
+
+        for directory in directories:
+            file_names = [e.name for e in directory.iterdir() if e.is_file()]
+            this_valid = False
+
+            if "jaguar.in" in file_names and "jaguar.out" in file_names:
+                this_valid = True
+            elif "calc.json" in file_names:
+                calc_data = loadfn((directory / "calc.json").as_posix())
+                in_file = "{}.in".format(calc_data["calcid"])
+                out_file = "{}.out".format(calc_data["calcid"])
+                if in_file in file_names and out_file in file_names:
+                    this_valid = True
+
+            if this_valid:
+                valid.append(directory)
+
+        return valid
+
+    def read(self):
+        """
+        Determine the state hashes for all of the directories in the path
+
+        Args:
+            None
+
+        Returns:
+             mapping (dict): A dictionary where keys are Paths to specific
+                calculation directories and values are task docs, generated
+                using JaguarCalcDrone
+        """
+
+        valid = self.find_valid_directories()
+
+        mapping = dict()
+        for directory in valid:
+            documents = JaguarCalcDrone.get_documents_calc_dir(directory)
+            mapping[directory] = compute_state_hash(documents)
+
+        return mapping
+
+    def find_records_to_update(self, records: Dict):
+        """
+        Determine which records need to be updated, based on a hashing function.
+
+        Args:
+            records (Dict): A dictionary where keys are Paths and values are
+                hashes
+
+        Return:
+            to_update (Dict): A dictionary of the same format as records.
+        """
+
+        paths = [e for e in records.keys()]
+        paths_names = [e.as_posix() for e in paths]
+
+        cursor = self.db.database[self.db.jaguar_data_collection].find(
+            {"path": {"$in": paths_names}},
+            {"_id": 0, "path": 1, "hash": 1, "last_updated": 1}
+        )
+
+        db_record_log = {doc["path"]: doc["hash"] for doc in cursor}
+
+        to_update_list = [hash_value != db_record_log.get(path, None)
+                          for path, hash_value in records.items()]
+
+        return [path for path, to_update in zip(paths, to_update_list) if to_update]
+
+    def update_targets(self, items: List[Path]):
+        """
+        Use JaguarCalcDrone to update select entries in the database
+
+        Args:
+            items (list of Paths): Paths to be parsed/updated
+
+        Return:
+            None
+        """
+
+        docs = list()
+
+        for path in items:
+            drone = JaguarCalcDrone(path)
+            try:
+                doc = drone.assimilate()
+                docs.append(doc)
+            except:
+                print("Cannot parse {}".format(path.as_posix()))
+                continue
+
+        if len(docs) > 0:
+            self.db.update_jaguar_data_docs(docs, key="path")
+
+    def build(self):
+        """
+        Perform the build sequence - find the relevant directories, determine
+            if they need to be updated, and then perform the update.
+
+        Args:
+            None
+
+        Return:
+            None
+        """
+
+        mapping = self.read()
+        to_update = self.find_records_to_update(mapping)
+
+        self.update_targets(to_update)
 
 
 class AutoTSCalcDrone(AbstractDrone):
@@ -238,7 +450,7 @@ class AutoTSCalcDrone(AbstractDrone):
         d["last_updated"] = datetime.now()
         return d
 
-    def validate_doc(self, d):
+    def validate_doc(self, d: Dict):
         """
         Sanity check, aka make sure all the important keys are set. Note that a failure
         to pass validation is unfortunately unlikely to be noticed by a user.
@@ -342,7 +554,7 @@ class AutoTSBuilderDrone:
         paths = [e for e in records.keys()]
         paths_names = [e.as_posix() for e in paths]
 
-        cursor = self.db.database[self.db.data_collection].find(
+        cursor = self.db.database[self.db.autots_data_collection].find(
             {"path": {"$in": paths_names}},
             {"_id": 0, "path": 1, "hash": 1, "last_updated": 1}
         )
@@ -377,7 +589,7 @@ class AutoTSBuilderDrone:
                 continue
 
         if len(docs) > 0:
-            self.db.update_data_doc(docs, key="path")
+            self.db.update_autots_data_docs(docs, key="path")
 
     def build(self):
         """
