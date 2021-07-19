@@ -66,6 +66,8 @@ class JaguarCalcDrone(AbstractDrone):
 
         if isinstance(job_type, JaguarJobType):
             self.job_type = job_type
+        elif job_type is None:
+            self.job_type = None
         else:
             self.job_type = job_type_mapping[job_type]
 
