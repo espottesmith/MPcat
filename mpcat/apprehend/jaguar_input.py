@@ -146,6 +146,7 @@ class JagInput(MSONable):
         for k, v in new_gen.items():
             validation.keyword_value_pair_is_valid(k, v)
         self.jagin.setValues(new_gen)
+        self.gen_variables = self.jagin.getNonDefault()
 
     def write(self, directory: Path):
         """

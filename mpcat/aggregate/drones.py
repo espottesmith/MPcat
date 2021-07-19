@@ -51,10 +51,26 @@ def compute_state_hash(documents: List[Path]) -> str:
 
 
 class JaguarCalcDrone(AbstractDrone):
+
+    schema = {
+        "root": {
+            "path", "input", "output", "walltime", "hash"
+        },
+        "input": {"molecule", "gen_variables"},
+    }
+
     def __init__(self,
                  path: Path,
                  job_type: Optional[Union[str, JaguarJobType]] = None):
-        pass
+        self.path = path
+
+        if isinstance(job_type, JaguarJobType):
+            self.job_type = job_type
+        else:
+            self.job_type = job_type_mapping[job_type]
+
+        self.documents = self.get_documents_calc_dir(path)
+        self.file_names = [d.name for d in self.documents]
 
     @staticmethod
     def get_documents_calc_dir(calc_dir: Path)  -> List[Path]:
@@ -68,7 +84,21 @@ class JaguarCalcDrone(AbstractDrone):
         Returns:
             List of Documents
         """
-        pass
+        root_contents = [f for f in calc_dir.iterdir()]
+
+        files = [f for f in root_contents if (calc_dir / f).is_file()]
+
+        allowed_suffixes = ["mae", "out", "in", "xyz", "mae.gz", "out.gz", "in.gz"]
+
+        files_paths = list()
+        for file in files:
+            f = file.as_posix()
+            if "jaguar" in f and any([f.endswith(x) for x in allowed_suffixes]):
+                files_paths.append(calc_dir / file)
+            elif "calc.json" in f:
+                files_paths.append(calc_dir / file)
+
+        return files_paths
 
     def assimilate(self):
         """
@@ -98,7 +128,59 @@ class JaguarCalcDrone(AbstractDrone):
             d (dict): The compiled results from the calculation.
         """
 
-        pass
+        if "jaguar.in" not in self.file_names:
+            raise ValueError("Input file is not in path!")
+
+        d = dict()
+        d["schema"] = {"code": "mpcat", "version": version}
+        d["path"] = self.path.as_posix()
+        d["hash"] = compute_state_hash(self.documents)
+
+        calc_data = dict()
+        for document in self.documents:
+            if document.name == "calc.json":
+                calc_data = loads(open(document.as_posix()).read())
+                break
+
+        d["calcid"] = calc_data.get("calcid")
+        d["tags"] = calc_data.get("tags")
+        d["additional_data"] = calc_data.get("additional_data")
+        d["name"] = calc_data.get("name")
+        d["charge"] = calc_data.get("charge")
+        d["spin_multiplicity"] = calc_data.get("spin_multiplicity")
+        d["nelectrons"] = calc_data.get("nelectrons")
+
+        jaguar_input = JagInput.from_file(self.path / "jaguar.in")
+
+        output_document = None
+        for document in self.documents:
+            if document.name == "jaguar.out":
+                output_document = document
+                break
+        if output_document is None:
+            raise ValueError("Output file is not in path!")
+
+        jaguar_output = JagOutput(output_document.as_posix())
+
+        d["job_name"] = jaguar_output.data.get("job_name")
+        d["full_filename"] = jaguar_output.data.get("full_filename")
+        d["job_id"] = jaguar_output.data.get("job_id")
+
+        d["errors"] = dict()
+        d["errors"]["parsing"] = jaguar_output.data.get("parsing_error")
+        d["errors"]["fatal"] = jaguar_output.data.get("fatal_error")
+
+        d["success"] = jaguar_output.data["success"]
+        d["walltime"] = jaguar_output.data["walltime"]
+
+        d["input"] = jaguar_output.data["input"]
+        d["input"]["molecule"] = jaguar_input.mol
+        d["input"]["gen_variables"] = jaguar_input.gen_variables
+
+        d["output"] = jaguar_output.data["output"]
+
+        d["last_updated"] = datetime.now()
+        return d
 
     def validate_doc(self, d: Dict):
         """
@@ -381,8 +463,8 @@ class AutoTSCalcDrone(AbstractDrone):
         d["spin_multiplicity"] = calc_data.get("spin_multiplicity")
         d["nelectrons"] = calc_data.get("nelectrons")
 
-        autots_input = TSInput.from_file((self.path / "autots.in").as_posix(),
-                                             read_molecules=True)
+        autots_input = TSInput.from_file(self.path / "autots.in",
+                                         read_molecules=True)
 
         d["input"] = {"reactants": autots_input.reactants,
                       "products": autots_input.products,
