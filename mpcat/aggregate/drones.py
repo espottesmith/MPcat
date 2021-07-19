@@ -151,6 +151,7 @@ class JaguarCalcDrone(AbstractDrone):
         d["charge"] = calc_data.get("charge")
         d["spin_multiplicity"] = calc_data.get("spin_multiplicity")
         d["nelectrons"] = calc_data.get("nelectrons")
+        d["job_type"] = calc_data.get("job_type")
 
         jaguar_input = JagInput.from_file(self.path / "jaguar.in")
 
