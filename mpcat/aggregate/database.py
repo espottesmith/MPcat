@@ -148,7 +148,7 @@ class CatDB:
                                   priority: Optional[int] = None,
                                   additional_data: Optional[Dict] = None):
         """
-        Add a calculation to the "queue" (self.queue_collection collection).
+        Add a calculation to the "queue" (self.jaguar_queue_collection collection).
 
         Args:
             molecule (Molecule or MoleculeGraph object): the molecule to be
@@ -221,7 +221,7 @@ class CatDB:
                                   include_reaction_graph: Optional[bool] = False,
                                   additional_data: Optional[Dict] = None):
         """
-        Add a reaction to the "queue" (self.queue_collection collection).
+        Add a reaction to the "queue" (self.autots_queue_collection collection).
 
         Args:
             reactants (list of Molecule objects): The reactants of the reaction.
