@@ -9,7 +9,7 @@ from monty.json import MSONable, jsanitize
 from schrodinger.application.jaguar.output import JaguarOutput
 from schrodinger.application.jaguar.results import JaguarResults
 
-from mpcat.adapt.schrodinger_adapter import maestro_file_to_molecule
+from mpcat.adapt.schrodinger_adapter import (maestro_file_to_molecule, schrodinger_struct_to_molecule)
 
 
 class JaguarOutputParseError(Exception):
@@ -166,6 +166,8 @@ def parse_jaguar_results(jagresult: JaguarResults):
 
     data["rotational_constants"] = jagresult.rotational_constants
 
+    data["molecule"] = schrodinger_struct_to_molecule(jagresult.getStructure())
+
     return data
 
 
@@ -239,6 +241,8 @@ class JagOutput(MSONable):
                 self.data["energy_trajectory"].append(parsed["scf_energy"])
 
             self.data["output"] = parse_jaguar_results(jag_out._results)
+            self.data["output"]["irc"] = [parse_jaguar_results(j) for j in jag_out.irc_step]
+            self.data["output"]["scan"] = [parse_jaguar_results(j) for j in jag_out.scan_step]
             self.data["output"]["output_file"] = jag_out.mae_out
 
             if parse_molecules:
