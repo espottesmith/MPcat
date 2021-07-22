@@ -279,6 +279,14 @@ class JagSet(JagInput):
         max_scf_cycles (int): Maximum SCF cycles to be allowed before the calculation
             fails. The detault is 400, but for simple calculations, a much lower number
             (perhaps 100) is reasonable.
+        charge_constraints (Optional[List[Dict]]): Set of charge constraints. Each
+            entry in the list should have the following format:
+            {"charge": float,
+             "weights": [(weight1, start1, end1), (weight2, start2, end2), ...]
+            }
+            where weightx is a floating-point number representing the portion
+            of charge located on atoms from startx to endx in the molecule,
+            Atom indices are given in pymatgen 0-index convention.
         overwrite_inputs_gen (Dict): Dictionary of Jaguar inputs that should overwrite
             defaults
 
@@ -689,3 +697,147 @@ class IRCSet(JagSet):
 
         super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set, pcm_settings=pcm_settings,
                          max_scf_cycles=max_scf_cycles, overwrite_inputs_gen=gen)
+
+class ElectronTransferSet(JagSet):
+    """
+    JagSet object for use with electron transfer coupling coefficient calculations
+
+    Args;
+         molecule (Union[Molecule, MoleculeGraph]): molecule object that will
+            be the subject of this calculation. Will be converted to a Schrodinger
+            Structure object.
+        name (str): Name for this Jaguar input. Default is "jaguar.in"
+        dft_rung (int): Which type of DFT functional should be used. Values
+            between 1-4 are accepted, with default functionals being chosen:
+            1: "hfs"
+            2: "b97-d3"
+            3: "m06-l"
+            4: "wb97x-d"
+        basis_set (str): Basis set to be used. Default is "def2-svpd(-f)", a relatively
+            small split-valence basis with polarization and diffuse functions
+            included.
+        pcm_settings (Dict): If not None (default), then the polarizable continuum model
+            (PCM) will be used to construct an implicit solvation environment around
+            the molecule of interest. pcm_settings requires at least two keys,
+            solvent and model. If solvent is "other", then four additional keys are
+            required, dielectric (solvent dielectric constant), optical (square of the
+            solvent index of refraction), density (solvent density in g/cm^3) and
+            molar_mass (solvent molar mass in g/mol).
+        max_scf_cycles (int): Maximum SCF cycles to be allowed before the calculation
+            fails. The detault is 400, but for simple calculations, a much lower number
+            (perhaps 100) is reasonable.
+        acceptor_initial (Optional[Union[str, Path]]): Path to the restart file for the
+            charge acceptor in the initial state.
+        acceptor_final (Optional[Union[str, Path]]): Path to the restart file for the
+            charge acceptor in the final state.
+        donor_initial (Optional[Union[str, Path]]): Path to the restart file for the
+            charge donor in the initial state.
+        donor_final (Optional[Union[str, Path]]): Path to the restart file for the
+            charge donor in the final state.
+        complex_initial (Optional[Union[str, Path]]): Path to the restart file for the
+            donor-acceptor complex in the initial state
+        complex_final (Optional[Union[str, Path]]): Path to the restart file for the
+            donor-acceptor complex in the final state
+        overwrite_inputs_gen (Dict): Dictionary of Jaguar inputs that should overwrite
+            defaults
+    """
+
+    def __init__(self,
+                 molecule: Union[Molecule, MoleculeGraph],
+                 name: str = "jaguar.in",
+                 dft_rung: int = 4,
+                 basis_set: str = "def2-svpd(-f)",
+                 pcm_settings: Optional[Dict] = None,
+                 max_scf_cycles: int = 400,
+                 acceptor_initial: Optional[Union[str, Path]] = None,
+                 acceptor_final: Optional[Union[str, Path]] = None,
+                 donor_initial: Optional[Union[str, Path]] = None,
+                 donor_final: Optional[Union[str, Path]] = None,
+                 complex_initial: Optional[Union[str, Path]] = None,
+                 complex_final: Optional[Union[str, Path]] = None,
+                 overwrite_inputs_gen: Optional[Dict] = None):
+
+        if overwrite_inputs_gen is None:
+            gen = dict()
+        else:
+            gen = overwrite_inputs_gen
+
+        gen["etransfer"] = 1
+
+        super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set, pcm_settings=pcm_settings,
+                         max_scf_cycles=max_scf_cycles, overwrite_inputs_gen=gen)
+
+        if all([x is not None for x in [acceptor_initial, acceptor_final, donor_initial, donor_final]]):
+            self.set_directives_donor_acceptor(acceptor_initial, acceptor_final, donor_initial, donor_final)
+        elif complex_initial is not None and complex_final is not None:
+            self.set_directives_complex(complex_initial, complex_final)
+        else:
+            raise ValueError("Restart files must be provided for all donor/acceptor/complex states!")
+
+    def set_directives_donor_acceptor(self,
+                                      acceptor_initial: Union[str, Path],
+                                      acceptor_final: Union[str, Path],
+                                      donor_initial: Union[str, Path],
+                                      donor_final: Union[str, Path]):
+        """
+        Set Jaguar input file directives ET1A, ET2A, ET1D, and ET2D for electron transfer calculation.
+
+        Args:
+            acceptor_initial (Optional[Union[str, Path]]): Path to the restart file for the
+                charge acceptor in the initial state.
+            acceptor_final (Optional[Union[str, Path]]): Path to the restart file for the
+                charge acceptor in the final state.
+            donor_initial (Optional[Union[str, Path]]): Path to the restart file for the
+                charge donor in the initial state.
+            donor_final (Optional[Union[str, Path]]): Path to the restart file for the
+                charge donor in the final state.
+
+        Returns:
+            None
+        """
+
+        if isinstance(acceptor_initial, Path):
+            self.jagin.setDirective("ET1A", acceptor_initial.as_posix())
+        else:
+            self.jagin.setDirective("ET1A", acceptor_initial)
+
+        if isinstance(acceptor_final, Path):
+            self.jagin.setDirective("ET2A", acceptor_final.as_posix())
+        else:
+            self.jagin.setDirective("ET2A", acceptor_final)
+
+        if isinstance(donor_initial, Path):
+            self.jagin.setDirective("ET1D", donor_initial.as_posix())
+        else:
+            self.jagin.setDirective("ET1D", donor_initial)
+
+        if isinstance(donor_final, Path):
+            self.jagin.setDirective("ET2D", donor_final.as_posix())
+        else:
+            self.jagin.setDirective("ET2D", donor_final)
+
+    def set_directives_complex(self,
+                               complex_initial: Union[str, Path],
+                               complex_final: Union[str, Path]):
+        """
+        Set Jaguar input file directives ET1A, ET2A, ET1D, and ET2D for electron transfer calculation.
+
+        Args:
+            complex_initial (Optional[Union[str, Path]]): Path to the restart file for the
+                donor-acceptor complex in the initial state
+            complex_final (Optional[Union[str, Path]]): Path to the restart file for the
+                donor-acceptor complex in the final state
+
+        Returns:
+            None
+        """
+
+        if isinstance(complex_initial, Path):
+            self.jagin.setDirective("ET1DA", complex_initial.as_posix())
+        else:
+            self.jagin.setDirective("ET1DA", complex_initial)
+
+        if isinstance(complex_final, Path):
+            self.jagin.setDirective("ET2DA", complex_final.as_posix())
+        else:
+            self.jagin.setDirective("ET2DA", complex_final)
