@@ -8,10 +8,12 @@ class JaguarJobType(Enum):
     FREQ = 3
     SCAN = 4
     IRC = 5
+    ET = 6
 
 job_type_mapping = {"sp": JaguarJobType.SP,
                     "opt": JaguarJobType.OPT,
                     "ts": JaguarJobType.TS,
                     "freq": JaguarJobType.FREQ,
                     "scan": JaguarJobType.SCAN,
-                    "irc": JaguarJobType.IRC}
+                    "irc": JaguarJobType.IRC,
+                    "et": JaguarJobType.ET}

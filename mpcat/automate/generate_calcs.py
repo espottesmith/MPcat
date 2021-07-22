@@ -15,7 +15,13 @@ from pymatgen.analysis.graphs import MoleculeGraph
 from schrodinger.application.jaguar.autots_exceptions import UnsupportedReaction
 
 from mpcat.aggregate.database import CatDB
-from mpcat.apprehend.jaguar_input import (JagSet, OptSet, TSOptSet, FreqSet, ScanSet, IRCSet)
+from mpcat.apprehend.jaguar_input import (JagSet,
+                                          OptSet,
+                                          TSOptSet,
+                                          FreqSet,
+                                          ScanSet,
+                                          IRCSet,
+                                          ElectronTransferSet)
 from mpcat.apprehend.autots_input import TSSet
 from mpcat.utils.generate import mol_to_mol_graph
 from mpcat.utils.types import JaguarJobType, job_type_mapping
@@ -113,6 +119,8 @@ class JaguarJob:
             calc_set = ScanSet(self.molecule, name=job_name, **self.input_params)
         elif self.job_type == JaguarJobType.IRC:
             calc_set = IRCSet(self.molecule, name=job_name, **self.input_params)
+        elif self.job_type == JaguarJobType.ET:
+            calc_set = ElectronTransferSet(self.molecule, name=job_name, **self.input_params)
         else:
             raise NotImplementedError("No calculation set available for given calculation type!")
 
