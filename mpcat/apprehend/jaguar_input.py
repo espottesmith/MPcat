@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from typing import List, Dict, Optional, Union
+from typing import List, Dict, Optional, Union, Tuple
 import copy
 from pathlib import Path
 import os
@@ -105,14 +105,23 @@ class JagInput(MSONable):
         gen_variables (Dict): Dictionary of Jaguar inputs
         name (str): Name for this Jaguar input. Default is "jaguar.in"
         jagin (Optional[JaguarInput]): Already-made JaguarInput. Used in
-            other constructor methods like from_file
+            other constructor methods like from_file\
+        charge_constraints (Optional[List[Dict]]): Set of charge constraints. Each
+            entry in the list should have the following format:
+            {"charge": float,
+             "weights": [(weight1, start1, end1), (weight2, start2, end2), ...]
+            }
+            where weightx is a floating-point number representing the portion
+            of charge located on atoms from startx to endx in the molecule,
+            Atom indices are given in pymatgen 0-index convention.
     """
 
     def __init__(self,
                  molecule: Union[Molecule, MoleculeGraph],
                  gen_variables: Dict,
                  name: str = "jaguar.in",
-                 jagin: Optional[JaguarInput] = None
+                 jagin: Optional[JaguarInput] = None,
+                 charge_constraints: Optional[List[Dict]] = None
                  ):
 
         self.name = name
@@ -132,6 +141,9 @@ class JagInput(MSONable):
 
         self.modify_gen({k: str(v) for k, v in gen_variables.items()})
 
+        if charge_constraints is not None:
+            self.set_charge_constraints(charge_constraints)
+
     def modify_gen(self, new_gen: Dict):
         """
         Update the dictionary of gen key-value pairs for JaguarInput.
@@ -146,6 +158,7 @@ class JagInput(MSONable):
         for k, v in new_gen.items():
             validation.keyword_value_pair_is_valid(k, v)
         self.jagin.setValues(new_gen)
+        self.gen_variables = self.jagin.getNonDefault()
 
     def write(self, directory: Path):
         """
@@ -166,6 +179,43 @@ class JagInput(MSONable):
 
         # Move back
         os.chdir(curdir)
+
+    def set_charge_constraints(self, charge_constraints: List[Dict]):
+        """
+        Set charge constraints for CDFT.
+
+        This code is a slight modification on
+        the Schrodinger Python API JaguarInput.setChargeConstraints that provides
+        somewhat more flexibility to the user.
+
+        Args:
+            charge_constraints (List[Dict]): Set of charge constraints. Each
+                entry in the list should have the following format:
+                {"charge": float,
+                 "weights": [(weight1, start1, end1), (weight2, start2, end2), ...]
+                }
+                where weightx is a floating-point number representing the portion
+                of charge located on atoms from startx to endx in the molecule,
+                Atom indices are given in pymatgen 0-index convention.
+
+        Returns:
+            None
+        """
+
+        # Create new &cdft text section
+        txt = '&cdft\n'
+        for constraint in charge_constraints:
+            chg = constraint["charge"]
+            wts = constraint["weights"]
+            txt += '%.6f\n' % chg
+            sorted_weights = sorted(wts, key=lambda x: x[0])
+            for weight, start, end in sorted_weights:
+                txt += '%.6f %i %i\n' % (weight, start + 1, end + 1)
+        txt += '&\n'
+
+        # Update mmjag handle
+        self.jagin.setValue(mm.MMJAG_IKEY_ICDFT, mm.MMJAG_ICDFT_ON)
+        mm.mmjag_sect_append_wrapper(self.jagin.handle, txt)
 
     @classmethod
     def from_file(cls, file: Path,
@@ -241,6 +291,7 @@ class JagSet(JagInput):
                  basis_set: str = "def2-svpd(-f)",
                  pcm_settings: Optional[Dict] = None,
                  max_scf_cycles: int = 400,
+                 charge_constraints: Optional[List[Dict]] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
         if isinstance(molecule, Molecule):
@@ -255,7 +306,7 @@ class JagSet(JagInput):
         gen["molchg"] = mol.charge
         gen["multip"] = mol.spin_multiplicity
 
-        super().__init__(molecule, gen, name=name)
+        super().__init__(molecule, gen, name=name, charge_constraints=charge_constraints)
 
 
 class OptSet(JagSet):
