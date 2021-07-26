@@ -81,7 +81,7 @@ class TSOutput(MSONable):
 
     def _parse_calculations(self):
         temp_calcs = read_pattern(self.text,
-                                  {"key": r"\([0-9]+\) jaguar run ([A-Za-z0-9_\.\-]+) -TPP [0-9]+"}).get("key")
+                                  {"key": r"\([0-9]+\) jaguar run ([A-Za-z0-9_\.\-]+)"}).get("key")
 
         if temp_calcs is None or len(temp_calcs) == 0:
             self.data["calculations"] = None
