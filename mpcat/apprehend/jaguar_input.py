@@ -461,6 +461,8 @@ class TSOptSet(JagSet):
             gen["no_mul_imag_freq"] = "1"  # Perturb TS structure to remove multiple imaginary frequencies
         if "inhess" not in gen and use_analytic_hessian:
             gen["inhess"] = "4"  # Calculate an analytic quantum mechanical Hessian initially
+        if "ifreq" not in gen:
+            gen["ifreq"] = 1  # Always do a frequency calculation after optimization is complete
 
         super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set,
                          pcm_settings=pcm_settings, max_scf_cycles=max_scf_cycles,
