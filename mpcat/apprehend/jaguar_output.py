@@ -6,6 +6,8 @@ from pathlib import Path
 
 from monty.json import MSONable, jsanitize
 
+from pymatgen.core.periodic_table import DummySpecies
+
 from schrodinger.application.jaguar.output import JaguarOutput
 from schrodinger.application.jaguar.results import JaguarResults
 
@@ -166,7 +168,9 @@ def parse_jaguar_results(jagresult: JaguarResults):
 
     data["rotational_constants"] = jagresult.rotational_constants
 
-    data["molecule"] = schrodinger_struct_to_molecule(jagresult.getStructure())
+    molecule = schrodinger_struct_to_molecule(jagresult.getStructure())
+    molecule.remove_species([DummySpecies("")])
+    data["molecule"] = molecule
 
     return data
 
@@ -251,6 +255,11 @@ class JagOutput(MSONable):
                 self.data["molecule_trajectory"] = maestro_file_to_molecule(
                     base_dir / self.data["output"]["output_file"])
                 self.data["output"]["molecule"] = self.data["molecule_trajectory"][-1]
+
+                self.data["input"]["molecule"].remove_species([DummySpecies("")])
+                for m in self.data["molecule_trajectory"]:
+                    m.remove_species([DummySpecies("")])
+                self.data["output"]["molecule"].remove_species([DummySpecies("")])
 
             else:
                 self.data["input"]["molecule"] = None

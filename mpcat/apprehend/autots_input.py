@@ -7,6 +7,7 @@ from pathlib import Path
 import numpy as np
 
 from monty.json import MSONable
+from pymatgen.core.periodic_table import DummySpecies
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 
@@ -42,10 +43,12 @@ class TSInput(MSONable):
 
         self.reactants = list()
         for reactant in reactants:
+            reactant.remove_species([DummySpecies("")])
             self.reactants.append(mol_to_mol_graph(reactant))
 
         self.products = list()
         for product in products:
+            reactant.remove_species([DummySpecies("")])
             self.products.append(mol_to_mol_graph(product))
 
         self.autots_variables = autots_variables
