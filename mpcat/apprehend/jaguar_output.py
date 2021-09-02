@@ -169,7 +169,6 @@ def parse_jaguar_results(jagresult: JaguarResults):
     data["rotational_constants"] = jagresult.rotational_constants
 
     molecule = schrodinger_struct_to_molecule(jagresult.getStructure())
-    molecule.remove_species([DummySpecies("")])
     data["molecule"] = molecule
 
     return data
