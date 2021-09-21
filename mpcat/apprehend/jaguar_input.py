@@ -319,6 +319,9 @@ class JagSet(JagInput):
         max_scf_cycles (int): Maximum SCF cycles to be allowed before the calculation
             fails. The detault is 400, but for simple calculations, a much lower number
             (perhaps 100) is reasonable.
+        coord_constraints (Optional[List[Constraint]]): Set of coordinate constraints.
+            Each entry is a Constraint object, which has a ConstraintType (see
+            mpcat.utils.coordinates for details), a list of atom indices,
         charge_constraints (Optional[List[Dict]]): Set of charge constraints. Each
             entry in the list should have the following format:
             {"charge": float,
@@ -393,6 +396,9 @@ class OptSet(JagSet):
         geom_opt_max_cycles (int): Maximum number of cycles allowed before a
             geometry optimization fails. The default is 250, but for simple calculations,
             a much lower number (perhaps 100) is reasonable.
+        coord_constraints (Optional[List[Constraint]]): Set of coordinate constraints.
+            Each entry is a Constraint object, which has a ConstraintType (see
+            mpcat.utils.coordinates for details), a list of atom indices,
         overwrite_inputs_gen (Dict): Dictionary of Jaguar inputs that should overwrite
             defaults
     """
@@ -473,6 +479,9 @@ class TSOptSet(JagSet):
             used only for quadratic synchronous transit (QST) calculuations. Default None.
         use_analytic_hessian (bool): If True (default), then at the beginning of the
             calculation, an analytic Hessian will be calculated.
+        coord_constraints (Optional[List[Constraint]]): Set of coordinate constraints.
+            Each entry is a Constraint object, which has a ConstraintType (see
+            mpcat.utils.coordinates for details), a list of atom indices,
         overwrite_inputs_gen (Dict): Dictionary of Jaguar inputs that should overwrite
             defaults
     """
