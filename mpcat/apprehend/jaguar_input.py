@@ -18,6 +18,7 @@ from schrodinger.application.jaguar import validation
 from mpcat.adapt.schrodinger_adapter import (molecule_to_schrodinger_struct,
                                              mol_graph_to_schrodinger_struct,
                                              schrodinger_struct_to_molecule)
+from mpcat.utils.coordinates import Constraint, ConstraintType
 
 
 def get_default_gen():
@@ -105,7 +106,10 @@ class JagInput(MSONable):
         gen_variables (Dict): Dictionary of Jaguar inputs
         name (str): Name for this Jaguar input. Default is "jaguar.in"
         jagin (Optional[JaguarInput]): Already-made JaguarInput. Used in
-            other constructor methods like from_file\
+            other constructor methods like from_file
+        coord_constraints (Optional[List[Constraint]]): Set of coordinate constraints.
+            Each entry is a Constraint object, which has a ConstraintType (see
+            mpcat.utils.coordinates for details), a list of atom indices,
         charge_constraints (Optional[List[Dict]]): Set of charge constraints. Each
             entry in the list should have the following format:
             {"charge": float,
@@ -121,6 +125,7 @@ class JagInput(MSONable):
                  gen_variables: Dict,
                  name: str = "jaguar.in",
                  jagin: Optional[JaguarInput] = None,
+                 coord_constraints: Optional[List[Constraint]] = None,
                  charge_constraints: Optional[List[Dict]] = None
                  ):
 
@@ -141,6 +146,8 @@ class JagInput(MSONable):
 
         self.modify_gen({k: str(v) for k, v in gen_variables.items()})
 
+        if coord_constraints is not None:
+            self.set_constraints(coord_constraints)
         if charge_constraints is not None:
             self.set_charge_constraints(charge_constraints)
 
@@ -179,6 +186,39 @@ class JagInput(MSONable):
 
         # Move back
         os.chdir(curdir)
+
+    def set_constraints(self, constraints: List[Constraint]):
+        """
+
+        Args:
+            constraints (List[Constraint]): list of coordinate constraints.
+
+        Returns:
+            None
+        """
+
+        for const in constraints:
+            if const.constraint_type == ConstraintType.DISTANCE:
+                self.jagin.setConstraint(
+                    mm.MMJAG_COORD_DISTANCE,
+                    [x + 1 for x in const.atoms],
+                    value=const.value
+                )
+            elif const.constraint_type == ConstraintType.ANGLE:
+                self.jagin.setConstraint(
+                    mm.MMJAG_COORD_ANGLE,
+                    [x + 1 for x in const.atoms],
+                    value=const.value
+                )
+            elif const.constraint_type == ConstraintType.TORSION:
+                self.jagin.setConstraint(
+                    mm.MMJAG_COORD_TORSION,
+                    [x + 1 for x in const.atoms],
+                    value=const.value
+                )
+            else:
+                raise ValueError("Unexpected constraint type! Only DISTANCE, ANGLE,"
+                                 " and TORSION are allowed")
 
     def set_charge_constraints(self, charge_constraints: List[Dict]):
         """
@@ -299,6 +339,7 @@ class JagSet(JagInput):
                  basis_set: str = "def2-svpd(-f)",
                  pcm_settings: Optional[Dict] = None,
                  max_scf_cycles: int = 400,
+                 coord_constraints: Optional[List[Constraint]] = None,
                  charge_constraints: Optional[List[Dict]] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
@@ -314,7 +355,11 @@ class JagSet(JagInput):
         gen["molchg"] = mol.charge
         gen["multip"] = mol.spin_multiplicity
 
-        super().__init__(molecule, gen, name=name, charge_constraints=charge_constraints)
+        super().__init__(molecule,
+                         gen,
+                         name=name,
+                         coord_constraints=coord_constraints,
+                         charge_constraints=charge_constraints)
 
 
 class OptSet(JagSet):
@@ -360,6 +405,7 @@ class OptSet(JagSet):
                  pcm_settings: Optional[Dict] = None,
                  max_scf_cycles: int = 400,
                  geom_opt_max_cycles: int = 250,
+                 coord_constraints: Optional[List[Constraint]] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
         if overwrite_inputs_gen is None:
@@ -380,6 +426,7 @@ class OptSet(JagSet):
 
         super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set,
                          pcm_settings=pcm_settings, max_scf_cycles=max_scf_cycles,
+                         coord_constraints=coord_constraints,
                          overwrite_inputs_gen=gen)
 
 
@@ -442,6 +489,7 @@ class TSOptSet(JagSet):
                  reactant_molecule: Optional[Union[Molecule, MoleculeGraph]] = None,
                  product_molecule: Optional[Union[Molecule, MoleculeGraph]] = None,
                  use_analytic_hessian: bool = True,
+                 coord_constraints: Optional[List[Constraint]] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
         if overwrite_inputs_gen is None:
@@ -466,6 +514,7 @@ class TSOptSet(JagSet):
 
         super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set,
                          pcm_settings=pcm_settings, max_scf_cycles=max_scf_cycles,
+                         coord_constraints=coord_constraints,
                          overwrite_inputs_gen=gen)
 
         # TODO: test this
