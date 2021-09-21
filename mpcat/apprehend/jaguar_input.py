@@ -18,7 +18,6 @@ from schrodinger.application.jaguar import validation
 from mpcat.adapt.schrodinger_adapter import (molecule_to_schrodinger_struct,
                                              mol_graph_to_schrodinger_struct,
                                              schrodinger_struct_to_molecule)
-from mpcat.utils.coordinates import Constraint, ConstraintType
 
 
 def get_default_gen():
@@ -125,7 +124,7 @@ class JagInput(MSONable):
                  gen_variables: Dict,
                  name: str = "jaguar.in",
                  jagin: Optional[JaguarInput] = None,
-                 coord_constraints: Optional[List[Constraint]] = None,
+                 coord_constraints: Optional[List[Dict]] = None,
                  charge_constraints: Optional[List[Dict]] = None
                  ):
 
@@ -187,7 +186,7 @@ class JagInput(MSONable):
         # Move back
         os.chdir(curdir)
 
-    def set_constraints(self, constraints: List[Constraint]):
+    def set_constraints(self, constraints: List[Dict]):
         """
 
         Args:
@@ -198,23 +197,23 @@ class JagInput(MSONable):
         """
 
         for const in constraints:
-            if const.constraint_type == ConstraintType.DISTANCE:
+            if const["constraint_type"].upper() == "DISTANCE":
                 self.jagin.setConstraint(
                     mm.MMJAG_COORD_DISTANCE,
-                    [x + 1 for x in const.atoms],
-                    value=const.value
+                    [x + 1 for x in const["atoms"]],
+                    value=const["value"]
                 )
-            elif const.constraint_type == ConstraintType.ANGLE:
+            elif const["constraint_type"].upper() == "ANGLE":
                 self.jagin.setConstraint(
                     mm.MMJAG_COORD_ANGLE,
-                    [x + 1 for x in const.atoms],
-                    value=const.value
+                    [x + 1 for x in const["atoms"]],
+                    value=const["value"]
                 )
-            elif const.constraint_type == ConstraintType.TORSION:
+            elif const["constraint_type"].upper() == "TORSION":
                 self.jagin.setConstraint(
                     mm.MMJAG_COORD_TORSION,
-                    [x + 1 for x in const.atoms],
-                    value=const.value
+                    [x + 1 for x in const["atoms"]],
+                    value=const["value"]
                 )
             else:
                 raise ValueError("Unexpected constraint type! Only DISTANCE, ANGLE,"
@@ -342,7 +341,7 @@ class JagSet(JagInput):
                  basis_set: str = "def2-svpd(-f)",
                  pcm_settings: Optional[Dict] = None,
                  max_scf_cycles: int = 400,
-                 coord_constraints: Optional[List[Constraint]] = None,
+                 coord_constraints: Optional[List[Dict]] = None,
                  charge_constraints: Optional[List[Dict]] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
@@ -411,7 +410,7 @@ class OptSet(JagSet):
                  pcm_settings: Optional[Dict] = None,
                  max_scf_cycles: int = 400,
                  geom_opt_max_cycles: int = 250,
-                 coord_constraints: Optional[List[Constraint]] = None,
+                 coord_constraints: Optional[List[Dict]] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
         if overwrite_inputs_gen is None:
@@ -498,7 +497,7 @@ class TSOptSet(JagSet):
                  reactant_molecule: Optional[Union[Molecule, MoleculeGraph]] = None,
                  product_molecule: Optional[Union[Molecule, MoleculeGraph]] = None,
                  use_analytic_hessian: bool = True,
-                 coord_constraints: Optional[List[Constraint]] = None,
+                 coord_constraints: Optional[List[Dict]] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
         if overwrite_inputs_gen is None:
