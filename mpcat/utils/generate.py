@@ -2,6 +2,7 @@
 
 from typing import Union
 
+from pymatgen.core.periodic_table import DummySpecies
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 from pymatgen.analysis.local_env import OpenBabelNN
@@ -21,7 +22,9 @@ def mol_to_mol_graph(molecule: Union[Molecule, MoleculeGraph]):
     """
 
     if isinstance(molecule, MoleculeGraph):
+        molecule.molecule.remove_species([DummySpecies("")])
         return molecule
     else:
+        molecule.remove_species([DummySpecies("")])
         mol_graph = MoleculeGraph.with_local_env_strategy(molecule, OpenBabelNN())
         return metal_edge_extender(mol_graph)
