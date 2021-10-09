@@ -133,7 +133,11 @@ class JagInput(MSONable):
 
         # Construct Schrodinger Structure object
         self.mol = molecule
-        self.mol.remove_species([DummySpecies("")])
+        if isinstance(self.mol, Molecule):
+            self.mol.remove_species([DummySpecies("")])
+        else:
+            dummies = [i for i, e in enumerate(self.mol.molecule.species) if isinstance(e, DummySpecies)]
+            self.mol.remove_nodes(dummies)
         if isinstance(molecule, Molecule):
             struct = molecule_to_schrodinger_struct(molecule)
         else:
