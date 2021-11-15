@@ -5,7 +5,7 @@ import os
 from typing import Union
 from pathlib import Path
 
-from pymatgen.core.periodic_table import DummySpecies
+from pymatgen.core.periodic_table import DummySpecie
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 
@@ -120,7 +120,7 @@ def schrodinger_struct_to_molecule(structure: Structure):
 
     mol = Molecule(elements, positions)
     mol.set_charge_and_spin(charge=formal_charge)
-    mol.remove_species([DummySpecies("")])
+    mol.remove_species([DummySpecie("")])
 
     return mol
 
@@ -153,7 +153,7 @@ def schrodinger_struct_to_mol_graph(structure: Structure):
 
     mol = Molecule(elements, positions)
     mol.set_charge_and_spin(charge=formal_charge)
-    mol.remove_species([DummySpecies("")])
+    mol.remove_species([DummySpecie("")])
 
     mg = MoleculeGraph.with_edges(mol, {b: None for b in bonds})
     return mg

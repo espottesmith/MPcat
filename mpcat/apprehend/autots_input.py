@@ -7,7 +7,7 @@ from pathlib import Path
 import numpy as np
 
 from monty.json import MSONable
-from pymatgen.core.periodic_table import DummySpecies
+from pymatgen.core.periodic_table import DummySpecie
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 

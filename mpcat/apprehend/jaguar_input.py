@@ -8,7 +8,7 @@ import os
 import numpy as np
 
 from monty.json import MSONable
-from pymatgen.core.periodic_table import DummySpecies
+from pymatgen.core.periodic_table import DummySpecie
 from pymatgen.core.structure import Molecule
 from pymatgen.analysis.graphs import MoleculeGraph
 
@@ -134,9 +134,9 @@ class JagInput(MSONable):
         # Construct Schrodinger Structure object
         self.mol = molecule
         if isinstance(self.mol, Molecule):
-            self.mol.remove_species([DummySpecies("")])
+            self.mol.remove_species([DummySpecie("")])
         else:
-            dummies = [i for i, e in enumerate(self.mol.molecule.species) if isinstance(e, DummySpecies)]
+            dummies = [i for i, e in enumerate(self.mol.molecule.species) if isinstance(e, DummySpecie)]
             self.mol.remove_nodes(dummies)
         if isinstance(molecule, Molecule):
             struct = molecule_to_schrodinger_struct(molecule)
@@ -284,7 +284,7 @@ class JagInput(MSONable):
 
         if overwrite_mol is None:
             mol = schrodinger_struct_to_molecule(jagin.getStructure())
-            mol.remove_species([DummySpecies("")])
+            mol.remove_species([DummySpecie("")])
         else:
             mol = overwrite_mol
 
