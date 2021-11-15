@@ -6,7 +6,7 @@ from pathlib import Path
 
 from monty.json import MSONable, jsanitize
 
-from pymatgen.core.periodic_table import DummySpecies
+from pymatgen.core.periodic_table import DummySpecie
 
 from schrodinger.application.jaguar.output import JaguarOutput
 from schrodinger.application.jaguar.results import JaguarResults
@@ -255,10 +255,10 @@ class JagOutput(MSONable):
                     base_dir / self.data["output"]["output_file"])
                 self.data["output"]["molecule"] = self.data["molecule_trajectory"][-1]
 
-                self.data["input"]["molecule"].remove_species([DummySpecies("")])
+                self.data["input"]["molecule"].remove_species([DummySpecie("")])
                 for m in self.data["molecule_trajectory"]:
-                    m.remove_species([DummySpecies("")])
-                self.data["output"]["molecule"].remove_species([DummySpecies("")])
+                    m.remove_species([DummySpecie("")])
+                self.data["output"]["molecule"].remove_species([DummySpecie("")])
 
             else:
                 self.data["input"]["molecule"] = None

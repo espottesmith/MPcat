@@ -32,6 +32,9 @@ __credits__ = "Sam Blau, Brandon Wood, Shyam Dwaraknath, Xiaohui Qu, Kiran Mathe
 
 logger = get_logger(__name__)
 
+#TODO: Parse charge properly
+# Also as an int (rather than float)
+
 
 class GSMDrone(AbstractDrone):
     """
@@ -86,6 +89,7 @@ class GSMDrone(AbstractDrone):
         logger.info("Getting task doc for base dir :{}".format(path))
 
         all_files = os.listdir(path)
+        all_scratch_files = list()
         if "scratch" in all_files:
             all_scratch_files = os.listdir(os.path.join(path, "scratch"))
 
