@@ -108,7 +108,9 @@ class SingleEndedGSMFW(Firework):
                 template_file=lot_file,
                 output_file=output_file,
                 isomers_file=isomers_file,
-                additional_fields={"task_label": name}))
+                additional_fields={"task_label": name,
+                                   "true_charge": molecule.charge,
+                                   "special_run_type": "single_ended_gsm"}))
         super(SingleEndedGSMFW, self).__init__(
             t,
             parents=parents,

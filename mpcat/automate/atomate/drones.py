@@ -177,6 +177,9 @@ class GSMDrone(AbstractDrone):
 
             # Parse all relevant files
             initial_mol = parse_multi_xyz(molecule_file)
+            for mol in initial_mol:
+                mol.set_charge_and_spin(d.get("true_charge", 0))
+
             temp_file = QCTemplate.from_file(template_file)
             if isomers_file is not None:
                 iso_file = GSMIsomerInput.from_file(isomers_file)
@@ -273,18 +276,23 @@ class GSMDrone(AbstractDrone):
                 d["output"]["species"] = opt_file.data["species"]
                 d["output"]["optimized_node_geometries"] = opt_file.data["geometries"]
                 d["output"]["optimized_node_molecules"] = opt_file.data["molecules"]
+                for mol in d["output"]["optimized_node_molecules"]:
+                    mol.set_charge_and_spin(d.get("true_charge", 0))
                 d["output"]["optimized_node_energies"] = opt_file.data["energies"]
                 d["output"]["optimized_node_forces"] = opt_file.data["forces"]
                 if d["output"]["ts_node"] is not None:
                     d["output"]["ts_molecule"] = d["output"]["optimized_node_molecules"][d["output"]["ts_node"]]
+                    d["output"]["ts_molecule"].set_charge_and_spin(d.get("true_charge", 0))
                 else:
                     d["output"]["ts_molecule"] = None
                 if d["output"]["reactant_node"] is not None:
                     d["output"]["reactant_molecule"] = d["output"]["optimized_node_molecules"][d["output"]["reactant_node"]]
+                    d["output"]["reactant_molecule"].set_charge_and_spin(d.get("true_charge", 0))
                 else:
                     d["output"]["reactant_molecule"] = None
                 if d["output"]["product_node"] is not None:
                     d["output"]["product_molecule"] = d["output"]["optimized_node_molecules"][d["output"]["product_node"]]
+                    d["output"]["product_molecule"].set_charge_and_spin(d.get("true_charge", 0))
                 else:
                     d["output"]["product_molecule"] = None
             else:

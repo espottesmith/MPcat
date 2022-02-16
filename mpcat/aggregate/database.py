@@ -4,6 +4,7 @@ import datetime
 from typing import Optional, Dict, List, Union
 from pathlib import Path
 
+import pymongo
 from pymongo import MongoClient, ReturnDocument, ReplaceOne
 
 from monty.json import jsanitize
@@ -72,17 +73,18 @@ class CatDB:
         except:
             raise RuntimeError("Cannot connect to DB!")
 
-        try:
-            self.database.authenticate(self.user, self.password,
-                                       source=kwargs.get("authsource", None))
-        except:
-            raise RuntimeError("Cannot authenticate user!")
+        if pymongo.__version__ < "4.0.0":
+            try:
+                self.database.authenticate(self.user, self.password,
+                                           source=kwargs.get("authsource", None))
+            except:
+                raise RuntimeError("Cannot authenticate user!")
 
-        if self.database["counter"].find({"_id": "datumid"}).count() == 0:
+        if self.database["counter"].count_documents({"_id": "datumid"}) == 0:
             self.database["counter"].insert_one({"_id": "datumid", "c": 0})
-        if self.database["counter"].find({"_id": "rxnid"}).count() == 0:
+        if self.database["counter"].count_documents({"_id": "rxnid"}) == 0:
             self.database["counter"].insert_one({"_id": "rxnid", "c": 0})
-        if self.database["counter"].find({"_id": "calcid"}).count() == 0:
+        if self.database["counter"].count_documents({"_id": "calcid"}) == 0:
             self.database["counter"].insert_one({"_id": "calcid", "c": 0})
 
     def update_autots_data_docs(self, docs: List[Dict], key: Optional[str] = "path"):
