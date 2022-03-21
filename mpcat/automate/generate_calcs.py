@@ -23,6 +23,8 @@ from mpcat.apprehend.jaguar_input import (JagSet,
                                           IRCSet,
                                           ElectronTransferSet)
 from mpcat.apprehend.autots_input import TSSet
+from mpcat.apprehend.jaguar_output import JagOutput
+from mpcat.apprehend.autots_output import TSOutput
 from mpcat.utils.generate import mol_to_mol_graph
 from mpcat.utils.types import JaguarJobType, job_type_mapping
 
@@ -554,3 +556,205 @@ def launch_autots_from_queue(database: CatDB,
             queue_collection.update_one({"rxnid": calc["rxnid"]},
                                         {"$set": {"state": "UNSUPPORTED",
                                                   "updated_on": time_now}})
+
+
+def recover_job_autots(schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGER",
+                       check_if_needed: bool = False,
+                       database: Optional[CatDB] = None,
+                       rxnid: Optional[int] = None,
+                       directory: Optional[Path] = None,
+                       recovery_name: Optional[str] = None,
+                       output_name: Optional[str] = None):
+    """
+    Recover an unfinished AutoTS calculation.
+
+    :param schrodinger_dir: A path to the Schrodinger Suite of software.
+        This is used to call AutoTS and other utilities. By default,
+        this is "$SCHRODINGER", which should be an environment variable
+        set at the time of installation.
+    :param check_if_needed: If True (default False), then parse output file to
+        check if calcultion has finished before attempting to recover the calculation.
+    :param database: Connection to MongoDB database. Only needed if attempting to recover
+        an unfinished calculation from DB. Default None.
+    :param rxnid: Reaction ID of the calculation to be recovered. Only needed if attempting
+        to recover an unfinished calculation from DB. Default None.
+    :param directory: Path to the calculation directory of interest. Only needed if
+        attempting to recover from directory without using DB. Default None.
+    :param recovery_name: Name of recover file to use to restart calculation. If None (default),
+        will look for file called "AutoTS.T9XnCsLi.recover".
+    :param output_name: Name of output file to use to (optionally) check for calculation completion.
+        If None (default), will look for file called "AutoTS.T9XnCsLi.out".
+    :return:
+    """
+
+    if schrodinger_dir == "SCHRODINGER":
+        schrodinger_dir = Path(os.environ["SCHRODINGER"])
+    else:
+        if isinstance(schrodinger_dir, str):
+            schrodinger_dir = Path(schrodinger_dir)
+        else:
+            schrodinger_dir = schrodinger_dir
+
+    # Make sure some necessary inputs are provided
+    if (database is None or rxnid is None):
+        if directory is None:
+            raise ValueError("Either provide database and rxnid, or provide directory!")
+        else:
+            from_db = False
+    else:
+        from_db = True
+
+    if from_db:
+        calc = database.database[database.autots_data_collection].find_one({"rxnid": rxnid})
+        path = Path(calc["path"])
+    else:
+        path = Path(directory)
+
+    # Check if path exists
+    if not path.is_dir():
+        raise FileNotFoundError("Path does not exist!")
+
+    # Check if calculation has finished
+    if check_if_needed:
+        if output_name is not None:
+            filestring = (path / output_name).as_posix()
+        else:
+            files = [e for e in path.iterdir()]
+            if "AutoTS.T9XnCsLi.out" in files:
+                filestring = (path / "AutoTS.T9XnCsLi.out").as_posix()
+            else:
+                raise FileNotFoundError("Output file could not be found.")
+
+        if not Path(filestring).exists():
+            raise FileNotFoundError("Output file could not be found.")
+
+        # If calculation has completed, return without doing anything
+        out = TSOutput(filestring)
+        if out.data["walltime"] is not None:
+            print("Calculation completed! No recovery necessary")
+            return
+
+    if recovery_name is not None:
+        filestring = (path / recovery_name).as_posix()
+    else:
+        files = [e for e in path.iterdir()]
+        if "AutoTS.T9XnCsLi.recover" in files:
+            filestring = (path / "AutoTS.T9XnCsLi.recover").as_posix()
+        else:
+            raise FileNotFoundError("Recovery file could not be found.")
+
+    if not Path(filestring).exists():
+        raise FileNotFoundError("Recovery file could not be found.")
+
+    cur_dir = Path.cwd()
+    os.chdir(path.as_posix())
+
+    command = [(schrodinger_dir / "jaguar").as_posix(), "run", filestring]
+
+    process = subprocess.run(command)
+
+    os.chdir(cur_dir.as_posix())
+
+    if process.returncode != 0:
+        raise RuntimeError("Job launch failed!")
+
+
+def recover_job_jaguar(schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGER",
+                       check_if_needed: bool = False,
+                       database: Optional[CatDB] = None,
+                       calcid: Optional[int] = None,
+                       directory: Optional[Path] = None,
+                       recovery_name: Optional[str] = None,
+                       output_name: Optional[str] = None):
+    """
+    Recover an unfinished Jaguar calculation.
+
+    :param schrodinger_dir: A path to the Schrodinger Suite of software.
+        This is used to call AutoTS and other utilities. By default,
+        this is "$SCHRODINGER", which should be an environment variable
+        set at the time of installation.
+    :param check_if_needed: If True (default False), then parse output file to
+        check if calcultion has finished before attempting to recover the calculation.
+    :param database: Connection to MongoDB database. Only needed if attempting to recover
+        an unfinished calculation from DB. Default None.
+    :param calcid: Calculation ID of the calculation to be recovered. Only needed if
+        attempting to recover an unfinished calculation from DB. Default None.
+    :param directory: Path to the calculation directory of interest. Only needed if
+        attempting to recover from directory without using DB. Default None.
+    :param recovery_name: Name of recover file to use to restart calculation. If None (default),
+        will look for file called "AutoTS.T9XnCsLi.recover".
+    :param output_name: Name of output file to use to (optionally) check for calculation completion.
+        If None (default), will look for file called "AutoTS.T9XnCsLi.out".
+    :return:
+    """
+
+    if schrodinger_dir == "SCHRODINGER":
+        schrodinger_dir = Path(os.environ["SCHRODINGER"])
+    else:
+        if isinstance(schrodinger_dir, str):
+            schrodinger_dir = Path(schrodinger_dir)
+        else:
+            schrodinger_dir = schrodinger_dir
+
+    # Make sure some necessary inputs are provided
+    if (database is None or calcid is None):
+        if directory is None:
+            raise ValueError("Either provide database and rxnid, or provide directory!")
+        else:
+            from_db = False
+    else:
+        from_db = True
+
+    if from_db:
+        calc = database.database[database.autots_data_collection].find_one({"calcid": calcid})
+        path = Path(calc["path"])
+    else:
+        path = Path(directory)
+
+    # Check if path exists
+    if not path.is_dir():
+        raise FileNotFoundError("Path does not exist!")
+
+    # Check if calculation has finished
+    if check_if_needed:
+        if output_name is not None:
+            filestring = (path / output_name).as_posix()
+        else:
+            files = [e for e in path.iterdir()]
+            if "jaguar.out" in files:
+                filestring = (path / "jaguar.out").as_posix()
+            else:
+                raise FileNotFoundError("Output file could not be found.")
+
+        if not Path(filestring).exists():
+            raise FileNotFoundError("Output file could not be found.")
+
+        # If calculation has completed, return without doing anything
+        out = JagOutput(filestring)
+        if out.data["walltime"] is not None:
+            print("Calculation completed! No recovery necessary")
+            return
+
+    if recovery_name is not None:
+        filestring = (path / recovery_name).as_posix()
+    else:
+        files = [e for e in path.iterdir()]
+        if "jaguar.recover" in files:
+            filestring = (path / "jaguar.recover").as_posix()
+        else:
+            raise FileNotFoundError("Recovery file could not be found.")
+
+    if not Path(filestring).exists():
+        raise FileNotFoundError("Recovery file could not be found.")
+
+    cur_dir = Path.cwd()
+    os.chdir(path.as_posix())
+
+    command = [(schrodinger_dir / "jaguar").as_posix(), "run", filestring]
+
+    process = subprocess.run(command)
+
+    os.chdir(cur_dir.as_posix())
+
+    if process.returncode != 0:
+        raise RuntimeError("Job launch failed!")
