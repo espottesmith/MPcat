@@ -573,7 +573,7 @@ def recover_job_autots(schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGE
         this is "$SCHRODINGER", which should be an environment variable
         set at the time of installation.
     :param check_if_needed: If True (default False), then parse output file to
-        check if calcultion has finished before attempting to recover the calculation.
+        check if calculation has finished before attempting to recover the calculation.
     :param database: Connection to MongoDB database. Only needed if attempting to recover
         an unfinished calculation from DB. Default None.
     :param rxnid: Reaction ID of the calculation to be recovered. Only needed if attempting
