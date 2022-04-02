@@ -54,7 +54,7 @@ def generate_gen(dft_rung: int,
 
     if dft_rung is None:
         dftname = None
-    if dft_rung == 1:
+    elif dft_rung == 1:
         dftname = "hfs"
     elif dft_rung == 2:
         dftname = "b97-d3"
