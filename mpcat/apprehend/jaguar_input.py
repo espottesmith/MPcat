@@ -405,6 +405,14 @@ class OptSet(JagSet):
         coord_constraints (Optional[List[Constraint]]): Set of coordinate constraints.
             Each entry is a Constraint object, which has a ConstraintType (see
             mpcat.utils.coordinates for details), a list of atom indices,
+        charge_constraints (Optional[List[Dict]]): Set of charge constraints. Each
+            entry in the list should have the following format:
+            {"charge": float,
+             "weights": [(weight1, start1, end1), (weight2, start2, end2), ...]
+            }
+            where weightx is a floating-point number representing the portion
+            of charge located on atoms from startx to endx in the molecule,
+            Atom indices are given in pymatgen 0-index convention.
         overwrite_inputs_gen (Dict): Dictionary of Jaguar inputs that should overwrite
             defaults
     """
@@ -418,6 +426,7 @@ class OptSet(JagSet):
                  max_scf_cycles: int = 400,
                  geom_opt_max_cycles: int = 250,
                  coord_constraints: Optional[List[Dict]] = None,
+                 charge_constraints: Optional[List[Dict]] = None,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
         if overwrite_inputs_gen is None:
@@ -439,6 +448,7 @@ class OptSet(JagSet):
         super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set,
                          pcm_settings=pcm_settings, max_scf_cycles=max_scf_cycles,
                          coord_constraints=coord_constraints,
+                         charge_constraints=charge_constraints,
                          overwrite_inputs_gen=gen)
 
 
