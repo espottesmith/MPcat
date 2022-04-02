@@ -51,6 +51,9 @@ def generate_gen(dft_rung: int,
                  overwrite_inputs_gen: Optional[Dict] = None):
 
     gen = get_default_gen()
+
+    if dft_rung is None:
+        dftname = None
     if dft_rung == 1:
         dftname = "hfs"
     elif dft_rung == 2:
@@ -62,7 +65,9 @@ def generate_gen(dft_rung: int,
     else:
         raise ValueError("Invalid dft_rung provided!")
 
-    gen["dftname"] = dftname
+    if dftname is not None:
+        gen["dftname"] = dftname
+
     gen["basis"] = basis_set
     gen["maxit"] = max_scf_cycles
 
@@ -821,7 +826,6 @@ class ElectronTransferSet(JagSet):
     def __init__(self,
                  molecule: Union[Molecule, MoleculeGraph],
                  name: str = "jaguar.in",
-                 dft_rung: int = 4,
                  basis_set: str = "def2-svpd(-f)",
                  pcm_settings: Optional[Dict] = None,
                  max_scf_cycles: int = 400,
@@ -839,8 +843,9 @@ class ElectronTransferSet(JagSet):
             gen = overwrite_inputs_gen
 
         gen["etransfer"] = 1
+        gen["iuhf"] = 1
 
-        super().__init__(molecule, name=name, dft_rung=dft_rung, basis_set=basis_set, pcm_settings=pcm_settings,
+        super().__init__(molecule, name=name, dft_rung=None, basis_set=basis_set, pcm_settings=pcm_settings,
                          max_scf_cycles=max_scf_cycles, overwrite_inputs_gen=gen)
 
         if all([x is not None for x in [acceptor_initial, acceptor_final, donor_initial, donor_final]]):
