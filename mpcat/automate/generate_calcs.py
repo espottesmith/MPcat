@@ -614,12 +614,13 @@ def recover_job_autots(schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGE
     if not path.is_dir():
         raise FileNotFoundError("Path does not exist!")
 
+    files = [e.name for e in path.iterdir()]
+
     # Check if calculation has finished
     if check_if_needed:
         if output_name is not None:
             filestring = (path / output_name).as_posix()
         else:
-            files = [e for e in path.iterdir()]
             if "AutoTS.T9XnCsLi.out" in files:
                 filestring = (path / "AutoTS.T9XnCsLi.out").as_posix()
             else:
@@ -637,7 +638,6 @@ def recover_job_autots(schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGE
     if recovery_name is not None:
         filestring = (path / recovery_name).as_posix()
     else:
-        files = [e for e in path.iterdir()]
         if "AutoTS.T9XnCsLi.recover" in files:
             filestring = (path / "AutoTS.T9XnCsLi.recover").as_posix()
         else:
@@ -715,12 +715,13 @@ def recover_job_jaguar(schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGE
     if not path.is_dir():
         raise FileNotFoundError("Path does not exist!")
 
+    files = [e.name for e in path.iterdir()]
+
     # Check if calculation has finished
     if check_if_needed:
         if output_name is not None:
             filestring = (path / output_name).as_posix()
         else:
-            files = [e for e in path.iterdir()]
             if "jaguar.out" in files:
                 filestring = (path / "jaguar.out").as_posix()
             else:
@@ -738,7 +739,6 @@ def recover_job_jaguar(schrodinger_dir: Optional[Union[str, Path]] = "SCHRODINGE
     if recovery_name is not None:
         filestring = (path / recovery_name).as_posix()
     else:
-        files = [e for e in path.iterdir()]
         if "jaguar.recover" in files:
             filestring = (path / "jaguar.recover").as_posix()
         else:
