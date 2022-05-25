@@ -152,6 +152,7 @@ class JaguarCalcDrone(AbstractDrone):
         d["spin_multiplicity"] = calc_data.get("spin_multiplicity")
         d["nelectrons"] = calc_data.get("nelectrons")
         d["job_type"] = calc_data.get("job_type")
+        d["formula_alphabetical"] = calc_data.get("formula_alphabetical")
 
         jaguar_input = JagInput.from_file(self.path / "jaguar.in")
 
@@ -179,6 +180,9 @@ class JaguarCalcDrone(AbstractDrone):
         d["input"] = jaguar_output.data["input"]
         d["input"]["molecule"] = jaguar_input.mol
         d["input"]["gen_variables"] = jaguar_input.gen_variables
+
+        if d.get("formula_alphabetical") is None:
+            d["formula_alphabetical"] = d["input"]["molecule"].composition.alphabetical_formula
 
         d["output"] = jaguar_output.data["output"]
 
