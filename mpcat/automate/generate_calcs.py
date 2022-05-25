@@ -427,6 +427,7 @@ def launch_jaguar_from_queue(database: CatDB,
                          "nelectrons": calc.get("nelectrons"),
                          "priority": calc.get("priority"),
                          "input": calc.get("input"),
+                         "formula_alphabetical": calc.get("formula_alphabetical"),
                          "tags": calc.get("tags"),
                          "additional_data": calc.get("additional_data")}
 
