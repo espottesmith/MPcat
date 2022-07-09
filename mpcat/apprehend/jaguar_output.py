@@ -13,7 +13,7 @@ from pymatgen.core.periodic_table import DummySpecie
 from schrodinger.application.jaguar.output import JaguarOutput
 from schrodinger.application.jaguar.results import JaguarResults
 
-from mpcat.adapt.schrodinger_adapter import (maestro_file_to_molecule, schrodinger_struct_to_molecule)
+from mpcat.adapt.schrodinger_adapter import schrodinger_struct_to_molecule
 
 
 energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+[0-9]+\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
@@ -207,7 +207,6 @@ class JagOutput(MSONable):
         self.filename = filename
         self.data = dict()
         if self.filename != "":
-            base_dir = Path(self.filename).resolve().parent
             try:
                 jag_out = JaguarOutput(output=filename, partial_ok=allow_failure)
             except StopIteration:
@@ -285,7 +284,6 @@ class JagOutput(MSONable):
                 else:
                     self.data["input"]["molecule"] = None
                     self.data["output"]["molecule"] = None
-                    self.data["molecule_trajectory"] = None
 
     def as_dict(self):
         d = dict()
