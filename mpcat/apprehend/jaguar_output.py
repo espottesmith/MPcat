@@ -3,15 +3,22 @@
 from typing import Optional
 import datetime
 from pathlib import Path
+import re
 
 from monty.json import MSONable, jsanitize
 
+from pymatgen.core.structure import Molecule
 from pymatgen.core.periodic_table import DummySpecie
 
 from schrodinger.application.jaguar.output import JaguarOutput
 from schrodinger.application.jaguar.results import JaguarResults
 
-from mpcat.adapt.schrodinger_adapter import (maestro_file_to_molecule, schrodinger_struct_to_molecule)
+from mpcat.adapt.schrodinger_adapter import schrodinger_struct_to_molecule
+
+
+energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+[0-9]+\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
+geometry = re.compile(r"\s+angstroms\n\s+atom\s+x\s+y\s+z\n((\s+[A-Za-z]{1,2}[0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+ \n)+)")
+geom_line = re.compile(r"\s+([A-Za-z]{1,2})[0-9]+\s+([\-\.0-9]+)\s+([\-\.0-9]+)\s+([\-\.0-9]+) \n")
 
 
 class JaguarOutputParseError(Exception):
@@ -200,7 +207,6 @@ class JagOutput(MSONable):
         self.filename = filename
         self.data = dict()
         if self.filename != "":
-            base_dir = Path(self.filename).resolve().parent
             try:
                 jag_out = JaguarOutput(output=filename, partial_ok=allow_failure)
             except StopIteration:
@@ -239,31 +245,45 @@ class JagOutput(MSONable):
             self.data["input"]["solvation"] = jag_out.opts.solvation
 
             self.data["energy_trajectory"] = list()
-            for opt_step in jag_out.geopt_step:
-                parsed = parse_jaguar_results(opt_step)
-                self.data["energy_trajectory"].append(parsed["scf_energy"])
 
             self.data["output"] = parse_jaguar_results(jag_out._results)
+            self.data["output"]["geopt"] = [parse_jaguar_results(j) for j in jag_out.geopt_step]
             self.data["output"]["irc"] = [parse_jaguar_results(j) for j in jag_out.irc_step]
             self.data["output"]["scan"] = [parse_jaguar_results(j) for j in jag_out.scan_step]
             self.data["output"]["output_file"] = jag_out.mae_out
 
-            if parse_molecules:
-                self.data["input"]["molecule"] = maestro_file_to_molecule(
-                    base_dir / self.data["input"]["input_file"])[0]
-                self.data["molecule_trajectory"] = maestro_file_to_molecule(
-                    base_dir / self.data["output"]["output_file"])
-                self.data["output"]["molecule"] = self.data["molecule_trajectory"][-1]
+            self.data["output"]["energy_trajectory"] = list()
+            self.data["output"]["molecule_trajectory"] = list()
+            with open(Path(self.filename).resolve()) as file:
+                contents = file.read()
+                energies = energy.findall(contents)
+                self.data["output"]["energy_trajectory"] = [float(en) for en in energies]
+                if parse_molecules:
+                    molecules = list()
+                    geometries = geometry.findall(contents)
+                    for ii, geo in enumerate(geometries[:-1]):
+                        line_match = geom_line.findall(geo[0])
+                        species = list()
+                        coords = list()
+                        for line in line_match:
+                            species.append(line[0])
+                            coords.append([float(line[1]), float(line[2]), float(line[3])])
+                        mol = Molecule(
+                            species,
+                            coords,
+                            charge=self.data["input"]["charge"],
+                            spin_multiplicity=self.data["input"]["multiplicity"]
+                        )
+                        mol.remove_species([DummySpecie("")])
+                        molecules.append(mol)
+                    if len(molecules) > 0:
+                        self.data["input"]["molecule"] = molecules[0]
+                        self.data["output"]["molecule"] = molecules[-1]
+                    self.data["output"]["molecule_trajectory"] = molecules
 
-                self.data["input"]["molecule"].remove_species([DummySpecie("")])
-                for m in self.data["molecule_trajectory"]:
-                    m.remove_species([DummySpecie("")])
-                self.data["output"]["molecule"].remove_species([DummySpecie("")])
-
-            else:
-                self.data["input"]["molecule"] = None
-                self.data["output"]["molecule"] = None
-                self.data["molecule_trajectory"] = None
+                else:
+                    self.data["input"]["molecule"] = None
+                    self.data["output"]["molecule"] = None
 
     def as_dict(self):
         d = dict()
