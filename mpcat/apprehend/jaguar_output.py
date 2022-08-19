@@ -258,28 +258,28 @@ class JagOutput(MSONable):
                 contents = file.read()
                 energies = energy.findall(contents)
                 self.data["output"]["energy_trajectory"] = [float(en) for en in energies]
-                if parse_molecules:
-                    molecules = list()
-                    geometries = geometry.findall(contents)
-                    for ii, geo in enumerate(geometries[:-1]):
-                        line_match = geom_line.findall(geo[0])
-                        species = list()
-                        coords = list()
-                        for line in line_match:
-                            species.append(line[0])
-                            coords.append([float(line[1]), float(line[2]), float(line[3])])
-                        mol = Molecule(
-                            species,
-                            coords,
-                            charge=self.data["input"]["charge"],
-                            spin_multiplicity=self.data["input"]["multiplicity"]
-                        )
-                        mol.remove_species([DummySpecie("")])
-                        molecules.append(mol)
+                molecules = list()
+                geometries = geometry.findall(contents)
+                for ii, geo in enumerate(geometries[:-1]):
+                    line_match = geom_line.findall(geo[0])
+                    species = list()
+                    coords = list()
+                    for line in line_match:
+                        species.append(line[0])
+                        coords.append([float(line[1]), float(line[2]), float(line[3])])
+                    mol = Molecule(
+                        species,
+                        coords,
+                        charge=self.data["input"]["charge"],
+                        spin_multiplicity=self.data["input"]["multiplicity"]
+                    )
+                    mol.remove_species([DummySpecie("")])
+                    molecules.append(mol)
                     if len(molecules) > 0:
                         self.data["input"]["molecule"] = molecules[0]
                         self.data["output"]["molecule"] = molecules[-1]
-                    self.data["output"]["molecule_trajectory"] = molecules
+                    if parse_molecules:
+                        self.data["output"]["molecule_trajectory"] = molecules
 
                 else:
                     self.data["input"]["molecule"] = None

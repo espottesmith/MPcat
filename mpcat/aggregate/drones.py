@@ -102,7 +102,7 @@ class JaguarCalcDrone(AbstractDrone):
 
         return files_paths
 
-    def assimilate(self):
+    def assimilate(self, parse_molecules=True):
         """
         Generate the task doc and perform any additional steps on it to prepare
         for insertion into a DB.
@@ -114,11 +114,11 @@ class JaguarCalcDrone(AbstractDrone):
             task_doc (dict): The compiled results from the calculation.
         """
 
-        d = self.generate_doc()
+        d = self.generate_doc(parse_molecules=parse_molecules)
         self.validate_doc(d)
         return jsanitize(d, strict=True, allow_bson=True)
 
-    def generate_doc(self):
+    def generate_doc(self, parse_molecules=True):
         """
         Generate a dictionary from the inputs and outputs of the various
         Jaguar calculations involved in the Jaguar calculation.
@@ -164,7 +164,8 @@ class JaguarCalcDrone(AbstractDrone):
         if output_document is None:
             raise ValueError("Output file is not in path!")
 
-        jaguar_output = JagOutput(output_document.as_posix())
+        jaguar_output = JagOutput(output_document.as_posix(),
+                                  parse_molecules=parse_molecules)
 
         d["job_name"] = jaguar_output.data.get("job_name")
         d["full_filename"] = jaguar_output.data.get("full_filename")
@@ -306,7 +307,7 @@ class JaguarBuilderDrone:
 
         return [path for path, to_update in zip(paths, to_update_list) if to_update]
 
-    def update_targets(self, items: List[Path]):
+    def update_targets(self, items: List[Path], parse_molecules=True):
         """
         Use JaguarCalcDrone to update select entries in the database
 
@@ -322,7 +323,7 @@ class JaguarBuilderDrone:
         for path in items:
             drone = JaguarCalcDrone(path)
             try:
-                doc = drone.assimilate()
+                doc = drone.assimilate(parse_molecules=parse_molecules)
                 docs.append(doc)
             except:
                 print("Cannot parse {}".format(path.as_posix()))
@@ -331,7 +332,7 @@ class JaguarBuilderDrone:
         if len(docs) > 0:
             self.db.update_jaguar_data_docs(docs, key="path")
 
-    def build(self):
+    def build(self, parse_molecules=True):
         """
         Perform the build sequence - find the relevant directories, determine
             if they need to be updated, and then perform the update.
@@ -346,7 +347,7 @@ class JaguarBuilderDrone:
         mapping = self.read()
         to_update = self.find_records_to_update(mapping)
 
-        self.update_targets(to_update)
+        self.update_targets(to_update, parse_molecules=parse_molecules)
 
 
 class AutoTSCalcDrone(AbstractDrone):
@@ -420,7 +421,7 @@ class AutoTSCalcDrone(AbstractDrone):
 
         return files_paths
 
-    def assimilate(self):
+    def assimilate(self, parse_molecules=True):
         """
         Generate the task doc and perform any additional steps on it to prepare
         for insertion into a DB.
@@ -432,11 +433,11 @@ class AutoTSCalcDrone(AbstractDrone):
             task_doc (dict): The compiled results from the calculation.
         """
 
-        d = self.generate_doc()
+        d = self.generate_doc(parse_molecules=parse_molecules)
         self.validate_doc(d)
         return jsanitize(d, strict=True, allow_bson=True)
 
-    def generate_doc(self):
+    def generate_doc(self, parse_molecules=True):
         """
         Generate a dictionary from the inputs and outputs of the various
         Jaguar calculations involved in the AutoTS calculation.
@@ -515,7 +516,8 @@ class AutoTSCalcDrone(AbstractDrone):
                 if (calculation + ".out") in document.name:
                     found = True
                     try:
-                        jag_out = JagOutput(document.as_posix())
+                        jag_out = JagOutput(document.as_posix(),
+                                            parse_molecules=parse_molecules)
                         d["calcs"].append(jag_out.data)
                     except (JaguarParseError, JaguarOutputParseError):
                         print("Error parsing " + calculation + " in path " + self.path.as_posix())
@@ -560,17 +562,20 @@ class AutoTSBuilderDrone:
     them into a database.
     """
 
-    def __init__(self, db: CatDB, path: Path):
+    def __init__(self, db: CatDB, path: Path, parse_molecules: bool = True):
         """
 
         Args:
             db (CatDB): Database connection for storing calculations.
             path (Path): Path to the root directory where calculations are
                 stored.
+            parse_molecules (bool): Should all molecules (for instance, along
+                all optimization trajectories) be stored?
         """
 
         self.db = db
         self.path = path
+        self.parse_molecules = parse_molecules
 
     def find_valid_directories(self):
         """
@@ -671,7 +676,7 @@ class AutoTSBuilderDrone:
         for path in items:
             drone = AutoTSCalcDrone(path)
             try:
-                doc = drone.assimilate()
+                doc = drone.assimilate(parse_molecules=self.parse_molecules)
                 docs.append(doc)
             except:
                 print("Cannot parse {}".format(path.as_posix()))
