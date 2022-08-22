@@ -278,12 +278,12 @@ class JagOutput(MSONable):
                     if len(molecules) > 0:
                         self.data["input"]["molecule"] = molecules[0]
                         self.data["output"]["molecule"] = molecules[-1]
+                    else:
+                        self.data["input"]["molecule"] = None
+                        self.data["output"]["molecule"] = None
                     if parse_molecules:
                         self.data["output"]["molecule_trajectory"] = molecules
 
-                else:
-                    self.data["input"]["molecule"] = None
-                    self.data["output"]["molecule"] = None
 
     def as_dict(self):
         d = dict()
