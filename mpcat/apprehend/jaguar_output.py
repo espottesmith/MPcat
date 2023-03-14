@@ -19,7 +19,7 @@ from mpcat.adapt.schrodinger_adapter import schrodinger_struct_to_molecule
 energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+[0-9]+\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
 geometry = re.compile(r"\s+angstroms\n\s+atom\s+x\s+y\s+z\n((\s+[A-Za-z]{1,2}[0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+ \n)+)")
 geom_line = re.compile(r"\s+([A-Za-z]{1,2})[0-9]+\s+([\-\.0-9]+)\s+([\-\.0-9]+)\s+([\-\.0-9]+) \n")
-gradient = re.compile(r"\s+forces \(hartrees/bohr\) : total\n\n\s*atom\s+label\s+x\s+y\s+z\s*\n\s*\-+\s+\-+\s+\-+\s+\-+\s+\-+\n((:?\s*[0-9]+\s+[A-Za-z0-9]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s*\n)+)\s*\-+\s+\-+\s+\-+\s+\-+\n\s+total\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)")
+gradient = re.compile(r"\s+forces \(hartrees/bohr\) : total\s*atom\s+label\s+x\s+y\s+z\s*\n\s*\-+\s+\-+\s+\-+\s+\-+\s+\-+\n((:?\s*[0-9]+\s+[A-Za-z0-9]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s*\n)+)\s*\-+\s+\-+\s+\-+\s+\-+\n\s+total\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)")
 grad_line = re.compile(r"\s*[0-9]+\s+[A-Za-z0-9]+\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s*\n")
 
 
