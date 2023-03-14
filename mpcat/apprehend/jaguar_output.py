@@ -19,6 +19,8 @@ from mpcat.adapt.schrodinger_adapter import schrodinger_struct_to_molecule
 energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+[0-9]+\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
 geometry = re.compile(r"\s+angstroms\n\s+atom\s+x\s+y\s+z\n((\s+[A-Za-z]{1,2}[0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+ \n)+)")
 geom_line = re.compile(r"\s+([A-Za-z]{1,2})[0-9]+\s+([\-\.0-9]+)\s+([\-\.0-9]+)\s+([\-\.0-9]+) \n")
+gradient = re.compile(r"\s+forces \(hartrees/bohr\) : total\n\n\s*atom\s+label\s+x\s+y\s+z\s*\n\s*\-+\s+\-+\s+\-+\s+\-+\s+\-+\n((:?\s*[0-9]+\s+[A-Za-z0-9]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s*\n)+)\s*\-+\s+\-+\s+\-+\s+\-+\n\s+total\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)")
+grad_line = re.compile(r"\s*[0-9]+\s+[A-Za-z0-9]+\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s*\n")
 
 
 class JaguarOutputParseError(Exception):
@@ -253,11 +255,24 @@ class JagOutput(MSONable):
             self.data["output"]["output_file"] = jag_out.mae_out
 
             self.data["output"]["energy_trajectory"] = list()
+            self.data["output"]["gradient_trajectory"] = list()
             self.data["output"]["molecule_trajectory"] = list()
             with open(Path(self.filename).resolve()) as file:
                 contents = file.read()
+
                 energies = energy.findall(contents)
                 self.data["output"]["energy_trajectory"] = [float(en) for en in energies]
+
+                gradients = list()
+                forces = gradient.findall(contents)
+                for ii, force in enumerate(forces):
+                    line_match = grad_line.findall(force[0])
+                    atom_grad = list()
+                    for line in line_match:
+                        atom_grad.append([float(line[0]), float(line[1]), float(line[2])])
+                    gradients.append(atom_grad)
+                self.data["output"]["gradient_trajectory"] = gradients
+
                 molecules = list()
                 geometries = geometry.findall(contents)
                 for ii, geo in enumerate(geometries[:-1]):
@@ -283,7 +298,6 @@ class JagOutput(MSONable):
                         self.data["output"]["molecule"] = None
                     if parse_molecules:
                         self.data["output"]["molecule_trajectory"] = molecules
-
 
     def as_dict(self):
         d = dict()
