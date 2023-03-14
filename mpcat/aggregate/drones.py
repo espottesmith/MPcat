@@ -7,6 +7,8 @@ from pathlib import Path
 import hashlib
 from json import loads
 
+from pymongo import ReturnDocument
+
 from monty.json import jsanitize
 from monty.serialization import loadfn
 
@@ -118,6 +120,23 @@ class JaguarCalcDrone(AbstractDrone):
         self.validate_doc(d)
         return jsanitize(d, strict=True, allow_bson=True)
 
+    def assimilate_trajectory(self,):
+        """
+        Generate the trajectory doc and perform any additional steps on it to prepare
+        for insertion into a DB.
+
+        Args:
+            None
+
+        Returns:
+            traj_doc (dict): The compiled trajectory data from a geometry optimization-type
+                calculation.
+        """
+
+        d = self.generate_trajectory_doc()
+        self.validate_doc(d)
+        return jsanitize(d, strict=True, allow_bson=True)
+
     def generate_doc(self, parse_molecules=True):
         """
         Generate a dictionary from the inputs and outputs of the various
@@ -189,6 +208,24 @@ class JaguarCalcDrone(AbstractDrone):
 
         d["last_updated"] = datetime.now()
         return d
+
+    def generate_trajectory_doc(self, origin=None):
+        doc = self.generate_doc(parse_molecules=True)
+
+        doc["energy_trajectory"] = doc["output"]["energy_trajectory"]
+        doc["gradient_trajectory"] = doc["output"]["gradient_trajectory"]
+        doc["molecule_trajectory"] = doc["output"]["molecule_trajectory"]
+        del doc["output"]
+
+        if doc.get("calcid") is not None:
+            doc["origin"] = "calcid_" + str(doc["calcid"])
+            del doc["calcid"]
+        elif origin is not None:
+            doc["origin"] = origin
+        else:
+            doc["origin"] = None
+
+        return doc
 
     def validate_doc(self, d: Dict):
         """
@@ -307,6 +344,154 @@ class JaguarBuilderDrone:
 
         return [path for path, to_update in zip(paths, to_update_list) if to_update]
 
+    def update_targets(self, items: List[Path]):
+        """
+        Use JaguarCalcDrone to update select entries in the database
+
+        Args:
+            items (list of Paths): Paths to be parsed/updated
+
+        Return:
+            None
+        """
+
+        docs = list()
+
+        for path in items:
+            drone = JaguarCalcDrone(path)
+            try:
+                doc = drone.assimilate_trajectory()
+                docs.append(doc)
+            except:
+                print("Cannot parse {}".format(path.as_posix()))
+                continue
+
+        if len(docs) > 0:
+            self.db.update_trajectory_docs(docs, key="path")
+
+    def build(self, parse_molecules=True):
+        """
+        Perform the build sequence - find the relevant directories, determine
+            if they need to be updated, and then perform the update.
+
+        Args:
+            None
+
+        Return:
+            None
+        """
+
+        mapping = self.read()
+        to_update = self.find_records_to_update(mapping)
+
+        self.update_targets(to_update)
+
+
+class JaguarTrajectoryDrone:
+    """
+    A drone to parse through a collection of many Jaguar calculations and enter
+    any trajectory information (from a PES scan, geometry optimization,
+    TS optimization, or IRC calculation) into a database.
+    """
+
+    def __init__(self, db: CatDB, path: Path):
+        """
+
+        Args:
+            db (CatDB): Database connection for storing calculations.
+            path (Path): Path to the root directory where calculations are
+                stored.
+        """
+
+        self.db = db
+        self.path = path
+
+    def find_valid_directories(self):
+        """
+        Examine all subdirectories in the main path, and determine which of them
+        are expected to be valid calculation directories.
+
+        Args:
+             None
+
+        Returns:
+            valid (list of Paths): List of directories to be parsed
+        """
+
+        directories = [e for e in self.path.iterdir() if e.is_dir()]
+
+        valid = list()
+
+        for directory in directories:
+            file_names = [e.name for e in directory.iterdir() if e.is_file()]
+            this_valid = False
+
+            if "jaguar.in" in file_names and "jaguar.out" in file_names:
+                this_valid = True
+            elif "calc.json" in file_names:
+                calc_data = loadfn((directory / "calc.json").as_posix())
+                in_file = "{}.in".format(calc_data["calcid"])
+                out_file = "{}.out".format(calc_data["calcid"])
+
+                job_type = calc_data.get("job_type", "sp")
+                if in_file in file_names and out_file in file_names:
+                    if job_type in ["opt", "ts", "scan", "irc"]:
+                        this_valid = True
+
+            if this_valid:
+                valid.append(directory)
+
+        return valid
+
+    def read(self):
+        """
+        Determine the state hashes for all of the directories in the path
+
+        Args:
+            None
+
+        Returns:
+             mapping (dict): A dictionary where keys are Paths to specific
+                calculation directories and values are task docs, generated
+                using JaguarCalcDrone
+        """
+
+        valid = self.find_valid_directories()
+
+        mapping = dict()
+        for directory in valid:
+            documents = JaguarCalcDrone.get_documents_calc_dir(directory)
+            mapping[directory] = compute_state_hash(documents)
+
+        return mapping
+
+    def find_records_to_update(self, records: Dict):
+        """
+        Determine which records need to be updated, based on a hashing function.
+
+        Args:
+            records (Dict): A dictionary where keys are Paths and values are
+                hashes
+
+        Return:
+            to_update (Dict): A dictionary of the same format as records.
+        """
+
+        paths = [e for e in records.keys()]
+        paths_names = [e.as_posix() for e in paths]
+
+        cursor = self.db.database[self.db.trajectory_collection].find(
+            {"path": {"$in": paths_names}},
+            {"_id": 0, "path": 1, "hash": 1, "last_updated": 1}
+        )
+
+        db_record_log = {doc["path"]: doc["hash"] for doc in cursor}
+
+        to_update_list = [hash_value != db_record_log.get(path, None)
+                          for path, hash_value in records.items()]
+
+        return [path for path, to_update in zip(paths, to_update_list) if to_update]
+
     def update_targets(self, items: List[Path], parse_molecules=True):
         """
         Use JaguarCalcDrone to update select entries in the database
@@ -348,6 +533,7 @@ class JaguarBuilderDrone:
         to_update = self.find_records_to_update(mapping)
 
         self.update_targets(to_update, parse_molecules=parse_molecules)
+
 
 
 class AutoTSCalcDrone(AbstractDrone):

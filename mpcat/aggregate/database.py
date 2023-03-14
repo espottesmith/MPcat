@@ -35,6 +35,7 @@ class CatDB:
                  password: str,
                  jaguar_data_collection: Optional[str] = "jaguar_data",
                  jaguar_queue_collection: Optional[str] = "jaguar_queue",
+                 trajectory_collection: Optional[str] = "jaguar_trajectories",
                  autots_data_collection: Optional[str] = "autots_data",
                  autots_queue_collection: Optional[str] = "autots_queue",
                  **kwargs):
@@ -60,6 +61,7 @@ class CatDB:
         self.password = password
         self.jaguar_data_collection = jaguar_data_collection
         self.jaguar_queue_collection = jaguar_queue_collection
+        self.trajectory_collection = trajectory_collection
         self.autots_data_collection = autots_data_collection
         self.autots_queue_collection = autots_queue_collection
 
@@ -86,6 +88,8 @@ class CatDB:
             self.database["counter"].insert_one({"_id": "rxnid", "c": 0})
         if self.database["counter"].count_documents({"_id": "calcid"}) == 0:
             self.database["counter"].insert_one({"_id": "calcid", "c": 0})
+        if self.database["counter"].count_documents({"_id": "trajid"}) == 0:
+            self.database["counter"].insert_one({"_id": "trajid", "c": 0})
 
     def update_autots_data_docs(self, docs: List[Dict], key: Optional[str] = "path"):
         """
@@ -140,6 +144,32 @@ class CatDB:
         if len(requests) > 0:
             self.database[self.jaguar_data_collection].bulk_write(requests,
                                                                   ordered=False)
+
+    def update_trajectory_docs(self, docs: List[Dict], key: Optional[str] = "path"):
+        """
+        Update a number of trajectory docs at once.
+
+        Args:
+            docs (list of dicts): Trajectory docs to be updated.
+            key (str): Database key to query
+
+        Returns:
+            None
+        """
+
+        requests = list()
+
+        for doc in docs:
+            if not doc.get("trajid", None):
+                doc["trajid"] = self.database["counter"].find_one_and_update({"_id": "trajid"},
+                                                                              {"$inc": {"c": 1}},
+                                                                              return_document=ReturnDocument.AFTER)["c"]
+            doc = jsanitize(doc, allow_bson=True)
+
+            requests.append(ReplaceOne({key: doc[key]}, doc, upsert=True))
+
+        if len(requests) > 0:
+            self.database[self.trajectory_collection].bulk_write(requests, ordered=False)
 
     def insert_jaguar_calculation(self,
                                   molecule: Union[Molecule, MoleculeGraph],
