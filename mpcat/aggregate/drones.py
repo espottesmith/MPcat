@@ -245,7 +245,7 @@ class JaguarCalcDrone(AbstractDrone):
         to pass validation is unfortunately unlikely to be noticed by a user.
         """
 
-        for k, v in schema:
+        for k, v in schema.items():
             diff = v.difference(set(d.get(k, d).keys()))
             if diff:
                 raise RuntimeWarning("The keys {0} in {1} not set".format(diff, k))
