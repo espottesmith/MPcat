@@ -132,7 +132,7 @@ class JaguarCalcDrone(AbstractDrone):
         self.validate_doc(d, self.schema)
         return jsanitize(d, strict=True, allow_bson=True)
 
-    def assimilate_trajectory(self,):
+    def assimilate_trajectory(self):
         """
         Generate the trajectory doc and perform any additional steps on it to prepare
         for insertion into a DB.
@@ -372,7 +372,7 @@ class JaguarBuilderDrone:
         for path in items:
             drone = JaguarCalcDrone(path)
             try:
-                doc = drone.assimilate(parse_molecules=parse_molecules)
+                doc = drone.assimilate(parse_molecules=False)
                 docs.append(doc)
             except:
                 print("Cannot parse {}".format(path.as_posix()))
