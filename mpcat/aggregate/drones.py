@@ -379,7 +379,7 @@ class JaguarBuilderDrone:
                 continue
 
         if len(docs) > 0:
-            self.db.update_trajectory_docs(docs, key="path")
+            self.db.update_jaguar_data_docs(docs, key="path")
 
     def build(self, parse_molecules=True):
         """
@@ -527,7 +527,7 @@ class JaguarTrajectoryDrone:
                 continue
 
         if len(docs) > 0:
-            self.db.update_jaguar_data_docs(docs, key="path")
+            self.db.update_trajectory_docs(docs, key="path")
 
     def build(self, parse_molecules=True):
         """
