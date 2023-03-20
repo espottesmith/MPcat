@@ -61,6 +61,18 @@ class JaguarCalcDrone(AbstractDrone):
         "input": {"molecule", "gen_variables"},
     }
 
+    schema_traj = {
+        "root": {
+            "path",
+            "input",
+            "energy_trajectory",
+            "gradient_trajectory",
+            "molecule_trajectory",
+            "origin",
+        },
+        "input": {"molecule", "gen_variables"},
+    }
+
     def __init__(self,
                  path: Path,
                  job_type: Optional[Union[str, JaguarJobType]] = None):
@@ -134,7 +146,7 @@ class JaguarCalcDrone(AbstractDrone):
         """
 
         d = self.generate_trajectory_doc()
-        self.validate_doc(d)
+        self.validate_doc(d, schema=self.schema_traj)
         return jsanitize(d, strict=True, allow_bson=True)
 
     def generate_doc(self, parse_molecules=True):
@@ -227,13 +239,13 @@ class JaguarCalcDrone(AbstractDrone):
 
         return doc
 
-    def validate_doc(self, d: Dict):
+    def validate_doc(self, d: Dict, schema: Dict = self.schema):
         """
         Sanity check, aka make sure all the important keys are set. Note that a failure
         to pass validation is unfortunately unlikely to be noticed by a user.
         """
 
-        for k, v in self.schema.items():
+        for k, v in schema:
             diff = v.difference(set(d.get(k, d).keys()))
             if diff:
                 raise RuntimeWarning("The keys {0} in {1} not set".format(diff, k))
@@ -360,7 +372,7 @@ class JaguarBuilderDrone:
         for path in items:
             drone = JaguarCalcDrone(path)
             try:
-                doc = drone.assimilate_trajectory()
+                doc = drone.assimilate(parse_molecules=parse_molecules)
                 docs.append(doc)
             except:
                 print("Cannot parse {}".format(path.as_posix()))
@@ -508,7 +520,7 @@ class JaguarTrajectoryDrone:
         for path in items:
             drone = JaguarCalcDrone(path)
             try:
-                doc = drone.assimilate(parse_molecules=parse_molecules)
+                doc = drone.assimilate_trajectory()
                 docs.append(doc)
             except:
                 print("Cannot parse {}".format(path.as_posix()))
