@@ -129,7 +129,7 @@ class JaguarCalcDrone(AbstractDrone):
         """
 
         d = self.generate_doc(parse_molecules=parse_molecules)
-        self.validate_doc(d)
+        self.validate_doc(d, self.schema)
         return jsanitize(d, strict=True, allow_bson=True)
 
     def assimilate_trajectory(self,):
@@ -146,7 +146,7 @@ class JaguarCalcDrone(AbstractDrone):
         """
 
         d = self.generate_trajectory_doc()
-        self.validate_doc(d, schema=self.schema_traj)
+        self.validate_doc(d, self.schema_traj)
         return jsanitize(d, strict=True, allow_bson=True)
 
     def generate_doc(self, parse_molecules=True):
@@ -239,7 +239,7 @@ class JaguarCalcDrone(AbstractDrone):
 
         return doc
 
-    def validate_doc(self, d: Dict, schema: Dict = self.schema):
+    def validate_doc(self, d: Dict, schema: Dict):
         """
         Sanity check, aka make sure all the important keys are set. Note that a failure
         to pass validation is unfortunately unlikely to be noticed by a user.
