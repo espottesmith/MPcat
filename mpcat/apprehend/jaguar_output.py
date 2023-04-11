@@ -16,7 +16,7 @@ from schrodinger.application.jaguar.results import JaguarResults
 from mpcat.adapt.schrodinger_adapter import schrodinger_struct_to_molecule
 
 
-energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+[0-9]+\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
+energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+([0-9]+)\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
 geometry = re.compile(r"\s+angstroms\n\s+atom\s+x\s+y\s+z\n((\s+[A-Za-z]{1,2}[0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+ \n)+)")
 geom_line = re.compile(r"\s+([A-Za-z]{1,2})[0-9]+\s+([\-\.0-9]+)\s+([\-\.0-9]+)\s+([\-\.0-9]+) \n")
 gradient = re.compile(r"\s+forces \(hartrees/bohr\) : total\s*atom\s+label\s+x\s+y\s+z\s*\n\s*\-+\s+\-+\s+\-+\s+\-+\s+\-+\n((:?\s*[0-9]+\s+[A-Za-z0-9]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s*\n)+)\s*\-+\s+\-+\s+\-+\s+\-+\n\s+total\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)")
@@ -261,7 +261,15 @@ class JagOutput(MSONable):
                 contents = file.read()
 
                 energies = energy.findall(contents)
-                self.data["output"]["energy_trajectory"] = [float(en) for en in energies]
+                steps = set()
+                energy_values = list()
+
+                for en in energies:
+                    if en[0] not in steps:
+                        steps.add(en[0])
+                        energy_values.append(float(en[1]))
+
+                self.data["output"]["energy_trajectory"] = energy_values
 
                 gradients = list()
                 forces = gradient.findall(contents)

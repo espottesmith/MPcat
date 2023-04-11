@@ -87,7 +87,6 @@ class JaguarCalcDrone(AbstractDrone):
 
         self.documents = self.get_documents_calc_dir(path)
         self.file_names = [d.name for d in self.documents]
-        print(self.file_names)
 
     @staticmethod
     def get_documents_calc_dir(calc_dir: Path)  -> List[Path]:
