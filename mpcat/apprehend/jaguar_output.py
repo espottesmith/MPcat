@@ -285,7 +285,7 @@ class JagOutput(MSONable):
                 geometries = geometry.findall(contents)
                 for geo in geometries[:-1]:
                     word = geo[0]
-                    if word.lower == "final":
+                    if word.lower() == "final":
                         continue
                     line_match = geom_line.findall(geo[1])
                     species = list()
