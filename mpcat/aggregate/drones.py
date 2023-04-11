@@ -228,13 +228,12 @@ class JaguarCalcDrone(AbstractDrone):
         doc["molecule_trajectory"] = doc["output"]["molecule_trajectory"]
         del doc["output"]
 
+        doc["origin"] = dict()
         if doc.get("calcid") is not None:
-            doc["origin"] = "calcid_" + str(doc["calcid"])
+            doc["origin"]["calcid"] = doc["calcid"]
             del doc["calcid"]
         elif origin is not None:
             doc["origin"] = origin
-        else:
-            doc["origin"] = None
 
         return doc
 
