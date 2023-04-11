@@ -100,9 +100,7 @@ class JaguarCalcDrone(AbstractDrone):
         Returns:
             List of Documents
         """
-        root_contents = [f for f in calc_dir.iterdir()]
-
-        files = [f for f in root_contents if (calc_dir / f).is_file()]
+        files = [e for e in calc_dir.iterdir() if e.is_file()]
 
         allowed_suffixes = ["mae", "out", "in", "xyz", "mae.gz", "out.gz", "in.gz"]
 
@@ -114,6 +112,7 @@ class JaguarCalcDrone(AbstractDrone):
             elif "calc.json" in f:
                 files_paths.append(calc_dir / file)
 
+        print(files_paths)
         return files_paths
 
     def assimilate(self, parse_molecules=True):
@@ -162,6 +161,7 @@ class JaguarCalcDrone(AbstractDrone):
         """
 
         if "jaguar.in" not in self.file_names:
+            print(self.file_names)
             raise ValueError("Input file is not in path!")
 
         d = dict()
@@ -522,8 +522,8 @@ class JaguarTrajectoryDrone:
             try:
                 doc = drone.assimilate_trajectory()
                 docs.append(doc)
-            except:
-                print("Cannot parse {}".format(path.as_posix()))
+            except Exception as e:
+                print("Cannot parse {}: {}".format(path.as_posix(), e))
                 continue
 
         if len(docs) > 0:
@@ -545,7 +545,6 @@ class JaguarTrajectoryDrone:
         to_update = self.find_records_to_update(mapping)
 
         self.update_targets(to_update, parse_molecules=parse_molecules)
-
 
 
 class AutoTSCalcDrone(AbstractDrone):
