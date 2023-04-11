@@ -87,6 +87,7 @@ class JaguarCalcDrone(AbstractDrone):
 
         self.documents = self.get_documents_calc_dir(path)
         self.file_names = [d.name for d in self.documents]
+        print(self.file_names)
 
     @staticmethod
     def get_documents_calc_dir(calc_dir: Path)  -> List[Path]:
@@ -108,11 +109,10 @@ class JaguarCalcDrone(AbstractDrone):
         for file in files:
             f = file.as_posix()
             if "jaguar" in f and any([f.endswith(x) for x in allowed_suffixes]):
-                files_paths.append(calc_dir / file)
+                files_paths.append(file)
             elif "calc.json" in f:
-                files_paths.append(calc_dir / file)
+                files_paths.append(file)
 
-        print(files_paths)
         return files_paths
 
     def assimilate(self, parse_molecules=True):
