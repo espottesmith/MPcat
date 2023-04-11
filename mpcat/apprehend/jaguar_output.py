@@ -17,7 +17,7 @@ from mpcat.adapt.schrodinger_adapter import schrodinger_struct_to_molecule
 
 
 energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+([0-9]+)\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
-geometry = re.compile(r"\s+angstroms\n\s+atom\s+x\s+y\s+z\n((\s+[A-Za-z]{1,2}[0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+ \n)+)")
+geometry = re.compile(r"\s+([A-Za-z]+) geometry:\s+angstroms\n\s+atom\s+x\s+y\s+z\n((\s+[A-Za-z]{1,2}[0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s*\n)+)")
 geom_line = re.compile(r"\s+([A-Za-z]{1,2})[0-9]+\s+([\-\.0-9]+)\s+([\-\.0-9]+)\s+([\-\.0-9]+) \n")
 gradient = re.compile(r"\s+forces \(hartrees/bohr\) : total\s*atom\s+label\s+x\s+y\s+z\s*\n\s*\-+\s+\-+\s+\-+\s+\-+\s+\-+\n((:?\s*[0-9]+\s+[A-Za-z0-9]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s*\n)+)\s*\-+\s+\-+\s+\-+\s+\-+\n\s+total\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)")
 grad_line = re.compile(r"\s*[0-9]+\s+[A-Za-z0-9]+\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s*\n")
@@ -283,8 +283,11 @@ class JagOutput(MSONable):
 
                 molecules = list()
                 geometries = geometry.findall(contents)
-                for ii, geo in enumerate(geometries[:-1]):
-                    line_match = geom_line.findall(geo[0])
+                for geo in geometries[:-1]:
+                    word = geo[0]
+                    if word.lower == "final":
+                        continue
+                    line_match = geom_line.findall(geo[1])
                     species = list()
                     coords = list()
                     for line in line_match:
@@ -298,14 +301,14 @@ class JagOutput(MSONable):
                     )
                     mol.remove_species([DummySpecie("")])
                     molecules.append(mol)
-                    if len(molecules) > 0:
-                        self.data["input"]["molecule"] = molecules[0]
-                        self.data["output"]["molecule"] = molecules[-1]
-                    else:
-                        self.data["input"]["molecule"] = None
-                        self.data["output"]["molecule"] = None
-                    if parse_molecules:
-                        self.data["output"]["molecule_trajectory"] = molecules
+                if len(molecules) > 0:
+                    self.data["input"]["molecule"] = molecules[0]
+                    self.data["output"]["molecule"] = molecules[-1]
+                else:
+                    self.data["input"]["molecule"] = None
+                    self.data["output"]["molecule"] = None
+                if parse_molecules:
+                    self.data["output"]["molecule_trajectory"] = molecules
 
     def as_dict(self):
         d = dict()
