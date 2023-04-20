@@ -554,7 +554,7 @@ def launch_autots_from_queue(database: CatDB,
             dumpfn(calc_dict, (base_dir / name / "calc.json").as_posix(), indent=2)
             job.run(command_line_args=command_line_args)
 
-        except UnsupportedReaction:
+        except (UnsupportedReaction, wv.WorkflowConservationError):
             queue_collection.update_one({"rxnid": calc["rxnid"]},
                                         {"$set": {"state": "UNSUPPORTED",
                                                   "updated_on": time_now}})
