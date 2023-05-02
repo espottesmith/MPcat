@@ -184,7 +184,7 @@ def molecule_to_schrodinger_struct(molecule: Molecule):
         atom.formal_charge = 0
     struct.atom[1].formal_charge = molecule.charge
 
-    Path("temp_conversion{}.sdf".format(file_suffix))
+    Path("temp_conversion{}.sdf".format(file_suffix)).unlink(missing_ok=True)
 
     return struct
 

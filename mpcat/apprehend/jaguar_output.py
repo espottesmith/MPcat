@@ -3,7 +3,6 @@
 from typing import Optional
 import datetime
 from pathlib import Path
-import re
 
 from monty.json import MSONable, jsanitize
 
@@ -16,11 +15,11 @@ from schrodinger.application.jaguar.results import JaguarResults
 from mpcat.adapt.schrodinger_adapter import schrodinger_struct_to_molecule
 
 
-energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+([0-9]+)\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
-geometry = re.compile(r"\s+([A-Za-z]+) geometry:\s+angstroms\n\s+atom\s+x\s+y\s+z\n((\s+[A-Za-z]{1,2}[0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s*\n)+)")
-geom_line = re.compile(r"\s+([A-Za-z]{1,2})[0-9]+\s+([\-\.0-9]+)\s+([\-\.0-9]+)\s+([\-\.0-9]+) \n")
-gradient = re.compile(r"\s+forces \(hartrees/bohr\) : total\s*atom\s+label\s+x\s+y\s+z\s*\n\s*\-+\s+\-+\s+\-+\s+\-+\s+\-+\n((:?\s*[0-9]+\s+[A-Za-z0-9]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s*\n)+)\s*\-+\s+\-+\s+\-+\s+\-+\n\s+total\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)")
-grad_line = re.compile(r"\s*[0-9]+\s+[A-Za-z0-9]+\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s*\n")
+# energy = re.compile(r"\s*\-+\s*\n\s*Geometry optimization step\s+([0-9]+)\s*\n\s*Total energy:\s+([\-\.0-9]+) hartrees\s*\n\s*\-+")
+# geometry = re.compile(r"\s+([A-Za-z]+) geometry:\s+angstroms\n\s+atom\s+x\s+y\s+z\n((\s+[A-Za-z]{1,2}[0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s+[\-\.0-9]+\s*\n)+)")
+# geom_line = re.compile(r"\s+([A-Za-z]{1,2})[0-9]+\s+([\-\.0-9]+)\s+([\-\.0-9]+)\s+([\-\.0-9]+) \n")
+# gradient = re.compile(r"\s+forces \(hartrees/bohr\) : total\s*atom\s+label\s+x\s+y\s+z\s*\n\s*\-+\s+\-+\s+\-+\s+\-+\s+\-+\n((:?\s*[0-9]+\s+[A-Za-z0-9]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s+[\-\.0-9Ee]+\s*\n)+)\s*\-+\s+\-+\s+\-+\s+\-+\n\s+total\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)")
+# grad_line = re.compile(r"\s*[0-9]+\s+[A-Za-z0-9]+\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s+([\-\.0-9Ee]+)\s*\n")
 
 
 class JaguarOutputParseError(Exception):
@@ -51,6 +50,7 @@ def parse_jaguar_results(jagresult: JaguarResults):
         atom_data["esp_charge"] = atom.charge_esp
         data["atoms"].append(atom_data)
 
+    data["energy"] = jagresult.energy
     data["scf_energy"] = jagresult.scf_energy
     data["gas_phase_energy"] = jagresult.gas_phase_energy
     data["solution_phase_energy"] = jagresult.solution_phase_energy
@@ -61,8 +61,12 @@ def parse_jaguar_results(jagresult: JaguarResults):
     data["nuclear_repulsion_energy"] = jagresult.nuclear_repulsion
     data["zero_point_energy"] = jagresult.zero_point_energy
 
+    data["forces"] = jagresult.forces
+
+    data["homo"] = jagresult.homo
     data["homo_alpha"] = jagresult.homo_alpha
     data["homo_beta"] = jagresult.homo_beta
+    data["lumo"] = jagresult.lumo
     data["lumo_alpha"] = jagresult.lumo_alpha
     data["lumo_beta"] = jagresult.lumo_beta
 
@@ -246,8 +250,6 @@ class JagOutput(MSONable):
             self.data["input"]["input_file"] = jag_out.mae_in
             self.data["input"]["solvation"] = jag_out.opts.solvation
 
-            self.data["energy_trajectory"] = list()
-
             self.data["output"] = parse_jaguar_results(jag_out._results)
             self.data["output"]["geopt"] = [parse_jaguar_results(j) for j in jag_out.geopt_step]
             self.data["output"]["irc"] = [parse_jaguar_results(j) for j in jag_out.irc_step]
@@ -257,58 +259,14 @@ class JagOutput(MSONable):
             self.data["output"]["energy_trajectory"] = list()
             self.data["output"]["gradient_trajectory"] = list()
             self.data["output"]["molecule_trajectory"] = list()
-            with open(Path(self.filename).resolve()) as file:
-                contents = file.read()
-
-                energies = energy.findall(contents)
-                steps = set()
-                energy_values = list()
-
-                for en in energies:
-                    if en[0] not in steps:
-                        steps.add(en[0])
-                        energy_values.append(float(en[1]))
-
-                self.data["output"]["energy_trajectory"] = energy_values
-
-                gradients = list()
-                forces = gradient.findall(contents)
-                for ii, force in enumerate(forces):
-                    line_match = grad_line.findall(force[0])
-                    atom_grad = list()
-                    for line in line_match:
-                        atom_grad.append([float(line[0]), float(line[1]), float(line[2])])
-                    gradients.append(atom_grad)
-                self.data["output"]["gradient_trajectory"] = gradients
-
-                molecules = list()
-                geometries = geometry.findall(contents)
-                for geo in geometries[:-1]:
-                    word = geo[0]
-                    if word.lower() == "final":
-                        continue
-                    line_match = geom_line.findall(geo[1])
-                    species = list()
-                    coords = list()
-                    for line in line_match:
-                        species.append(line[0])
-                        coords.append([float(line[1]), float(line[2]), float(line[3])])
-                    mol = Molecule(
-                        species,
-                        coords,
-                        charge=self.data["input"]["charge"],
-                        spin_multiplicity=self.data["input"]["multiplicity"]
-                    )
-                    mol.remove_species([DummySpecie("")])
-                    molecules.append(mol)
-                if len(molecules) > 0:
-                    self.data["input"]["molecule"] = molecules[0]
-                    self.data["output"]["molecule"] = molecules[-1]
-                else:
-                    self.data["input"]["molecule"] = None
-                    self.data["output"]["molecule"] = None
-                if parse_molecules:
-                    self.data["output"]["molecule_trajectory"] = molecules
+            if len(self.data["output"]["geopt"]) > 0:
+                for geostep in self.data["output"]["geopt"]:
+                    energy = geostep["energy"]
+                    forces = geostep["forces"]
+                    mol = geostep["molecule"]
+                    self.data["output"]["energy_trajectory"].append(energy)
+                    self.data["output"]["gradient_trajectory"].append(forces)
+                    self.data["output"]["molecule_trajectory"].append(mol)
 
     def as_dict(self):
         d = dict()
