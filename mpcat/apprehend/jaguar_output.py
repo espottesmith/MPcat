@@ -259,8 +259,17 @@ class JagOutput(MSONable):
             self.data["output"]["energy_trajectory"] = list()
             self.data["output"]["gradient_trajectory"] = list()
             self.data["output"]["molecule_trajectory"] = list()
+            # Assuming that you'll never do more than one of geometry opt, irc, and pes scan together
+            steps = None
             if len(self.data["output"]["geopt"]) > 0:
-                for geostep in self.data["output"]["geopt"]:
+                steps = self.data["output"]["geopt"]
+            elif len(self.data["output"]["irc"]) > 0:
+                steps = self.data["output"]["irc"]
+            elif len(self.data["output"]["scan"]) > 0:
+                steps = self.data["output"]["scan"]
+
+            if steps is not None:
+                for geostep in steps:
                     energy = geostep["energy"]
                     forces = geostep["forces"]
                     mol = geostep["molecule"]
