@@ -87,11 +87,11 @@ class JaguarCalcDrone(AbstractDrone):
         else:
             self.job_type = job_type_mapping[job_type]
 
-        self.documents = self.get_documents_calc_dir(path)
+        self.documents = self.get_documents_calc_dir(path, prefix=prefix)
         self.file_names = [d.name for d in self.documents]
 
     @staticmethod
-    def get_documents_calc_dir(calc_dir: Path) -> List[Path]:
+    def get_documents_calc_dir(calc_dir: Path, prefix: str = "jaguar") -> List[Path]:
         """
         Identify all important documents within a Jaguar calculation directory.
 
