@@ -161,7 +161,7 @@ class JaguarCalcDrone(AbstractDrone):
             d (dict): The compiled results from the calculation.
         """
 
-        if "jaguar.in" not in self.file_names:
+        if f"{self.prefix}.in" not in self.file_names:
             print(self.file_names)
             raise ValueError("Input file is not in path!")
 
@@ -186,11 +186,11 @@ class JaguarCalcDrone(AbstractDrone):
         d["job_type"] = calc_data.get("job_type")
         d["formula_alphabetical"] = calc_data.get("formula_alphabetical")
 
-        jaguar_input = JagInput.from_file(self.path / "jaguar.in")
+        jaguar_input = JagInput.from_file(self.path / f"{self.prefix}.in")
 
         output_document = None
         for document in self.documents:
-            if document.name == "jaguar.out":
+            if document.name == f"{self.prefix}.out":
                 output_document = document
                 break
         if output_document is None:
