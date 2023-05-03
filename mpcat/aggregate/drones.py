@@ -75,8 +75,10 @@ class JaguarCalcDrone(AbstractDrone):
 
     def __init__(self,
                  path: Path,
+                 prefix: str = "jaguar",
                  job_type: Optional[Union[str, JaguarJobType]] = None):
         self.path = path
+        self.prefix = prefix
 
         if isinstance(job_type, JaguarJobType):
             self.job_type = job_type
@@ -107,7 +109,7 @@ class JaguarCalcDrone(AbstractDrone):
         files_paths = list()
         for file in files:
             f = file.as_posix()
-            if "jaguar" in f and any([f.endswith(x) for x in allowed_suffixes]):
+            if prefix in f and any([f.endswith(x) for x in allowed_suffixes]):
                 files_paths.append(file)
             elif "calc.json" in f:
                 files_paths.append(file)
