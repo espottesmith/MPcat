@@ -167,7 +167,7 @@ class JaguarCalcDrone(AbstractDrone):
 
         d = dict()
         d["schema"] = {"code": "mpcat", "version": version}
-        d["path"] = self.path.as_posix()
+        d["path"] = self.path.absolute().as_posix()
         d["hash"] = compute_state_hash(self.documents)
 
         calc_data = dict()
