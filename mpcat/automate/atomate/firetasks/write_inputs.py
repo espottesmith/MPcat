@@ -55,7 +55,7 @@ class WriteInputFromIOSet(FiretaskBase):
         qcin.write(input_file)
         with open(mol_file, 'w') as to_write:
             for m in mol:
-                to_write.write(m.to("xyz") + "\n")
+                to_write.write(m.to(fmt="xyz") + "\n")
 
 
 @explicit_serialize
