@@ -213,7 +213,7 @@ class CatDB:
         mg = mol_to_mol_graph(molecule)
         entry["molecule"] = mg.as_dict()
         entry["charge"] = mg.molecule.charge
-        entry["nelectrons"] = int(mg.molecule._nelectrons)
+        entry["nelectrons"] = int(mg.molecule.nelectrons)
         entry["spin_multiplicity"] = mg.molecule.spin_multiplicity
 
         if name is None:

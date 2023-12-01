@@ -60,7 +60,7 @@ class TSInput(MSONable):
 
         self.autots_variables["charge"] = rct_sum
 
-        nelectrons = int(sum([m.molecule._nelectrons for m in self.reactants]))
+        nelectrons = int(sum([m.molecule.nelectrons for m in self.reactants]))
         if spin_multiplicity is None:
             if len(self.reactants) == len(self.products) == 1:
                 self.autots_variables["multiplicity"] = self.reactants[0].molecule.spin_multiplicity
