@@ -305,8 +305,8 @@ class CatDB:
 
         entry["charge"] = rct_charge
 
-        rct_nelectrons = sum([m.molecule._nelectrons for m in entry["reactants"]])
-        pro_nelectrons = sum([m.molecule._nelectrons for m in entry["products"]])
+        rct_nelectrons = sum([m.molecule.nelectrons for m in entry["reactants"]])
+        pro_nelectrons = sum([m.molecule.nelectrons for m in entry["products"]])
 
         if rct_nelectrons != pro_nelectrons:
             raise ValueError("Reactants and products do not have the same number of electrons!")
